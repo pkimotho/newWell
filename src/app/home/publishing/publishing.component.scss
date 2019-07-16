@@ -1,0 +1,244 @@
+$primary: #0f1011;
+$danger: #ff4136;
+$pepea: rgb(58, 216, 190);
+$secondary: white;
+$bright: rgb(43, 163, 199);
+
+.action-button {
+  width: 30% !important;
+  position: relative;
+  display: block;
+  justify-content: center;
+  align-items: stretch;
+  border: 2px $danger solid;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  // line-height: 32px;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
+  background: darken($primary, 10);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: all .3s;
+  vertical-align: middle;
+}
+.action-button:hover {
+  background: $danger;
+
+
+}
+.flex-container {
+  margin: 0;
+  padding: 0;
+
+  height: 50vh;
+
+
+  .publish-main {
+    background-image: url('../../../assets/images/microphone.jpg');
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-color: lighten($primary, 10);
+    background-blend-mode: darken($primary, 0);
+    background-position: center top;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    background-position: 50%;
+    background-size: cover;
+    margin-top: 70px;
+
+
+    .catch-eye {
+      flex: 1;
+      justify-content: center;
+      justify-items: center;
+    }
+
+    .call-to-action {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .call-to-action-text {
+        width: 100%;
+        color: #fff;
+        font-size: 32px;
+        margin-bottom: 24px;
+      }
+
+
+      .action-button {
+        width: 30% !important;
+        position: relative;
+        display: block;
+        justify-content: center;
+        align-items: stretch;
+        border: 2px $danger solid;
+        padding: 12px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        // line-height: 32px;
+        font-weight: 500;
+        text-align: center;
+        color: #fff;
+        background: darken($primary, 10);
+        white-space: nowrap;
+        text-decoration: none;
+        transition: all .3s;
+        vertical-align: middle;
+      }
+      .action-button:hover {
+        background: $danger;
+
+
+      }
+
+    }
+  }
+}
+
+.action {
+  display: flex;
+  height: 10vh;
+  color: $secondary;
+  background-color: lighten($primary, 10);
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-bottom: 1px solid $primary;
+
+}
+
+.outline {
+  display: flex;
+  height: 50vh;
+  background-color: lighten($primary, 10);
+
+  padding:40px;
+
+
+
+    .card-item {
+      flex:1;
+      align-items: center;
+      justify-content: center;
+
+      .card {
+        background-image: url('../../../assets/images/microphone.jpg');
+background-image: url('../../../assets/images/microphone.jpg');
+
+border-radius: 16px;
+padding: 2rem;
+margin: 0 4rem 0 0;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+height: 100%;
+  width: 90%;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 320px;
+  flex: 0 0 320px;
+  background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: $primary;
+      background-blend-mode: lighten;
+
+      }
+
+    }
+    .title {
+      flex:1;
+      width: 100%;
+      color: #fff;
+      font-size: 27px;
+      text-decoration: underline ;
+
+    }
+    .desc {
+      flex:1;
+      width: 100%;
+      color: #fff;
+      font-size: 17px;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+
+
+
+    }
+
+}
+
+
+
+.testimonials {
+  height: 30vh;
+  background: lighten($primary, 5);
+  display: flex;
+
+
+
+  .testimony {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+    .testimonials-card {
+      height: 80%;
+      margin: 10px;
+      background:
+      radial-gradient(180px at top right,$pepea,$danger),radial-gradient(180px at top left,green,$danger),radial-gradient(180px at bottom left,yellow,$danger),radial-gradient(180px at bottom right,purple,$danger);
+      display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 2rem;
+  border-radius: 8px;
+  border-bottom: 1px solid #333;
+  border-right: 1px solid #333;
+  -webkit-box-shadow: inset 1px 1px 0 #000;
+  box-shadow: inset 1px 1px 0 #000;
+
+  p {
+    color: white;
+    font-size:10px;
+    font-style: italic;
+
+  }
+
+  .title {
+    color: white;
+    font-size:17px;
+
+  }
+
+    }
+
+  }
+}
+
+
+

@@ -1,0 +1,166 @@
+$primary: #212222;
+$danger: #ff4136;
+$secondary: #fff;
+.banner {
+    height: 40%;
+    width: 100%;
+    background-image: url(../../../assets/images/newwellphotos/uploadbanner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .desc {
+        padding-top: 10%;
+        text-align: center;
+        font-weight: bolder;
+        color: $danger;
+        button {
+            background: $primary;
+            border: none;
+            border-radius: 10px;
+            color: $danger;
+            padding: 0.5rem;
+        }
+    }
+}
+
+.nav {
+    background-color: $primary;
+    color: $secondary;
+    .nav-item {
+        font-size: 2rem;
+        padding-left: 2rem;
+        margin: auto;
+        a {
+            color: $secondary;
+        }
+        a:hover {
+            background-color: $danger;
+            color: $primary;
+        }
+        .dropdown-menu a {
+            color: $primary;
+        }
+    }
+}
+
+form {
+    margin: 1rem;
+}
+
+.card h4 {
+    color: $primary;
+}
+
+@media (max-width: 891px) {
+    .nav {
+        .nav-item {
+            font-size: 1.5rem;
+            padding-left: 1rem;
+        }
+    }
+    .desc {
+        button {
+            padding-top: 50%;
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 689px) {
+    .nav {
+        .nav-item {
+            font-size: 1rem;
+            padding-left: 0.5rem;
+        }
+    }
+    .desc {
+        button {
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .nav {
+        .nav-item {
+            font-size: 0.8rem;
+            padding-left: 0.2rem;
+        }
+    }
+    .desc {
+        button {
+            h1 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .nav {
+        .nav-item {
+            font-size: 0.6rem;
+            padding-left: 0.1rem;
+            .dropdown-menu a {
+                font-size: 0.8rem;
+            }
+        }
+    }
+    .desc {
+        button {
+            h1 {
+                font-size: 1rem;
+            }
+        }
+    }
+    .container {
+        section {
+            h3 {
+                font-size: 1rem;
+            }
+            .card {
+                h4 {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .nav {
+        .nav-item {
+            width: 100%;
+            text-align: center;
+            a {
+                font-size: 1rem;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    .desc {
+        button {
+            h1 {
+                font-size: 0.8rem;
+            }
+        }
+        p {
+            font-size: 0.8rem;
+        }
+    }
+    form {
+        font-size: 0.8rem;
+        button {
+            width: 5rem;
+            font-size: 0.8rem;
+            i {
+                display: none;
+            }
+        }
+    }
+}

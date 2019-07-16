@@ -1,0 +1,70 @@
+
+<div class="flex-container">
+  <div class="left">
+    <div class="signin">
+      <div class="wrapper">
+          <div class="logo">
+              <img src="../../../assets/images/logo.png">
+            </div>
+            <form [formGroup]="onLoginForm" (ngSubmit)="login()" class="form-container">
+               <div >
+                  <label class="center-block">Email</label>
+                    <input  formControlName="email" type="text"    placeholder="Email">
+
+                </div>
+                <div *ngIf="onLoginForm.controls['email'].invalid && (onLoginForm.controls['email'].dirty || onLoginForm.controls['email'].touched)" class="alert alert-danger">
+                    <div *ngIf="onLoginForm.controls['email'].errors.required">
+                    Email is required.
+                  </div>
+                </div>
+
+                <div >
+                  <label class="center-block">Password </label>
+                    <input formControlName="password" type="text"    placeholder="Password">
+
+                </div>
+                <div *ngIf="onLoginForm.controls['password'].invalid && (onLoginForm.controls['password'].dirty || onLoginForm.controls['password'].touched)" class="alert alert-danger">
+                    <div *ngIf="onLoginForm.controls['password'].errors.required">
+                    Password is required.
+                  </div>
+                </div>
+
+
+                <button  type="submit">Login</button>
+
+
+
+
+                </form>
+
+
+                <div class="links">
+                    <p>Don't have an account? <a routerLink="/artist-signup">Signup</a></p>
+                  </div>
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="right">
+    <div class="banner">
+      <div class="call-to-action">
+        <div class="call-to-action-text">
+          Distribute with NewWell
+          <strong>Get out there</strong>
+
+</div>
+          <a class="action-button">
+            Learn How
+          </a>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>

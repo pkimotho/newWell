@@ -1,0 +1,62 @@
+<div class="container-fluid container-outer row bg">
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <a routerLink="/artist-signup">
+            <h4><em>Are you an artist? Sign up here</em></h4>
+        </a>
+        <form [formGroup]="form" (ngSubmit)="registerArtist()" class="form-container">
+
+            <h3>Fan Sign Up</h3>
+            <div class="form-group">
+                <label>Username: </label>
+                <input type="text" class="form-control" formControlName="name" autocomplete="off" placeholder="Enter your username">
+
+            </div>
+            <div class="form-group">
+                <label>Phone Number: </label>
+                <input type="text" class="form-control" formControlName="email" autocomplete="off" placeholder="Enter your phone number">
+                <div *ngIf="message">
+                    <p>{{message}}</p>
+                </div>
+            </div>
+            <div class="checkbox">
+                <label>
+          <input type="checkbox"> I agree to Newwell <em><a href="#">Terms and Conditions.</a></em>
+        </label>
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Submit" data-toggle="modal" data-target="#exampleModal">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                        </div>
+                        <div class="modal-body">
+                            This is the model
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save the changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+        <h4>As a fan, join Newwell and enjoy the following:</h4>
+        <div class="desc">
+            <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veritatis blanditiis dolores nam consequuntur corporis eum distinctio rem ipsa labore natus.</h2>
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quis?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quis?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quis?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, quis?</li>
+            </ul>
+        </div>
+    </div>
+</div>

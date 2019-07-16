@@ -1,0 +1,126 @@
+$primary: #212222;
+$danger: #ff4136;
+$secondary: white;
+
+body {
+  background: $primary;
+}
+.artist-profile {
+  padding-top:20px;
+  height:100%;
+
+
+
+  .profile {
+    height: 100%;
+    width: 100%;
+    padding-top: 90px;
+
+    h4 {
+      color:$secondary;
+      font-size:22px;
+    }
+
+
+    h4 {
+      color:$secondary;
+      font-size:15px;
+    }
+
+    h5 {
+      color:$secondary;
+      font-size: 13px;
+    }
+
+
+    img {
+      padding: 0;
+      height: 150px;
+      width: 150px;
+    }
+  }
+
+  .social {
+    padding-top: 20px;
+    h4 {
+      color: $secondary;
+    }
+    a {
+      width: 5%;
+      margin: 10px;
+      color: $secondary;
+      font-size: 30px;
+    }
+  }
+
+  .action {
+    padding-top: 20px;
+    a {
+      width: 5%;
+      margin: 10px;
+      color: $danger;
+      font-size: 20px;
+    }
+  }
+
+ nav, .navbar {
+    padding: 0;
+  }
+  .nav-tabs
+  {
+
+    // border-bottom: $danger;
+
+    background: $primary;
+
+    .nav-link {
+      border: 0;
+      color:$danger;
+    };
+
+    .nav-item {
+      border: 0;
+      color:$danger;
+
+
+    }
+
+  }
+
+
+  .tab-content {
+    height: 50px;
+    .card {
+      padding-top: 10px;
+      background: darken($primary, 0);
+      color:$secondary;
+
+
+      .card-title {
+        color: $secondary;
+
+      }
+
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+
+      i {
+        margin: 15px;
+        color: $danger;
+      }
+
+      .actionbtn {
+        padding-top: 40px;
+      }
+
+      .btn {
+        background: $primary;
+      }
+    }
+
+  }
+}
+

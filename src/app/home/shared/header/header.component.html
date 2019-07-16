@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark  fixed-top">
+    <a class="navbar-brand logo" href="#">
+        <img src="assets/img/logo.png" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarstarget" aria-controls="navbarstarget" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <!-- <form id="desksearch" class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form> -->
+
+    <div class="collapse navbar-collapse" id="navbarstarget">
+        <ul *ngIf="isLoggedIn; else loggedOut" class="navbar-nav text-left">
+            <li class="nav-item"><a class="nav-link" routerLink="/">New Well Music</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="artists">Artists</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="publishing">Publishing</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+            <!-- <li class="nav-item"><a class="nav-link" routerLink="pricing">Pricing</a></li> -->
+            <li class="nav-item"><a class="nav-link" routerLink="pricing"><span class="fa fa-envelope"></span></a></li>
+
+            <li class="nav-item"><a class="nav-link" routerLink="pricing"><span class="fa fa-bell"></span></a></li>
+            <!-- <li class="nav-item"><a class="nav-link" routerLink="login">
+
+          <img src="assets/img/jumbo.jpg" alt="User Profile Picture" class="img-circle img-responsive">
+
+        </a></li> -->
+            <li class="nav-item"><a class="nav-link dropdown" routerLink="pricing"><span class="fa fa-cog"></span></a></li>
+
+
+        </ul>
+
+        <ng-template #loggedOut>
+            <ul class="navbar-nav ml-auto text-left">
+                <li class="nav-item"><a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/" class="nav-link">New
+            Well Music</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="artists">Artists</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" routerLink="pricing">Pricing</a></li> -->
+                <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
+                <!-- <form id="mobsearch" class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+            </ul>
+
+        </ng-template>
+    </div>
+</nav>

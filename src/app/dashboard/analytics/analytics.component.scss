@@ -1,0 +1,67 @@
+
+$primary: #212222;
+$danger: #ff4136;
+$secondary: white;
+.panel {
+  h3 {
+    color: $secondary;
+  }
+  .list-group-item {
+    background: darken($primary, 10%);
+    color: $secondary;
+    margin: 5px;
+
+    img {
+      height:40px;
+      width: 60px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    margin: 20px;
+    color: $danger;
+  }
+}
+
+
+
+
+.card {
+  padding-top: 10px;
+  background: darken($primary, 0);
+  color:$secondary;
+
+
+  .card-title {
+    color: $secondary;
+
+  }
+
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  i {
+    margin: 15px;
+    color: $danger;
+  }
+
+  .actionbtn {
+    padding-top: 40px;
+  }
+
+  .btn {
+    background: $primary;
+  }
+}
+h3, h4 {
+  color:$secondary;
+  padding-left: 10px;
+  padding-top: 20px;
+}
