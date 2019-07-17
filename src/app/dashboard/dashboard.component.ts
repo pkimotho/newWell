@@ -27,13 +27,4 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  closeSideMenu() {
-    this.openCloseSidebar = 'open';
-    console.log('Focused' + this.openCloseSidebar);
-  }
-  openSideMenu() {
-    this.openCloseSidebar = 'close';
-    console.log('mouse out');
-  }
-
 }
