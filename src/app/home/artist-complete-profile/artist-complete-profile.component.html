@@ -7,7 +7,7 @@
             <form [formGroup]="artistProfile" (ngSubmit)="onSubmit()" class="form-container">
                 <div>
                     <!-- <label class="center-block">Name </label> -->
-                    <input formControlName="name" type="text" autocomplete="off" [value]="name"></div>
+                    <input formControlName="name" type="text" autocomplete="off" [(ngModel)]="name"></div>
                 <div *ngIf="artistProfile.controls['name'].invalid && (artistProfile.controls['name'].dirty || artistProfile.controls['name'].touched)" class="alert alert-danger">
                     <div *ngIf="artistProfile.controls['name'].errors.required">
                         Name is required.
@@ -15,7 +15,7 @@
                 </div>
                 <div>
                     <!-- <label class="center-block">Phone Number </label> -->
-                    <input formControlName="phoneNumber" type="text" autocomplete="off" [value]="phoneNumber"></div>
+                    <input formControlName="phoneNumber" type="text" autocomplete="off" [(ngModel)]="phoneNumber"></div>
                 <div *ngIf="artistProfile.controls['phoneNumber'].invalid && (artistProfile.controls['phoneNumber'].dirty || artistProfile.controls['phoneNumber'].touched)" class="alert alert-danger">
                     <div *ngIf="artistProfile.controls['phoneNumber'].errors.required">
                         Phone Number is required.
@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <!-- <label class="center-block">Email </label> -->
-                    <input formControlName="email" type="email" autocomplete="off" [value]="email">
+                    <input formControlName="email" type="email" autocomplete="off" [(ngModel)]="email">
 
                 </div>
                 <div *ngIf="artistProfile.controls['email'].invalid && (artistProfile.controls['email'].dirty || artistProfile.controls['email'].touched)" class="alert alert-danger">
