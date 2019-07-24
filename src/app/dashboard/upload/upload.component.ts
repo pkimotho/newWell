@@ -1,10 +1,11 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { UploadsService } from '../../services/uploads.service';
+import { Router } from '@angular/router';
 
 export function requiredFileType(type: string) {
-  return function (control: FormControl) {
+  return (control: FormControl) => {
     const file = control.value;
     if (file) {
       const extension = file.name.split('.')[1].toLowerCase();
@@ -28,36 +29,32 @@ export function requiredFileType(type: string) {
 })
 export class UploadComponent implements OnInit {
   category = 'song';
+  title = 'title';
+  genre = 'genre';
+  artistName;
 
-  selectedFile: File = null;
-  uploadForm: FormGroup;
-  uploading = true;
-  error: string;
-  userId: number = 1;
+  selectedImage: File = null;
+  selectedAudio: File = null;
+
+  imageFile = null;
+  audioFile = null;
+
+  imageSuccessMessage = null;
+  audioSuccessMessage = null;
+
+  uploadForm;
   uploadResponse = { status: '', message: '', filePath: '' };
-  songs = [
-    "Without Me", "Talk", "Dancing With A Stranger", "Old Town Road"
-  ]
 
-  cover_image;
-  cover_image_Data;
-
-  constructor(private formBuilder: FormBuilder, private uploadService: UploadsService,
-    private http: HttpClient) {
+  constructor(private router: Router, private uploadService: UploadsService, private http: HttpClient) {
 
     this.uploadForm = new FormGroup({
-
-      title: new FormControl("", Validators.required),
-      song_Profile: new FormControl("", [Validators.required, requiredFileType('png')]),
-      description: new FormControl("", [Validators.required]),
-      audio: new FormControl("", [Validators.required])
-
-
+      title: new FormControl('', Validators.required),
+      genre: new FormControl('', Validators.required)
     });
   }
 
   ngOnInit() {
-
+    this.loadArtistName();
   }
   albumCategory() {
     this.category = 'album';
@@ -66,64 +63,56 @@ export class UploadComponent implements OnInit {
     this.category = 'song';
   }
 
-  onImageChange(event) {
-    this.cover_image = event.target.files[0];
-
-    const fileReader = new FileReader();
-
-
-
-    fileReader.readAsDataURL(this.cover_image);
-
-    fileReader.onload = () => {
-      this.cover_image_Data = fileReader.result;
+  onImageSelected(event) {
+    this.selectedImage = event.target.files[0] as File;
+    const filereader = new FileReader();
+    filereader.readAsDataURL(this.selectedImage);
+    filereader.onload = () => {
+      this.imageFile = filereader.result;
+    };
+  }
+  onAudioSelected(event) {
+    this.selectedAudio = event.target.files[0] as File;
+    const filereader = new FileReader();
+    filereader.readAsDataURL(this.selectedAudio);
+    filereader.onload = () => {
+      this.audioFile = filereader.result;
+      document.querySelector('audio').load();
     };
 
   }
 
 
-
-  onFileChange(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get('avatar').setValue(file);
-    }
-  }
-
-  uploadFile(file) {
-    return this.uploadService.uploadaudio(file).subscribe(data => {
-
-    }, err => {
-      console.log(err);
-    })
-  }
-  onFileSelected(event) {
-    this.selectedFile = event.target.files[0] as File;
-  }
   onUploadFile() {
-    const formData = new FormData();
-    formData.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('https://us-central1-fb-cloud-functions-demo.cloudfunctions.net/uploadFile', formData, {
-      reportProgress: true,
-      observe: 'events'
-    }).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        console.log('Upload Progress' + Math.round(event.loaded / event.total * 100) + '%');
-      } else if (event.type === HttpEventType.Response) {
-        console.log(event);
-      }
-      console.log(event);
+    const songData = {
+      title: this.uploadForm.controls[this.title].value,
+      genre: this.uploadForm.controls[this.genre].value
+    };
+
+    const songForm = new FormData();
+    const imageForm = new FormData();
+
+    songForm.append('audioFile', this.selectedAudio);
+    imageForm.append('albumArt', this.selectedImage);
+
+    this.uploadService.uploadSongData(songData).subscribe(data => {
+      console.log(data['title']);
+      this.uploadService.uploadaudio(songForm, data['_id']).subscribe(res => {
+        console.log(res);
+        this.audioSuccessMessage = res['success'];
+      });
+      this.uploadService.uploadAlbumArt(imageForm, data['_id']).subscribe(res => {
+        console.log(res);
+        this.imageSuccessMessage = res['success'];
+      });
     });
+    setTimeout(() => {
+      this.router.navigate(['/dashboard/' + this.artistName]);
+    }, 2000);
   }
-
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.uploadForm.get('avatar').value);
-
-    // this.uploadService.upload(formData, this.userId).subscribe(
-    //   (res) => this.uploadResponse = res,
-    //   (err) => this.error = err
-    // );
+  loadArtistName() {
+    const { name } = JSON.parse(localStorage.getItem('user'));
+    this.artistName = name;
   }
 
 }

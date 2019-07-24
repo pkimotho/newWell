@@ -25,14 +25,14 @@
         </ul>
     </div>
     <div class="container">
-        <form *ngIf="category === 'song'">
+        <form [formGroup]="uploadForm" *ngIf="category === 'song'">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Song Title</label>
-                <input type="email" class="form-control" placeholder="Enter song title...">
+                <label>Song Title</label>
+                <input type="text" formControlName="title" class="form-control" placeholder="Enter song title...">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Genre</label>
-                <select class="form-control">
+                <label>Genre</label>
+                <select formControlName="genre" class="form-control">
           <option>Select Genre</option>
           <option>Gospel</option>
           <option>Hip Hop</option>
@@ -42,32 +42,33 @@
         </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Song Cover</label>
-                <input type="file" class="form-control-file">
+                <label>Song Cover</label>
+                <input type="file" (change)="onImageSelected($event)" class="form-control-file">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Upload Song</label>
-                <input type="file" class="form-control-file">
+                <label>Upload Song</label>
+                <input type="file" (change)="onAudioSelected($event)" class="form-control-file">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary"><i class="fa fa-send-o" aria-hidden="true"></i>
+            <button type="submit" class="btn btn-primary" (click)="onUploadFile()"><i class="fa fa-send-o"
+          aria-hidden="true"></i>
         Submit</button>&nbsp;
             <button type="button" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i>
         Cancel</button>
         </form>
-        <form *ngIf="category === 'album'">
+        <!-- <form *ngIf="category === 'album'">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Album Title</label>
                 <input type="email" class="form-control" placeholder="Enter album title...">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Genre</label>
-                <select class="form-control">
+                <label>Genre</label>
+                <select class="form-control"> 
           <option>Select Genre</option>
           <option>Gospel</option>
           <option>Hip Hop</option>
@@ -77,15 +78,15 @@
         </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Album Cover</label>
+                <label>Album Cover</label>
                 <input type="file" class="form-control-file">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Upload Album</label>
-                <input type="file" class="form-control-file">
+                <label>Upload Album</label>
+                <input type="file" class="form-control-file" (change)="">
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>
@@ -94,21 +95,22 @@
         Submit</button>&nbsp;
             <button type="button" class="btn btn-danger"><i class="fa fa-times-circle" aria-hidden="true"></i>
         Cancel</button>
-        </form>
+        </form> -->
         <section>
             <h3>Attachments</h3>
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="card">
-                        <h4>Song/Album Cover</h4>
-                        <img class="card-img" src="" alt="Artist's Image">
+                        <h4>Image</h4>
+                        <img class="card-img" [src]="imageFile" alt="Artist's Image">
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <h4>Audio File</h4>
-                        <img class="card-img" src="" alt="Artist's Image">
-                    </div>
+                    <h4>Audio File</h4>
+                    <audio controls>
+            <source [src]="audioFile" type="audio/mpeg">
+            Your browser does not support the audio tag.
+          </audio>
                 </div>
             </div>
         </section>

@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import Flickity from 'flickity-imagesloaded';
+import { environment } from './../../../environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,8 +12,8 @@ import Flickity from 'flickity-imagesloaded';
   styleUrls: ['./landing.component.scss']
 })
 
-export class LandingComponent {
-  images = ["assets/img/logos/itunes.png", "assets/img/logos/itunes.png", "assets/img/logos/itunes.png",];
+export class LandingComponent implements OnInit {
+  // images = ["assets/img/logos/itunes.png", "assets/img/logos/itunes.png", "assets/img/logos/itunes.png",];
   customOptions: OwlOptions = {
     loop: true,
     center: true,
@@ -35,24 +38,21 @@ export class LandingComponent {
       }
     },
     nav: true
-  }
+  };
+  artists: any = [];
+  options = {
+    // options
+    freeScroll: true,
+    imagesLoaded: true,
+    contain: true,
+    // // disable previous & nexts buttons and dots
+    // prevNextButtons: false,
+    // pageDots: false
+  };
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    const cardsList = document.querySelectorAll('.cards');
-    cardsList.forEach((cards) => {
-      const flkty = new Flickity(cards, {
-        // options
-        freeScroll: true,
-        imagesLoaded: true,
-        contain: true,
-        // // disable previous & nexts buttons and dots
-        // prevNextButtons: false,
-        // pageDots: false
-      });
-    });
-
     const brands = document.getElementById('brands');
     const flickity = new Flickity(brands, {
       // options
@@ -67,10 +67,23 @@ export class LandingComponent {
       pauseAutoPlayOnHover: false,
       pageDots: false
     });
+    this.getAllArtists();
   }
 
   toggleNavbar() {
 
+  }
+
+  getAllArtists() {
+    this.http.get(environment.base_url + 'artist')
+      .subscribe(artist => {
+        this.artists = artist;
+        console.log(this.artists);
+      });
+  }
+  goToArtistProfile(id) {
+    this.router.navigate(['/artist/' + id]);
+    console.log(id);
   }
 
 }

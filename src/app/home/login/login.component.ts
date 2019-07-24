@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ArtistsService } from './../../services/artists.service';
 import { AuthorizationService } from './../../services/authorization.service';
@@ -9,48 +10,53 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  public onLoginForm: FormGroup;
+  form: FormGroup;
   artist;
-  constructor(private authService: AuthorizationService, private formBuilder: FormBuilder) { }
+  messageClass;
+  message;
 
 
+  constructor(
+    private authService: AuthorizationService,
+    private formBuilder: FormBuilder,
+    private router: Router) { }
 
-
-
-    ngOnInit() {
-      this.createForm();
-    }
-    // Function to create registration form;
-    createForm() {
-      this.onLoginForm = this.formBuilder.group({
-
-        email: ['', Validators.compose([
-          Validators.required
-        ])],
-        password: ['', Validators.compose([
-          Validators.required
-        ])],
-
-        confirmpassword: ['', Validators.compose([
-          Validators.required
-        ])],
-
-      });
-    }
-
-
-
-
-
-  login() {
-    const user = {'email':this.onLoginForm.controls['email'].value, 'password':this.onLoginForm.controls['password'].value}
-
-    this.authService.loginArtist(user).subscribe(data => {
-      console.log(data);
-    }, err => {
-      console.log(err);
+  ngOnInit() {
+    this.createForm();
+  }
+  // Function to create registration form;
+  createForm() {
+    this.form = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
     });
-    console.log(this.artist);
+  }
+
+
+
+
+
+  onLoginSubmit() {
+    const artist = {
+      email: this.form.get('email').value,
+      password: this.form.get('password').value
+    };
+
+    this.authService.loginArtist(artist).subscribe(data => {
+      console.log(data);
+      this.messageClass = 'alert alert-success';
+      this.message = 'Successfully logged in';
+      this.authService.storeUserData(data['token'], data['user']);
+      setTimeout(() => {
+        this.router.navigate(['/dashboard/' + data['user']['name']]);
+      }, 2000);
+    }, err => {
+      if (err['error']) {
+        this.messageClass = 'alert alert-danger';
+        this.message = err['error']['message'];
+        console.log(err);
+      }
+    });
   }
 
 

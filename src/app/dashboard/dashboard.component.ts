@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { Router } from '@angular/router';
+import { AuthorizationService } from './../services/authorization.service';
 
 
 
@@ -20,11 +22,25 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class DashboardComponent implements OnInit {
 
+  id;
+
   openCloseSidebar = 'close';
 
-  constructor() { }
+  constructor(
+    private authService: AuthorizationService,
+    private router: Router) { }
 
   ngOnInit() {
+    this.loadArtistId();
+  }
+
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+  }
+  loadArtistId() {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.id = _id;
   }
 
 }

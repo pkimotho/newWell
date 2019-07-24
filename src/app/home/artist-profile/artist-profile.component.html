@@ -1,250 +1,137 @@
-<div class="row artist-profile">
-  <div class="col-md-4  profile text-center">
-    <div class="">
-      <a hef=""><img src="../../../assets/img/jumbo.jpg" alt="merker" class="hidden-xs hidden-sm rounded-circle">
-      </a>
-
-      <hr>
-
-      <h4 class="text-center">Wasubu</h4>
-
-      <h5 class="text-center">4 Albums</h5>
-
-      <div class="action text-center">
-        <a href=""><i class="fa fa-thumbs-up"></i></a>
-        <a href=""><i class="fa fa-comments"></i></a>
-      </div>
-
-      <div class="social text-center">
-        <h4 class="text-center">Connections</h4>
-        <a href=""><i class="fa fa-facebook"></i></a>
-        <a href=""><i class="fa fa-whatsapp"></i></a>
-        <a href=""><i class="fa fa-soundcloud"></i></a>
-        <a href=""><i class="fa fa-instagram"></i></a>
-      </div>
-
-
-    </div>
-
-  </div>
-  <div class="col-md-8 profile">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a href="#home" class="nav-link active" data-toggle="tab">New Release</a>
-      </li>
-      <li class="nav-item">
-        <a href="#profile" class="nav-link" data-toggle="tab">Top Songs</a>
-      </li>
-      <li class="nav-item">
-        <a href="#messages" class="nav-link" data-toggle="tab">Albums</a>
-      </li>
-    </ul>
-
-    <div class="tab-content">
-      <div class="tab-pane fade show active" id="home">
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
+<div class="outer">
+    <section class="banner">
+        <img src="../../../assets/images/band.jpg" alt="Artist's Image">
+        <div class="stats">
+            <div class="stat">
+                <h6 class="font-weight-bold">69</h6>
+                <p>Followers</p>
             </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-4">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-
+            <div class="stat">
+                <h6 class="font-weight-bold">5,659</h6>
+                <p>Likes</p>
+            </div>
+            <div class="stat">
+                <h6 class="font-weight-bold">120</h6>
+                <p>Albums</p>
+            </div>
+        </div>
+        <div class="profile-details">
+            <div class="profile-image">
+                <img [src]="profilePic" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h3>{{name}}</h3>
+                <p>{{genre}}</p>
+                <small>Last online: 2 hours ago</small>
+            </div>
+        </div>
+    </section>
+    <section class="main container-fluid">
+        <div class="row">
+            <div class="col-md-7 grey m-2">
+                <!-- <div class="col-md-12">
+                    <h3>My daily message</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas, illo voluptate nulla officia saepe doloremque ducimus, pariatur provident odit mollitia itaque nemo vero sed voluptatibus sunt voluptas id nam at?
+                    </p>
+                </div> -->
+                <h2>Popular Songs</h2>
+                <div class="col-md-12 p-0">
+                    <div>
+                        <div class="song-row" *ngFor="let song of songs">
+                            <div>
+                                <a><img [src]="song.albumArt" alt="Song Cover Image"></a>
+                            </div>
+                            <div>
+                                <h5>{{song.title}}</h5>
+                                <p>{{song.genre}}</p>
+                            </div>
+                            <div>
+                                <p><small><strong>{{likes}}</strong> Likes</small></p>
+                                <small class="blue"><a (click)="addLikes()"><i class="fa fa-thumbs-up"></i> Like</a></small>
+                            </div>
+                            <div>
+                                <p><small><strong>65</strong> Comments</small></p>
+                                <small class="blue"><a (click)="toggleComment()"><i class="fa fa-comment"></i> Comment</a></small>
+                            </div>
+                            <div>
+                                <p><small><strong>6501</strong> Views</small></p>
+                                <small class="orange"><a><i class="fa fa-share"></i> Share</a></small>
+                            </div>
+                        </div>
+                        <div *ngIf="isComment" class="comment-row">
+                            <p>Coments: User Comments will appear here</p>
+                            <textarea name="" id="" cols="60" rows="3">Type your comment here...</textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <div *ngIf="isComment1" class="comment-row">
+                            <p>Coments: User Comments will appear here</p>
+                            <textarea name="" id="" cols="60" rows="3">Type your comment here...</textarea>
+                        </div>
+                    </div>
+                    <div>
+                        <div *ngIf="isComment1" class="comment-row">
+                            <p>Coments: User Comments will appear here</p>
+                            <textarea name="" id="" cols="60" rows="3">Type your comment here...</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 dark grey ml-5 mt-2 ml-2 mb-2">
+                <h2>Popular Albums</h2>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                        </div>
+                    </div>
                 </div>
 
-              </div>
             </div>
-            <div class="col-md-3 actionbtn text-center">
-
-              <a href="" class="btn btn-danger btn-md">Listen</a>
-
-
-            </div>
-          </div>
         </div>
-
-
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-4">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-3 actionbtn text-center">
-
-              <a href="" class="btn btn-danger btn-md">Listen</a>
-
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="tab-pane fade" id="profile">
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-4">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-3 actionbtn text-center">
-
-              <a href="" class="btn btn-danger btn-md">Listen</a>
-
-
-            </div>
-          </div>
-        </div>
-
-
-
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-4">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-            <div class="col-md-3 actionbtn text-center">
-
-              <a href="" class="btn btn-danger btn-md">Listen</a>
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="messages">
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-6">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3">
-          <div class="row no-gutters">
-            <div class="col-md-2">
-              <img src="../../../assets/img/jumbo.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-6">
-              <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content.</p>
-                <div class="row options">
-                  <div class="col-5">
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-                  </div>
-                  <div class="col-6">
-                    <a href=""><i class="fa fa-thumbs-up"></i></a>
-                    <a href=""><i class="fa fa-comments"></i></a>
-
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
+    </section>
 </div>

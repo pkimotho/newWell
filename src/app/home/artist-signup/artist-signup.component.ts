@@ -17,10 +17,16 @@ import { handleHttpError } from 'src/app/services/errors/http';
 })
 export class ArtistSignupComponent implements OnInit {
 
-  form;
+  form: FormGroup;
   message;
+  messageClass;
+  token = 'token';
+  mismatch = 'mismatch';
+  id = '_id';
 
-  constructor(private formBuilder: FormBuilder, private router:Router,
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
     private authService: AuthorizationService) { }
 
   ngOnInit() {
@@ -31,22 +37,82 @@ export class ArtistSignupComponent implements OnInit {
     this.form = this.formBuilder.group({
 
       email: ['', Validators.compose([
-        Validators.required, Validators.email
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+        this.validateEmail
       ])],
       name: ['', Validators.compose([
-        Validators.required
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15),
+        this.validateName
       ])],
-      phoneNumber: new FormControl('',{ validators: [Validators.required, Validators.pattern('^07[\\d]{8,8}$' ), ], updateOn: 'blur'}),
+      // phoneNumber: new FormControl('', { validators: [Validators.required, Validators.pattern('^07[\\d]{8,8}$')], updateOn: 'blur' }),
+      phoneNumber: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(10),
+        this.validatePhoneNumber
+      ])],
       password: ['', Validators.compose([
-        Validators.required, Validators.minLength(6)
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(35),
+        this.validatePassword
       ])],
 
       confirmpassword: ['', Validators.compose([
-        Validators.required, Validators.minLength(6)
+        Validators.required
       ])],
 
-    }, this.pwdMatchValidator);
+    }, { validator: this.matchingPasswords('password', 'confirmpassword') });
 
+  }
+
+  validateEmail(controls) {
+    const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+    if (regExp.test(controls.value)) {
+      return null;
+    } else {
+      return { validateEmail: true };
+    }
+  }
+
+  validateName(controls) {
+    const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+    if (regExp.test(controls.value)) {
+      return null;
+    } else {
+      return { validateName: true };
+    }
+  }
+
+  validatePassword(controls) {
+    const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+    if (regExp.test(controls.value)) {
+      return null;
+    } else {
+      return { validatePassword: true };
+    }
+  }
+  validatePhoneNumber(controls) {
+    const regExp = new RegExp(/^(?:254|\+254|0)?(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/);
+    if (regExp.test(controls.value)) {
+      return null;
+    } else {
+      return { validatePhoneNumber: true };
+    }
+  }
+
+  matchingPasswords(password, confirmpassword) {
+    return (group: FormGroup) => {
+      if (group.controls[password].value === group.controls[confirmpassword].value) {
+        return null;
+      } else {
+        return { matchingPasswords: true };
+      }
+    };
   }
 
 
@@ -59,27 +125,29 @@ export class ArtistSignupComponent implements OnInit {
     };
 
     this.authService.registerArtist(artist).subscribe((data) => {
-      const {email, password, phoneNumber} = artist;
-      this.authService.loginArtist({email,password})
-      .subscribe(
-        result =>
-        {
-          console.log(result);
-          localStorage.setItem('token', result['token']);
-          this.router.navigate(['artist-complete-profile', 'email', email, 'phoneNumber', phoneNumber]);
-        },
-        (err) =>
-        catchError(handleHttpError),
+      if (!data[this.id]) {
+        this.messageClass = 'alert alert-danger';
+        this.message = 'Not Registered';
+      } else {
+        this.messageClass = 'alert alert-success';
+        this.message = 'Successfully registered. Please complete your profile';
+      }
+      const { email, password, phoneNumber } = artist;
+      this.authService.loginArtist({ email, password })
+        .subscribe(
+          result => {
+            console.log(result);
+            this.authService.storeUserData(result['token'], result['user']);
+            setTimeout(() => {
+              this.router.navigate(['artist-complete-profile']);
+            }, 2000);
+          },
+          (err) =>
+            catchError(handleHttpError),
         );
 
     },
-    (err) => catchError(handleHttpError));
+      (err) => catchError(handleHttpError));
   }
-
-
-  pwdMatchValidator(frm: FormGroup) {
-    return frm.get('password').value === frm.get('confirmedPassword').value
-       ? null : {'mismatch': true};
- }
 
 }

@@ -1,126 +1,140 @@
-$primary: #212222;
+// $primary: #212222;
+$primary: #111;
 $danger: #ff4136;
 $secondary: white;
-
-body {
-  background: $primary;
+.outer {
+    margin-top: 4rem;
 }
-.artist-profile {
-  padding-top:20px;
-  height:100%;
 
-
-
-  .profile {
-    height: 100%;
+.banner {
     width: 100%;
-    padding-top: 90px;
-
-    h4 {
-      color:$secondary;
-      font-size:22px;
-    }
-
-
-    h4 {
-      color:$secondary;
-      font-size:15px;
-    }
-
-    h5 {
-      color:$secondary;
-      font-size: 13px;
-    }
-
-
+    height: 40vh;
+    // background: white;
+    padding: 0 .5rem .5rem .5rem;
+    position: relative;
+    box-sizing: border-box;
     img {
-      padding: 0;
-      height: 150px;
-      width: 150px;
-    }
-  }
-
-  .social {
-    padding-top: 20px;
-    h4 {
-      color: $secondary;
-    }
-    a {
-      width: 5%;
-      margin: 10px;
-      color: $secondary;
-      font-size: 30px;
-    }
-  }
-
-  .action {
-    padding-top: 20px;
-    a {
-      width: 5%;
-      margin: 10px;
-      color: $danger;
-      font-size: 20px;
-    }
-  }
-
- nav, .navbar {
-    padding: 0;
-  }
-  .nav-tabs
-  {
-
-    // border-bottom: $danger;
-
-    background: $primary;
-
-    .nav-link {
-      border: 0;
-      color:$danger;
-    };
-
-    .nav-item {
-      border: 0;
-      color:$danger;
-
-
-    }
-
-  }
-
-
-  .tab-content {
-    height: 50px;
-    .card {
-      padding-top: 10px;
-      background: darken($primary, 0);
-      color:$secondary;
-
-
-      .card-title {
-        color: $secondary;
-
-      }
-
-
-      img {
-        height: 100%;
+        object-fit: cover;
         width: 100%;
-      }
-
-      i {
-        margin: 15px;
-        color: $danger;
-      }
-
-      .actionbtn {
-        padding-top: 40px;
-      }
-
-      .btn {
-        background: $primary;
-      }
+        height: 80%;
     }
-
-  }
+    .stats {
+        display: flex;
+        flex-direction: row-reverse;
+        background-color: lightblue;
+        padding: 0.25rem 0;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        .stat {
+            margin-left: 8rem;
+            margin-right: 1rem;
+            text-align: center;
+            padding-top: 0.2rem;
+            h6 {
+                margin: 0;
+                padding: 0;
+            }
+            p {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .profile-details {
+        display: flex;
+        color: $secondary;
+        position: absolute;
+        top: 15vh;
+        left: 5vh;
+        .profile-image {
+            width: 15vw;
+            height: 20vh;
+            margin-right: 0.5rem;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: fill;
+                border-radius: 5px;
+            }
+        }
+        .profile-info {
+            h3 {
+                margin: 0;
+                font-weight: 600;
+                color: $danger;
+            }
+            p {
+                margin: 0;
+            }
+        }
+    }
 }
 
+.main {
+    color: #fff;
+    // background: blue;
+    .row {
+        margin: 0;
+        .col-md-7 {
+            padding: 0;
+            h2 {
+                background: #444;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                padding: 1.5rem;
+                font-size: 1.3rem;
+                font-weight: bolder;
+            }
+        }
+        .col-md-4 {
+            padding: 0;
+            h2 {
+                background: #444;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                padding: 1.5rem;
+                font-size: 1.3rem;
+                font-weight: bolder;
+            }
+            .card {
+                margin: 0.5rem;
+            }
+        }
+        .col-md-12 {
+            .song-row {
+                display: flex;
+                justify-content: space-between;
+                background: #111;
+                margin: 0.5rem;
+                padding: 0.5rem;
+                border-radius: 5px;
+                img {
+                    width: 4rem;
+                    height: 4rem;
+                    object-fit: contain;
+                }
+                a {
+                    cursor: pointer;
+                }
+            }
+            .comment-row {
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+.grey {
+    background: #222;
+    border-radius: 10px;
+}
+
+.blue {
+    color: blue;
+}
+
+.orange {
+    color: orangered;
+    margin: 0;
+    padding: 0.5rem;
+}

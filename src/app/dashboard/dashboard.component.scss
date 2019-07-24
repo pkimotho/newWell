@@ -14,13 +14,22 @@ $secondary: white;
         left: 0;
         z-index: 1;
         ul {
-            display: inline;
+            li {}
         }
         ul li a {
-            display: block;
+            display: flex;
+            align-items: center;
             text-decoration: none;
             font-size: 1.2rem;
             font-weight: bold;
+            height: 19px;
+            cursor: pointer;
+            span {
+                white-space: nowrap;
+                overflow: hidden;
+                transition: all 5s ease-in-out;
+                margin-left: 1rem;
+            }
         }
     }
     .main-container {

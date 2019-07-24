@@ -1,3 +1,4 @@
+import { ArtistProfileComponent } from './../home/artist-profile/artist-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
@@ -18,9 +19,9 @@ const routes: Routes = [
   },
 
   {
-    path: 'dashboard/uploads',
+    path: 'dashboard/:artistName/uploads',
     component: UploadComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
 
   },
   {
@@ -33,6 +34,12 @@ const routes: Routes = [
   {
     path: 'dashboard/wallet',
     component: WalletComponent,
+    canActivate: [AuthGuard]
+
+  },
+  {
+    path: 'dashboard/artist',
+    component: ArtistProfileComponent,
     canActivate: [AuthGuard]
 
   },

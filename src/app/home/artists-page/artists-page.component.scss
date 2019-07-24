@@ -44,8 +44,8 @@ header {
         padding-top: 55%;
         color: $secondary;
         visibility: visible;
-        background: #0f1011;
-        opacity: 0.4;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.767) 50%, transparent);
+        opacity: 1;
     }
     .description {
         position: absolute;

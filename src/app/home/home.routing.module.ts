@@ -22,27 +22,30 @@ const routes: Routes = [
     component: LandingComponent,
   },
   {
-    path: 'artist/:name',
+    path: 'artist/:id',
     component: ArtistProfileComponent,
   },
   {
     path: 'artists',
     component: ArtistsPageComponent,
   },
-  { path: 'artist-signup',
-  component: ArtistSignupComponent
-},
+  {
+    path: 'artist-signup',
+    component: ArtistSignupComponent
+  },
 
-  { path: 'artist-complete-profile',
-  component: ArtistCompleteProfileComponent,
-  // canActivate: [AuthGuard,]
-},
+  {
+    path: 'artist-complete-profile',
+    component: ArtistCompleteProfileComponent,
+    // canActivate: [AuthGuard,]
+  },
 
 
-  { path: 'song',
-  component: ComingsoonComponent,
-  // canActivate: [AuthGuard,]
-},
+  {
+    path: 'song',
+    component: ComingsoonComponent,
+    // canActivate: [AuthGuard,]
+  },
 
 
   {

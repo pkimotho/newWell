@@ -17,10 +17,14 @@ export class UploadsService {
 
 
   }
+  uploadSongData(songData) {
+    return this.http.post(environment.base_url + 'song/new', songData);
+  }
 
-
-  uploadaudio(file): Observable<any>{
-    return this.http.post(environment.base_url + 'upload/', {}, {});
-
+  uploadaudio(file, id) {
+    return this.http.put(`${environment.base_url}song/audioFile/${id}`, file);
+  }
+  uploadAlbumArt(file, id) {
+    return this.http.put(`${environment.base_url}song/albumArt/${id}`, file);
   }
 }

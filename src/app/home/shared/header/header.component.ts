@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthorizationService) {
 
-    this.isLoggedIn = this.authService.loggedIn;
+    // this.isLoggedIn = this.authService.loggedIn;
   }
   showNavbar = true;
 
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  toggleNavbar() {
-    this.showNavbar = !this.showNavbar;
-  }
+  // toggleNavbar() {
+  //   this.showNavbar = !this.showNavbar;
+  // }
 }

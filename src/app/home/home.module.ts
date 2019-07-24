@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { FlickityModule } from 'ngx-flickity';
 
 import { LandingComponent } from './landing/landing.component';
 import { FooterComponent } from '../home/shared/footer/footer.component';
@@ -38,7 +38,8 @@ import { ComingsoonComponent } from '../home/comingsoon/comingsoon.component';
     CarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    OwlModule
+    OwlModule,
+    FlickityModule
   ]
 })
 

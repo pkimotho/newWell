@@ -37,3 +37,21 @@
             cursor: pointer;
         }
     }
+    
+    .has-error {
+        color: $danger;
+        input {
+            outline-color: $danger;
+        }
+        ul li {
+            list-style: none;
+        }
+    }
+    
+    .has-success {
+        color: darkgreen;
+        outline-color: darkgreen;
+        ul li {
+            list-style: none;
+        }
+    }

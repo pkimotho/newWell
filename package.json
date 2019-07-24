@@ -28,6 +28,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "ng2-charts": "^2.2.3",
+    "ngx-flickity": "0.0.9",
     "ngx-owl-carousel": "^2.0.7",
     "ngx-owl-carousel-o": "^1.1.5",
     "popper": "^1.0.1",
