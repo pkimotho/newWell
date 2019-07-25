@@ -10,7 +10,6 @@ $shadowtext: 1px 1px 3px #0f1011,
 }
 
 .hero {
-    background-image: url("../../../assets/images/jumbo2.jpg");
     // background-clip: content-box;
     background-size: cover;
     margin-top: 10vh;
@@ -20,8 +19,18 @@ $shadowtext: 1px 1px 3px #0f1011,
     justify-content: center;
     color: white;
     padding: 0 2rem;
+    position: relative;
     >* {
         margin-bottom: 2rem;
+    }
+    #heroImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        z-index: -1;
     }
     .hero-info {
         width: 70%;

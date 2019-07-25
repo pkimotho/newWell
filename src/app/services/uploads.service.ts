@@ -8,9 +8,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadsService {
-  upload_artist_profile_pic = 'api/artist/uploadPic';
-  upload_song_album_art_picture = 'api/song/albumArt/:songId'
-  upload_audio_file = 'api/song/audioFile/:songId'
 
 
   constructor(private http: HttpClient) {

@@ -86,7 +86,7 @@ export class UploadComponent implements OnInit {
   }
 
 
-  onUploadFile() {
+  onUploadSongFile() {
     const songData = {
       title: this.uploadForm.controls[this.title].value,
       genre: this.uploadForm.controls[this.genre].value

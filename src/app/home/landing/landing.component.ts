@@ -13,31 +13,13 @@ import { Router } from '@angular/router';
 })
 
 export class LandingComponent implements OnInit {
-  // images = ["assets/img/logos/itunes.png", "assets/img/logos/itunes.png", "assets/img/logos/itunes.png",];
-  customOptions: OwlOptions = {
-    loop: true,
-    center: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
-    },
-    nav: true
+
+  landingPageContent = {
+    title: '',
+    description: '',
+    ctaText: '',
+    ctaLink: '',
+    imageUrl: ''
   };
   artists: any = [];
   options = {
@@ -53,20 +35,20 @@ export class LandingComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
-    const brands = document.getElementById('brands');
-    const flickity = new Flickity(brands, {
-      // options
-      // freeScroll: true,
-      imagesLoaded: true,
-      contain: true,
-      // // disable previous & nexts buttons and dots
-      prevNextButtons: false,
-      // draggable: false,
-      // wrapAround: true,
-      autoPlay: 1500,
-      pauseAutoPlayOnHover: false,
-      pageDots: false
-    });
+    this.getLandingPageContent();
+    // const flickity = new Flickity(brands, {
+    //   // options
+    //   // freeScroll: true,
+    //   imagesLoaded: true,
+    //   contain: true,
+    //   // // disable previous & nexts buttons and dots
+    //   prevNextButtons: false,
+    //   // draggable: false,
+    //   // wrapAround: true,
+    //   autoPlay: 1500,
+    //   pauseAutoPlayOnHover: false,
+    //   pageDots: false
+    // });
     this.getAllArtists();
   }
 
@@ -83,5 +65,15 @@ export class LandingComponent implements OnInit {
   goToArtistProfile(id) {
     this.router.navigate(['/artist/' + id]);
   }
+  getLandingPageContent() {
+    fetch('https://cms.newwellmusic.com/pages/1')
+      .then(res => res.json())
+      .then(({ title, description, ctaText, ctaLink, image }) => {
+        this.landingPageContent = {
+          title, description, ctaLink, ctaText, imageUrl: `https://cms.newwellmusic.com${image.url}`
+        };
+      });
+  }
+
 
 }
