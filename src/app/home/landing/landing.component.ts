@@ -70,7 +70,7 @@ export class LandingComponent implements OnInit {
       .then(res => res.json())
       .then(({ title, description, ctaText, ctaLink, image }) => {
         this.landingPageContent = {
-          title, description, ctaLink, ctaText, imageUrl: `https://cms.newwellmusic.com${image.url}`
+          title, description, ctaLink, ctaText, imageUrl: image.url
         };
       });
   }
