@@ -19,7 +19,7 @@ export class LandingComponent implements OnInit {
     description: '',
     ctaText: '',
     ctaLink: '',
-    imageUrl: ''
+    imageUrl: 'assets/images/placeholder.svg'
   };
   artists: any = [];
   options = {
