@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../../environments/environment';
 import { ArtistSongsService } from './../../services/artist-songs.service';
 
@@ -16,10 +17,10 @@ export class HomeComponent implements OnInit {
   numbering;
   id;
 
-  constructor(private http: HttpClient, private artistSongsService: ArtistSongsService) { }
+  constructor(private http: HttpClient, private artistSongsService: ArtistSongsService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadArtistId();
+    this.id = this.route.snapshot.params['id'];
     this.getArtistSongs();
   }
 

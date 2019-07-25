@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthorizationService } from './../services/authorization.service';
 
 
@@ -28,10 +28,12 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private authService: AuthorizationService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadArtistId();
+    console.log(this.id);
   }
 
   onLogout() {

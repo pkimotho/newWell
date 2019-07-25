@@ -78,12 +78,10 @@ export class LandingComponent implements OnInit {
     this.http.get(environment.base_url + 'artist')
       .subscribe(artist => {
         this.artists = artist;
-        console.log(this.artists);
       });
   }
   goToArtistProfile(id) {
     this.router.navigate(['/artist/' + id]);
-    console.log(id);
   }
 
 }

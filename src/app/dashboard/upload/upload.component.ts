@@ -31,7 +31,7 @@ export class UploadComponent implements OnInit {
   category = 'song';
   title = 'title';
   genre = 'genre';
-  artistName;
+  artistId;
 
   selectedImage: File = null;
   selectedAudio: File = null;
@@ -45,7 +45,10 @@ export class UploadComponent implements OnInit {
   uploadForm;
   uploadResponse = { status: '', message: '', filePath: '' };
 
-  constructor(private router: Router, private uploadService: UploadsService, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private uploadService: UploadsService,
+    private http: HttpClient) {
 
     this.uploadForm = new FormGroup({
       title: new FormControl('', Validators.required),
@@ -54,7 +57,7 @@ export class UploadComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadArtistName();
+    this.loadArtistId();
   }
   albumCategory() {
     this.category = 'album';
@@ -107,12 +110,12 @@ export class UploadComponent implements OnInit {
       });
     });
     setTimeout(() => {
-      this.router.navigate(['/dashboard/' + this.artistName]);
+      this.router.navigate(['/dashboard/' + this.artistId]);
     }, 2000);
   }
-  loadArtistName() {
-    const { name } = JSON.parse(localStorage.getItem('user'));
-    this.artistName = name;
+  loadArtistId() {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.artistId = _id;
   }
 
 }

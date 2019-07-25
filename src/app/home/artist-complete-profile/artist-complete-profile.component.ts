@@ -105,7 +105,7 @@ export class ArtistCompleteProfileComponent implements OnInit {
       console.log(data);
       this.authService.updateProfilePic(formData).subscribe(res => {
         console.log('Hurray!');
-        this.router.navigate(['/dashboard/' + this.artistName]);
+        this.router.navigate(['/dashboard/' + this.id]);
       });
 
 
