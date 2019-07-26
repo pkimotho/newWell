@@ -66,9 +66,10 @@ export class LandingComponent implements OnInit {
     this.router.navigate(['/artist/' + id]);
   }
   getLandingPageContent() {
-    fetch('https://cms.newwellmusic.com/pages/1')
+    fetch('https://cms.newwellmusic.com/pages')
       .then(res => res.json())
-      .then(({ title, description, ctaText, ctaLink, image }) => {
+      .then((pages) => {
+        const { title, description, ctaText, ctaLink, image } = pages[0]
         this.landingPageContent = {
           title, description, ctaLink, ctaText, imageUrl: image.url
         };
