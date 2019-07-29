@@ -11,27 +11,26 @@
   </form> -->
 
     <div class="collapse navbar-collapse" id="navbarstarget">
-        <ul *ngIf="isLoggedIn; else loggedOut" class="navbar-nav text-left">
+        <ul *ngIf="authService.loggedIn; else loggedOut" class="navbar-nav ml-auto text-left">
             <li class="nav-item"><a class="nav-link" routerLink="/">New Well Music</a></li>
             <li class="nav-item"><a class="nav-link" routerLink="artists">Artists</a></li>
             <li class="nav-item"><a class="nav-link" routerLink="publishing">Publishing</a></li>
             <li class="nav-item"><a class="nav-link" routerLink="/dashboard">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
             <!-- <li class="nav-item"><a class="nav-link" routerLink="pricing">Pricing</a></li> -->
             <li class="nav-item"><a class="nav-link" routerLink="pricing"><span class="fa fa-envelope"></span></a></li>
-
             <li class="nav-item"><a class="nav-link" routerLink="pricing"><span class="fa fa-bell"></span></a></li>
-            <!-- <li class="nav-item"><a class="nav-link" routerLink="login">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/artist/{{id}}">
 
-          <img src="assets/img/jumbo.jpg" alt="User Profile Picture" class="img-circle img-responsive">
+                    <img *ngIf="profilePic" [src]="profilePic" alt="User Profile Picture" class="img-circle img-responsive">
 
-        </a></li> -->
-            <li class="nav-item"><a class="nav-link dropdown" routerLink="pricing"><span class="fa fa-cog"></span></a></li>
-
-
+                </a>
+            </li>
         </ul>
 
         <ng-template #loggedOut>
-            <ul class="navbar-nav ml-auto text-left">
+            <ul class="navbar-nav ml-auto text-left ">
                 <li class="nav-item"><a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/" class="nav-link">New
             Well Music</a></li>
                 <li class="nav-item"><a class="nav-link" routerLinkActive='active' routerLink="artists">Artists</a></li>

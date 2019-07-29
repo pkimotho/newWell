@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
       this.message = 'Successfully logged in';
       this.authService.storeUserData(data['token'], data['user']);
       setTimeout(() => {
-        this.router.navigate(['/dashboard/' + data['user']['name']]);
+        this.router.navigate(['/dashboard/']);
       }, 2000);
     }, err => {
       if (err['error']) {

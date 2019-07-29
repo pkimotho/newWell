@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthorizationService } from './../services/authorization.service';
-
-
-
-
 
 @Component({
   selector: 'app-dashboard',
@@ -28,17 +25,20 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private authService: AuthorizationService,
+    private flashMessagesService: FlashMessagesService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadArtistId();
-    console.log(this.id);
   }
 
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/']);
+    this.flashMessagesService.show('You have logged out', {
+      cssClass: 'alert-info'
+    });
   }
   loadArtistId() {
     const { _id } = JSON.parse(localStorage.getItem('user'));

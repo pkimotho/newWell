@@ -7,14 +7,14 @@
             <li class="list-group-item list-group-item-dark"><a routerLink="/artist/{{id}}"><i class="fa fa-user"
             aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> My Profile</span></a></li>
-            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/{{id}}"><i class="fa fa-tachometer"
+            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard"><i class="fa fa-tachometer"
             aria-hidden="true"></i> <span *ngIf="openCloseSidebar==='open'"> My Dashboard</span></a></li>
-            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/{{id}}/uploads"><i class="fa fa-upload"
+            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/uploads"><i class="fa fa-upload"
             aria-hidden="true"></i> <span *ngIf="openCloseSidebar==='open'"> Upload Music</span></a></li>
-            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/{{id}}/analytics"><i
-            class="fa fa-bar-chart" aria-hidden="true"></i>
+            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/analytics"><i class="fa fa-bar-chart"
+            aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Analytics</span></a></li>
-            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/{{id}}/wallet"><i class="fa fa-money"
+            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/wallet"><i class="fa fa-money"
             aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> My Wallet</span></a></li>
             <li class="list-group-item list-group-item-dark"><a (click)="onLogout()"><i class="fa fa-sign-out"

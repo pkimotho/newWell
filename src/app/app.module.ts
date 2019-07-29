@@ -12,9 +12,12 @@ import { FooterComponent } from '../app/home/shared/footer/footer.component';
 
 // third party modules import
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messages';
+import { JwtModule } from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
-//local modules import
+// local modules import
 import { HomeModule } from './home/home.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { TokenInterceptor } from './services/service.interceptors';
@@ -37,17 +40,19 @@ import { UploadsService } from './services/uploads.service';
     HomeModule,
     DashboardModule,
     AngularFontAwesomeModule,
+    FlashMessagesModule,
     HttpClientModule,
     FormsModule
-
   ],
   providers: [
     AuthGuard,
     { provide: APP_BASE_HREF, useValue: '/' },
-    {provide:HTTP_INTERCEPTORS,
-    useClass:TokenInterceptor,
-      multi:true
-  },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    FlashMessagesService
   ],
   bootstrap: [AppComponent],
 
