@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { UploadsService } from '../../services/uploads.service';
@@ -42,6 +42,11 @@ export class UploadComponent implements OnInit {
   imageSuccessMessage = null;
   audioSuccessMessage = null;
 
+  imageUploadProgress;
+  audioUploadProgress;
+  audioUploadValue = 0;
+  imageUploadValue;
+
   uploadForm;
   uploadResponse = { status: '', message: '', filePath: '' };
 
@@ -82,7 +87,6 @@ export class UploadComponent implements OnInit {
       this.audioFile = filereader.result;
       document.querySelector('audio').load();
     };
-
   }
 
 
@@ -100,18 +104,30 @@ export class UploadComponent implements OnInit {
 
     this.uploadService.uploadSongData(songData).subscribe(data => {
       console.log(data['title']);
-      this.uploadService.uploadaudio(songForm, data['_id']).subscribe(res => {
-        console.log(res);
-        this.audioSuccessMessage = res['success'];
+      this.uploadService.uploadaudio(songForm, data['_id']).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+          this.audioUploadProgress = 'Audio Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%';
+          this.audioUploadValue = Math.round(event.loaded / event.total * 100);
+          if (this.audioUploadValue === 100) {
+            this.router.navigate(['/dashboard/']);
+          }
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+          this.audioSuccessMessage = event['success'];
+        }
       });
-      this.uploadService.uploadAlbumArt(imageForm, data['_id']).subscribe(res => {
-        console.log(res);
-        this.imageSuccessMessage = res['success'];
+      this.uploadService.uploadAlbumArt(imageForm, data['_id']).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+          this.imageUploadProgress = 'Image Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%';
+          this.imageUploadValue = Math.round(event.loaded / event.total * 100);
+        } else if (event.type === HttpEventType.Response) {
+          console.log(event);
+          this.imageSuccessMessage = event['success'];
+        }
       });
     });
-    setTimeout(() => {
-      this.router.navigate(['/dashboard/' + this.artistId]);
-    }, 2000);
   }
   loadArtistId() {
     const { _id } = JSON.parse(localStorage.getItem('user'));
