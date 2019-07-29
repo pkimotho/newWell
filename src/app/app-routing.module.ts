@@ -19,9 +19,9 @@ const routes: Routes = [
     loadChildren: './home/home.routing.module#HomeRoutingModule'
   },
   {
-    path: 'dashboard/:artistName',
+    path: 'dashboard',
     component: DashboardComponent,
-    // canActivate: [ AuthGuard , ],
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
