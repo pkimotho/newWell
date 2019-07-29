@@ -4,11 +4,14 @@ import { map, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 import { Observable } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthToken } from '../services/core/token';
 
 import { Artist } from '../shared/models/artist';
 import { handleHttpError } from './errors/http';
 import { catchError } from 'rxjs/operators';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +24,10 @@ export class AuthorizationService {
   authToken;
   request;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    // private jwtHelper: JwtHelperService
+  ) { }
 
   registerArtist(user): Observable<any> {
     console.log(user);
@@ -43,7 +49,6 @@ export class AuthorizationService {
 
 
   public get loggedIn(): boolean {
-    // console.log(localStorage.getItem('token'));
     return (localStorage.getItem('token') !== null);
   }
 
@@ -87,6 +92,10 @@ export class AuthorizationService {
     this.createAuthenticationHeaders();
     return this.http.get(environment.base_url + 'artist/profile', this.headers);
   }
+
+  // isLoggedIn() {
+  //   return this.jwtHelper.isTokenExpired();
+  // }
 
   logout() {
     localStorage.clear();
