@@ -19,7 +19,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'dashboard/:artistName/uploads',
+    path: 'dashboard/uploads',
     component: UploadComponent,
     // canActivate: [AuthGuard]
 
