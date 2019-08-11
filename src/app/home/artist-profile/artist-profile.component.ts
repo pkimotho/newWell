@@ -21,6 +21,12 @@ export class ArtistProfileComponent implements OnInit {
   genre;
   songs = [];
 
+  event = {
+    title: 'Album Launch',
+    location: 'Roasters Inn',
+    date: '25th Nov, 2019'
+  };
+
   constructor(
     private authService: AuthorizationService,
     private artistProfileService: ArtistProfileService,
@@ -50,7 +56,7 @@ export class ArtistProfileComponent implements OnInit {
       this.name = name;
       this.profilePic = profilePic;
       this.genre = genre;
-    });
+    }, (err) => console.log(err), () => console.log('completed'));
   }
   loadArtistId() {
     const { _id } = JSON.parse(localStorage.getItem('user'));

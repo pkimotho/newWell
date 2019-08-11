@@ -1,6 +1,16 @@
 <div class="outer">
     <section class="banner">
-        <img src="../../../assets/images/band.jpg" alt="Artist's Image">
+        <div class="cover-page">
+            <div class="overlay"></div>
+            <div class="cover-image">
+                <img [src]="profilePic" alt="Artist's Image">
+            </div>
+            <div class="bio">
+                <h3>{{name}}</h3>
+                <p>{{genre}}</p>
+                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, molestias reiciendis possimus repellendus necessitatibus molestiae.</p> -->
+            </div>
+        </div>
         <div class="stats">
             <div class="stat">
                 <h6 class="font-weight-bold">69</h6>
@@ -19,10 +29,10 @@
             <div class="profile-image">
                 <img [src]="profilePic" alt="Profile Picture">
             </div>
-            <div class="profile-info">
-                <h3>{{name}}</h3>
-                <p>{{genre}}</p>
-                <small>Last online: 2 hours ago</small>
+            <div class="event-info">
+                <h3>Event: {{event.title}}</h3>
+                <p>Location {{event.location}}</p>
+                <small>Date: {{event.date}}</small>
             </div>
         </div>
     </section>
