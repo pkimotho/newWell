@@ -47,9 +47,7 @@ export class LoginComponent implements OnInit {
       this.messageClass = 'alert alert-success';
       this.message = 'Successfully logged in';
       this.authService.storeUserData(data['token'], data['user']);
-      setTimeout(() => {
-        this.router.navigate(['/dashboard/']);
-      }, 2000);
+      this.router.navigate(['/dashboard/']);
     }, err => {
       if (err['error']) {
         this.messageClass = 'alert alert-danger';
