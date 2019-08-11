@@ -39,7 +39,8 @@ export class LandingComponent implements OnInit {
     imagesLoaded: true,
     contain: true,
     pageDots: true,
-    autoPlay: true
+    autoPlay: true,
+    prevNextButtons: false
   };
 
   options = {
