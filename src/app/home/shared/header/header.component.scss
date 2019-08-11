@@ -91,19 +91,19 @@ nav {
     ul li {
         list-style: none;
     }
-    ul li a:hover {
-        color: $secondary;
-        background: $danger;
-    }
+    // ul li a:hover {
+    //     color: $secondary;
+    //     background: $danger;
+    // }
     img {
         height: 45px;
         width: 45px;
         border-radius: 50%;
     }
-    ul li a.active {
-        color: $secondary;
-        background: $danger;
-    }
+    // ul li a.active {
+    //     color: $secondary;
+    //     background: $danger;
+    // }
     input {
         background: lighten($primary, 10);
     }
