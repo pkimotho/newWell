@@ -2,45 +2,39 @@
 
 @import '../node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '../node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-
+@import "./spinner";
 @import "../node_modules/owl.carousel/dist/assets/owl.carousel.css";
 @import "../node_modules/owl.carousel/dist/assets/owl.theme.default.css";
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu:400,500,700&display=swap');
 $primary: #0f1011;
 $danger: #ff4136;
 $secondary: white;
-
 #brands {
-  .flickity-viewport {
-    height: 100% !important;
-    display: flex;
-    align-items: center;
-  }
-
-.flickity-slider {
-  display: flex;
-  align-items: center; 
-  // flex-wrap: wrap;
-  
-}
+    .flickity-viewport {
+        height: 100% !important;
+        display: flex;
+        align-items: center;
+    }
+    .flickity-slider {
+        display: flex;
+        align-items: center;
+        // flex-wrap: wrap;
+    }
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
+
 body {
-  background: lighten($color: $primary, $amount: 10);
-  .btn {
-    text-transform: uppercase;
-  }
-
-  .flickity-page-dots .dot {
-    background: $danger;
-  }
+    background: lighten($color: $primary, $amount: 10);
+    .btn {
+        text-transform: uppercase;
+    }
+    .flickity-page-dots .dot {
+        background: $danger;
+    }
 }
-
-
-

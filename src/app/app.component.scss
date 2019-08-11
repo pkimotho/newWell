@@ -1,3 +1,7 @@
-.bg-light {
-    margin-top: 7rem;
+.flashmsg {
+    position: fixed;
+    top: 4rem;
+    left: 30rem;
+    border-radius: 5px;
+    z-index: 99999;
 }
