@@ -10,17 +10,19 @@
 </section>
 
 
-<section class="text-center">
-    <!-- <div id="brands">
-        <div class="brand"><img src="../../assets/img/carousel/spotify.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/itunes.png"></div>
-        <div class="brand"><img src="../../assets/img/carousel/deezer.svg"></div>
+<section>
+    <div id="brands" [flickity]="logosOptions">
+        <div class="brand" [flickityChild] *ngFor="let logo of logos"><img [src]="logo.src"></div>
+        <!-- <div class="brand"><img src="../../assets/img/carousel/pandora.svg"></div>
+        <div class="brand"><img src="../../assets/img/carousel/Deezer_logo.svg"></div>
         <div class="brand"><img src="../../assets/img/carousel/amazon.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/pandora.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/apple-music.svg"></div>
         <div class="brand"><img src="../../assets/img/carousel/tidal.svg"></div>
-    </div> -->
+        <div class="brand"><img src="../../assets/img/carousel/itunes.svg"></div>
+        <div class="brand"><img src="../../assets/img/carousel/youtube.svg"></div>
+        <div class="brand"><img style="background: #fff" src="../../assets/img/carousel/Apple_Music_logo.svg.png"></div> -->
+    </div>
 </section>
+
 
 <!-- <section class="card-section">
   <h1>Top Music</h1>
@@ -226,99 +228,3 @@
     </div>
 
 </section>
-
-<footer>
-    <h1>Concerts</h1>
-    <div class="events" style="display: flex; justify-content: space-evenly;flex-wrap: wrap">
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center; ">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-        <div class="event" style="display: flex; align-items: center;">
-            <div style="margin-right: 2rem">
-                <h5 style="">Name Of The Event</h5>
-                <p style="">Date and Venue of the concert</p>
-            </div>
-            <div class>
-                <a href="#" class="btn btn-danger">
-          Tickets
-        </a>
-            </div>
-        </div>
-    </div>
-
-    <button class="btn">Browse All</button>
-</footer>

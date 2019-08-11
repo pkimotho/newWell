@@ -22,6 +22,26 @@ export class LandingComponent implements OnInit {
     imageUrl: 'assets/images/placeholder.svg'
   };
   artists: any = [];
+  logos = [
+    { src: '../../assets/img/carousel/spotify.svg' },
+    { src: '../../assets/img/carousel/pandora.svg' },
+    { src: '../../assets/img/carousel/Deezer_logo.svg' },
+    { src: '../../assets/img/carousel/itunes.svg' },
+    { src: '../../assets/img/carousel/amazon-icon.svg' },
+    { src: '../../assets/img/carousel/apple-music.svg' },
+    { src: '../../assets/img/carousel/tidal.svg' },
+    { src: '../../assets/img/carousel/google_play_music.svg' },
+    { src: '../../assets/img/carousel/youtube.svg' },
+    { src: '../../assets/img/carousel/soundcloud_logo.svg' },
+  ];
+  logosOptions = {
+    freeScroll: true,
+    imagesLoaded: true,
+    contain: true,
+    pageDots: true,
+    autoPlay: true
+  };
+
   options = {
     // options
     freeScroll: true,
@@ -69,7 +89,7 @@ export class LandingComponent implements OnInit {
     fetch('https://cms.newwellmusic.com/pages')
       .then(res => res.json())
       .then((pages) => {
-        const { title, description, ctaText, ctaLink, image } = pages[0]
+        const { title, description, ctaText, ctaLink, image } = pages[0];
         this.landingPageContent = {
           title, description, ctaLink, ctaText, imageUrl: image.url
         };

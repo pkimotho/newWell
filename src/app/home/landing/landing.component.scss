@@ -224,55 +224,20 @@ section.card-section {
 
 #brands {
     height: 10vh;
-    width: 100%;
-    // border: 2px solid red;
+    // width: 100%;
     // display: flex;
     // justify-content: space-around;
     // align-items: center;
+    // overflow: hidden;
     .brand {
         padding: 0 3rem;
+        img {
+            width: 100px;
+            height: 30px;
+        }
     }
-    img {
-        // height: 100%;
-        max-width: 50px;
-        max-height: 50px;
-    }
-    @media (max-width: 768px) {}
 }
 
-footer {
-    background-color: #131414;
-    min-height: calc(100vh - 70px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-    padding: 1rem 15vw;
-    >* {
-        margin-bottom: 2rem;
-    }
-    p,
-    h5 {
-        margin: 0;
-        padding: 0;
-    }
-    p {
-        color: grey;
-        font-size: 0.8em;
-    }
-    h5 {
-        font-weight: 700;
-        font-size: 0.8em;
-    }
-    button {
-        background: transparent;
-        border: 3px solid $danger;
-        color: white;
-    }
-    .event {
-        margin: 1rem 0;
-    }
-    .btn-danger {
-        background: $danger;
-    }
+body .flickity-page-dots .dot {
+    visibility: hidden;
 }
