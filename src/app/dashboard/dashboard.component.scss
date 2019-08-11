@@ -1,40 +1,52 @@
 $primary: #0f1011;
 $danger: #FF0039;
+$danger2: #ff4136;
 $secondary: white;
 .wrapper {
     margin-top: 4rem;
     .side-nav {
         width: 250px;
-        height: 100vh;
+        height: 100%;
         margin: 0;
-        background-color: $primary;
+        background-color: $danger2;
         position: fixed;
-        overflow: hidden;
         top: 4rem;
         left: 0;
         z-index: 1;
+        overflow: auto;
         ul {
-            li {}
-        }
-        ul li a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            height: 19px;
-            cursor: pointer;
-            span {
-                white-space: nowrap;
-                overflow: hidden;
-                transition: all 5s ease-in-out;
-                margin-left: 1rem;
+            .list-group-item:first-child {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+            }
+            .list-group-item:last-child {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+            li {
+                background-color: $danger2;
+                a {
+                    display: flex;
+                    align-items: flex-start;
+                    text-decoration: none;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    height: 19px;
+                    cursor: pointer;
+                    color: $primary;
+                    span {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        transition: all 5s ease-in-out;
+                        margin-left: 1rem;
+                    }
+                }
             }
         }
     }
     .main-container {
         margin: 0;
-        padding-left: 4rem;
+        padding-left: 3rem;
         color: $secondary;
     }
 }

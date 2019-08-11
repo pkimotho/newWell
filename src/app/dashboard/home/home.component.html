@@ -1,69 +1,71 @@
-<section>
-    <div class="top">
-        <h2>Latest Uploads</h2>
-        <a routerLink="/dashboard/uploads" class="btn btn-sm text-right btn-success">New Upload</a>
-    </div>
-    <table class="table table-hover table-dark">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Genre</th>
-                <th scope="col">Title</th>
-                <th scope="col">Status</th>
-                <th scope="col">Stats</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let song of songs; index as i">
-                <th scope="row"><i class="fa fa-list-ol danger" aria-hidden="true"></i> {{i + 1}}</th>
-                <td><i class="fa fa-music orange" aria-hidden="true"></i> {{song.genre}}</td>
-                <td><i class="fa fa-headphones orange" aria-hidden="true"></i> {{song.title}}</td>
-                <td class="text-capitalize">
-                    <i class="fa fa-check green" aria-hidden="true" *ngIf="song.status==='verified_distro'"></i>
-                    <i class="fa fa-times red" aria-hidden="true" *ngIf="song.status==='rejected'"></i>
-                    <i class="fa fa-spinner orange" aria-hidden="true" *ngIf="song.status==='unverified' || song.status==='verified_newwell'"></i> {{song.status}}
-                </td>
-                <td><i class="fa fa-line-chart blue" aria-hidden="true"></i> 18,003</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-<section>
-    <div class="top">
-        <h2>Albums</h2>
-    </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card">
-                <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
-                <div class="card-body card-img-overlay">
-                    <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+<div class="container">
+    <section>
+        <div class="top">
+            <h2>Latest Uploads</h2>
+            <a routerLink="/dashboard/uploads" class="btn btn-sm text-right btn-success">New Upload</a>
+        </div>
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Stats</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let song of songs; index as i">
+                    <th scope="row"><i class="fa fa-list-ol danger" aria-hidden="true"></i> {{i + 1}}</th>
+                    <td><i class="fa fa-music orange" aria-hidden="true"></i> {{song.genre}}</td>
+                    <td><i class="fa fa-headphones orange" aria-hidden="true"></i> {{song.title}}</td>
+                    <td class="text-capitalize">
+                        <i class="fa fa-check green" aria-hidden="true" *ngIf="song.status==='verified_distro'"></i>
+                        <i class="fa fa-times red" aria-hidden="true" *ngIf="song.status==='rejected'"></i>
+                        <i class="fa fa-spinner orange" aria-hidden="true" *ngIf="song.status==='unverified' || song.status==='verified_newwell'"></i> {{song.status}}
+                    </td>
+                    <td><i class="fa fa-line-chart blue" aria-hidden="true"></i> 18,003</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <div class="top">
+            <h2>Albums</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                    <div class="card-body card-img-overlay">
+                        <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img class="card-img" src="../../../assets/images/artists/artist1.jpg" alt="Artist's Image">
+                    <div class="card-body card-img-overlay">
+                        <h5 class="card-title font-weight-bold">Msoo</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                    <div class="card-body card-img-overlay">
+                        <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card">
+                    <img class="card-img" src="../../../assets/images/artists/artist4.jpg" alt="Artist's Image">
+                    <div class="card-body card-img-overlay">
+                        <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card">
-                <img class="card-img" src="../../../assets/images/artists/artist1.jpg" alt="Artist's Image">
-                <div class="card-body card-img-overlay">
-                    <h5 class="card-title font-weight-bold">Msoo</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card">
-                <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
-                <div class="card-body card-img-overlay">
-                    <h5 class="card-title font-weight-bold">John D'Mathew</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12">
-            <div class="card">
-                <img class="card-img" src="../../../assets/images/artists/artist4.jpg" alt="Artist's Image">
-                <div class="card-body card-img-overlay">
-                    <h5 class="card-title font-weight-bold">John D'Mathew</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>

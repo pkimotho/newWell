@@ -12,10 +12,19 @@ table {
 
 .top {
     display: flex;
-    box-sizing: border-box;
-    padding: 1rem;
-    .btn {
-        margin-left: 60%;
+    justify-content: space-between;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    // box-sizing: border-box;
+    // padding: 1rem;
+    // .btn {
+    //     margin-left: 60%;
+    // }
+}
+
+.col-md-6 {
+    .card {
+        margin-bottom: 1rem;
     }
 }
 
@@ -37,4 +46,36 @@ table {
 
 .danger {
     color: $danger;
+}
+
+@media (max-width: 769px) {
+    .top {
+        h2 {
+            font-size: 1rem;
+        }
+        a {
+            font-size: 0.7rem;
+            .btn {
+                margin-left: 0;
+            }
+        }
+    }
+    table {
+        thead {
+            th {
+                font-size: 0.8rem;
+            }
+        }
+        tbody {
+            tr {
+                th,
+                td {
+                    font-size: 0.8rem;
+                    i {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -106,8 +106,8 @@ export class UploadComponent implements OnInit {
       console.log(data['title']);
       this.uploadService.uploadaudio(songForm, data['_id']).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
-          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-          this.audioUploadProgress = 'Audio Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%';
+          console.log('Upload Progress: ' + (event.loaded / event.total * 100) + '%');
+          this.audioUploadProgress = 'Audio Upload Progress: ' + (event.loaded / event.total * 100).toFixed(2) + '%';
           this.audioUploadValue = Math.round(event.loaded / event.total * 100);
           if (this.audioUploadValue === 100) {
             this.router.navigate(['/dashboard/']);
@@ -119,7 +119,7 @@ export class UploadComponent implements OnInit {
       });
       this.uploadService.uploadAlbumArt(imageForm, data['_id']).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
-          console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+          console.log('Upload Progress: ' + (event.loaded / event.total * 100).toFixed(2) + '%');
           this.imageUploadProgress = 'Image Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%';
           this.imageUploadValue = Math.round(event.loaded / event.total * 100);
         } else if (event.type === HttpEventType.Response) {
