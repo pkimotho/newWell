@@ -31,34 +31,34 @@
         </div>
     </app-root>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // document.querySelectorAll('img').forEach(img => img.src = "assets/images/band.jpg")
-            const navLinks = document.querySelectorAll('.nav-item');
-            const navbarArea = document.getElementById('navbarstarget');
-            const navToggler = document.querySelector('.navbar-toggler');
-            const navbar = document.querySelector('.navbar');
-            const logo = document.querySelector('.logo');
-            navLinks.forEach((link) => {
-                link.dataset.toggle = "collapse";
-                link.dataset.target = "#navbarstarget";
-                link.addEventListener('click', () => {
-                    navbar.style.height = '10vh';
-                })
-            });
+        // document.addEventListener('DOMContentLoaded', () => {
+        //     // document.querySelectorAll('img').forEach(img => img.src = "assets/images/band.jpg")
+        //     const navLinks = document.querySelectorAll('.nav-item');
+        //     const navbarArea = document.getElementById('navbarstarget');
+        //     const navToggler = document.querySelector('.navbar-toggler');
+        //     const navbar = document.querySelector('.navbar');
+        //     const logo = document.querySelector('.logo');
+        //     navLinks.forEach((link) => {
+        //         link.dataset.toggle = "collapse";
+        //         link.dataset.target = "#navbarstarget";
+        //         link.addEventListener('click', () => {
+        //             navbar.style.height = '10vh';
+        //         })
+        //     });
 
 
-            navToggler.addEventListener('click', () => {
-                console.log('dd')
-                if (navbarArea.classList.contains('show')) {
-                    navbar.style.height = '10vh';
-                    console.log('Hey')
-                } else {
-                    navbar.style.height = 'auto';
-                    console.log('Heysss')
-                }
-            })
+        //     navToggler.addEventListener('click', () => {
+        //         console.log('dd')
+        //         if (navbarArea.classList.contains('show')) {
+        //             navbar.style.height = '10vh';
+        //             console.log('Hey')
+        //         } else {
+        //             navbar.style.height = 'auto';
+        //             console.log('Heysss')
+        //         }
+        //     })
 
-            // console.log(navLinks)
-        })
+        //     // console.log(navLinks)
+        // })
     </script>
 </body>
