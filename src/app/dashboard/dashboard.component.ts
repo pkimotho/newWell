@@ -14,6 +14,12 @@ import { AuthorizationService } from './../services/authorization.service';
       state('open', style({ width: '260px' })),
       transition('open => close', animate('400ms ease-in')),
       transition('close => open', animate('400ms ease-out'))
+    ]),
+    trigger('toggleButtonAnime', [
+      state('close', style({ marginLeft: '52px' })),
+      state('open', style({ marginLeft: '262px' })),
+      transition('open => close', animate('400ms ease-in')),
+      transition('close => open', animate('400ms ease-out'))
     ])
   ]
 })

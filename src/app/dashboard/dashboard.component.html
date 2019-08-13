@@ -1,6 +1,6 @@
 <div class="wrapper">
     <!--SideBar-->
-    <div class="side-nav" (mouseenter)="openCloseSidebar = 'open'" (mouseleave)="openCloseSidebar = 'close'" [@sideMenuAnime]="openCloseSidebar">
+    <div class="side-nav" [@sideMenuAnime]="openCloseSidebar">
         <ul class="list-group">
             <li class="list-group-item list-group-item-dark"><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Home</span></a></li>
@@ -17,10 +17,17 @@
             <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/wallet"><i class="fa fa-money"
             aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> My Wallet</span></a></li>
+            <li class="list-group-item list-group-item-dark"><a routerLink="/dashboard/wallet"><i class="fa fa-gear"
+            aria-hidden="true"></i>
+          <span *ngIf="openCloseSidebar==='open'"> Settings</span></a></li>
             <li class="list-group-item list-group-item-dark"><a (click)="onLogout()"><i class="fa fa-sign-out"
             aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Logout</span></a></li>
         </ul>
+    </div>
+    <div [@toggleButtonAnime]="openCloseSidebar">
+        <a *ngIf="openCloseSidebar === 'close'" (click)="openCloseSidebar = 'open'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-indent"></i></a>
+        <a *ngIf="openCloseSidebar === 'open'" (click)="openCloseSidebar = 'close'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-outdent"></i></a>
     </div>
     <!--Main Container-->
     <div class="main-container">
