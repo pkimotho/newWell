@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ArtistsService } from './../../services/artists.service';
 import { AuthorizationService } from './../../services/authorization.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -10,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('messageSection') messageSection: ElementRef;
+
   form: FormGroup;
   artist;
   messageClass;
@@ -32,10 +34,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
-
-
-
   onLoginSubmit() {
     const artist = {
       email: this.form.get('email').value,
@@ -55,6 +53,10 @@ export class LoginComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  public gotoMessageSection() {
+    this.messageSection.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
 
