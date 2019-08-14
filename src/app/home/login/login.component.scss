@@ -4,6 +4,12 @@
     .container-fluid {
         margin-top: 4rem;
         color: $secondary;
+        .col1 {
+            width: 30
+        }
+        .col2 {
+            min-width: 400px;
+        }
         form {
             -webkit-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
