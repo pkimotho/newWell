@@ -1,44 +1,3 @@
-<!-- <nav class="navbar navbar-expand-md fixed-top">
-    <a class="navbar-brand logo" routerLink="/">
-        <img src="assets/img/logo.png" alt="Newwell Logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarstarget" aria-controls="navbarstarget" aria-expanded="false" aria-label="Toggle navigation">
-    <span><i class="fa fa-bars fa-2x"></i></span>
-  </button>
-
-    <div class="collapse navbar-collapse" id="navbarstarget">
-        <ul *ngIf="authService.loggedIn; else loggedOut" class="navbar-nav ml-auto text-left">
-            <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">NewWell Music</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/dashboard">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
-            <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
-            <li class="nav-item" data-toggle="tooltip" data-html="true" title="Notifications"><a class="nav-link" routerLink="pricing"><span class="fa fa-bell"></span></a></li>
-            <li class="nav-item dropdown" data-toggle="tooltip" data-html="true" title="Profile">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img *ngIf="profilePic" [src]="profilePic" alt="User Profile Picture" class="img-circle img-responsive">
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/artist/{{id}}">Profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" (click)="logout()">Logout</a>
-                </div>
-            </li>
-        </ul>
-
-        <ng-template #loggedOut>
-            <ul class="navbar-nav ml-auto text-left ">
-                <li class="nav-item"><a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/" class="nav-link nav-link-hover">NewWell Music</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
-            </ul>
-
-        </ng-template>
-    </div>
-</nav> -->
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand logo" routerLink="/">
         <img src="assets/img/logo.png" alt="Newwell Logo">
@@ -66,7 +25,7 @@
                 <a class="nav-link nav-link-hover pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" (click)="logout()">Logout</a>
+                <a class="nav-link nav-link-hover login" (click)="logout()">Logout</a>
             </li>
             <li class="nav-item dropdown" data-toggle="tooltip" data-html="true" title="Profile">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,12 +41,12 @@
         </ul>
         <ng-template #loggedOut>
             <ul class="navbar-nav ml-auto text-left ">
-                <li class="nav-item"><a [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/" class="nav-link nav-link-hover">NewWell Music</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
-                <li class="nav-item"><a class="nav-link nav-link-hover" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">NewWell Music</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover artists" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-hover signup" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
             </ul>
         </ng-template>
     </div>

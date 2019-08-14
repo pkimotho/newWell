@@ -141,25 +141,46 @@
                     // border-bottom: $danger 3px solid;
                     border-radius: 10px;
                 }
-                .music:hover {
-                    color: lighten(#293462, 20);
-                    border-bottom: #293462 3px solid;
-                }
-                .artists:hover {
-                    color: lighten(#c02118, 10);
-                    border-bottom: #c02118 3px solid;
-                }
-                .dashboard:hover {
+                .music:hover,
+                .music.active {
                     color: lighten($danger, 10);
                     border-bottom: $danger 3px solid;
+                    border-radius: 10px;
                 }
-                .publishing:hover {
+                .artists:hover,
+                .artists.active {
+                    color: lighten(#c02118, 10);
+                    border-bottom: #c02118 3px solid;
+                    border-radius: 10px;
+                }
+                .dashboard:hover,
+                .dashboard.active {
+                    color: lighten(#61234e, 10);
+                    border-bottom: #61234e 3px solid;
+                    border-radius: 10px;
+                }
+                .publishing:hover,
+                .publishing.active {
                     color: lighten(#02576c, 10);
                     border-bottom: #02576c 3px solid;
+                    border-radius: 10px;
                 }
-                .pricing:hover {
+                .pricing:hover,
+                .pricing.active {
                     color: lighten(#00a79d, 10);
                     border-bottom: #00a79d 3px solid;
+                    border-radius: 10px;
+                }
+                .login:hover,
+                .login.active {
+                    color: lighten(#a72693, 10);
+                    border-bottom: #a72693 3px solid;
+                }
+                .signup:hover,
+                .signup.active {
+                    color: lighten(#f6d365, 10);
+                    border-bottom: #f6d365 3px solid;
+                    border-radius: 10px;
                 }
             }
             .nav-item {
