@@ -33,6 +33,7 @@ import { UploadsService } from './services/uploads.service';
     HeaderComponent,
     FooterComponent,
 
+
   ],
   imports: [
     BrowserModule,

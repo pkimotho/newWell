@@ -16,7 +16,7 @@ $banner: #060606;
 
 
 $primary: #0f1011;
-$danger: #ff4136;
+$danger: #ec2e23;
 $secondary: white;
 
 
@@ -118,7 +118,8 @@ $pepea: #4e504e;
         top: 100px;
         color: white;
         z-index: 2;
-        font-size: 28px;
+        font-size: 35px;
+        font-weight: 300px;
 
         text-decoration: none;
       }
@@ -185,8 +186,7 @@ $pepea: #4e504e;
         .article {
           width: 100%;
           height: 40%;
-          // border: 1px solid darken($background, 10%);
-          // border-bottom: 2px solid linear-gradient(to right, red, orange);
+
           display: flex;
           justify-content: center;
           flex-direction: column;
@@ -302,6 +302,10 @@ $pepea: #4e504e;
 
         }
 
+
+        // &:hover {
+        //   border: 1px solid $danger;
+        // }
 
 
 

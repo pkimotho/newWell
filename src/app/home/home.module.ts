@@ -18,6 +18,8 @@ import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { ArtistCompleteProfileComponent } from '../home/artist-complete-profile/artist-complete-profile.component';
 import { ComingsoonComponent } from '../home/comingsoon/comingsoon.component';
+import { TermsComponent } from '../home/terms/terms.component';
+import { FaqComponent } from '../home/faq/faq.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { ComingsoonComponent } from '../home/comingsoon/comingsoon.component';
     ArtistsPageComponent,
     ArtistSignupComponent,
     ArtistCompleteProfileComponent,
-    ComingsoonComponent
+    ComingsoonComponent,
+    TermsComponent,
+    FaqComponent
   ],
   imports: [
     CommonModule,

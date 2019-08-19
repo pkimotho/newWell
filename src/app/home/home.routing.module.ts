@@ -9,11 +9,13 @@ import { PricingComponent } from './pricing/pricing.component';
 import { PublishingComponent } from './publishing/publishing.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { ArtistCompleteProfileComponent } from './artist-complete-profile/artist-complete-profile.component';
-
+import { TermsComponent } from '../home/terms/terms.component';
+import { FaqComponent } from '../home/faq/faq.component';
 
 import { AuthGuard } from '../services/guards/auth.guard';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
+
 
 
 const routes: Routes = [
@@ -64,6 +66,18 @@ const routes: Routes = [
     path: 'signup',
     component: FanSignupComponent,
   },
+
+  {
+    path: 'terms',
+    component: TermsComponent,
+  },
+
+
+  {
+    path: 'faq',
+    component: FaqComponent,
+  },
+
 ];
 
 @NgModule({
