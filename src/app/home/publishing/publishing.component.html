@@ -113,11 +113,11 @@
     <h2>Testimonials</h2>
   </div>
 
-  <div class="testimonials-content">
+  <!-- <div class="testimonials-content">
     <div class="testimony">
       <img src="../../../assets/img/pricing.jpg" alt="Name">
 
-      <h3>Wamlambez</h3>
+      <h3>Artsist</h3>
 
       <p> Every time you get streamed on Spotify. Every download of your music on
         iTunes.You get paid, and we put your money directly into your Newwell music
@@ -128,7 +128,7 @@
     <div class="testimony">
       <img src="../../../assets/img/pricing.jpg" alt="Name">
 
-      <h3>Wamlambez</h3>
+      <h3>Artist Name</h3>
 
       <p> Every time you get streamed on Spotify. Every download of your music on
         iTunes.You get paid, and we put your money directly into your Newwell music
@@ -139,7 +139,7 @@
     <div class="testimony">
       <img src="../../../assets/img/pricing.jpg" alt="Name">
 
-      <h3>Wamlambez</h3>
+      <h3>Artist Name</h3>
 
       <p> Every time you get streamed on Spotify. Every download of your music on
         iTunes.You get paid, and we put your money directly into your Newwell music
@@ -151,8 +151,22 @@
 
 
 
-  </div>
+  </div> -->
 
+  <section class="card-section">
 
+      <div class="cards" [flickity]="options">
+          <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
+              <div class="card" (click)="goToArtistProfile(artist._id)">
+                  <img class="card-img-top" src="{{artist.profilePic}}" alt="Card image cap">
+                  <div class="card-body">
+                      <p class="artist text-center font-weight-bolder "> {{artist.name}}</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+  </section>
 
 </div>
