@@ -67,7 +67,9 @@ export class LandingComponent implements OnInit {
 
   getAllArtists() {
     this.http.get(environment.base_url + "artist").subscribe(data => {
-      this.artists = data.results;
+      let results: any = {};
+      results = data;
+      this.artists = results.results;
       this.logos = [
         { src: "../../assets/img/carousel/spotify.svg" },
         { src: "../../assets/img/carousel/pandora.svg" },
