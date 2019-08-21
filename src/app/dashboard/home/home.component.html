@@ -2,7 +2,16 @@
     <section>
         <div class="top">
             <h2>Latest Uploads</h2>
-            <a routerLink="/dashboard/uploads" class="btn btn-sm text-right btn-success">New Upload</a>
+            <!-- <a routerLink="/dashboard/uploads" class="btn btn-sm text-right btn-success">New Upload</a> -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          New Upload
+        </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" routerLink="/dashboard/uploads">New Single Release</a>
+                    <a class="dropdown-item" routerLink="/dashboard/uploads">New Album Release</a>
+                </div>
+            </div>
         </div>
         <table class="table table-hover table-dark">
             <thead>

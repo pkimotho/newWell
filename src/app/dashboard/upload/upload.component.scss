@@ -1,25 +1,17 @@
-$primary: #212222;
-$danger: #ff4136;
-$secondary: #fff;
-.banner {
-    height: 40%;
-    width: 100%;
-    background-image: url(../../../assets/images/newwellphotos/uploadbanner.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    .desc {
-        padding-top: 10%;
-        text-align: center;
-        font-weight: bolder;
-        color: $danger;
-        button {
-            background: $primary;
-            border: none;
-            border-radius: 10px;
-            color: $danger;
-            padding: 0.5rem;
-        }
+$primary: #0f1011;
+$danger: #ff0039;
+$danger2: #ff4136;
+$secondary: white;
+.desc {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin: 0 1rem;
+    nav {
+        width: 300px;
+    }
+    h4 {
+        padding: 0;
     }
 }
 
@@ -27,64 +19,75 @@ $secondary: #fff;
     background-color: $primary;
     color: $secondary;
     .nav-item {
-        font-size: 2rem;
-        padding-left: 2rem;
-        margin: auto;
+        width: 25%;
+        .nav-link {
+            border-radius: 0;
+        }
         a {
-            color: $secondary;
+            color: darken($secondary, 20);
+            span {
+                i {
+                    color: darken($primary, 10);
+                    span {
+                        color: $secondary;
+                    }
+                }
+            }
         }
         a:hover {
-            background-color: $danger;
-            color: $primary;
+            color: $secondary;
+            font-weight: bold;
         }
-        .dropdown-menu a {
-            color: $primary;
-        }
+    }
+}
+
+.nav-pills {
+    box-sizing: border-box;
+    .nav-link.active {
+        background-color: transparent;
+        color: $secondary;
+        font-weight: bold;
+        border-bottom: 2px solid $danger;
     }
 }
 
 form {
     margin: 1rem;
+    #imageFieldLabel {
+        img {
+            padding-left: 1.5rem;
+        }
+    }
+    .btnImg {
+        color: $secondary !important;
+    }
+    #imageFieldLabel:hover {
+        cursor: pointer;
+    }
+    #imageField {
+        width: 220px;
+        display: none;
+    }
+    input,
+    textarea,
+    select {
+        border-radius: 0;
+        background: #181818;
+        color: #555;
+        border: 1px solid #555;
+    }
+    button {
+        background-color: $danger2;
+        border: 1px solid #555;
+        border-radius: 0;
+    }
 }
 
 .card h4 {
     color: $primary;
 }
 
-@media (max-width: 891px) {
-    .nav {
-        .nav-item {
-            font-size: 1.5rem;
-            padding-left: 1rem;
-        }
-    }
-    .desc {
-        button {
-            padding-top: 50%;
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 689px) {
-    .nav {
-        .nav-item {
-            font-size: 1rem;
-            padding-left: 0.5rem;
-        }
-    }
-    .desc {
-        button {
-            h1 {
-                font-size: 1.5rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 520px) {
+@media (max-width: 747px) {
     .nav {
         .nav-item {
             font-size: 0.8rem;
@@ -100,66 +103,18 @@ form {
     }
 }
 
-@media (max-width: 425px) {
-    .nav {
-        .nav-item {
-            font-size: 0.6rem;
-            padding-left: 0.1rem;
-            .dropdown-menu a {
-                font-size: 0.8rem;
-            }
-        }
-    }
-    .desc {
-        button {
-            h1 {
-                font-size: 1rem;
-            }
-        }
-    }
-    .container {
-        section {
-            h3 {
-                font-size: 1rem;
-            }
-            .card {
-                h4 {
-                    font-size: 1rem;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 320px) {
+@media (max-width: 648px) {
     .nav {
         .nav-item {
             width: 100%;
+            font-size: 1.2rem;
             text-align: center;
-            a {
-                font-size: 1rem;
-                width: 100%;
-                margin: 0;
-            }
         }
     }
     .desc {
         button {
             h1 {
-                font-size: 0.8rem;
-            }
-        }
-        p {
-            font-size: 0.8rem;
-        }
-    }
-    form {
-        font-size: 0.8rem;
-        button {
-            width: 5rem;
-            font-size: 0.8rem;
-            i {
-                display: none;
+                font-size: 1rem;
             }
         }
     }

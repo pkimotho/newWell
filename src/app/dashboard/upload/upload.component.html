@@ -1,30 +1,131 @@
 <div>
-    <div class="banner">
-        <div class="desc">
-            <button>
-        <h1>Newwell Music - Bridging the Gap</h1>
-      </button>
-            <p>Upload your music and start earning...</p>
-        </div>
+    <div class="desc">
+        <h4>Add New Release(Single)</h4>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="#">Releases</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Single</li>
+            </ol>
+        </nav>
     </div>
     <div>
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
+                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Main Info: <span class="fa-stack fa-md">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-inverse fa-stack-1x"><span>1</span></i>
+          </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/dashboard/uploads"><i class="fa fa-upload" aria-hidden="true"></i> Upload</a>
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Upload: <span class="fa-stack fa-md">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-inverse fa-stack-1x"><span>2</span></i>
+          </span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-object-group" aria-hidden="true"></i> Categories</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" (click)="songCategory()">Song</a>
-                    <a class="dropdown-item" (click)="albumCategory()">Album</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Publishing: <span class="fa-stack fa-md">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-inverse fa-stack-1x"><span>3</span></i>
+          </span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Review/Save: <span class="fa-stack fa-md">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-inverse fa-stack-1x"><span>4</span></i>
+          </span></a>
             </li>
         </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label id="imageFieldLabel" for="imageField">
+                <img [src]="uploadPreviewUrl" height="200" />
+              </label>
+                            <div>
+                                <label for="imageField" style="cursor: pointer;" class="btn text-white ml-2">Click to upload</label>
+                                <input type="file" id="imageField" name="image">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <h4>Please observe the following rules while uploading cover image</h4>
+                            <ul>
+                                <li>File format: PNG, GIF, BMP, TIF, JPG or JPEG</li>
+                                <li>Minimum dimensions: 1400x1400 pixels. Recommended: 3000x3000 pixels.</li>
+                                <li>Images may not be larger than 16 Mb.</li>
+                                <li>The information on your cover art should match your album title and artist name.</li>
+                                <li>You may not use a third-party logo or trademark without the express written permission from the trademark holder.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-7">
+                            <label for="inputAddress">Song Title</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter song title">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="inputState">Genre</label>
+                            <select id="inputState" class="form-control">
+                <option selected>Choose Genre</option>
+                <option>Gospel</option>
+                <option>Hip Hop</option>
+                <option>Reggae</option>
+                <option>Rhumba</option>
+                <option>Rap</option>
+              </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Artist</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
+                    </div>
+                    <div class="form-group">
+                        <h5>Is this song composed by several artists?</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress2">Add the other artist's names(ONE PER FIELD)</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
+                    </div>
+                    <div class="form-group">
+                        <h5>Is this song previously released?</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h5>Is this song on a record label?</h5>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">No</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save and continue</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+        </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <form [formGroup]="uploadForm" *ngIf="category === 'song'">
             <div class="form-group">
                 <label>Song Title</label>
@@ -119,4 +220,4 @@
             </div>
         </section>
     </div>
-</div>
+</div> -->

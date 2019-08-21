@@ -33,6 +33,8 @@ export class UploadComponent implements OnInit {
   genre = 'genre';
   artistId;
 
+  uploadPreviewUrl = '../../assets/img/avatars/Upload.svg';
+
   selectedImage: File = null;
   selectedAudio: File = null;
 
