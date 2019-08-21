@@ -16,7 +16,7 @@ export class ArtistProfileComponent implements OnInit {
   likes = 4500;
   user;
   id;
-  profilePic;
+  profilePic = 'assets/images/placeholder.svg';
   name;
   genre;
   songs = [];

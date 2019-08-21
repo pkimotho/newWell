@@ -1,14 +1,17 @@
 <div class="outer">
-    <section class="banner">
+    <div class="banner">
         <div class="cover-page">
-            <div class="overlay"></div>
+            <div class="overlay">
+                <h3>{{name}}</h3>
+                <p>Genre: {{genre}}</p>
+            </div>
             <div class="cover-image">
-                <img [src]="profilePic" alt="Artist's Image">
+                <img class="img-fluid" [src]="profilePic" alt="Artist's Image">
             </div>
             <div class="bio">
                 <h3>{{name}}</h3>
                 <p>{{genre}}</p>
-                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, molestias reiciendis possimus repellendus necessitatibus molestiae.</p> -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, molestias reiciendis possimus repellendus necessitatibus molestiae.</p>
             </div>
         </div>
         <div class="stats">
@@ -25,9 +28,9 @@
                 <p>Albums</p>
             </div>
         </div>
-        <div class="profile-details">
-            <div class="profile-image">
-                <img [src]="profilePic" alt="Profile Picture">
+        <div class="event-details">
+            <div class="event-image">
+                <img [src]="profilePic" class="img-fluid" alt="Event Image">
             </div>
             <div class="event-info">
                 <h3>Event: {{event.title}}</h3>
@@ -35,7 +38,7 @@
                 <small>Date: {{event.date}}</small>
             </div>
         </div>
-    </section>
+    </div>
     <section class="main container-fluid">
         <div class="row">
             <div class="col-md-7 grey m-2">
@@ -60,17 +63,9 @@
                                 <small class="blue"><a (click)="addLikes()"><i class="fa fa-thumbs-up"></i> Like</a></small>
                             </div>
                             <div>
-                                <p><small><strong>65</strong> Comments</small></p>
-                                <small class="blue"><a (click)="toggleComment()"><i class="fa fa-comment"></i> Comment</a></small>
-                            </div>
-                            <div>
                                 <p><small><strong>6501</strong> Views</small></p>
                                 <small class="orange"><a><i class="fa fa-share"></i> Share</a></small>
                             </div>
-                        </div>
-                        <div *ngIf="isComment" class="comment-row">
-                            <p>Coments: User Comments will appear here</p>
-                            <textarea name="" id="" cols="60" rows="3">Type your comment here...</textarea>
                         </div>
                     </div>
                     <div>
