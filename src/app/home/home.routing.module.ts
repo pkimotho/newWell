@@ -11,6 +11,10 @@ import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { ArtistCompleteProfileComponent } from './artist-complete-profile/artist-complete-profile.component';
 import { TermsComponent } from '../home/terms/terms.component';
 import { FaqComponent } from '../home/faq/faq.component';
+import { PolicyComponent } from '../home/policy/policy.component';
+import { WhatwedoComponent } from '../home/whatwedo/whatwedo.component';
+import { AboutComponent } from '../home/about/about.component';
+import { MarketingComponent } from '../home/marketing/marketing.component';
 
 import { AuthGuard } from '../services/guards/auth.guard';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
@@ -63,6 +67,10 @@ const routes: Routes = [
     component: PublishingComponent,
   },
   {
+    path: 'marketing',
+    component: MarketingComponent,
+  },
+  {
     path: 'signup',
     component: FanSignupComponent,
   },
@@ -76,6 +84,18 @@ const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent,
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+  },
+  {
+    path: 'policy',
+    component: PolicyComponent,
+  },
+  {
+    path: 'whatwedo',
+    component: WhatwedoComponent,
   },
 
 ];

@@ -1,29 +1,4 @@
-
-
-
-
-
-$bright: rgb(43, 163, 199);
-
-
-$primary: #0f1011;
-$danger: #ff4136;
-$secondary: white;
-$background: rgb(226, 223, 223);
-$primary: #16579f;
-$text-color: white;
-$secondary: rgb(13, 216, 114);
-$original-text-color: #FF0039;
-$banner: #060606;
-
-
-$primary: #0f1011;
-$danger: #FF0039;
-$secondary: white;
-$shadowtext: 1px 1px 3px #0f1011;
-// $background: #1c1d1d;
-$pepea: #4e504e;
-
+@import '../../../sass/base';
 
 
 :host {
@@ -32,11 +7,11 @@ $pepea: #4e504e;
     // justify-content: center;
     width: 100%;
 
-    // background: lighten($primary, 5%);
+    background: $text-color;
 padding-top: 70px;
 flex-direction: column;
 align-items: center;
-margin-bottom: 50px;
+
 
     .page-title {
     display: flex;
@@ -45,7 +20,7 @@ margin-bottom: 50px;
     align-items: center;
     height: 80px;
       h2 {
-        color: white;
+        color: $banner;
 
       }
     }
@@ -56,27 +31,61 @@ margin-bottom: 50px;
 
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
       width:100%;
 
-      ol {
+      .outline {
         display: flex;
         width: 80%;
         flex-direction: column;
 
         counter-reset: my-awesome-counter;
-        list-style: none;
-        padding-left: 40px;
-
-
-
-
+        align-items: center;
 
 
 
         li {
           display: flex;
           width:100%;
-         background: darken($primary, 5%);
+
+         border-radius: 10px;
+         padding: 5px;
+         align-items: center;
+         margin: 0 0 0.5rem 0;
+         counter-increment: my-awesome-counter;
+         position: relative;
+         flex-direction: column;
+         align-items: flex-start;
+         margin: 10px;
+
+         a {
+           text-decoration: underline;
+           text-transform: uppercase;
+           color: $secondary;
+
+           &:hover {
+            color: $danger;
+           }
+         }
+        }
+
+
+      }
+
+      .detailed {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+
+        counter-reset: my-awesome-counter;
+        list-style: none;
+
+
+        li {
+          display: flex;
+          width:100%;
+         background: $secondary ;
          border-radius: 10px;
          padding: 5px;
          align-items: center;
@@ -134,4 +143,35 @@ margin-bottom: 50px;
 
 
   }
+
+
 }
+
+
+
+@media screen and (max-width: 640px){
+
+
+  .faq {
+
+    .content {
+
+      ol {
+        display: flex;
+        width: 90%;
+        padding:0;
+
+
+      }
+
+    }
+
+
+
+
+  }
+
+
+
+
+  }

@@ -16,10 +16,14 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { OwlModule } from 'ngx-owl-carousel';
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
+import { MarketingComponent } from '../home/marketing/marketing.component';
 import { ArtistCompleteProfileComponent } from '../home/artist-complete-profile/artist-complete-profile.component';
 import { ComingsoonComponent } from '../home/comingsoon/comingsoon.component';
 import { TermsComponent } from '../home/terms/terms.component';
 import { FaqComponent } from '../home/faq/faq.component';
+import { AboutComponent } from '../home/about/about.component';
+import { WhatwedoComponent } from '../home/whatwedo/whatwedo.component';
+import { PolicyComponent } from '../home/policy/policy.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { FaqComponent } from '../home/faq/faq.component';
     ArtistCompleteProfileComponent,
     ComingsoonComponent,
     TermsComponent,
-    FaqComponent
+    FaqComponent,
+    AboutComponent,
+    WhatwedoComponent,
+    MarketingComponent,
+    PolicyComponent
   ],
   imports: [
     CommonModule,
