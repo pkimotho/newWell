@@ -1,0 +1,19 @@
+@mixin gradient($from, $to) {
+  background: linear-gradient(90deg, $from 0%, $to 34%, $from 100%,);
+}
+
+
+
+@mixin setColor($fontColor, $backroundColor) {
+
+  color: $fontColor;
+  background: $backroundColor;
+}
+
+
+@mixin flexify(){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}

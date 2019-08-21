@@ -1,0 +1,177 @@
+@import '../../../sass/base';
+
+
+:host {
+  .faq {
+    display: flex;
+    // justify-content: center;
+    width: 100%;
+
+    background: $text-color;
+padding-top: 70px;
+flex-direction: column;
+align-items: center;
+
+
+    .page-title {
+    display: flex;
+    // justify-content: flex-start;
+    width: 80%;
+    align-items: center;
+    height: 80px;
+      h2 {
+        color: $banner;
+
+      }
+    }
+
+
+
+    .content {
+
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      width:100%;
+
+      .outline {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+
+        counter-reset: my-awesome-counter;
+        align-items: center;
+
+
+
+        li {
+          display: flex;
+          width:100%;
+
+         border-radius: 10px;
+         padding: 5px;
+         align-items: center;
+         margin: 0 0 0.5rem 0;
+         counter-increment: my-awesome-counter;
+         position: relative;
+         flex-direction: column;
+         align-items: flex-start;
+         margin: 10px;
+
+         a {
+           text-decoration: underline;
+           text-transform: uppercase;
+           color: $secondary;
+
+           &:hover {
+            color: $danger;
+           }
+         }
+        }
+
+
+      }
+
+      .detailed {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+
+        counter-reset: my-awesome-counter;
+        list-style: none;
+
+
+        li {
+          display: flex;
+          width:100%;
+         background: $secondary ;
+         border-radius: 10px;
+         padding: 5px;
+         align-items: center;
+         margin: 0 0 0.5rem 0;
+         counter-increment: my-awesome-counter;
+         position: relative;
+         flex-direction: column;
+         align-items: flex-start;
+
+         margin: 10px;
+
+          p {
+            color: white;
+            margin:0;
+            margin-left: 20px;
+            margin-right: 20px;
+          }
+
+          .title {
+            font-size: 20px;
+          }
+
+          .content {
+            padding:10px;
+            margin-left:10px;
+          }
+
+
+          &:hover{
+            background: $danger;
+          }
+
+
+          &::before {
+            // content: counter(my-awesome-counter);
+            color: #fcd000;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            --size: 32px;
+            left: calc(-1 * var(--size) - 10px);
+            line-height: var(--size);
+            width: var(--size);
+            height: var(--size);
+            top: 0;
+            transform: rotate(-10deg);
+            background: black;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 1px 1px 0 #999;
+          }
+        }
+      }
+    }
+
+
+  }
+
+
+}
+
+
+
+@media screen and (max-width: 640px){
+
+
+  .faq {
+
+    .content {
+
+      ol {
+        display: flex;
+        width: 90%;
+        padding:0;
+
+
+      }
+
+    }
+
+
+
+
+  }
+
+
+
+
+  }

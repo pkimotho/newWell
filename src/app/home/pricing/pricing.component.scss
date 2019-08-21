@@ -1,28 +1,6 @@
 
+@import '../../../sass/base';
 
-
-
-$primary: #0f1011;
-$danger: #ff4136;
-$secondary: white;
-$background: rgb(226, 223, 223);
-$primary: #16579f;
-$text-color: white;
-$secondary: #ff4136;
-$original-text-color: #FF0039;
-$banner: #060606;
-
-
-
-
-$primary: #0f1011;
-$danger: #ff4136;
-$secondary: white;
-
-
-$shadowtext: 1px 1px 3px #0f1011;
-// $background: #1c1d1d;
-$pepea: #4e504e;
 
 
 
@@ -77,13 +55,9 @@ $pepea: #4e504e;
   flex-direction: column;
   background: $background;
 
-
-
-
-
   .content {
     width: 100%;
-    background: $primary;
+    @include gradient($banner, $danger);
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -118,7 +92,8 @@ $pepea: #4e504e;
         top: 100px;
         color: white;
         z-index: 2;
-        font-size: 28px;
+        font-size: 35px;
+        font-weight: 300px;
 
         text-decoration: none;
       }
@@ -147,6 +122,8 @@ $pepea: #4e504e;
     }
 
     .card-content{
+
+      @include gradient($banner, $secondary);
       width: 80%;
       display:flex;
       justify-content: center;
@@ -154,7 +131,7 @@ $pepea: #4e504e;
       margin-top: -150px;
       z-index: 2;
       border-radius: 10px;
-      background: $danger;
+
       margin-bottom: 20px;
 
 
@@ -165,15 +142,8 @@ $pepea: #4e504e;
         width: 25%;
         height: 80vh;
         margin-bottom: 20px;
-        background: lighten($primary, 5%);
+        background: darken($secondary, 20%);
         color:white;
-
-        .top {
-          height: 20px;
-          width: 100%;
-          background: $secondary;
-        }
-
 
         p {
           margin: 20px;
@@ -185,15 +155,14 @@ $pepea: #4e504e;
         .article {
           width: 100%;
           height: 40%;
-          // border: 1px solid darken($background, 10%);
-          // border-bottom: 2px solid linear-gradient(to right, red, orange);
+
           display: flex;
           justify-content: center;
           flex-direction: column;
           align-content: center;
           align-items: center;
           position: relative;
-          box-shadow: 0px 2px $danger;
+          box-shadow: 0px 2px $secondary;
 
           h2 {
             font-size: 19px;
@@ -209,7 +178,7 @@ $pepea: #4e504e;
           }
 
           .price {
-            color: $danger;
+            color: white;
             font-size: 20px;
             font-weight: 400px;
             text-transform: uppercase;
@@ -235,8 +204,8 @@ $pepea: #4e504e;
               transition-duration: 0.5s;
               transition-timing-function: ease-in;
 
-              background: $primary;
-              border: 2px solid $danger;
+              background: $secondary;
+              // border: 2px solid $danger;
 
 
               &:hover {
@@ -259,7 +228,7 @@ $pepea: #4e504e;
             margin-right: 2px;
             transition-duration: 0.5s;
             transition-timing-function: ease-in;
-            background: $primary;
+            background: $secondary;
             border: 2px solid $danger;
 
             &:hover {
@@ -272,7 +241,7 @@ $pepea: #4e504e;
           }
 
           &:hover {
-            background: $danger;
+            background: $secondary;
 
             .price {
               color: white;
@@ -281,13 +250,13 @@ $pepea: #4e504e;
 
               .btn {
                 border: 1px solid $primary;
-                background: $danger;
+                background: $secondary;
                 color: white;
               }
 
               .btn-one {
                 border: 1px solid $primary;
-                background: $danger;
+                background: $secondary;
                 color: white;
               }
 
@@ -302,6 +271,10 @@ $pepea: #4e504e;
 
         }
 
+
+        // &:hover {
+        //   border: 1px solid $danger;
+        // }
 
 
 

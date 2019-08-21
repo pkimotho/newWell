@@ -27,11 +27,15 @@ import { UploadsService } from './services/uploads.service';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+
+
+
 
   ],
   imports: [

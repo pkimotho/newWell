@@ -1,0 +1,80 @@
+@import '../../../sass/base';
+
+
+
+
+:host {
+  .terms {
+    width: 100%;
+    background: $text-color;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    flex-direction: column;
+
+
+    .page-title {
+      width: 80%;
+      height: 20vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      h2 {
+        color: $banner;
+        font-size: 40px;
+        font-weight: 500px;
+      }
+    }
+
+    .content {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      ol {
+        li {
+          a {
+            color: $secondary;
+            text-decoration: underline;
+            margin: 5px;
+
+
+            &:hover {
+              color: $banner;
+
+            }
+          }
+        }
+      }
+    }
+
+
+    .para {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .para-title {
+        margin-top:20px;
+
+        h2 {
+          font-weight: 350px;
+          color: $banner;
+        }
+
+      }
+
+      .para-content {
+        p {
+
+        }
+      }
+    }
+
+
+
+  }
+}
