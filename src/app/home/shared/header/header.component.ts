@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationService } from '../../../services/authorization.service';
 import { ArtistProfileService } from './../../../services/artist-profile.service';
@@ -10,6 +10,8 @@ import { FlashMessagesService } from 'angular2-flash-messages';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() profilePicture: string;
 
   isLoggedIn;
   id;

@@ -1,3 +1,4 @@
+import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile/artist-edit-profile.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
@@ -23,8 +24,9 @@ const routes: Routes = [
   },
   {
     path: 'artist/:id',
-    component: ArtistProfileComponent,
+    component: ArtistProfileComponent
   },
+  { path: 'artist/:id/edit', component: ArtistEditProfileComponent },
   {
     path: 'artists',
     component: ArtistsPageComponent,
