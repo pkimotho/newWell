@@ -19,15 +19,12 @@ import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { MarketingComponent } from '../home/marketing/marketing.component';
 import { ArtistCompleteProfileComponent } from '../home/artist-complete-profile/artist-complete-profile.component';
 import { ComingsoonComponent } from '../home/comingsoon/comingsoon.component';
-<<<<<<< HEAD
 import { TermsComponent } from '../home/terms/terms.component';
 import { FaqComponent } from '../home/faq/faq.component';
 import { AboutComponent } from '../home/about/about.component';
 import { WhatwedoComponent } from '../home/whatwedo/whatwedo.component';
 import { PolicyComponent } from '../home/policy/policy.component';
-=======
 import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile/artist-edit-profile.component';
->>>>>>> ed59c4471589473dbe68a6087b0d83414a48c532
 
 
 @NgModule({
@@ -42,16 +39,13 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     ArtistSignupComponent,
     ArtistCompleteProfileComponent,
     ComingsoonComponent,
-<<<<<<< HEAD
     TermsComponent,
     FaqComponent,
     AboutComponent,
     WhatwedoComponent,
     MarketingComponent,
-    PolicyComponent
-=======
+    PolicyComponent,
     ArtistEditProfileComponent
->>>>>>> ed59c4471589473dbe68a6087b0d83414a48c532
   ],
   imports: [
     CommonModule,
