@@ -1,7 +1,7 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { UploadsService } from '../../services/uploads.service';
+import { UploadsService } from '../../../services/uploads.service';
 import { Router } from '@angular/router';
 
 export function requiredFileType(type: string) {
@@ -24,10 +24,10 @@ export function requiredFileType(type: string) {
 
 @Component({
   selector: 'app-upload',
-  templateUrl: './upload.component.html',
-  styleUrls: ['./upload.component.scss']
+  templateUrl: './single-upload.component.html',
+  styleUrls: ['./single-upload.component.scss']
 })
-export class UploadComponent implements OnInit {
+export class SingleUploadComponent implements OnInit {
   category = 'song';
   title = 'title';
   genre = 'genre';

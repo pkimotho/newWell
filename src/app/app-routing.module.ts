@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IndexComponent } from './dashboard/index/index.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UploadComponent } from './dashboard/upload/upload.component';
+import { SingleUploadComponent } from './dashboard/music-upload/single-upload/single-upload.component';
 import { AnalyticsComponent } from './dashboard/analytics/analytics.component';
 import { WalletComponent } from './dashboard/wallet/wallet.component';
 
 
 import { AuthGuard } from './services/guards/auth.guard';
-import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 const routes: Routes = [
 
@@ -28,8 +26,11 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'uploads',
-        component: UploadComponent
+        path: 'music-upload',
+        component: SingleUploadComponent,
+        children: [
+          { path: 'single', component: SingleUploadComponent }
+        ]
       }
       ,
       {

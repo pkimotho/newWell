@@ -9,7 +9,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { DashboardComponent } from './dashboard.component';
 import { IndexComponent } from './index/index.component';
-import { UploadComponent } from './upload/upload.component';
+import { SingleUploadComponent } from './music-upload/single-upload/single-upload.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
@@ -24,7 +24,7 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     DashboardComponent,
     IndexComponent,
-    UploadComponent,
+    SingleUploadComponent,
     AnalyticsComponent,
     FileUploadComponent,
     WalletComponent,
