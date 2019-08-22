@@ -12,8 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PublishingComponent } from './publishing/publishing.component';
 
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { OwlModule } from 'ngx-owl-carousel';
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { MarketingComponent } from '../home/marketing/marketing.component';
@@ -49,10 +47,8 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
   ],
   imports: [
     CommonModule,
-    CarouselModule,
     FormsModule,
     ReactiveFormsModule,
-    OwlModule,
     FlickityModule
   ]
 })
