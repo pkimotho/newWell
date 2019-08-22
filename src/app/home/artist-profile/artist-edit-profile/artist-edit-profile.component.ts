@@ -32,7 +32,7 @@ export class ArtistEditProfileComponent implements OnInit {
         this.userProfile.email = profile['email'];
         this.userProfile.name = profile['name'];
         this.userProfile.phoneNumber = profile['phoneNumber'];
-        this.userProfile.profilePic = profile['profilePic'];
+        // this.userProfile.profilePic = profile['profilePic'];
         this.userProfile.registrationDate = profile['registrationDate'];
         this.userProfile.status = profile['status'];
         this.previewUrl = profile['profilePic'];

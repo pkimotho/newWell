@@ -19,9 +19,9 @@
         <div class="tab-pane fade show active" id="profile-settings" role="tabpanel" aria-labelledby="profile-settings-tab">
             <form>
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div id="img" class="form-group col-md-4">
                         <label id="imageFieldLabel" for="imageField">
-              <img [src]="previewUrl" height="200" />
+              <img class="img-fluid mt-4" [src]="previewUrl" />
             </label>
                         <div>
                             <label for="imageField" style="cursor: pointer;" class="btn ml-2">Edit Image</label>
@@ -49,7 +49,7 @@
                             <input type="text" class="form-control" [value]="userProfile.name" placeholder="firstName">
                         </div>
                         <div class="form-group col-md-12">
-                            <label>Last Name</label>
+                            <label class="required">Last Name</label>
                             <input type="text" class="form-control" placeholder="lastName">
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Address</label>
+                        <label class="required">Address</label>
                         <input type="text" class="form-control" placeholder="1234 Address One">
                     </div>
                     <div class="form-group col-md-6">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>City</label>
+                        <label class="required">City</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="form-group col-md-4">
@@ -99,7 +99,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label>Country</label>
+                        <label class="required">Country</label>
                         <select id="country" name="country" class="form-control">
               <option selected>Choose Country...</option>
               <option value="Afghanistan">Afghanistan</option>
@@ -362,11 +362,11 @@
                 <h4>Email Addresses:</h4>
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label>General Communication</label>
+                        <label class="required">General Communication</label>
                         <input type="email" class="form-control" [value]="userProfile.email" placeholder="Email">
                     </div>
                     <div class="form-group col-md-4">
-                        <label>Account Statements/Reports</label>
+                        <label class="required">Account Statements/Reports</label>
                         <input type="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group col-md-4">
@@ -421,7 +421,7 @@
             </form>
         </div>
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-            <h4>About {{userProfile.name}}</h4>
+            <h4 class="required">About {{userProfile.name}}</h4>
             <form>
                 <div class="form-row">
                     <div class="form-group">

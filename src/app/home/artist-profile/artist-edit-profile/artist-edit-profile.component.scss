@@ -28,6 +28,11 @@ $secondary: white;
     label {
         color: lighten(#555, 9);
     }
+    label.required:after,
+    h4.required:after {
+        color: red;
+        content: ' *';
+    }
     #imageFieldLabel {
         img {
             padding-left: 1.5rem;
@@ -49,8 +54,8 @@ $secondary: white;
         border: 1px solid #555;
     }
     @media (max-width: 767px) {
-        #imageField {
-            display: none;
+        #img {
+            text-align: center;
         }
     }
     button {
