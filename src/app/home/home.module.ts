@@ -4,8 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlickityModule } from 'ngx-flickity';
 
 import { LandingComponent } from './landing/landing.component';
-import { FooterComponent } from '../home/shared/footer/footer.component';
-import { HeaderComponent } from '../home/shared/header/header.component';
 import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
 import { FanSignupComponent } from './fan-signup/fan-signup.component';
 import { LoginComponent } from './login/login.component';
