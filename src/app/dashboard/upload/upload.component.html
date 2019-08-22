@@ -12,32 +12,32 @@
     <div>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Main Info: <span class="fa-stack fa-md">
+                <a class="nav-link text-center active" id="pills-home-tab" data-toggle="pill" href="#mainInfo" role="tab" aria-controls="pills-home" aria-selected="true">Main Information: <span class="fa-stack fa-md">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-inverse fa-stack-1x"><span>1</span></i>
           </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Upload: <span class="fa-stack fa-md">
+                <a class="nav-link text-center" id="pills-profile-tab" data-toggle="pill" href="#uploadTrack" role="tab" aria-controls="pills-profile" aria-selected="false">Upload Track: <span class="fa-stack fa-md">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-inverse fa-stack-1x"><span>2</span></i>
           </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Publishing: <span class="fa-stack fa-md">
+                <a class="nav-link text-center" id="pills-contact-tab" data-toggle="pill" href="#publish" role="tab" aria-controls="pills-contact" aria-selected="false">Publishing: <span class="fa-stack fa-md">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-inverse fa-stack-1x"><span>3</span></i>
           </span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Review/Save: <span class="fa-stack fa-md">
+                <a class="nav-link text-center" id="pills-contact-tab" data-toggle="pill" href="#reviewSave" role="tab" aria-controls="pills-contact" aria-selected="false">Review/Save: <span class="fa-stack fa-md">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-inverse fa-stack-1x"><span>4</span></i>
           </span></a>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+            <div class="tab-pane fade show active" id="mainInfo" role="tabpanel" aria-labelledby="pills-home-tab">
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-4">
@@ -62,8 +62,8 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-7">
-                            <label for="inputAddress">Song Title</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter song title">
+                            <label for="inputAddress">Release Title</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter release title">
                         </div>
                         <div class="form-group col-md-5">
                             <label for="inputState">Genre</label>
@@ -82,7 +82,7 @@
                         <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
                     </div>
                     <div class="form-group">
-                        <h5>Is this song composed by several artists?</h5>
+                        <p>Is this song composed by several artists?</p>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -97,7 +97,7 @@
                         <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
                     </div>
                     <div class="form-group">
-                        <h5>Is this song previously released?</h5>
+                        <p>Is this song previously released?</p>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <h5>Is this song on a record label?</h5>
+                        <p>Is this song on a record label?</p>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
                             <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -121,8 +121,102 @@
                     <button type="submit" class="btn btn-primary">Save and continue</button>
                 </form>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+            <div class="tab-pane fade" id="uploadTrack" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <input type="file" style="display:none;" #fileInput>
+                            <div class="list-group">
+                                <a role="button" class="btn list-group-item list-group-item-action text-center active" (click)="fileInput.click()"><span><i class="fa fa-upload"></i></span>
+                            Upload Audio File
+                          </a>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-12">
+                            <label>Language of lyrics: </label>
+                            <input type="text" class="form-control" placeholder="Enter language...">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary ml-2 mt-3 mb-3">Save and continue</button>
+                </form>
+
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <p>Title</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p>Genre</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p>Author</p>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <p>Audio present</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        Cover Image Preview
+                    </div>
+                    <div class="col-md-6 text-center">
+                        Audio Preview
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade " id="publish" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <h4>Add Writer(s) & Composer(s)</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>Name</label>
+                            <input type="text" class="form-control" placeholder="Enter name...">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Role</label>
+                            <select name="" class="form-control">
+                                <option selected>Select Role...</option>
+                                <option selected>Composer</option>
+                                <option selected>Writer</option>
+                                <option selected>Composer & Writer</option>
+                                <option selected>Sub-Author</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Share (%)</label>
+                            <input type="text" class="form-control" placeholder="Enter percentage...">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Publishing</label>
+                            <select name="" id="" class="form-control">
+                                <option value="">Copyright Control(self published)</option>
+                                <option value="">Public Domain(no publisher)</option>
+                                <option value="">Published(managed by a publisher)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn mb-5">Save and Continue</button>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="reviewSave" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <h4 class="text-center">Review and confirm the information you entered is correct</h4>
+                <div class="text-center">
+                    <div class="row text-center">
+                        <ul class="list-group list-group-flush text-dark ml-50 mt-2">
+                            <li class="list-group-item">Release Title: </li>
+                            <li class="list-group-item">Genre: </li>
+                            <li class="list-group-item">Artist's name(s): </li>
+                            <li class="list-group-item">Previously Released? </li>
+                            <li class="list-group-item">Already on a record label? </li>
+                            <li class="list-group-item">Lyrics language: </li>
+                            <li class="list-group-item">Writer's name: </li>
+                            <li class="list-group-item">Composer's name: </li>
+                            <li class="list-group-item">Publishing: </li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" class="btn m-5">Save</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- <div class="container">

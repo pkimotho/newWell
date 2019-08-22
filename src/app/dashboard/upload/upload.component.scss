@@ -76,11 +76,16 @@ form {
         color: #555;
         border: 1px solid #555;
     }
-    button {
-        background-color: $danger2;
-        border: 1px solid #555;
-        border-radius: 0;
-    }
+}
+
+button {
+    background-color: $danger2;
+    border: 1px solid #555;
+    border-radius: 0;
+}
+
+.ml-50 {
+    margin-left: 40%;
 }
 
 .card h4 {
