@@ -1,6 +1,10 @@
     $primary: #0f1011;
     $danger: #FF0039;
     $secondary: white;
+    select {
+        background: transparent;
+    }
+    
     nav {
         position: fixed;
         top: 0;
@@ -41,6 +45,9 @@
                     padding: 0 5px;
                     cursor: pointer;
                     border-bottom: $primary 3px solid;
+                }
+                a:focus {
+                    outline: 0;
                 }
                 .nav-link-hover:hover {
                     color: $secondary;
