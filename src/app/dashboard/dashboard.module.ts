@@ -16,6 +16,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
 
 import { DashboardRoutingModule } from './dashboard.routing.module';
 import { HomeComponent } from './home/home.component';
+import { AlbumUploadComponent } from './music-upload/album-upload/album-upload.component';
 
 // import { UploadsService } from '../services/uploads.service';
 
@@ -28,7 +29,8 @@ import { HomeComponent } from './home/home.component';
     AnalyticsComponent,
     FileUploadComponent,
     WalletComponent,
-    HomeComponent],
+    HomeComponent,
+    AlbumUploadComponent],
   imports: [
     CommonModule,
     RouterModule,

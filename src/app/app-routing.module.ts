@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './dashboard/home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SingleUploadComponent } from './dashboard/music-upload/single-upload/single-upload.component';
+import { AlbumUploadComponent } from './dashboard/music-upload/album-upload/album-upload.component';
 import { AnalyticsComponent } from './dashboard/analytics/analytics.component';
 import { WalletComponent } from './dashboard/wallet/wallet.component';
 
@@ -29,7 +30,8 @@ const routes: Routes = [
         path: 'music-upload',
         component: SingleUploadComponent,
         children: [
-          { path: 'single', component: SingleUploadComponent }
+          { path: 'single', component: SingleUploadComponent },
+          { path: 'album', component: AlbumUploadComponent }
         ]
       }
       ,
