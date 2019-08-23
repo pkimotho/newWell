@@ -62,24 +62,13 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-7">
-                            <label for="inputAddress">Release Title</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter release title">
+                            <label for="inputAddress">Song Title</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter song title">
                         </div>
                         <div class="form-group col-md-5">
-                            <label for="inputState">Genre</label>
-                            <select id="inputState" class="form-control">
-                <option selected>Choose Genre</option>
-                <option>Gospel</option>
-                <option>Hip Hop</option>
-                <option>Reggae</option>
-                <option>Rhumba</option>
-                <option>Rap</option>
-              </select>
+                            <label for="inputAddress">Artist Name</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter artist's name">
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Artist</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
                     </div>
                     <div class="form-group">
                         <p>Is this song composed by several artists?</p>
@@ -92,9 +81,20 @@
                             <label class="form-check-label" for="inlineRadio2">No</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Add the other artist's names(ONE PER FIELD)</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
+                    <div class="form-row">
+                        <div class="form-group col-md-7">
+                            <label for="inputAddress2">Add the other artist's names(ONE PER FIELD)</label>
+                            <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="inputState">Role</label>
+                            <select id="inputState" class="form-control">
+                <option selected>Choose role...</option>
+                <option>Featuring</option>
+                <option>In collaboration</option>
+              </select>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <p>Is this song previously released?</p>
@@ -128,13 +128,30 @@
                             <input type="file" style="display:none;" #fileInput>
                             <div class="list-group">
                                 <a role="button" class="btn list-group-item list-group-item-action text-center active" (click)="fileInput.click()"><span><i class="fa fa-upload"></i></span>
-                            Upload Audio File
-                          </a>
+                  Upload Audio File
+                </a>
                             </div>
                         </div>
-                        <div class="form-group col-md-12">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label for="inputState">Genre</label>
+                            <select id="inputState" class="form-control">
+                <option selected>Choose Genre</option>
+                <option>Gospel</option>
+                <option>Hip Hop</option>
+                <option>Reggae</option>
+                <option>Rhumba</option>
+                <option>Rap</option>
+              </select>
+                        </div>
+                        <div class="form-group col-md-5">
                             <label>Language of lyrics: </label>
                             <input type="text" class="form-control" placeholder="Enter language...">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label>Upload lyrics: </label>
+                            <input type="text" class="form-control" placeholder="Enter lyrics...">
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary ml-2 mt-3 mb-3">Save and continue</button>
@@ -164,34 +181,59 @@
                 </div>
             </div>
             <div class="tab-pane fade " id="publish" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <h4>Add Writer(s) & Composer(s)</h4>
+                <h4>Producer's details</h4>
                 <form>
                     <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Enter name...">
+                        <div class="form-group col-md-4">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter first name...">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Role</label>
-                            <select name="" class="form-control">
-                                <option selected>Select Role...</option>
-                                <option selected>Composer</option>
-                                <option selected>Writer</option>
-                                <option selected>Composer & Writer</option>
-                                <option selected>Sub-Author</option>
-                            </select>
+                        <div class="form-group col-md-4">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter last name...">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Share (%)</label>
-                            <input type="text" class="form-control" placeholder="Enter percentage...">
+                        <div class="form-group col-md-4">
+                            <label>Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Enter phone number...">
                         </div>
-                        <div class="form-group col-md-3">
-                            <label>Publishing</label>
-                            <select name="" id="" class="form-control">
-                                <option value="">Copyright Control(self published)</option>
-                                <option value="">Public Domain(no publisher)</option>
-                                <option value="">Published(managed by a publisher)</option>
-                            </select>
+                    </div>
+                    <div class="form-group">
+                        <p>Select where you want to distribute your music</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Deezer</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Spotify</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Amazon</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Pandora</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Itunes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Apple Music</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Tidal</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">JamboTunes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Other</label>
                         </div>
                     </div>
                     <button type="submit" class="btn mb-5">Save and Continue</button>
