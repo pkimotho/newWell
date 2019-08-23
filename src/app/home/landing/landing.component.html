@@ -1,36 +1,28 @@
 <section id="">
-  <div class="hero">
-    <img
-      [src]="landingPageContent.imageUrl"
-      alt="Landing page picture"
-      id="heroImage"
-    />
-    <h1 class="hero-title">{{ landingPageContent.title }}</h1>
-    <p class="hero-info">{{ landingPageContent.description }}</p>
-    <p class="lead">
-      <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">{{
+    <div class="hero">
+        <img [src]="landingPageContent.imageUrl" alt="Landing page picture" id="heroImage" />
+        <h1 class="hero-title">{{ landingPageContent.title }}</h1>
+        <p class="hero-info">{{ landingPageContent.description }}</p>
+        <p class="lead">
+            <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">{{
         landingPageContent.ctaText
       }}</a>
-    </p>
-  </div>
-</section>
-
-<section>
-  <div id="brands" [flickity]="logosOptions">
-    <div class="brand" [flickityChild] *ngFor="let logo of logos">
-      <img [src]="logo.src" />
+        </p>
     </div>
-    <!-- <div class="brand"><img src="../../assets/img/carousel/pandora.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/Deezer_logo.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/amazon.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/tidal.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/itunes.svg"></div>
-        <div class="brand"><img src="../../assets/img/carousel/youtube.svg"></div>
-        <div class="brand"><img style="background: #fff" src="../../assets/img/carousel/Apple_Music_logo.svg.png"></div> -->
-  </div>
 </section>
 
-<!-- <section class="card-section">
+<div class="bg-img">
+    <div class="bg-color">
+    </div>
+    <section>
+        <div id="brands" [flickity]="logosOptions">
+            <div class="brand" [flickityChild] *ngFor="let logo of logos">
+                <img [src]="logo.src" />
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="card-section">
   <h1>Top Music</h1>
   <div class="cards">
     <div class="cards-item">
@@ -124,7 +116,7 @@
   </div>
 </section>-->
 
-<!-- <section class="card-section">
+    <!-- <section class="card-section">
     <h1>Top Albums</h1>
     <div class="cards" [flickity]="options">
         <div class="cards-item" [flickityChild]>
@@ -218,23 +210,26 @@
     </div>
 
 </section> -->
-
-<section class="card-section">
-  <h1>Top Artists</h1>
-  <div class="cards" [flickity]="options">
-    <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
-      <div class="card" (click)="goToArtistProfile(artist._id)">
-        <img
-          class="card-img-top"
-          src="{{ artist.profilePic }}"
-          alt="Card image cap"
-        />
-        <div class="card-body">
-          <p class="artist text-center font-weight-bolder ">
-            {{ artist.name }}
-          </p>
-        </div>
-      </div>
+    <div class="container">
+        <section class="card-section">
+            <h1 class="text-center">Top Artists</h1>
+            <div class="cards" [flickity]="options">
+                <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
+                    <div class="card" (click)="goToArtistProfile(artist._id)">
+                        <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />
+                        <div class="card-body">
+                            <p class="artist text-center font-weight-bolder ">
+                                {{ artist.name }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-  </div>
-</section>
+    <div class="text-center action mt-5 pb-5">
+        <h1>Get the best value for your music</h1>
+        <p>Join us today</p>
+        <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">Get Started</a>
+    </div>
+</div>

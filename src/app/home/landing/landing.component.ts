@@ -1,22 +1,20 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { OwlOptions } from "ngx-owl-carousel-o";
-import Flickity from "flickity-imagesloaded";
-import { environment } from "./../../../environments/environment";
-import { Router } from "@angular/router";
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { environment } from './../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: "app-landing",
-  templateUrl: "./landing.component.html",
-  styleUrls: ["./landing.component.scss"]
+  selector: 'app-landing',
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
   landingPageContent = {
-    title: "",
-    description: "",
-    ctaText: "",
-    ctaLink: "",
-    imageUrl: "assets/images/placeholder.svg"
+    title: '',
+    description: '',
+    ctaText: '',
+    ctaLink: '',
+    imageUrl: 'assets/images/placeholder.svg'
   };
   artists: any = [];
   logos: any[] = [];
@@ -42,7 +40,7 @@ export class LandingComponent implements OnInit {
     // pageDots: false
   };
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.getLandingPageContent();
@@ -63,32 +61,30 @@ export class LandingComponent implements OnInit {
     this.getAllArtists();
   }
 
-  toggleNavbar() {}
+  toggleNavbar() { }
 
   getAllArtists() {
-    this.http.get(environment.base_url + "artist").subscribe(data => {
+    this.http.get(environment.base_url + 'artist').subscribe(data => {
       let results: any = {};
       results = data;
       this.artists = results.results;
       this.logos = [
-        { src: "../../assets/img/carousel/spotify.svg" },
-        { src: "../../assets/img/carousel/pandora.svg" },
-        { src: "../../assets/img/carousel/Deezer_logo.svg" },
-        { src: "../../assets/img/carousel/itunes.svg" },
-        { src: "../../assets/img/carousel/amazon-icon.svg" },
-        { src: "../../assets/img/carousel/apple-music.svg" },
-        { src: "../../assets/img/carousel/tidal.svg" },
-        { src: "../../assets/img/carousel/google_play_music.svg" },
-        { src: "../../assets/img/carousel/youtube.svg" },
-        { src: "../../assets/img/carousel/soundcloud_logo.svg" }
+        { src: '../../assets/img/carousel/spotify.svg' },
+        { src: '../../assets/img/carousel/pandora.svg' },
+        { src: '../../assets/img/carousel/Deezer_logo.svg' },
+        { src: '../../assets/img/carousel/itunes.svg' },
+        { src: '../../assets/img/carousel/amazon-icon.svg' },
+        { src: '../../assets/img/carousel/apple-music.svg' },
+        { src: '../../assets/img/carousel/tidal.svg' },
+        { src: '../../assets/img/carousel/jambotunes.svg' }
       ];
     });
   }
   goToArtistProfile(id) {
-    this.router.navigate(["/artist/" + id]);
+    this.router.navigate(['/artist/' + id]);
   }
   getLandingPageContent() {
-    fetch("https://cms.newwellmusic.com/pages")
+    fetch('https://cms.newwellmusic.com/pages')
       .then(res => res.json())
       .then(pages => {
         const { title, description, ctaText, ctaLink, image } = pages[0];
