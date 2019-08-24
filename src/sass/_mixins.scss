@@ -4,7 +4,7 @@
 
 
 @mixin gradient-radial($from, $to) {
-  background: radial-gradient(darken($from, 15%) 10%, $to);
+  background: radial-gradient(darken($from, 15%) 30%, $to);
 }
 
 

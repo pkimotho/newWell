@@ -463,7 +463,7 @@ position: relative;
     align-items: center;
     // background: $banner;
     padding: 20px;
-    @include gradient-radial($pricing, $banner);
+    @include gradient-radial(darken($pricing, 10%), $banner);
 
     .para {
       width: 100%;
@@ -494,10 +494,11 @@ position: relative;
       }
 
       .main {
+        width: 80%;
         .banner-head {
           display: flex;
           width: 100%;
-          height: 100px;
+          height: 80px;
           align-items: center;
           margin-left: 20px;
 
@@ -505,10 +506,9 @@ position: relative;
 
 
         img {
-          width: 150px;
-          height: 150px;
-          object-fit: cover;
-          margin: 10px;
+          width: 100px;
+          height: 100px;
+          margin: 5px;
         }
       }
 
