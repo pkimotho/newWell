@@ -1,5 +1,10 @@
 @mixin gradient($from, $to) {
-  background: linear-gradient(90deg, $from 0%, $to 34%, $from 100%,);
+  background: linear-gradient(45deg, $from, $to);
+}
+
+
+@mixin gradient-radial($from, $to) {
+  background: radial-gradient(darken($from, 15%) 10%, $to);
 }
 
 
@@ -17,3 +22,76 @@
   align-items: center;
 
 }
+
+
+
+@mixin createBTN( $bg, $color, $br, $brc){
+  background: $bg;
+
+  color: $color;
+  position: center;
+  text-transform: capitalize;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  padding: 10px ;
+
+
+  &:hover {
+    background: $brc;
+    border: $br solid $bg;
+
+  }
+}
+
+@mixin createBTN-Inverse( $bg, $color, $br, $brc){
+  color: $color;
+  position: center;
+  text-transform: capitalize;
+  border-radius: 5px;
+  letter-spacing: 0.05em;
+  padding: 10px ;
+  border: $br solid $brc;
+
+  text-decoration: none;
+
+
+
+  &:hover {
+    background: $bg;
+
+
+  }
+}
+
+
+
+
+@mixin setBlurredBackground() {
+  filter: blur(12px);
+  -webkit-filter: blur(12px);
+}
+
+
+
+@mixin createHeader($bg) {
+
+  background-image: linear-gradient(45deg,#0d0b17,$bg);
+
+  position: relative;
+  overflow: hidden;
+
+}
+
+
+@mixin backgroundImageBlur($img) {
+
+  background-size: contain;
+
+  background-repeat: no-repeat;
+
+  background-position-x: right;
+
+  background-image: url($img);
+  }
+
+
