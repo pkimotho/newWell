@@ -8,10 +8,13 @@
                 <a class="nav-link active" id="profile-settings-tab" data-toggle="pill" href="#profile-settings" role="tab" aria-controls="profile-settings" aria-selected="true">Profile Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Social Media</a>
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#socialMedia" role="tab" aria-controls="pills-profile" aria-selected="false">Social Media</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Bio</a>
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#bio" role="tab" aria-controls="pills-contact" aria-selected="false">Bio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#paymentDetails" role="tab" aria-controls="pills-contact" aria-selected="false">Payment Details</a>
             </li>
         </ul>
     </div>
@@ -49,15 +52,15 @@
                             <input type="text" class="form-control" [value]="userProfile.name" placeholder="firstName">
                         </div>
                         <div class="form-group col-md-12">
-                            <label class="required">Last Name</label>
-                            <input type="text" class="form-control" placeholder="lastName">
+                            <label class="required">Surname</label>
+                            <input type="text" class="form-control" placeholder="Surname">
                         </div>
                     </div>
                     <div class="form-group col-md-4">
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label>Contract Number</label>
-                                <input type="email" class="form-control" placeholder="contractNumber">
+                                <label>Account Status</label>
+                                <input type="email" class="form-control" placeholder="accountStatus">
                             </div>
                             <div class="form-group col-md-12">
                                 <label>Date Joined</label>
@@ -70,33 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="required">Address</label>
-                        <input type="text" class="form-control" placeholder="1234 Address One">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Address 2</label>
-                        <input type="text" class="form-control" placeholder="Physical Address">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label class="required">City</label>
-                        <input type="text" class="form-control">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>State/Province</label>
-                        <select class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">Zip/Postal Code</label>
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
+
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label class="required">Country</label>
@@ -374,10 +351,37 @@
                         <input type="email" class="form-control" placeholder="Email">
                     </div>
                 </div>
+                <h4>Next of kin details:</h4>
+                <div id="nextOfKin">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="required">First Name</label>
+                            <input type="text" class="form-control" [value]="userProfile.email" placeholder="Kin's first name">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="required">Surname</label>
+                            <input type="text" class="form-control" placeholder="Kin's surname">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputZip">Relationship</label>
+                            <input type="text" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="required">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Kin's phone Number">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <p class="lead mt-4"><span><i class="fa fa-exclamation-triangle"
+                    style="color: rgb(255, 72, 0)"></i></span> This information will only be available and can only be accessed by you.</p>
+                        </div>
+                    </div>
+                </div>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="tab-pane fade" id="socialMedia" role="tabpanel" aria-labelledby="pills-profile-tab">
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-4">
@@ -399,8 +403,8 @@
                                 <input type="email" class="form-control" placeholder="Instagram Link">
                             </div>
                             <div class="form-group col-md-12">
-                                <label>Google Plus</label>
-                                <input type="text" class="form-control" placeholder="Google Plus Link">
+                                <label>LinkedIn</label>
+                                <input type="text" class="form-control" placeholder="LinkedIn Link">
                             </div>
                         </div>
                     </div>
@@ -411,8 +415,8 @@
                                 <input type="email" class="form-control" placeholder="Twitter Link">
                             </div>
                             <div class="form-group col-md-12">
-                                <label>LinkedIn</label>
-                                <input type="text" class="form-control" placeholder="LinkedIn Link">
+                                <label>Other</label>
+                                <input type="text" class="form-control" placeholder="Other Social Media Link">
                             </div>
                         </div>
                     </div>
@@ -420,12 +424,45 @@
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         </div>
-        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="tab-pane fade" id="bio" role="tabpanel" aria-labelledby="pills-contact-tab">
             <h4 class="required">About {{userProfile.name}}</h4>
             <form>
                 <div class="form-row">
                     <div class="form-group">
                         <textarea class="form-control" name="bio" cols="60" rows="10">Enter biography...</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        <div class="tab-pane fade" id="paymentDetails" role="tabpanel" aria-labelledby="pills-contact-tab">
+            <h4 class="required">Payment Information</h4>
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required">Address</label>
+                        <input type="text" class="form-control" placeholder="1234 Address One">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Address 2</label>
+                        <input type="text" class="form-control" placeholder="Physical Address">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="required">City</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>State/Province</label>
+                        <select class="form-control">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Zip/Postal Code</label>
+                        <input type="text" class="form-control">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>

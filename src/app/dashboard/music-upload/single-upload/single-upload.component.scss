@@ -15,6 +15,14 @@ $secondary: white;
     }
 }
 
+@media (max-width: 709px) {
+    .desc {
+        nav {
+            display: none;
+        }
+    }
+}
+
 .nav {
     background-color: $primary;
     color: $secondary;
