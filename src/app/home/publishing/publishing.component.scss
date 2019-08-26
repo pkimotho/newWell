@@ -9,14 +9,37 @@
   color: white;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+
+.bgdark {
+  background: url(../../../assets/img/darkbg.jpg);
+  object-fit: cover;
+}
+
 .gradient-normal {
-  @include gradient($banner, $secondary);
+  @include gradient-radial($publish, $banner);
   .btn {
     background: $danger;
 
     :hover {
       background: $secondary;
       border: 1px solid $banner;
+    }
+  }
+}
+
+
+.gradient-none {
+  @include gradient($banner, $banner);
+  .btn {
+    background: $publish;
+
+    :hover {
+      background: $publish;
+      border: 1px solid $publish;
     }
   }
 }
@@ -58,30 +81,40 @@
 .publishing {
   display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
+
   background: $banner;
   flex-direction: column;
 
 
   .header {
-
     display:flex;
-    height: 70vh;
+    height: 80%;
     width: 100%;
-    object-fit: cover;
+    // object-fit: cover;
     position: relative;
     flex-direction: column;
-    padding-top: 70px;
+    // padding-top: 70px;
 
 
-    img {
+    @include createHeader($publish);
 
-
-      width:100%;
+    .hero{
+      display: flex;
       height: 100%;
-      object-fit: cover;
+      width: 100%;
+      @include setBlurredBackground();
 
+      img {
+
+
+        width:100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
     }
+
 
 
     .action {
@@ -118,6 +151,10 @@
             width: 60%;
 
           }
+
+          .btn {
+            @include createBTN($publish, white, 1px, $publish);
+          }
         }
       }
 
@@ -127,6 +164,16 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+
+        img {
+
+
+          width:50%;
+          height: 70%;
+          object-fit: cover;
+
+        }
       }
 
     }
@@ -134,22 +181,37 @@
 
   }
 
-  .title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: darken($secondary, 15%);
-    width: 100%;
+  .tabs {
+    display:flex;
+    width:80%;
     height: 50px;
+    justify-content: center;
+    align-items: center;
 
+    .tab {
+      display: flex;
+      width: 25%;
+      margin: 0;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
 
-    h2 {
-      margin-left: 20px;
-      color: white;
+      h2 {
+        color: white;
+      }
+
+      &:hover {
+        background: darken($publish, 15%);
+      }
+
     }
 
+    .tab-one {
+      background: darken($publish, 15%);
+    }
 
   }
+
 
 
   .div-one {
@@ -160,6 +222,10 @@
     padding: 30px;
     justify-items: center;
     transition: all 0.2s;
+
+
+
+
 
     .right {
       display: flex;
@@ -190,28 +256,7 @@
       height: 80%;
 position: relative;
 
-        .circle {
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: all 0.3s;
-      color: black;
-      position: absolute;
 
-
-      &:hover {
-        background: $danger;
-        width:70px;
-        height: 70px;
-        border-radius: 50%;
-
-      }
-
-    }
 
 
       .para {
@@ -222,6 +267,11 @@ position: relative;
         color: white;
 
         flex-direction: column;
+
+
+        .btn-p {
+          @include createBTN-Inverse($publish, white, 2px, $publish);
+        }
       }
     }
 
@@ -236,23 +286,20 @@ position: relative;
     background: $banner;
 
     .para {
-      width: 80%;
+      width: 60%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
       flex-direction: column;
 
+      h2 {
+        padding-bottom: 30px;
+      }
+
       .btn {
-        background: $banner;
-        border: 1px solid $danger;
-        width: 30%;
-        color: white;
+        @include createBTN($publish, white, 1px, $banner)
 
-        :hover {
-          background: $danger;
-
-        }
       }
 
     }
@@ -292,6 +339,19 @@ position: relative;
           display: none;
         }
       }
+    }
+
+    .tabs {
+      width: 100%;
+
+    .tab {
+      width:30%;
+
+      h2 {
+        font-size: 20px;
+      }
+
+    }
     }
 
     .div-one {
