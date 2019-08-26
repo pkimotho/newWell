@@ -1,0 +1,28 @@
+.header {
+  color: #fff;
+  font-family: nationale,nationale-regular,Helvetica,sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #0d0d0d;
+  text-rendering: optimizeLegibility;
+  background-image: linear-gradient(45deg, #0d0b17, #371945);
+}
+
+.header .hero {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-image: url(/_nuxt/img/b4ca5d0.png);
+}
+
+.hero {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-image: url(/_nuxt/img/b4ca5d0.png);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+/*# sourceMappingURL=map.css.map */

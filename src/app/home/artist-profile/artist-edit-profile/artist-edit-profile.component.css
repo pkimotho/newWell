@@ -1,0 +1,76 @@
+.container {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.container .image-preview {
+  width: 100px;
+  height: 100px;
+}
+
+.container .nav-tabs-bar {
+  background-color: #161819;
+}
+
+.container .nav-tabs-bar .nav-pills .nav-link {
+  border-radius: 0;
+  color: #f2f2f2;
+}
+
+.container .nav-tabs-bar .nav-pills .nav-link:hover {
+  background-color: #ff544a;
+}
+
+.container .nav-tabs-bar .nav-pills .nav-link.active {
+  background-color: #ff4136;
+}
+
+.container label {
+  color: #6c6c6c;
+}
+
+.container label.required:after,
+.container h4.required:after {
+  color: red;
+  content: ' *';
+}
+
+.container #imageFieldLabel img {
+  padding-left: 1.5rem;
+}
+
+.container #imageFieldLabel:hover {
+  cursor: pointer;
+}
+
+.container #imageField {
+  width: 220px;
+  display: none;
+}
+
+.container input,
+.container textarea,
+.container select {
+  border-radius: 0;
+  background: #181818;
+  color: #555;
+  border: 1px solid #555;
+}
+
+@media (max-width: 767px) {
+  .container #img {
+    text-align: center;
+  }
+}
+
+.container button {
+  background-color: #ff4136;
+  border: 1px solid #555;
+  border-radius: 0;
+}
+
+.container button:hover {
+  background-color: #ff1a0d;
+}
+/*# sourceMappingURL=artist-edit-profile.component.css.map */

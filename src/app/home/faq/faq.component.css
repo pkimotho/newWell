@@ -1,0 +1,192 @@
+.btn {
+  background: #ff4136;
+}
+
+.btn-border {
+  border: 1px border solid #ff4136;
+  background: 20px;
+}
+
+:host .faq {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: white;
+  padding-top: 70px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+:host .faq .page-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 80px;
+}
+
+:host .faq .page-title h2 {
+  color: #060606;
+}
+
+:host .faq .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+:host .faq .content .outline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  counter-reset: my-awesome-counter;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+:host .faq .content .outline li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 0.5rem 0;
+  counter-increment: my-awesome-counter;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 10px;
+}
+
+:host .faq .content .outline li a {
+  text-decoration: underline;
+  text-transform: uppercase;
+  color: rgba(25, 128, 76, 0.925);
+}
+
+:host .faq .content .outline li a:hover {
+  color: #ff4136;
+}
+
+:host .faq .content .detailed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  counter-reset: my-awesome-counter;
+  list-style: none;
+}
+
+:host .faq .content .detailed li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background: rgba(25, 128, 76, 0.925);
+  border-radius: 10px;
+  padding: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 0.5rem 0;
+  counter-increment: my-awesome-counter;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 10px;
+}
+
+:host .faq .content .detailed li p {
+  color: white;
+  margin: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+:host .faq .content .detailed li .title {
+  font-size: 20px;
+}
+
+:host .faq .content .detailed li .content {
+  padding: 10px;
+  margin-left: 10px;
+}
+
+:host .faq .content .detailed li:hover {
+  background: #ff4136;
+}
+
+:host .faq .content .detailed li::before {
+  color: #fcd000;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: absolute;
+  --size: 32px;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+  background: black;
+  border-radius: 50%;
+  text-align: center;
+  -webkit-box-shadow: 1px 1px 0 #999;
+          box-shadow: 1px 1px 0 #999;
+}
+
+@media screen and (max-width: 640px) {
+  .faq .content ol {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 90%;
+    padding: 0;
+  }
+}
+/*# sourceMappingURL=faq.component.css.map */
