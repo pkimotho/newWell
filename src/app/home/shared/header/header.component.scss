@@ -134,3 +134,11 @@
             }
         }
     }
+    
+    @media (max-width: 375px) {
+        .navbar {
+            .navbar-expand-lg {
+                min-width: 375px !important;
+            }
+        }
+    }

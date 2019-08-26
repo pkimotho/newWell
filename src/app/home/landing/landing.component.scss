@@ -20,6 +20,14 @@ $shadowtext: 1px 1px 3px #0f1011,
     color: white;
     padding: 0 2rem;
     position: relative;
+    .bg-color {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        bottom: -40px;
+        left: 0;
+        background: radial-gradient(circle closest-corner at center 80%, rgba(255, 255, 255, 0.0), black 100%)
+    }
     >* {
         margin-bottom: 2rem;
     }
@@ -61,6 +69,11 @@ $shadowtext: 1px 1px 3px #0f1011,
         //   margin-bottom: 1rem;
         // }
     }
+    .hero-info,
+    .hero-title,
+    .lead {
+        z-index: 1;
+    }
 }
 
 .bg-img {
@@ -77,7 +90,7 @@ $shadowtext: 1px 1px 3px #0f1011,
         left: 0;
         // background-color: hsl(0, 0%, 5%);
         // background: radial-gradient(rgb(0, 0, 0) 60%, rgba(255, 255, 255, 0.0));
-        background: radial-gradient(circle closest-corner at center 80%, rgba(255, 255, 255, 0.0), black 100%)
+        background: radial-gradient(circle closest-corner at center 80%, transparent, black 110%)
     }
 }
 
