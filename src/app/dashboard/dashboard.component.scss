@@ -8,12 +8,32 @@ $secondary: white;
         width: 250px;
         height: 100%;
         margin: 0;
-        background-color: $danger2;
+        background-color: lighten($primary, 10);
         position: fixed;
         top: 4rem;
         left: 0;
         z-index: 9;
         overflow: auto;
+        .top {
+            height: 90px;
+            margin-left: 52px;
+            margin-top: 20px;
+            .top-info {
+                display: flex;
+                justify-content: space-around;
+                h5,
+                span {
+                    color: $secondary;
+                }
+                span {
+                    padding-right: 5px;
+                    cursor: pointer;
+                }
+            }
+            button {
+                margin-top: 10px;
+            }
+        }
         ul {
             .list-group-item:first-child {
                 border-top-left-radius: 0;
@@ -24,7 +44,7 @@ $secondary: white;
                 border-bottom-right-radius: 0;
             }
             li {
-                background-color: $danger2;
+                background-color: lighten($primary, 5);
                 a {
                     display: flex;
                     align-items: flex-start;
@@ -33,7 +53,7 @@ $secondary: white;
                     font-weight: bold;
                     height: 19px;
                     cursor: pointer;
-                    color: $primary;
+                    color: darken($secondary, 20);
                     span {
                         white-space: nowrap;
                         overflow: hidden;
@@ -42,17 +62,26 @@ $secondary: white;
                     }
                 }
             }
+            li:hover,
+            li.active {
+                background: #000000;
+                color: $secondary;
+                border-color: black;
+            }
         }
     }
     .togglebtn {
         color: white;
         background: #FF0039;
         font-size: 2rem;
+        position: fixed;
+        z-index: 9;
         cursor: pointer;
     }
     .main-container {
+        width: 100%;
         margin: 0;
-        padding-left: 3rem;
+        // padding-left: 3rem;
         color: $secondary;
     }
 }
