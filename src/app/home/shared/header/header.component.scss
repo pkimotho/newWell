@@ -1,141 +1,149 @@
 @import '../../../../sass/base';
-    select {
-        background: transparent;
+select {
+    background: transparent;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 99;
+    background-color: $primary;
+    .logo {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        img {
+            width: 120px;
+            height: 70px;
+        }
     }
-
-    nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        z-index: 99;
-        background-color: $primary;
-        .logo {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0;
-            img {
-                width: 120px;
-                height: 70px;
-            }
+    .navbar-toggler {
+        background-color: #c02118;
+        .fa {
+            color: $secondary;
         }
-        .navbar-toggler {
-            background-color: #c02118;
-            .fa {
-                color: $secondary;
-            }
-        }
-        .navbar-collapse {
-            background: #0f1011;
-            opacity: 0.9;
-        }
-        ul {
-            li {
+    }
+    .navbar-collapse {
+        background: #0f1011;
+        opacity: 0.9;
+    }
+    ul {
+        li {
+            border-bottom: $primary 3px solid;
+            border-radius: 10px;
+            margin-right: 0.5rem;
+            a {
+                line-height: 50px;
+                color: $text-color;
+                padding: 0 5px;
+                cursor: pointer;
                 border-bottom: $primary 3px solid;
+            }
+            a:focus {
+                outline: 0;
+            }
+            .nav-link-hover:hover {
+                color: $secondary;
+                background-color: lighten($primary, 10);
+                // border-bottom: $danger 3px solid;
                 border-radius: 10px;
-                margin-right: 0.5rem;
-                a {
-                    line-height: 50px;
-                    color: $text-color;
-                    padding: 0 5px;
-                    cursor: pointer;
-                    border-bottom: $primary 3px solid;
-                }
-                a:focus {
-                    outline: 0;
-                }
-                .nav-link-hover:hover {
-                    color: $secondary;
-                    background-color: lighten($primary, 10);
-                    // border-bottom: $danger 3px solid;
-                    border-radius: 10px;
-                }
-                .music:hover,
-                .music.active {
-                    color: lighten($danger, 10);
-                    border-bottom: $danger 3px solid;
-                    border-radius: 10px;
-                }
-                .artists:hover,
-                .artists.active {
-                    color: lighten($artist, 10);
-                    border-bottom: $artist 3px solid;
-                    border-radius: 10px;
-                }
-                .dashboard:hover,
-                .dashboard.active {
-                    color: lighten($dashboard, 10);
-                    border-bottom:$dashboard 3px solid;
-                    border-radius: 10px;
-                }
-
-                .marketing:hover,
-                .marketing.active {
-                    color: lighten($marketing, 10);
-                    border-bottom:$marketing 3px solid;
-                    border-radius: 10px;
-                }
-                .publishing:hover,
-                .publishing.active {
-                    color: lighten($publish, 10);
-                    border-bottom: $publish 3px solid;
-                    border-radius: 10px;
-                }
-                .pricing:hover,
-                .pricing.active {
-                    color: lighten($pricing, 10);
-                    border-bottom: $pricing 3px solid;
-                    border-radius: 10px;
-                }
-                .login:hover,
-                .login.active {
-                    color: lighten($login, 10);
-                    border-bottom: $login 3px solid;
-                }
-                .signup:hover,
-                .signup.active {
-                    color: lighten($signup, 10);
-                    border-bottom: $signup 3px solid;
-                    border-radius: 10px;
-                }
             }
-            .nav-item {
-                .nav-link {
-                    img {
-                        height: 40px;
-                        width: 40px;
-                        border-radius: 50%;
-                    }
-                }
-                .dropdown-menu {
-                    font-size: 0.9rem;
-                    background: $primary;
-                    max-width: 8rem;
-                    a:hover {
-                        background: lighten($primary, 9);
-                        color: $secondary;
-                    }
-                }
-            }
-            .active {
+            .music:hover,
+            .music.active {
+                color: lighten($danger, 10);
                 border-bottom: $danger 3px solid;
                 border-radius: 10px;
             }
+            .artists:hover,
+            .artists.active {
+                color: lighten($artist, 10);
+                border-bottom: $artist 3px solid;
+                border-radius: 10px;
+            }
+            .dashboard:hover,
+            .dashboard.active {
+                color: lighten($dashboard, 10);
+                border-bottom: $dashboard 3px solid;
+                border-radius: 10px;
+            }
+            .marketing:hover,
+            .marketing.active {
+                color: lighten($marketing, 10);
+                border-bottom: $marketing 3px solid;
+                border-radius: 10px;
+            }
+            .publishing:hover,
+            .publishing.active {
+                color: lighten($publish, 10);
+                border-bottom: $publish 3px solid;
+                border-radius: 10px;
+            }
+            .pricing:hover,
+            .pricing.active {
+                color: lighten($pricing, 10);
+                border-bottom: $pricing 3px solid;
+                border-radius: 10px;
+            }
+            .login:hover,
+            .login.active {
+                color: lighten($login, 10);
+                border-bottom: $login 3px solid;
+            }
+            .signup:hover,
+            .signup.active {
+                color: lighten($signup, 10);
+                border-bottom: $signup 3px solid;
+                border-radius: 10px;
+            }
+        }
+        .nav-item {
+            .nav-link {
+                img {
+                    height: 40px;
+                    width: 40px;
+                    border-radius: 50%;
+                }
+            }
+            .dropdown-menu {
+                font-size: 0.9rem;
+                background: $primary;
+                max-width: 8rem;
+                a:hover {
+                    background: lighten($primary, 9);
+                    color: $secondary;
+                }
+            }
+        }
+        .active {
+            border-bottom: $danger 3px solid;
+            border-radius: 10px;
         }
     }
+}
 
-    @media (max-width: 767px) {
-        #navbarTarget {
-            max-width: 90%;
-            ul {
-                li {
-                    a {
-                        text-align: center;
-                    }
+@media (max-width: 767px) {
+    #navbarTarget {
+        max-width: 90%;
+        ul {
+            li {
+                a {
+                    text-align: center;
                 }
             }
         }
     }
+}
+
+// <<<<<<< HEAD @media (max-width: 375px) {
+//     .navbar {
+//         .navbar-expand-lg {
+//             min-width: 375px !important;
+//         }
+//     }
+// }
+// =======>>>>>>>b5e6fd7b02c53ae4b9b5d5c42360cb2886ff94e9

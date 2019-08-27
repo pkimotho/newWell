@@ -1,0 +1,101 @@
+.container-fluid {
+  margin-top: 4rem;
+  color: white;
+}
+
+.container-fluid .col1 {
+  width: 30;
+}
+
+.container-fluid .col2 {
+  min-width: 400px;
+}
+
+.container-fluid form {
+  -webkit-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
+  padding: 60px 40px;
+  margin: 80px 0;
+  border-radius: 5px;
+  background-color: #0f1011;
+  opacity: 0.8;
+}
+
+.container-fluid form h2 {
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+
+.container-fluid form .form-group input {
+  height: 40px;
+  width: 100%;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+  color: #ccc;
+  background: #181818;
+  border: 1px solid #555;
+}
+
+.container-fluid form .form-group .has-error {
+  color: #ff4136;
+}
+
+.container-fluid form .form-group .has-error input {
+  outline-color: #ff4136;
+}
+
+.container-fluid form .form-group .has-error ul li {
+  list-style: none;
+}
+
+.container-fluid form .form-group .has-success {
+  color: darkgreen;
+  outline-color: darkgreen;
+}
+
+.container-fluid form .form-group .has-success ul li {
+  list-style: none;
+}
+
+.container-fluid form .show-hide-message {
+  position: absolute;
+  top: 8%;
+  left: 30%;
+}
+
+.container-fluid form button {
+  background: #0f1011;
+  border: 2px solid #ff4136;
+}
+
+.container-fluid form button:hover {
+  background: #ff4136;
+}
+
+.container-fluid form .links {
+  margin-top: 10px;
+  color: white;
+}
+
+.container-fluid form .links a:hover {
+  color: #ff4136;
+  cursor: pointer;
+}
+
+.bg {
+  background-image: url("../../../assets/images/microphone.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  .show-hide-message {
+    top: 50%;
+  }
+}
+/*# sourceMappingURL=login.component.css.map */

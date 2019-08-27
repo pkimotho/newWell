@@ -1,0 +1,87 @@
+header {
+  height: 20vh;
+  width: 100vw;
+  border: 2px solid black;
+  background-image: url(../../../assets/images/classical-music.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.outer {
+  background-color: #0f1011;
+  margin-top: 6rem;
+}
+
+.page-layout {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.page-layout .header {
+  color: #ff4136;
+}
+
+.col-lg-3,
+.col-md-4,
+.col-sm-12 {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.card img {
+  border-radius: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.card .card-img-overlay {
+  padding-top: 55%;
+  color: white;
+  visibility: visible;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(50%, rgba(0, 0, 0, 0.767)), to(transparent));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.767) 50%, transparent);
+  opacity: 1;
+}
+
+.card .description {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: white;
+  visibility: hidden;
+  padding: 2rem;
+}
+
+.card .description small {
+  color: #ff4136;
+  font-weight: 900;
+}
+
+.card:hover {
+  border: 5px solid #f3a953;
+  border-radius: 0;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.card:hover .description {
+  visibility: visible;
+}
+
+.card:hover .card-img-overlay {
+  visibility: hidden;
+}
+/*# sourceMappingURL=artists-page.component.css.map */

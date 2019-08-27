@@ -1,9 +1,62 @@
-<div class="container">
-    <section>
+<!--Banner-->
+<section class="banner">
+    <div class="overlay">
+        <h1><span>{{artistName}}</span> - <span class="font-weight-bolder text-capitalize">Welcome to your music
+        dashboard</span> </h1>
+    </div>
+    <img class="img-fluid" src="../../assets/images/jumbo.jpg" alt="Artist's cover image">
+</section>
+<div class="containerWrap">
+    <section class="generalStats">
+        <div class="stat" id="events">
+            <p>Top Songs</p>
+            <div>
+                <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+
+        </canvas>
+            </div>
+        </div>
+        <div class="stat" id="audience">
+            <p>Audience/Following</p>
+            <div>
+                <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutChartOptions">
+
+        </canvas>
+            </div>
+        </div>
+        <div class="stat" id="sales">
+            <p>Sales</p>
+            <div>
+                <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType">
+
+        </canvas>
+            </div>
+        </div>
+    </section>
+    <section class="songStats">
+        <div class="songStat">
+            <p>Total Songs <span>80</span></p>
+        </div>
+        <div class="songStat">
+            <p>Total Albums <span>16</span></p>
+        </div>
+        <div class="songStat">
+            <p>Verified <span>60</span></p>
+        </div>
+        <div class="songStat">
+            <p>Unverified <span>10</span></p>
+        </div>
+        <div class="songStat">
+            <p>Pending <span>7</span></p>
+        </div>
+        <div class="songStat">
+            <p>Rejected <span>3</span></p>
+        </div>
+    </section>
+    <section class="assets">
         <div class="top">
             <h2>Latest Uploads</h2>
-            <!-- <a routerLink="/dashboard/uploads" class="btn btn-sm text-right btn-success">New Upload</a> -->
-            <div class="dropdown">
+            <!-- <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           New Upload
         </button>
@@ -11,38 +64,86 @@
                     <a class="dropdown-item" routerLink="/dashboard/music-upload/single">New Single Release</a>
                     <a class="dropdown-item" routerLink="/dashboard/music-upload/album">New Album Release</a>
                 </div>
+            </div> -->
+            <div class="dropdownButton">
+                <span>New Upload <i class="fa fa-caret-down"></i></span>
+                <div class="dropdown-content">
+                    <a routerLink="/dashboard/music-upload/single">New Single</a>
+                    <a routerLink="/dashboard/music-upload/album">New Album</a>
+                </div>
             </div>
         </div>
-        <table class="table table-hover table-dark">
-            <thead>
-                <tr>
-                    <th scope="col"></th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Stats</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let song of songs; index as i">
-                    <th scope="row"><i class="fa fa-list-ol danger" aria-hidden="true"></i> {{i + 1}}</th>
-                    <td><i class="fa fa-music orange" aria-hidden="true"></i> {{song.genre}}</td>
-                    <td><i class="fa fa-headphones orange" aria-hidden="true"></i> {{song.title}}</td>
-                    <td class="text-capitalize">
-                        <i class="fa fa-check green" aria-hidden="true" *ngIf="song.status==='verified_distro'"></i>
-                        <i class="fa fa-times red" aria-hidden="true" *ngIf="song.status==='rejected'"></i>
-                        <i class="fa fa-spinner orange" aria-hidden="true" *ngIf="song.status==='unverified' || song.status==='verified_newwell'"></i> {{song.status}}
-                    </td>
-                    <td><i class="fa fa-line-chart blue" aria-hidden="true"></i> 18,003</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="assets-list" *ngFor="let song of songs; index as i">
+            <div class="asset-list itemNumber">
+                <p>{{i + 1}}</p>
+            </div>
+
+            <div class="asset-list albumArt">
+                <img [src]="song.albumArt" alt="">
+            </div>
+
+            <div class="asset-list title">
+                <p>{{song.title}}</p>
+            </div>
+
+            <div class="asset-list genre">
+                <p>{{song.genre}}</p>
+            </div>
+
+            <div class="asset-list status">
+                <p>{{song.status}}</p>
+            </div>
+
+            <div class="asset-list songDuration">
+                <p>5.22 mins</p>
+            </div>
+
+            <div class="asset-list viewStats">
+                <p>Views</p>
+            </div>
+
+        </div>
+        <div class="assets-list-mobile" *ngFor="let song of songs; index as i">
+            <div class="main-info" (click)="song.displayInfo = !song.displayInfo">
+                <div class="asset-list itemNumber">
+                    <p>{{i + 1}}</p>
+                </div>
+
+                <div class="asset-list albumArt">
+                    <img [src]="song.albumArt" alt="">
+                </div>
+
+                <div class="asset-list title">
+                    <p>{{song.title}}</p>
+                </div>
+                <div class="asset-list dropList">
+                    <p>...</p>
+                </div>
+            </div>
+            <div class="other-info" *ngIf="song.displayInfo">
+                <div class="asset-list genre">
+                    <p>{{song.genre}}</p>
+                </div>
+
+                <div class="asset-list status">
+                    <p>{{song.status}}</p>
+                </div>
+
+                <div class="asset-list songDuration">
+                    <p>5.22 mins</p>
+                </div>
+
+                <div class="asset-list viewStats">
+                    <p>Views</p>
+                </div>
+            </div>
+        </div>
     </section>
     <section>
-        <div class="top">
+        <div class="top m-4">
             <h2>Albums</h2>
         </div>
-        <div class="row">
+        <div class="row m-2">
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="card">
                     <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">

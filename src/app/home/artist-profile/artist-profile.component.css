@@ -1,0 +1,236 @@
+.outer {
+  margin-top: 4rem;
+}
+
+.banner {
+  width: 100%;
+  height: 50%;
+  background: green;
+}
+
+.banner .cover-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
+  width: 100%;
+  min-height: 405px;
+  background: blue;
+  position: relative;
+}
+
+.banner .cover-page .overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  color: white;
+  background: -webkit-gradient(linear, left top, right top, color-stop(60%, black), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to right, black 60%, rgba(255, 255, 255, 0));
+}
+
+.banner .cover-page .overlay p {
+  color: white;
+  width: 60%;
+}
+
+.banner .cover-page .bio {
+  width: 60%;
+}
+
+.banner .cover-page .bio h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.banner .cover-page .cover-image {
+  width: 40%;
+  height: 100%;
+  background: yellow;
+}
+
+.banner .cover-page .cover-image img {
+  width: 100%;
+  min-height: 405px;
+  max-height: 405px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner .stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  background-color: lightblue;
+  padding: 0.25rem 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.banner .stats .stat {
+  margin-left: 8rem;
+  margin-right: 1rem;
+  text-align: center;
+  padding-top: 0.2rem;
+}
+
+.banner .stats .stat h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.banner .stats .stat p {
+  margin: 0;
+  padding: 0;
+}
+
+.banner .event-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: 150px;
+  left: 260px;
+  z-index: 2;
+  background: #444;
+}
+
+.banner .event-details .event-image {
+  width: 200px;
+  height: 250px;
+  margin-right: 0.5rem;
+}
+
+.banner .event-details .event-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner .event-details .profile-info h3 {
+  margin: 0;
+  font-weight: 600;
+  color: #ff4136;
+}
+
+.banner .event-details .profile-info p {
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .banner .event-details {
+    left: 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .banner .event-details {
+    left: 15px;
+  }
+  .banner .event-details .event-image {
+    width: 110px;
+  }
+}
+
+.main {
+  color: #fff;
+}
+
+.main .row {
+  margin: 0;
+}
+
+.main .row .col-md-7 {
+  padding: 0;
+}
+
+.main .row .col-md-7 h2 {
+  background: #444;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.main .row .col-md-4 {
+  padding: 0;
+}
+
+.main .row .col-md-4 h2 {
+  background: #444;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.main .row .col-md-4 .card {
+  margin: 0.5rem;
+}
+
+.main .row .col-md-12 .song-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #111;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.main .row .col-md-12 .song-row img {
+  width: 4rem;
+  height: 4rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.main .row .col-md-12 .song-row a {
+  cursor: pointer;
+}
+
+.main .row .col-md-12 .comment-row {
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .main .row .col-md-12 h5 {
+    font-size: 0.8rem;
+  }
+  .main .row .col-md-12 .song-row,
+  .main .row .col-md-12 .comment-row,
+  .main .row .col-md-12 .contact-info a {
+    font-size: 0.6rem;
+  }
+}
+
+.grey {
+  background: #222;
+  border-radius: 10px;
+}
+
+.blue {
+  color: blue;
+}
+
+.orange {
+  color: orangered;
+  margin: 0;
+  padding: 0.5rem;
+}
+/*# sourceMappingURL=artist-profile.component.css.map */

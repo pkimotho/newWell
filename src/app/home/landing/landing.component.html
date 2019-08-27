@@ -1,14 +1,15 @@
 <section id="">
     <div class="hero">
-        <img [src]="landingPageContent.imageUrl" alt="Landing page picture" id="heroImage" />
-        <h1 class="hero-title">{{ landingPageContent.title }}</h1>
-        <p class="hero-info">{{ landingPageContent.description }}</p>
-        <p class="lead">
-            <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">{{
+        <div class="bg-color"></div>
+            <img [src]="landingPageContent.imageUrl" alt="Landing page picture" id="heroImage" />
+            <h1 class="hero-title">{{ landingPageContent.title }}</h1>
+            <p class="hero-info">{{ landingPageContent.description }}</p>
+            <p class="lead">
+                <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">{{
         landingPageContent.ctaText
       }}</a>
-        </p>
-    </div>
+            </p>
+        </div>
 </section>
 
 <div class="bg-img">

@@ -1,0 +1,165 @@
+.btn {
+  background: #ff4136;
+}
+
+.btn-border {
+  border: 1px border solid #ff4136;
+  background: 20px;
+}
+
+select {
+  background: transparent;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 99;
+  background-color: #0f1011;
+}
+
+nav .logo {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+}
+
+nav .logo img {
+  width: 120px;
+  height: 70px;
+}
+
+nav .navbar-toggler {
+  background-color: #c02118;
+}
+
+nav .navbar-toggler .fa {
+  color: rgba(25, 128, 76, 0.925);
+}
+
+nav .navbar-collapse {
+  background: #0f1011;
+  opacity: 0.9;
+}
+
+nav ul li {
+  border-bottom: #0f1011 3px solid;
+  border-radius: 10px;
+  margin-right: 0.5rem;
+}
+
+nav ul li a {
+  line-height: 50px;
+  color: white;
+  padding: 0 5px;
+  cursor: pointer;
+  border-bottom: #0f1011 3px solid;
+}
+
+nav ul li a:focus {
+  outline: 0;
+}
+
+nav ul li .nav-link-hover:hover {
+  color: rgba(25, 128, 76, 0.925);
+  background-color: #272a2c;
+  border-radius: 10px;
+}
+
+nav ul li .music:hover,
+nav ul li .music.active {
+  color: #ff7169;
+  border-bottom: #ff4136 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .artists:hover,
+nav ul li .artists.active {
+  color: #e43127;
+  border-bottom: #c02118 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .dashboard:hover,
+nav ul li .dashboard.active {
+  color: #86316c;
+  border-bottom: #61234e 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .marketing:hover,
+nav ul li .marketing.active {
+  color: #36ce8f;
+  border-bottom: #29a873 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .publishing:hover,
+nav ul li .publishing.active {
+  color: #037f9e;
+  border-bottom: #02576c 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .pricing:hover,
+nav ul li .pricing.active {
+  color: #00dacd;
+  border-bottom: #00a79d 3px solid;
+  border-radius: 10px;
+}
+
+nav ul li .login:hover,
+nav ul li .login.active {
+  color: #d030b7;
+  border-bottom: #a72693 3px solid;
+}
+
+nav ul li .signup:hover,
+nav ul li .signup.active {
+  color: #f9e195;
+  border-bottom: #f6d365 3px solid;
+  border-radius: 10px;
+}
+
+nav ul .nav-item .nav-link img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+nav ul .nav-item .dropdown-menu {
+  font-size: 0.9rem;
+  background: #0f1011;
+  max-width: 8rem;
+}
+
+nav ul .nav-item .dropdown-menu a:hover {
+  background: #252729;
+  color: rgba(25, 128, 76, 0.925);
+}
+
+nav ul .active {
+  border-bottom: #ff4136 3px solid;
+  border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  #navbarTarget {
+    max-width: 90%;
+  }
+  #navbarTarget ul li a {
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=header.component.css.map */

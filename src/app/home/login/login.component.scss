@@ -81,6 +81,7 @@
     .bg {
         background-image: url('../../../assets/images/microphone.jpg');
         background-repeat: no-repeat;
+        background-size: cover;
     }
     
     @media(max-width: 576px) {

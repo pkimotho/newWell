@@ -1,0 +1,92 @@
+.btn {
+  background: #ff4136;
+}
+
+.btn-border {
+  border: 1px border solid #ff4136;
+  background: 20px;
+}
+
+:host .terms {
+  width: 100%;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 70px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+:host .terms .page-title {
+  width: 80%;
+  height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+:host .terms .page-title h2 {
+  color: #060606;
+  font-size: 40px;
+  font-weight: 500px;
+}
+
+:host .terms .content {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+:host .terms .content ol li a {
+  color: rgba(25, 128, 76, 0.925);
+  text-decoration: underline;
+  margin: 5px;
+}
+
+:host .terms .content ol li a:hover {
+  color: #060606;
+}
+
+:host .terms .para {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+:host .terms .para .para-title {
+  margin-top: 20px;
+}
+
+:host .terms .para .para-title h2 {
+  font-weight: 350px;
+  color: #060606;
+}
+/*# sourceMappingURL=policy.component.css.map */

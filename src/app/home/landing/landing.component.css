@@ -1,0 +1,298 @@
+.btn {
+  background: #ff0039;
+  border: none;
+  color: white;
+}
+
+.hero {
+  background-size: cover;
+  margin-top: 10vh;
+  height: calc(100vh - 10vh - 10vh);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.hero .bg-color {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: -40px;
+  left: 0;
+  background: radial-gradient(circle closest-corner at center 80%, rgba(255, 255, 255, 0), black 100%);
+}
+
+.hero > * {
+  margin-bottom: 2rem;
+}
+
+.hero #heroImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+.hero .hero-info {
+  width: 70%;
+  text-shadow: 1px 1px 3px #0f1011, -1px 1px 3px #0f1011;
+  font-size: 1.3em;
+}
+
+.hero .hero-title {
+  text-shadow: 1px 1px 3px #0f1011, -1px 1px 3px #0f1011;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 0 1rem;
+  }
+  .hero .hero-info {
+    width: 100%;
+    font-size: 1em;
+  }
+  .hero > * {
+    margin-bottom: 1rem;
+  }
+}
+
+.hero .hero-info,
+.hero .hero-title,
+.hero .lead {
+  z-index: 1;
+}
+
+.bg-img {
+  position: relative;
+  width: 100%;
+  background-image: url(../../../assets/images/microphone.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-img .bg-color {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle closest-corner at center 80%, transparent, black 110%);
+}
+
+section.card-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 3rem 0;
+}
+
+section.card-section h1 {
+  z-index: 3;
+}
+
+section.card-section > * {
+  margin-bottom: 1rem;
+}
+
+section.card-section h1 {
+  color: white;
+  margin-left: 2rem;
+  font-weight: 700;
+  font-size: 1.3em;
+}
+
+.cards {
+  width: 100%;
+}
+
+.cards .cards-item:first-child {
+  padding-left: 2rem;
+  margin-left: 0;
+}
+
+.cards .cards-item:last-child {
+  padding-right: 2rem;
+}
+
+.cards .cards-item .card-img-top {
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cards .card {
+  z-index: 99;
+  width: 250px;
+  margin-right: 20px;
+  background-color: #0f1011;
+  color: white;
+  border: none;
+}
+
+.cards .card .date {
+  padding: 0px;
+  color: grey;
+  font-size: 12px;
+}
+
+.cards .card .songtitle {
+  padding: 0px;
+  font-size: 14px;
+}
+
+.cards .card .artist {
+  padding: 0px;
+  color: #ff0039;
+  font-size: 14px;
+}
+
+.cards .card .by {
+  color: grey;
+  font-size: 14px;
+}
+
+.cards .card .btn {
+  background: #131414;
+  color: white;
+  font-size: 14px;
+}
+
+.cards .card .card-footer {
+  background-color: #131414;
+}
+
+.cards .card .card-footer .comments {
+  color: grey;
+  font-size: 14px;
+}
+
+.outlets {
+  background-color: #0f1011;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100px;
+}
+
+.outlets img {
+  height: 60%;
+  width: 15%;
+}
+
+.outlets ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  height: 100%;
+}
+
+.filter ul {
+  float: right;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.filter ul li {
+  background: #131414;
+  list-style: none;
+}
+
+.filter ul li .btn {
+  padding: 15px;
+}
+
+.filter ul li a {
+  line-height: 80px;
+  color: white;
+  background: #0f1011;
+  padding: 10px 20px;
+  margin: 20px;
+  font-family: "Roboto"sans-serif;
+  text-decoration: none;
+  text-transform: Title;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.filter ul li a:hover {
+  line-height: 80px;
+  color: white;
+  background: #ff0039;
+  padding: 5px 20px;
+  font-family: "Roboto"sans-serif;
+  text-decoration: none;
+  text-transform: Title;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#listoutline {
+  background-color: #212222;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+#listoutline h1 {
+  color: white;
+  font-size: 22px;
+  padding-top: 15px;
+}
+
+#listoutline hr {
+  color: white;
+}
+
+#listoutline .col-3 {
+  padding-top: 15px;
+}
+
+#brands {
+  height: 12vh;
+}
+
+#brands .brand {
+  padding: 0 3rem;
+}
+
+#brands .brand img {
+  width: 110px;
+  height: 40px;
+}
+
+.action {
+  color: white;
+  line-height: 27px;
+}
+
+.action h1,
+.action p {
+  z-index: 3;
+}
+/*# sourceMappingURL=landing.component.css.map */

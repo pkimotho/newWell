@@ -10,13 +10,13 @@ import { AuthorizationService } from './../services/authorization.service';
   styleUrls: ['./dashboard.component.scss'],
   animations: [
     trigger('sideMenuAnime', [
-      state('close', style({ width: '50px' })),
+      state('close', style({ width: '0px' })),
       state('open', style({ width: '260px' })),
       transition('open => close', animate('400ms ease-in')),
       transition('close => open', animate('400ms ease-out'))
     ]),
     trigger('toggleButtonAnime', [
-      state('close', style({ marginLeft: '52px' })),
+      state('close', style({ marginLeft: '2px' })),
       state('open', style({ marginLeft: '262px' })),
       transition('open => close', animate('400ms ease-in')),
       transition('close => open', animate('400ms ease-out'))
@@ -26,6 +26,7 @@ import { AuthorizationService } from './../services/authorization.service';
 export class DashboardComponent implements OnInit {
 
   id;
+  artistName;
 
   openCloseSidebar = 'close';
 
@@ -47,8 +48,9 @@ export class DashboardComponent implements OnInit {
     });
   }
   loadArtistId() {
-    const { _id } = JSON.parse(localStorage.getItem('user'));
+    const { _id, name } = JSON.parse(localStorage.getItem('user'));
     this.id = _id;
+    this.artistName = name;
   }
 
 }

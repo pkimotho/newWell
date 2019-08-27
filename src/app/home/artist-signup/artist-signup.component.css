@@ -1,0 +1,65 @@
+.container {
+  margin-top: 5rem;
+  padding-left: 0;
+  padding-right: 0;
+  background-image: url("../../../assets/images/microphone.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.container .signin {
+  color: white;
+}
+
+.container form {
+  background-color: #272a2c;
+  padding: 1rem;
+  opacity: 0.7;
+}
+
+.container .right {
+  text-align: center;
+  padding: 10rem;
+}
+
+.container .links {
+  color: white;
+}
+
+.container .links a:hover {
+  color: #ff4136;
+  cursor: pointer;
+}
+
+.container .btn {
+  background: black;
+  border: 2px solid #ff4136;
+}
+
+.container .btn:hover {
+  cursor: pointer;
+}
+
+.has-error {
+  color: #ff4136;
+}
+
+.has-error input {
+  outline-color: #ff4136;
+}
+
+.has-error ul li {
+  list-style: none;
+}
+
+.has-success {
+  color: darkgreen;
+  outline-color: darkgreen;
+}
+
+.has-success ul li {
+  list-style: none;
+}
+/*# sourceMappingURL=artist-signup.component.css.map */
