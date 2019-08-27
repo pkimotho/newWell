@@ -34,8 +34,10 @@ body {
     .flickity-page-dots .dot {
         background: $danger;
     }
+    color: hsl(0, 0%, 40%);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  color: hsl(0, 0%, 80%);
 }

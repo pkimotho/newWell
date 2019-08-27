@@ -88,20 +88,18 @@ h1, h2, h3, h4, h5, h6 {
 
   .header {
     display:flex;
-    height: 100%;
     width: 100%;
     // object-fit: cover;
     position: relative;
     flex-direction: column;
     // padding-top: 70px;
-
-
     @include createHeader($marketing);
 
     .hero{
       display: flex;
-      height: 100%;
+
       width: 100%;
+
       @include setBlurredBackground();
 
       img {
@@ -117,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
     .action {
+      padding:70px 0 70px 0;
       position: absolute;
       bottom:0;
       left:0;
@@ -126,11 +125,11 @@ h1, h2, h3, h4, h5, h6 {
       // flex-direction: column;
       color: white;
       width: 100%;
-      height: 100%;
+
 
       .call {
         width:100%;
-        height: 100%;
+        height: 200px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -155,6 +154,16 @@ h1, h2, h3, h4, h5, h6 {
             @include createBTN($marketing, white, 1px, $banner);
           }
         }
+      }
+
+      .call1 {
+        width:100%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
       }
 
 
@@ -232,19 +241,19 @@ position: relative;
 
   .foot {
     display: flex;
-    height: 50vh;
     width: 100%;
     justify-content: center;
     align-items: center;
     background: $banner;
 
     .para {
-      width: 60%;
+      width: 80%;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
       flex-direction: column;
+      padding:70px;
 
       h2 {
         padding-bottom: 30px;
@@ -270,6 +279,12 @@ position: relative;
     .header {
       flex-direction: column;
       align-items: center;
+      height: 70vh;
+
+
+      .hero {
+        height: 100%;
+      }
 
 
       .action {
@@ -289,7 +304,7 @@ position: relative;
         }
 
         .call1 {
-          display: none;
+
         }
       }
     }
@@ -349,6 +364,12 @@ position: relative;
         margin-bottom: 20px;
         }
       }
+    }
+
+    .foot {
+     .para {
+       padding: 50px 0 40px 0;
+     }
     }
   }
 

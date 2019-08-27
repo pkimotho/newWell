@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .header {
     display:flex;
-    height: 90%;
+
     width: 100%;
     // object-fit: cover;
     position: relative;
@@ -159,6 +159,15 @@ h1, h2, h3, h4, h5, h6 {
 
           .btn {
             @include createBTN($pricing, white, 1px, $pricing);
+            margin:2px;
+            width:40%;
+          }
+
+
+          .btnI {
+            @include createBTN-Inverse($pricing, white, 1px, $pricing);
+            margin:2px;
+            width:40%;
           }
         }
       }
@@ -174,8 +183,9 @@ h1, h2, h3, h4, h5, h6 {
         img {
 
 
-          width:50%;
+          width:70%;
           height: 70%;
+          padding-top: 70px;
           object-fit: cover;
 
         }
@@ -195,14 +205,13 @@ h1, h2, h3, h4, h5, h6 {
     justify-items: center;
     transition: all 0.2s;
 
-
-
-
-
     .card-content{
 
       // @include gradient($banner, $banner);
       background: darken($banner, 10%);
+      // background: url(../../../assets/img/darkbg.jpg);
+      background-position: center;
+
       width: 100%;
       display:flex;
       justify-content: space-evenly;
@@ -217,9 +226,23 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
 
         align-items: center;
+        justify-content: center;
         margin-bottom: 20px;
-        margin-left: 20px;
+
         width: 100%;
+
+        .title-head {
+
+          display: flex;
+
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+          font-size: 0.5vw;
+
+
+
+        }
       }
 
 
@@ -231,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .pricing-card {
 
-    width: 25%;
+width: 25%;
 height: 50vh;
     margin-bottom: 20px;
     background: lighten($banner, 5%);
@@ -367,10 +390,6 @@ height: 50vh;
     }
 
 
-    // &:hover {
-    //   border: 1px solid $danger;
-    // }
-
 
 
 
@@ -397,13 +416,49 @@ height: 50vh;
 
     display:flex;
     width:100%;
-    height: 70vh;
+    height: 60vh;
     padding: 30px;
     justify-items: center;
+    background: url(../../../assets/img/darkbg.jpg);
     transition: all 0.2s;
 
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+    p {
+      color: white;
+    }
 
 
+.para {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    h2 {
+      font-size: 30px !important;
+
+    }
+  }
+
+
+  .main {
+    padding-top: 30px;
+  }
+}
 
 
     .right {
@@ -461,9 +516,10 @@ position: relative;
     width: 100%;
     justify-content: center;
     align-items: center;
-    // background: $banner;
-    padding: 20px;
-    @include gradient-radial(darken($pricing, 10%), $banner);
+
+
+
+    @include gradient-radial(darken($banner, 13%), $banner);
 
     .para {
       width: 100%;
@@ -480,8 +536,8 @@ position: relative;
         display: flex;
 
         align-items: center;
-        margin-bottom: 20px;
-        margin-left: 20px;
+
+
         width: 100%;
       }
       h2 {
@@ -495,20 +551,24 @@ position: relative;
 
       .main {
         width: 80%;
+        padding: 30px 0 20px 0;
         .banner-head {
           display: flex;
           width: 100%;
           height: 80px;
           align-items: center;
-          margin-left: 20px;
+          justify-content: center;
 
         }
 
+        p {
+          color: white;
+        }
 
         img {
-          width: 100px;
-          height: 100px;
-          margin: 5px;
+          width: 70px;
+          height: 70px;
+          margin: 10px;
         }
       }
 
@@ -522,6 +582,29 @@ position: relative;
 
 
 
+@media screen and (max-width: 800px){
+
+  .pricing {
+    .div-pricing {
+      .card-content {
+        .pricing-cards {
+
+          flex-wrap: wrap;
+
+          .pricing-card {
+            width: 40%;
+          }
+
+
+
+        }
+            }
+    }
+  }
+
+}
+
+
 @media screen and (max-width: 640px){
 
 
@@ -529,6 +612,9 @@ position: relative;
     .header {
       flex-direction: column;
       align-items: center;
+      height: auto;
+      padding-top: 70px;
+      height: 80vh;
 
 
       .action {
@@ -548,15 +634,19 @@ position: relative;
         }
 
         .call1 {
-          display: none;
+          width: 100%;
+          display: flex;
         }
       }
     }
 
     .div-one {
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       flex-direction: column;
-      height: 90vh;
+
       width: 100%;
       .right {
         width: 100%;
@@ -634,27 +724,7 @@ position: relative;
   }
 
 
-@media screen and (max-width: 320px){
 
-
-.pricing {
-  .div-one {
-
-    flex-direction: column;
-    .right {
-      width: 100%;
-    }
-
-    .left {
-      width: 100%;
-    }
-  }
-}
-
-
-
-
-}
 
 
 
