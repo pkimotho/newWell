@@ -117,6 +117,11 @@ table tbody tr img {
   }
 }
 
+.containerWrap .analytics-link {
+  float: right;
+  padding-right: 3rem;
+}
+
 .containerWrap .songStats {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -193,6 +198,8 @@ table tbody tr img {
 .containerWrap .top .dropdownButton {
   position: relative;
   display: inline-block;
+  background: #0f1011;
+  padding: 20px 10px;
 }
 
 .containerWrap .top .dropdown-content {
@@ -225,7 +232,7 @@ table tbody tr img {
   .containerWrap .top h2 {
     font-size: 0.6rem;
   }
-  .containerWrap .top .dropdown button {
+  .containerWrap .top .dropdownButton a {
     font-size: 0.6rem;
   }
 }
@@ -238,7 +245,7 @@ table tbody tr img {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  .containerWrap .top .dropdown button {
+  .containerWrap .top .dropdownButton a {
     font-size: 0.6rem;
   }
 }

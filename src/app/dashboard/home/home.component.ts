@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
     this.loadArtistId();
     this.http.get(environment.base_url + 'song/artist/' + this.id).subscribe((songs: any[]) => {
       this.songs = songs.reverse();
-      console.log(songs);
+      // console.log(songs);
     });
   }
   // toggleOtherInfo() {

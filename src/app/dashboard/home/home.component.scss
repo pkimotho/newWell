@@ -103,6 +103,10 @@ table {
             }
         }
     }
+    .analytics-link {
+        float: right;
+        padding-right: 3rem;
+    }
     .songStats {
         display: flex;
         justify-content: center;
@@ -165,6 +169,8 @@ table {
         .dropdownButton {
             position: relative;
             display: inline-block;
+            background: $primary;
+            padding: 20px 10px;
         }
         .dropdown-content {
             display: none;
@@ -193,8 +199,8 @@ table {
             h2 {
                 font-size: 0.6rem;
             }
-            .dropdown {
-                button {
+            .dropdownButton {
+                a {
                     font-size: 0.6rem;
                 }
             }
@@ -204,8 +210,8 @@ table {
         .top {
             flex-wrap: wrap-reverse;
             justify-content: space-between;
-            .dropdown {
-                button {
+            .dropdownButton {
+                a {
                     font-size: 0.6rem;
                     // margin-bottom: 20px;
                 }

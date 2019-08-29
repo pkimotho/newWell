@@ -45,14 +45,14 @@ $secondary: white;
         width: 220px;
         display: none;
     }
-    input,
-    textarea,
-    select {
-        border-radius: 0;
-        background: #181818;
-        color: #555;
-        border: 1px solid #555;
-    }
+    // input,
+    // textarea,
+    // select {
+    //     border-radius: 0;
+    //     background: #181818;
+    //     color: #555;
+    //     border: 1px solid #555;
+    // }
     @media (max-width: 767px) {
         #img {
             text-align: center;
@@ -66,4 +66,29 @@ $secondary: white;
     button:hover {
         background-color: darken($danger2, 8);
     }
+}
+
+.controls-container>* {
+    width: 100%;
+    margin: 10px;
+    // input {
+    //     background: lighten($primary, 50);
+    //     height: 30px;
+    // }
+}
+
+.add-bottom-padding {
+    padding-bottom: 10px;
+}
+
+mat-grid-list {
+    margin: 0;
+}
+
+mat-radio-group mat-radio-button {
+    margin-left: 5px;
+}
+
+.button-row button {
+    margin: 5px;
 }

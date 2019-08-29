@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <div class="desc">
         <h4>Add New Release(Single)</h4>
         <nav aria-label="breadcrumb">
@@ -9,47 +9,149 @@
             </ol>
         </nav>
     </div>
-    <div>
-        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link text-center active" id="pills-home-tab" data-toggle="pill" href="#mainInfo" role="tab" aria-controls="pills-home" aria-selected="true">Main Information: <span class="fa-stack fa-md">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-inverse fa-stack-1x"><span>1</span></i>
-          </span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-center" id="pills-profile-tab" data-toggle="pill" href="#uploadTrack" role="tab" aria-controls="pills-profile" aria-selected="false">Upload Track: <span class="fa-stack fa-md">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-inverse fa-stack-1x"><span>2</span></i>
-          </span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-center" id="pills-contact-tab" data-toggle="pill" href="#publish" role="tab" aria-controls="pills-contact" aria-selected="false">Publishing: <span class="fa-stack fa-md">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-inverse fa-stack-1x"><span>3</span></i>
-          </span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-center" id="pills-contact-tab" data-toggle="pill" href="#reviewSave" role="tab" aria-controls="pills-contact" aria-selected="false">Review/Save: <span class="fa-stack fa-md">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-inverse fa-stack-1x"><span>4</span></i>
-          </span></a>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="mainInfo" role="tabpanel" aria-labelledby="pills-home-tab">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label id="imageFieldLabel" for="imageField">
-                <img [src]="uploadPreviewUrl" height="200" />
-              </label>
-                            <div>
-                                <label for="imageField" style="cursor: pointer;" class="btn text-white ml-2">Click to upload</label>
-                                <input type="file" id="imageField" name="image">
+    <mat-horizontal-stepper style="color: black">
+        <mat-step [stepControl]="singleUploadForm" label="Main Information">
+            <form [formGroup]="singleUploadForm" (ngSubmit)="onSubmit()">
+                <mat-grid-list cols="2" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <input type="text" matInput formControlName="songTitle" placeholder="Song Title" required>
+                                <mat-error *ngIf="!singleUploadForm.get('songTitle').valid && singleUploadForm.get('songTitle').touched">Song title is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <input type="text" matInput formControlName="artistName" placeholder="Artist Name" required>
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <h5>Is this song composed by several artists?</h5>
+                <mat-grid-list cols="1" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div class="add-bottom-padding">
+                                <mat-radio-group formControlName="hasSeveralArtists">
+                                    <mat-radio-button [value]="true">Yes</mat-radio-button>
+                                    <mat-radio-button [value]="false" checked>No</mat-radio-button>
+                                </mat-radio-group>
                             </div>
                         </div>
-                        <div class="form-group col-md-8">
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <h5>Add the other artist's names(ONE PER FIELD)</h5>
+                <button type="button" class="btn btn-default" (click)="onAddOtherArtist()">Add Artist</button>
+                <div formArrayName="otherArtists">
+                    <mat-grid-list cols="2" rowHeight="100px" *ngFor="let otherArtistsControl of singleUploadForm.get('otherArtists')['controls']; let i = index">
+                        <mat-grid-tile>
+                            <div class="controls-container">
+                                <mat-form-field floatLabel="always" appearance="fill">
+                                    <mat-label>Artist's name</mat-label>
+                                    <input type="text" [formControlName]="i" matInput placeholder="Add artist's name">
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <div class="controls-container">
+                                <mat-form-field floatLabel="always" appearance="fill">
+                                    <mat-label>Role</mat-label>
+                                    <mat-select [formControlName]="i" matInput placeholder="Choose Role" required>
+                                        <mat-option value="Featuring">Featuring</mat-option>
+                                        <mat-option value="In Collaboration">In Collaboration</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                </div>
+                <h5>Is this song previously released?</h5>
+                <mat-grid-list cols="1" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div class="add-bottom-padding">
+                                <mat-radio-group formControlNameName="gender">
+                                    <mat-radio-button value="1">Yes</mat-radio-button>
+                                    <mat-radio-button value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <h5>Is this song on a record label?</h5>
+                <mat-grid-list cols="1" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div class="add-bottom-padding">
+                                <mat-radio-group formControlNameName="gender">
+                                    <mat-radio-button value="1">Yes</mat-radio-button>
+                                    <mat-radio-button value="2">No</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <div class="button-row">
+                    <button mat-button matStepperNext [disabled]="!singleUploadForm.valid" type="submit">Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="uploadTrackForm" label="Upload Track">
+            <form [formGroup]="uploadTrackForm">
+                <mat-grid-list cols="3" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <mat-select [formControlName]="genre" matInput placeholder="Choose Genre" required>
+                                    <mat-option value="Gospel">Gospel</mat-option>
+                                    <mat-option value="Hip Hop">Hip Hop</mat-option>
+                                    <mat-option value="Reggae">Reggae</mat-option>
+                                    <mat-option value="Rhumba">Rhumba</mat-option>
+                                    <mat-option value="Rap">Rap</mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="!uploadTrackForm.get('genre').valid && uploadTrackForm.get('genre').touched">Song title is required
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <input type="text" matInput formControlName="lyricsLanguage" placeholder="Language of Lyrics" required>
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <input type="text" matInput formControlName="uploadLyrics" placeholder="Upload Lyrics">
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <h5>Upload Song Art/Cover</h5>
+                <mat-grid-list cols="2" rowHeight="300px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div>
+                                <label id="imageFieldLabel" for="imageField">
+                  <img [src]="imageFile || uploadPreviewUrl" height="200" width="200" />
+                </label>
+                                <div>
+                                    <label for="imageField" style="cursor: pointer;" class="btn text-white ml-2">Click to upload</label>
+                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField" name="image">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                                        {{imageUploadProgress}} Progress
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
                             <h4>Please observe the following rules while uploading cover image</h4>
                             <ul>
                                 <li>File format: PNG, GIF, BMP, TIF, JPG or JPEG</li>
@@ -59,208 +161,114 @@
                                 <li>You may not use a third-party logo or trademark without the express written permission from the trademark holder.</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-7">
-                            <label for="inputAddress">Song Title</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter song title">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputAddress">Artist Name</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="Enter artist's name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>Is this song composed by several artists?</p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-7">
-                            <label for="inputAddress2">Add the other artist's names(ONE PER FIELD)</label>
-                            <input type="text" class="form-control" id="inputAddress2" placeholder="Add artist's name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label for="inputState">Role</label>
-                            <select id="inputState" class="form-control">
-                <option selected>Choose role...</option>
-                <option>Featuring</option>
-                <option>In collaboration</option>
-              </select>
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <p>Is this song previously released?</p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>Is this song on a record label?</p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Yes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">No</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save and continue</button>
-                </form>
-            </div>
-            <div class="tab-pane fade" id="uploadTrack" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <input type="file" style="display:none;" #fileInput>
-                            <div class="list-group">
-                                <a role="button" class="btn list-group-item list-group-item-action text-center active" (click)="fileInput.click()"><span><i class="fa fa-upload"></i></span>
-                  Upload Audio File
-                </a>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <h5>Upload Audio File</h5>
+                <mat-grid-list cols="2" rowHeight="300px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div>
+                                <label id="imageFieldLabel" for="imageField">
+                  <img [src]="audioFile || uploadAudioPreviewUrl" height="200px" width="200px" />
+                </label>
+                                <div>
+                                    <label for="imageField" style="cursor: pointer;" class="btn text-white ml-2">Click to upload</label>
+                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField" name="image">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                                        {{imageUploadProgress}} Progress
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="inputState">Genre</label>
-                            <select id="inputState" class="form-control">
-                <option selected>Choose Genre</option>
-                <option>Gospel</option>
-                <option>Hip Hop</option>
-                <option>Reggae</option>
-                <option>Rhumba</option>
-                <option>Rap</option>
-              </select>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <h4>Please observe the following rules while uploading cover image</h4>
+                            <ul>
+                                <li>File format: PNG, GIF, BMP, TIF, JPG or JPEG</li>
+                                <li>Minimum dimensions: 1400x1400 pixels. Recommended: 3000x3000 pixels.</li>
+                                <li>Images may not be larger than 16 Mb.</li>
+                                <li>The information on your cover art should match your album title and artist name.</li>
+                                <li>You may not use a third-party logo or trademark without the express written permission from the trademark holder.</li>
+                            </ul>
                         </div>
-                        <div class="form-group col-md-5">
-                            <label>Language of lyrics: </label>
-                            <input type="text" class="form-control" placeholder="Enter language...">
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="4" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <p>Song Title</p>
                         </div>
-                        <div class="form-group col-md-5">
-                            <label>Upload lyrics: </label>
-                            <input type="text" class="form-control" placeholder="Enter lyrics...">
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <p>Genre</p>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary ml-2 mt-3 mb-3">Save and continue</button>
-                </form>
-
-                <div class="row">
-                    <div class="col-md-3 text-center">
-                        <p>Title</p>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <p>Genre</p>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <p>Author</p>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <p>Audio present</p>
-                    </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <p>Author</p>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <p>Audio Present</p>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <div class="button-row">
+                    <button mat-button matStepperNext [disabled]="!uploadTrackForm.valid" type="submit">Next</button>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 text-center">
-                        Cover Image Preview
-                    </div>
-                    <div class="col-md-6 text-center">
-                        Audio Preview
-                    </div>
+            </form>
+        </mat-step>
+        <mat-step label="Publishing">
+            <form [formGroup]="publishForm">
+                <h5>Producer's Details</h5>
+                <mat-grid-list cols="3" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <mat-form-field>
+                                <input type="text" formControlName="firstName" matInput placeholder="Enter first name">
+                            </mat-form-field>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input type="text" formControlName="lastName" matInput placeholder="Enter last name">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input type="text" formControlName="phoneNumber" matInput placeholder="Enter phone number">
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <mat-grid-list cols="1" rowHeight="100px">
+                    <mat-grid-tile>
+                        <div class="controls-container">
+                            <div class="add-bottom-padding">
+                                <mat-card-content>
+                                    <h5>Select where you want to distribute your music</h5>
+                                    <mat-checkbox>Spotify</mat-checkbox>
+                                    <mat-checkbox>Deezer</mat-checkbox>
+                                    <mat-checkbox>Pandora</mat-checkbox>
+                                    <mat-checkbox>Itunes</mat-checkbox>
+                                    <mat-checkbox>Apple Music</mat-checkbox>
+                                    <mat-checkbox>Amazon Music</mat-checkbox>
+                                    <mat-checkbox>Tidal</mat-checkbox>
+                                    <mat-checkbox>JamboTunes</mat-checkbox>
+                                    <mat-checkbox>Other</mat-checkbox>
+                                </mat-card-content>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+                <div class="button-row">
+                    <button mat-button matStepperNext [disabled]="!publishForm.valid" type="submit">Submit</button>
                 </div>
-            </div>
-            <div class="tab-pane fade " id="publish" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <h4>Producer's details</h4>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" placeholder="Enter first name...">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" placeholder="Enter last name...">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>Phone Number</label>
-                            <input type="text" class="form-control" placeholder="Enter phone number...">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>Select where you want to distribute your music</p>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Deezer</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Spotify</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Amazon</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Pandora</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Itunes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Apple Music</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Tidal</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">JamboTunes</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Other</label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn mb-5">Save and Continue</button>
-                </form>
-            </div>
-            <div class="tab-pane fade" id="reviewSave" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <h4 class="text-center">Review and confirm the information you entered is correct</h4>
-                <div class="text-center">
-                    <div class="row text-center">
-                        <ul class="list-group list-group-flush text-dark ml-50 mt-2">
-                            <li class="list-group-item">Release Title: </li>
-                            <li class="list-group-item">Genre: </li>
-                            <li class="list-group-item">Artist's name(s): </li>
-                            <li class="list-group-item">Previously Released? </li>
-                            <li class="list-group-item">Already on a record label? </li>
-                            <li class="list-group-item">Lyrics language: </li>
-                            <li class="list-group-item">Writer's name: </li>
-                            <li class="list-group-item">Composer's name: </li>
-                            <li class="list-group-item">Publishing: </li>
-                        </ul>
-                    </div>
-
-                    <button type="submit" class="btn m-5">Save</button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
     <!-- <div class="container">
         <form [formGroup]="uploadForm" *ngIf="category === 'song'">
             <div class="form-group">
@@ -318,7 +326,7 @@
             </div>
             <div class="form-group">
                 <label>Album Cover</label>
-                <input type="file" class="form-control-file">
+                <input type="file" class="form-control-file"> 
                 <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                 </div>

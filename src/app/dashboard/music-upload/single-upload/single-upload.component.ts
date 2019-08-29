@@ -1,6 +1,6 @@
 import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { UploadsService } from '../../../services/uploads.service';
 import { Router } from '@angular/router';
 
@@ -34,6 +34,7 @@ export class SingleUploadComponent implements OnInit {
   artistId;
 
   uploadPreviewUrl = '../../assets/img/avatars/Upload.svg';
+  uploadAudioPreviewUrl = '../../assets/img/avatars/audio.svg';
 
   selectedImage: File = null;
   selectedAudio: File = null;
@@ -49,6 +50,9 @@ export class SingleUploadComponent implements OnInit {
   audioUploadValue = 0;
   imageUploadValue;
 
+  singleUploadForm: FormGroup;
+  uploadTrackForm: FormGroup;
+  publishForm: FormGroup;
   uploadForm;
   uploadResponse = { status: '', message: '', filePath: '' };
 
@@ -65,6 +69,41 @@ export class SingleUploadComponent implements OnInit {
 
   ngOnInit() {
     this.loadArtistId();
+    this.singleUploadForm = new FormGroup({
+      songTitle: new FormControl(null, Validators.required),
+      artistName: new FormControl(null, Validators.required),
+      hasSeveralArtists: new FormControl(false),
+      otherArtists: new FormArray([])
+    });
+    this.createUploadTrackForm();
+    this.createPublishForm();
+  }
+
+  createUploadTrackForm() {
+    this.uploadTrackForm = new FormGroup({
+      genre: new FormControl(null, Validators.required),
+      lyricsLanguage: new FormControl(null, Validators.required),
+      uploadLyrics: new FormControl(null)
+    });
+  }
+  createPublishForm() {
+    this.publishForm = new FormGroup({
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
+      phoneNumber: new FormControl(null, Validators.required)
+    });
+  }
+
+  get otherArtists() {
+    return this.singleUploadForm.get('mainSonginfoData.otherArtists');
+  }
+  onAddOtherArtist() {
+    const control = new FormControl(null, Validators.required);
+    (this.singleUploadForm.get('otherArtists') as FormArray).push(control);
+  }
+
+  onSubmit() {
+    console.log(this.singleUploadForm);
   }
   albumCategory() {
     this.category = 'album';

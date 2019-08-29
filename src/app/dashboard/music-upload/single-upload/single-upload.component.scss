@@ -2,6 +2,10 @@ $primary: #0f1011;
 $danger: #ff0039;
 $danger2: #ff4136;
 $secondary: white;
+.container {
+    padding-top: 2rem;
+}
+
 .desc {
     display: flex;
     text-align: center;
@@ -76,14 +80,14 @@ form {
         width: 220px;
         display: none;
     }
-    input,
-    textarea,
-    select {
-        border-radius: 0;
-        background: #181818;
-        color: #555;
-        border: 1px solid #555;
-    }
+    // input,
+    // textarea,
+    // select {
+    //     border-radius: 0;
+    //     background: #181818;
+    //     color: #555;
+    //     border: 1px solid #555;
+    // }
 }
 
 button {
@@ -129,6 +133,23 @@ button {
             h1 {
                 font-size: 1rem;
             }
+        }
+    }
+}
+
+.controls-container {
+    width: 100%;
+    margin: 10px;
+    * {
+        width: 100%;
+    }
+}
+
+.add-bottom-padding {
+    padding-bottom: 10px;
+    mat-card-content {
+        mat-checkbox {
+            margin-left: 10px;
         }
     }
 }
