@@ -10,6 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PublishingComponent } from './publishing/publishing.component';
 
+// Material Module
+import { CustomMaterialModule } from './../shared/material-module/material-module';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+
+
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
 import { MarketingComponent } from '../home/marketing/marketing.component';
@@ -44,10 +49,17 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     ArtistEditProfileComponent
   ],
   imports: [
+    CustomMaterialModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     FlickityModule
+  ],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: { showError: true }
+    }
   ]
 })
 

@@ -5,6 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { MatStepperModule } from '@angular/material/stepper';
+
+// Material Module
+import { CustomMaterialModule } from './../shared/material-module/material-module';
 
 
 import { DashboardComponent } from './dashboard.component';
@@ -32,6 +36,7 @@ import { AlbumUploadComponent } from './music-upload/album-upload/album-upload.c
     HomeComponent,
     AlbumUploadComponent],
   imports: [
+    CustomMaterialModule,
     CommonModule,
     RouterModule,
     FormsModule,
@@ -39,6 +44,7 @@ import { AlbumUploadComponent } from './music-upload/album-upload/album-upload.c
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatStepperModule,
     ChartsModule
 
   ],

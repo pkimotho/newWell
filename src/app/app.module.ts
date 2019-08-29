@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { NgModule } from '@angular/core';
@@ -16,13 +17,15 @@ import { FlashMessagesModule, FlashMessagesService } from 'angular2-flash-messag
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
+// material module
+import { CustomMaterialModule } from './shared/material-module/material-module';
+
 
 // local modules import
 import { HomeModule } from './home/home.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { TokenInterceptor } from './services/service.interceptors';
 import { AuthGuard } from './services/guards/auth.guard';
-import { UploadsService } from './services/uploads.service';
 
 
 
@@ -33,13 +36,11 @@ import { UploadsService } from './services/uploads.service';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-
-
-
-
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    // CustomMaterialModule,
     AppRoutingModule,
     HomeModule,
     DashboardModule,
@@ -59,9 +60,5 @@ import { UploadsService } from './services/uploads.service';
     FlashMessagesService
   ],
   bootstrap: [AppComponent],
-
-
 })
-export class AppModule {
-
-}
+export class AppModule { }
