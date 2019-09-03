@@ -98,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     flex-direction: column;
     // padding-top: 70px;
+    height: 400px;
 
 
     @include createHeader($pricing
@@ -108,7 +109,7 @@ h1, h2, h3, h4, h5, h6 {
       display: flex;
       height: 100%;
       width: 100%;
-      @include setBlurredBackground();
+      // @include setBlurredBackground();
 
       img {
 
@@ -209,25 +210,28 @@ h1, h2, h3, h4, h5, h6 {
 
       // @include gradient($banner, $banner);
       background: darken($banner, 10%);
-      // background: url(../../../assets/img/darkbg.jpg);
+      background: url(../../../assets/images/microphone.jpg);
       background-position: center;
-
       width: 100%;
       display:flex;
       justify-content: space-evenly;
       align-items: center;
-
       z-index: 2;
       padding: 30px;
       flex-direction: column;
 
+      h1, h2 {
+        color: $text-color;
+        margin-left: 2rem;
+        text-shadow: $shadowtext;
+        font-weight: 700;
 
+    }
       .title {
         display: flex;
 
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
 
         width: 100%;
 
@@ -244,7 +248,104 @@ h1, h2, h3, h4, h5, h6 {
 
         }
       }
+      .div-one {
 
+        display:flex;
+        width:100%;
+        height: 60vh;
+        padding: 30px;
+        justify-items: center;
+        // background: url(../../../assets/img/darkbg.jpg);
+        transition: all 0.2s;
+
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+
+        p {
+          color: white;
+        }
+
+
+    .para {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+
+
+      .title {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        h2 {
+          font-size: 30px !important;
+
+        }
+      }
+
+
+      .main {
+        padding-top: 30px;
+      }
+    }
+
+
+        .right {
+          display: flex;
+          justify-content: center;
+          width:50%;
+          height: 80%;
+
+          .circle-sm {
+            display: none;
+          }
+
+
+          img {
+          width:80%;
+          height: 100%;
+          object-fit: cover;
+          box-shadow: 6px 8px 12px 3px rgba(0,0,0,0.2),  12px 16px 24px 6px rgba(0,0,0,0.19);
+          border-radius: 10px;
+          }
+
+        }
+
+
+        .left {
+          display: flex;
+          justify-content: center;
+          width:50%;
+          height: 80%;
+    position: relative;
+
+
+
+
+          .para {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+
+            flex-direction: column;
+
+
+            .btn-p {
+              @include createBTN-Inverse($pricing, white, 2px, $pricing);
+            }
+          }
+        }
+
+      }
 
 .pricing-cards {
   display: flex;
@@ -257,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 width: 25%;
 height: 50vh;
     margin-bottom: 20px;
-    background: lighten($banner, 5%);
+    background: lighten(black, 5%);
     color:white;
     border-radius: 10px 10px 0 0;
     margin: 10px;
@@ -419,7 +520,7 @@ height: 50vh;
     height: 60vh;
     padding: 30px;
     justify-items: center;
-    background: url(../../../assets/img/darkbg.jpg);
+    // background: url(../../../assets/img/darkbg.jpg);
     transition: all 0.2s;
 
     img {
@@ -588,10 +689,11 @@ position: relative;
     .div-pricing {
       .card-content {
         .pricing-cards {
-
+margin-top: 30px;
           flex-wrap: wrap;
 
           .pricing-card {
+
             width: 40%;
           }
 

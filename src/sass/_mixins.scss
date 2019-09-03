@@ -67,11 +67,9 @@
 
 
 @mixin setBlurredBackground() {
-  filter: blur(12px);
-  -webkit-filter: blur(12px);
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
 }
-
-
 
 @mixin createHeader($bg) {
 

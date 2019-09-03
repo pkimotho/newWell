@@ -54,6 +54,39 @@ $secondary: white;
             width: 200px;
             height: 136px;
         }
+
+
+        .social {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          a {
+            text-decoration: none;
+            margin: 5px;
+
+            font-size: 22px;
+          }
+
+          .facebook {
+            color: lightblue;
+          }
+
+          .whatsapp {
+            color: rgb(8, 155, 64);
+          }
+
+          .behance {
+            color: rgb(21, 158, 204);
+          }
+
+          .snapchat {
+            color: lightblue;
+          }
+
+          .twitter {
+            color: rgb(135, 171, 204);
+          }
+        }
     }
     .bt {
         border: 1px solid #FF0039;
