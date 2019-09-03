@@ -43,6 +43,7 @@
                         </div>
                     </mat-grid-tile>
                 </mat-grid-list>
+                <div *ngIf="singleUploadForm.get('otherArtists')['controls'].value === true"></div>
                 <h5>Add the other artist's names(ONE PER FIELD)</h5>
                 <button type="button" class="btn btn-default" (click)="onAddOtherArtist()">Add Artist</button>
                 <div formArrayName="otherArtists">

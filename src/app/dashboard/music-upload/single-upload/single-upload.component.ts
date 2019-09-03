@@ -28,7 +28,7 @@ export function requiredFileType(type: string) {
   styleUrls: ['./single-upload.component.scss']
 })
 export class SingleUploadComponent implements OnInit {
-  category = 'song';
+  category;
   title = 'title';
   genre = 'genre';
   artistId;
@@ -69,14 +69,17 @@ export class SingleUploadComponent implements OnInit {
 
   ngOnInit() {
     this.loadArtistId();
+    this.createSingleUploadForm();
+    this.createUploadTrackForm();
+    this.createPublishForm();
+  }
+  createSingleUploadForm() {
     this.singleUploadForm = new FormGroup({
       songTitle: new FormControl(null, Validators.required),
       artistName: new FormControl(null, Validators.required),
       hasSeveralArtists: new FormControl(false),
       otherArtists: new FormArray([])
     });
-    this.createUploadTrackForm();
-    this.createPublishForm();
   }
 
   createUploadTrackForm() {
