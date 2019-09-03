@@ -16,6 +16,7 @@ import { PolicyComponent } from '../home/policy/policy.component';
 import { WhatwedoComponent } from '../home/whatwedo/whatwedo.component';
 import { AboutComponent } from '../home/about/about.component';
 import { MarketingComponent } from '../home/marketing/marketing.component';
+import { PasswordRestComponent } from './password-rest/password-rest.component';
 
 import { AuthGuard } from '../services/guards/auth.guard';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
@@ -99,7 +100,10 @@ const routes: Routes = [
     path: 'whatwedo',
     component: WhatwedoComponent,
   },
-
+  {
+    path: 'password_reset',
+    component: PasswordRestComponent
+  }
 ];
 
 @NgModule({

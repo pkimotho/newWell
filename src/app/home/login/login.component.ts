@@ -16,6 +16,9 @@ export class LoginComponent implements OnInit {
   artist;
   messageClass;
   message;
+  showForgot = false;
+  forgotEmail;
+  isLoading = false;
 
 
   constructor(
@@ -30,8 +33,37 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      forgotEmail: ['', Validators.required],
     });
+  }
+
+  sendEmail() {
+
+    const email: string = this.form.get('forgotEmail').value;
+    console.log(JSON.stringify({
+      email
+    }));
+    this.isLoading = true;
+    fetch('https://newwellmusic.com/api/artist/forgotPassword', {
+      method: 'POST',
+      body: JSON.stringify({
+        email
+      })
+      ,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(res => res.json())
+      .then(data => {
+        this.messageClass = 'alert alert-success';
+        this.message = 'Please Check Your Email';
+        this.isLoading = false;
+        this.gotoMessageSection();
+
+      })
+      .catch(err => console.log(err));
   }
 
   onLoginSubmit() {

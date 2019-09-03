@@ -9,6 +9,7 @@ import { FanSignupComponent } from './fan-signup/fan-signup.component';
 import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PublishingComponent } from './publishing/publishing.component';
+import { PasswordRestComponent } from './password-rest/password-rest.component'
 
 // Material Module
 import { CustomMaterialModule } from './../shared/material-module/material-module';
@@ -46,7 +47,8 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     WhatwedoComponent,
     MarketingComponent,
     PolicyComponent,
-    ArtistEditProfileComponent
+    ArtistEditProfileComponent,
+    PasswordRestComponent
   ],
   imports: [
     CustomMaterialModule,
