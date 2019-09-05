@@ -67,6 +67,7 @@ export class LandingComponent implements OnInit {
   fetch(environment.base_url + 'artist?status=verified')
     .then(res=>res.json())
     .then(data => {
+    
       let results: any = {};
       results = data;
       this.artists = results.results;
