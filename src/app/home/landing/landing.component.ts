@@ -64,7 +64,7 @@ export class LandingComponent implements OnInit {
   toggleNavbar() { }
 
   getAllArtists() {
-    this.http.get(environment.base_url + 'artist').subscribe(data => {
+    this.http.get(environment.base_url + 'artist?status=verified').subscribe(data => {
       let results: any = {};
       results = data;
       this.artists = results.results;
