@@ -1,91 +1,93 @@
-    $primary: #0f1011;
-    $danger: #ff4136;
-    $secondary: white;
-    .container-fluid {
-        margin-top: 4rem;
-        color: $secondary;
-        .col1 {
-            width: 30
-        }
-        .col2 {
-            min-width: 400px;
-        }
-        form {
-            -webkit-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-            -moz-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-            box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-            padding: 60px 40px;
-            margin: 80px 0;
-            border-radius: 5px;
-            background-color: $primary;
-            opacity: 0.8;
-            h2 {
-                text-align: center;
-                margin-top: -20px;
-                margin-bottom: 40px;
-            }
-            .form-group {
-                input {
-                    height: 40px;
-                    width: 100%;
-                    border-radius: 2px;
-                    font-size: 14px;
-                    line-height: 24px;
-                    font-weight: 400;
-                    padding: 8px 16px;
-                    margin-bottom: 10px;
-                    color: #ccc;
-                    background: #181818;
-                    border: 1px solid #555;
-                }
-                .has-error {
-                    color: $danger;
-                    input {
-                        outline-color: $danger;
-                    }
-                    ul li {
-                        list-style: none;
-                    }
-                }
-                .has-success {
-                    color: darkgreen;
-                    outline-color: darkgreen;
-                    ul li {
-                        list-style: none;
-                    }
-                }
-            }
-            .show-hide-message {
-                position: absolute;
-                top: 8%;
-                left: 30%;
-            }
-            button {
-                background: $primary;
-                border: 2px solid $danger;
-            }
-            button:hover {
-                background: $danger;
-            }
-            .links {
-                margin-top: 10px;
-                color: $secondary;
-                a:hover {
-                    color: $danger;
-                    cursor: pointer;
-                }
-            }
-        }
+$primary: #0f1011;
+$danger: #ff4136;
+$secondary: white;
+.container-fluids {
+  margin-top: 10vh;
+  color: $secondary;
+
+  width: 100%;
+  .row {
+    width: 100vw;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    -webkit-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
+    box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
+    padding: 60px 40px;
+    margin: 80px 0;
+    border-radius: 5px;
+    background-color: $primary;
+    opacity: 0.8;
+    h2 {
+      text-align: center;
+      margin-top: -20px;
+      margin-bottom: 40px;
     }
-    
-    .bg {
-        background-image: url('../../../assets/images/microphone.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    
-    @media(max-width: 576px) {
-        .show-hide-message {
-            top: 50%;
+    .form-group {
+      input {
+        height: 40px;
+        width: 100%;
+        border-radius: 2px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        padding: 8px 16px;
+        margin-bottom: 10px;
+        color: #ccc;
+        background: #181818;
+        border: 1px solid #555;
+      }
+      .has-error {
+        color: $danger;
+        input {
+          outline-color: $danger;
         }
+        ul li {
+          list-style: none;
+        }
+      }
+      .has-success {
+        color: darkgreen;
+        outline-color: darkgreen;
+        ul li {
+          list-style: none;
+        }
+      }
     }
+    .show-hide-message {
+      position: absolute;
+      top: 8%;
+      left: 30%;
+    }
+    button {
+      background: $primary;
+      border: 2px solid $danger;
+    }
+    button:hover {
+      background: $danger;
+    }
+    .links {
+      margin-top: 10px;
+      color: $secondary;
+      a:hover {
+        color: $danger;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.bg {
+  background-image: url("../../../assets/images/microphone.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 576px) {
+  .show-hide-message {
+    top: 50%;
+  }
+}

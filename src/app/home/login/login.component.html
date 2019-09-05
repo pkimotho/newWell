@@ -1,68 +1,116 @@
-<div class="container-fluid bg">
-    <div class="row">
-        <div class="col-md-4 col1 col-sm-12"></div>
-        <div class="col-md-4 col2 col-sm-12">
-
-            <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
-                <div class="row text-center show-hide-message" #messageSection>
-                    <div [ngClass]="messageClass">
-                        {{message}}
-                    </div>
-                </div>
-                <h2>Artist Login</h2>
-                <div class="form-group">
-                    <div
-                        [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}">
-                        <input formControlName="email" type="email" placeholder="Email">
-                        <ul class="help-block">
-                            <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">This field is
-                                required
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div
-                        [ngClass]="{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}">
-                        <input formControlName="password" type="password" placeholder="Password">
-                        <ul class="help-block">
-                            <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This
-                                field is required
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox">Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-block btn-success" (click)="gotoMessageSection()">Login</button>
-                <div class="links">
-                    <p>Don't have an account? <a routerLink="artist-signup">Signup</a></p>
-                </div>
-
-                <div style="cursor: pointer" class="btn btn-block btn-success mt-4" (click)="showForgot = !showForgot">
-                    Forgot
-                    Password</div>
-                <div *ngIf="showForgot" class="mt-4">
-                    <h6>Forgot Password:</h6>
-                    <div class="form-group">
-                        <div
-                            [ngClass]="{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}">
-                            <input formControlName="forgotEmail" type="email" placeholder="Email">
-                        </div>
-                    </div>
-
-                    <div style="cursor: pointer" class="btn btn-block btn-success" (click)="sendEmail()">
-                        Send password reset
-                        <i *ngIf="isLoading" class=" fa fa-spinner fa-spin"></i>
-                    </div>
-
-                </div>
-            </form>
-            {{forgotEmail}}
-
-
+<div class="container-fluids bg">
+  <div class="row">
+    <div class="col-md-6 col2 col-sm-12">
+      <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
+        <div class="text-center show-hide-message" #messageSection>
+          <div [ngClass]="messageClass">
+            {{ message }}
+          </div>
         </div>
-        <div class="col-md-4 col1 col-sm-12"></div>
+        <h2>Artist Login</h2>
+        <div class="form-group">
+          <div
+            [ngClass]="{
+              'has-error':
+                form.controls.email.errors && form.controls.email.dirty,
+              'has-success': !form.controls.email.errors
+            }"
+          >
+            <input formControlName="email" type="email" placeholder="Email" />
+            <ul class="help-block">
+              <li
+                *ngIf="
+                  form.controls.email.errors?.required &&
+                  form.controls.email.dirty
+                "
+              >
+                This field is required
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <div
+            [ngClass]="{
+              'has-error':
+                form.controls.password.errors && form.controls.password.dirty,
+              'has-success': !form.controls.password.errors
+            }"
+          >
+            <input
+              formControlName="password"
+              type="password"
+              placeholder="Password"
+            />
+            <ul class="help-block">
+              <li
+                *ngIf="
+                  form.controls.password.errors?.required &&
+                  form.controls.password.dirty
+                "
+              >
+                This field is required
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" />Remember me</label>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-block btn-success"
+          (click)="gotoMessageSection()"
+        >
+          Login
+        </button>
+        <div class="links">
+          <p>
+            Don't have an account?
+            <a
+              routerLink="artist-signup"
+              (click)="router.navigateByUrl('/artist-signup')"
+              >Signup</a
+            >
+          </p>
+        </div>
+
+        <div
+          style="cursor: pointer"
+          class="btn btn-block btn-success mt-4"
+          (click)="showForgot = !showForgot"
+        >
+          Forgot Password
+        </div>
+        <div *ngIf="showForgot" class="mt-4">
+          <h6>Forgot Password:</h6>
+          <div class="form-group">
+            <div
+              [ngClass]="{
+                'has-error':
+                  form.controls.email.errors && form.controls.email.dirty,
+                'has-success': !form.controls.email.errors
+              }"
+            >
+              <input
+                formControlName="forgotEmail"
+                type="email"
+                placeholder="Email"
+              />
+            </div>
+          </div>
+
+          <div
+            style="cursor: pointer"
+            class="btn btn-block btn-success"
+            (click)="sendEmail()"
+          >
+            Send password reset
+            <i *ngIf="isLoading" class=" fa fa-spinner fa-spin"></i>
+          </div>
+        </div>
+      </form>
+      {{ forgotEmail }}
     </div>
+  </div>
 </div>
