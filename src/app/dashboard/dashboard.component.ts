@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private artistProfileService: ArtistProfileService,
     private router: Router,
-    private authService: AuthorizationService,
+    public authService: AuthorizationService,
     private flashMessagesService: FlashMessagesService,
     private route: ActivatedRoute) {
       this.isLoggedIn = this.authService.loggedIn;
