@@ -93,8 +93,19 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     flex-direction: column;
     // padding-top: 70px;
-    height: 350px;
+    height: 450px;
     @include createHeader($marketing);
+
+
+    .left {
+      width: 40%;
+      height: 100%;
+      display: flex;
+    }
+
+    .right {
+      width:60%;
+    }
 
     .hero{
       display: flex;

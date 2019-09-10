@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from './../../environments/environment';
+import { Artist } from '../shared/models/artist';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ArtistProfileService {
 
   constructor(private http: HttpClient) { }
 
-  getArtistProfile(id) {
+  getArtistProfile(id):Observable<any> {
     return this.http.get(environment.base_url + 'artist/' + id);
   }
 

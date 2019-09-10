@@ -8,7 +8,13 @@ import { AlbumUploadComponent } from './dashboard/music-upload/album-upload/albu
 import { AnalyticsComponent } from './dashboard/analytics/analytics.component';
 import { WalletComponent } from './dashboard/wallet/wallet.component';
 
-
+import { AlbumsComponent } from './dashboard/albums/albums.component';
+import { SongsComponent } from './dashboard/songs/songs.component';
+import { SongsDetailsComponent } from './dashboard/songs-details/songs-details.component';
+import { AlbumDetailsComponent } from './dashboard/album-details/album-details.component';
+import { ProfileComponent } from './dashboard/profile/profile.component';
+import { ChangePasswordComponent } from './dashboard/change-password/change-password.component';
+import { SalesComponent } from './dashboard/sales/sales.component';
 import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
@@ -20,12 +26,42 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: '',
         component: HomeComponent
       },
+
+  {
+    path: 'sales',
+    component: SalesComponent,
+  },
+
+  {
+    path: 'songs',
+    component: SongsComponent,
+  },
+  {
+    path: 'songs/:songtitle',
+    component: SongsDetailsComponent,
+  },
+  {
+    path: 'albums',
+    component: AlbumsComponent,
+  },
+  {
+    path: 'albums/:albumtitle',
+    component: AlbumDetailsComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+  },
       {
         path: 'music-upload',
         component: SingleUploadComponent,

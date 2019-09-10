@@ -3,6 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../../environments/environment';
 import { ArtistSongsService } from './../../services/artist-songs.service';
+import { Observable } from 'rxjs';
+
+import * as fromRoot from '../../app.state';
+
+import { Album } from '../../shared/models/album';
+import { Song } from '../../shared/models/song';
+import { Platform } from '../../shared/models/platforms';
+import { Producer } from '../../shared/models/producer';
+import { Artist } from '../../shared/models/artist';
+
+import { Store, select } from '@ngrx/store';
+
+
+import * as songsReducer from '../../reducers/song.reducer';
+import * as songsactions from '../../actions/song.actions';
+
+import * as albumsReducer from '../../reducers/album.reducer';
+import * as albumsactions from '../../actions/album.actions';
+
+import * as artistsReducer from '../../reducers/artist.reducer';
+import * as artistsactions from '../../actions/artist.actions';
+
 
 
 @Component({
@@ -11,6 +33,17 @@ import { ArtistSongsService } from './../../services/artist-songs.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  albums$: Observable<Album[]>;
+  albumsloaderror$: Observable<string>;
+
+  songs$: Observable<Song[]>;
+  songsloaderror$: Observable<string>;
+
+  platforms$: Observable<Platform[]>;
+  platformloaderror$: Observable<string>;
+
+  producer$: Observable<Producer[]>;
+  producerloaderror$: Observable<string>;
 
   songs;
   artistName;
@@ -20,7 +53,7 @@ export class HomeComponent implements OnInit {
 
   items = [{ id: 1, name: 'Kim', displayInfo: false }, { id: 2, name: 'Pat', displayInfo: false }];
 
-  constructor(private http: HttpClient, private artistSongsService: ArtistSongsService, private route: ActivatedRoute) { }
+  constructor(private store: Store<fromRoot.AppState>, private http: HttpClient, private artistSongsService: ArtistSongsService, private route: ActivatedRoute) { }
   public barChartOptions = {
     scaleShowVerticalLines: false,
     maintainAspectRatio: false,
@@ -62,6 +95,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.params['id'];
     this.getArtistSongs();
+    console.log("Home Init");
+    this.store.dispatch(new songsactions.LoadSongs());
+    this.store.dispatch(new albumsactions.LoadAlbums());
+
+    this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
+    this.songs$ = this.store.pipe(select(songsReducer.getSongs));
+    this.songsloaderror$ = this.store.pipe(select(songsReducer.getError));
+    this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
+
   }
 
   loadArtistId() {
@@ -78,17 +120,17 @@ export class HomeComponent implements OnInit {
     });
   }
   getArtistSongs() {
-    // this.artistSongsService.getArtistSongs(this.id).subscribe((songs) => {
-    //   this.songs = songs;
-    // });
+    this.artistSongsService.getArtistSongs(this.id).subscribe((songs) => {
+      this.songs = songs;
+    });
     this.loadArtistId();
     this.http.get(environment.base_url + 'song/artist/' + this.id).subscribe((songs: any[]) => {
       this.songs = songs.reverse();
-      // console.log(songs);
+      console.log(songs);
     });
   }
-  // toggleOtherInfo() {
-  //   this.displayOtherInfo = !this.displayOtherInfo;
-  // }
+  toggleOtherInfo() {
+    this.displayOtherInfo = !this.displayOtherInfo;
+  }
 
 }

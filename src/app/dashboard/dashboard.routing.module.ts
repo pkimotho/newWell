@@ -6,7 +6,9 @@ import { SingleUploadComponent } from './music-upload/single-upload/single-uploa
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { HomeComponent } from './home/home.component';
-
+import { SongsComponent } from './songs/songs.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { SalesComponent } from './sales/sales.component';
 
 import { AuthGuard } from '../services/guards/auth.guard';
 
@@ -14,8 +16,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
-  }
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'songs',
+    component: SongsComponent,
+  },
+  {
+    path: 'albums',
+    component: AlbumsComponent,
+  },
+
 
 ];
 

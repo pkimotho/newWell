@@ -1,6 +1,6 @@
-<div class="wrapper">
+<!-- <div class="wrapper"> -->
     <!--SideBar-->
-    <div class="side-nav" [@sideMenuAnime]="openCloseSidebar">
+    <!-- <div class="side-nav" [@sideMenuAnime]="openCloseSidebar">
         <div class="top">
             <div class="top-info">
                 <h5 class="text-capitalize">{{artistName}}</h5>
@@ -30,13 +30,89 @@
             class="fa fa-sign-out" aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Logout</span></a></li>
         </ul>
-    </div>
-    <div [@toggleButtonAnime]="openCloseSidebar">
+    </div> -->
+    <!-- <div [@toggleButtonAnime]="openCloseSidebar">
         <a *ngIf="openCloseSidebar === 'close'" (click)="openCloseSidebar = 'open'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-indent"></i></a>
         <a *ngIf="openCloseSidebar === 'open'" (click)="openCloseSidebar = 'close'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-outdent"></i></a>
-    </div>
+    </div> -->
     <!--Main Container-->
-    <div class="main-container">
+    <!-- <div class="main-container">
+
         <router-outlet></router-outlet>
     </div>
+</div> -->
+
+
+<div class="container-wrapper">
+  <div class="content">
+      <app-sidemenu></app-sidemenu>
+
+      <div class="main">
+
+          <div class="header">
+              <nav class="navbar navbar-expand-lg">
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTarget" aria-controls="navbarTarget" aria-expanded="false" aria-label="Toggle navigation">
+                  <span><i class="fa fa-bars fa-2x"></i></span>
+                </button>
+
+                  <div class="collapse navbar-collapse " id="navbarTarget">
+                      <ul *ngIf="authService.loggedIn; else loggedOut" class="navbar-nav ml-auto mr-5">
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">Newwell
+                        Music</a>
+                          </li>
+                          <li class="nav-item" id="artists" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover artists" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a>
+                          </li>
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover dashboard" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="dashboard">Dashboard</a>
+                          </li>
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a>
+                          </li>
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a>
+                          </li>
+
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a>
+                          </li>
+                          <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
+                              <a class="nav-link nav-link-hover login" (click)="logout()">Logout</a>
+                          </li>
+                          <li class="nav-item dropdown" data-toggle="tooltip" data-html="true" title="Profile">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <img *ngIf="profilePic" [src]="profilePic" alt="User Profile Picture" class="img-circle img-responsive">
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="dropdown-item" routerLink="/artist/{{id}}">Profile</a></li>
+                                  <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="dropdown-item" routerLink="/artist/{{id}}/edit">Settings</a></li>
+                                  <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="dropdown-item" href="#">Logout</a></li>
+                              </div>
+                          </li>
+                      </ul>
+                      <ng-template #loggedOut>
+                          <ul class="navbar-nav ml-auto text-left ">
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">NewWell Music</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover artists" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
+                              <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover signup" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
+                          </ul>
+                      </ng-template>
+                  </div>
+              </nav>
+
+          </div>
+          <router-outlet></router-outlet>
+
+
+
+      </div>
+  </div>
+
+
 </div>

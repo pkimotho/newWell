@@ -1,7 +1,5 @@
 
-$primary: #212222;
-$danger: #ff4136;
-$secondary: white;
+@import '../../../sass/base';
 .panel {
   h3 {
     color: $secondary;

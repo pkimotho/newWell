@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthorizationService } from './../services/authorization.service';
+import { ArtistProfileService } from './../services/artist-profile.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,20 +25,29 @@ import { AuthorizationService } from './../services/authorization.service';
   ]
 })
 export class DashboardComponent implements OnInit {
+  @Input() profilePicture: string;
 
+  isLoggedIn;
   id;
+  profilePic;
   artistName;
-
+  showNavbar = true;
   openCloseSidebar = 'close';
 
   constructor(
+    private artistProfileService: ArtistProfileService,
+    private router: Router,
     private authService: AuthorizationService,
     private flashMessagesService: FlashMessagesService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute) {
+      this.isLoggedIn = this.authService.loggedIn;
+
+     }
 
   ngOnInit() {
     this.loadArtistId();
+    this.loadArtistId();
+    this.getProfilePic();
   }
 
   onLogout() {
@@ -47,10 +57,34 @@ export class DashboardComponent implements OnInit {
       cssClass: 'alert-info'
     });
   }
+
   loadArtistId() {
-    const { _id, name } = JSON.parse(localStorage.getItem('user'));
-    this.id = _id;
-    this.artistName = name;
+    if (localStorage.getItem('user')) {
+      const { _id } = JSON.parse(localStorage.getItem('user'));
+      this.id = _id;
+    } else {
+      this.id = null;
+    }
+  }
+
+  getProfilePic() {
+    if (this.id) {
+      this.artistProfileService.getArtistProfile(this.id).subscribe((profile: any) => {
+        const { profilePic } = profile;
+        console.log("profile", this.profilePic);
+        this.profilePic = profilePic;
+      });
+    } else {
+      this.profilePic = null;
+    }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+    this.flashMessagesService.show('You have logged out', {
+      cssClass: 'alert-info'
+    });
   }
 
 }

@@ -1,10 +1,27 @@
-$primary: #0f1011;
-$danger: #FF0039;
-$secondary: white;
+
+@import '../../../../sass/base';
+
+
 #footer-area {
-    padding: 50px 0 40px 0;
+    padding: 50px 0 0 0;
     background: $primary;
     color: $secondary;
+    width:100%;
+
+    .container {
+      margin: 0;
+      padding: 0;
+    }
+
+    .footerbar {
+      height: 50px;
+      background: darken($primary, 5%);
+      width:100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .single-footer {
         h4 {
             margin-bottom: 25px;
@@ -58,7 +75,7 @@ $secondary: white;
 
         .social {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
           width: 100%;
           a {
             text-decoration: none;
@@ -113,7 +130,7 @@ $secondary: white;
 @media (max-width: 992px) {
     #footer-area {
         .single-footer {
-            padding-left: 2rem;
+            // padding-left: 2rem;
             h4 {
                 font-size: 20px;
             }
