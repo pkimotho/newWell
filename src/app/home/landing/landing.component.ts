@@ -64,24 +64,25 @@ export class LandingComponent implements OnInit {
   toggleNavbar() { }
 
   getAllArtists() {
-  fetch(environment.base_url + 'artist?status=verified')
-    .then(res=>res.json())
-    .then(data => {
-    
-      let results: any = {};
-      results = data;
-      this.artists = results.results;
-      this.logos = [
-        { src: '../../assets/img/carousel/spotify.svg' },
-        { src: '../../assets/img/carousel/pandora.svg' },
-        { src: '../../assets/img/carousel/Deezer_logo.svg' },
-        { src: '../../assets/img/carousel/itunes.svg' },
-        { src: '../../assets/img/carousel/amazon-icon.svg' },
-        { src: '../../assets/img/carousel/apple-music.svg' },
-        { src: '../../assets/img/carousel/tidal.svg' },
-        { src: '../../assets/img/carousel/jambotunes.svg' }
-      ];
-    });
+    fetch(environment.base_url + 'artist?status=verified')
+      .then(res => res.json())
+      .then(data => {
+
+        let results: any = {};
+        results = data;
+        this.artists = results.results;
+        this.logos = [
+          { src: '../../assets/img/carousel/amazon-icon.svg' },
+          { src: '../../assets/img/carousel/apple-music.svg' },
+          { src: '../../../assets/img/carousel/Deezer_logo.svg' },
+          { src: '../../assets/img/carousel/google_play_music.svg' },
+          { src: '../../assets/img/carousel/jambotunes.svg' },
+          { src: '../../assets/img/carousel/pandora.svg' },
+          { src: '../../assets/img/carousel/spotify.svg' },
+          { src: '../../assets/img/carousel/tidal.svg' },
+          { src: '../../assets/img/carousel/itunes.svg' }
+        ];
+      });
   }
   goToArtistProfile(id) {
     this.router.navigate(['/artist/' + id]);
