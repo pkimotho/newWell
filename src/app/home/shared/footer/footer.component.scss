@@ -1,153 +1,90 @@
-
 @import '../../../../sass/base';
-
-
-#footer-area {
-    padding: 50px 0 0 0;
-    background: $primary;
-    color: $secondary;
-    width:100%;
-
-    .container {
-      margin: 0;
-      padding: 0;
-    }
-
-    .footerbar {
-      height: 50px;
-      background: darken($primary, 5%);
-      width:100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .single-footer {
-        h4 {
-            margin-bottom: 25px;
-            color: hsl(0, 0%, 80%);
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        p {
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: hsl(0, 0%, 40%);
-            margin-bottom: 0;
-        }
-        .footer-social {
-            // margin-top: 10px;
-            li {
-                display: inline-block;
-                margin: 10px;
-                a {
-                    width: 30px;
-                    height: 30px;
-                    background: lighten($primary, 10);
-                    i {
-                        color: $danger;
-                        padding: 8px;
-                    }
-                }
-            }
-        }
-        .link-area {
-            padding: 0;
-            li {
-                padding: 5px 5px 5px 0;
-                list-style: none;
-                a {
-                    text-transform: capitalize;
-                    color: hsl(0, 0%, 40%);
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    i {
-                        margin-right: 10px;
-                        color: $danger;
-                    }
-                }
-            }
-        }
-    }
-    .wave {
-        img {
-            width: 200px;
-            height: 136px;
-        }
-
-
-        .social {
-          display: flex;
-          justify-content: flex-start;
-          width: 100%;
-          a {
-            text-decoration: none;
-            margin: 5px;
-
-            font-size: 22px;
-          }
-
-          .facebook {
-            color: lightblue;
-          }
-
-          .whatsapp {
-            color: rgb(8, 155, 64);
-          }
-
-          .behance {
-            color: rgb(21, 158, 204);
-          }
-
-          .snapchat {
-            color: lightblue;
-          }
-
-          .twitter {
-            color: rgb(135, 171, 204);
-          }
-        }
-    }
-    .bt {
-        border: 1px solid #FF0039;
-        color: #FF0039;
-        cursor: pointer;
-    }
-    .bt:hover {
-        background: lighten($primary, 10)
-    }
-    .copyright-area {
-        background: lighten($primary, 10);
-        padding: 30px 0;
-        border-radius: 5px;
-        p {
-            font-weight: 600;
-            color: #fafafa;
-        }
-    }
-    .comp {
-        padding: 0 auto;
-    }
-}
-
-@media (max-width: 992px) {
-    #footer-area {
-        .single-footer {
-            // padding-left: 2rem;
+footer {
+    text-align: center;
+    .footer-content {
+        padding: 50px 0 0 0;
+        background: $primary;
+        color: white;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        width: 100%;
+        padding: 2rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .footer-card {
+            flex-basis: 300px;
+            margin-bottom: 1rem;
+            text-align: left;
             h4 {
-                font-size: 20px;
+                margin-bottom: 25px;
+                color: hsl(0, 0%, 40%);
             }
-            p,
+            p {
+                line-height: 27px;
+            }
             .link-area {
-                font-size: 0.9rem;
-            }
-            .widget {
                 li {
+                    padding: 0 5px 5px 0;
+                    list-style: none;
                     a {
-                        img {
-                            height: 50px;
-                        }
+                        text-transform: capitalize;
+                        color: white;
                     }
                 }
             }
         }
+        .footer-logo {
+            flex-basis: 300px;
+            text-align: left;
+            margin-bottom: 1rem;
+            img {
+                width: 200px;
+                height: 136px;
+            }
+        }
+    }
+    @media (min-width: 1024px) {
+        .footer-content {
+            .footer-card {
+                flex-basis: 25%;
+            }
+            .comp {
+                flex-basis: 20%;
+            }
+        }
+    }
+    @media (max-width: 1097px) {
+        .footer-content {
+            justify-content: center;
+            .footer-logo,
+            .footer-card {
+                flex-basis: 400px;
+            }
+        }
+    }
+    @media (max-width: 768px) {
+        .footer-content {
+            justify-content: center;
+            // .footer-logo {
+            //     flex-basis: 300px;
+            // }
+        }
+    }
+    @media (max-width: 425px) {
+        .footer-content {
+            justify-content: center;
+            .footer-logo {
+                display: none;
+            }
+        }
+    }
+    .footerbar {
+        height: 50px;
+        background: darken($primary, 5%);
+        color: $secondary;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
-

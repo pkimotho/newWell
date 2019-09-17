@@ -3,6 +3,10 @@ $danger: #ff0039;
 $secondary: white;
 $shadowtext: 1px 1px 3px #0f1011,
 -1px 1px 3px #0f1011;
+.outer-container {
+    margin-top: 70px;
+}
+
 .btn {
     background: $danger;
     border: none;
@@ -12,13 +16,13 @@ $shadowtext: 1px 1px 3px #0f1011,
 .hero {
     // background-clip: content-box;
     background-size: cover;
-    margin-top: 10vh;
-    height: calc(100vh - 10vh - 10vh);
+    // height: calc(100vh - 10vh - 10vh);
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
-    padding: 0 2rem;
+    padding: 2rem 2rem 0 2rem;
     position: relative;
     .bg-color {
         position: absolute;
@@ -165,94 +169,11 @@ section.card-section {
             color: white;
             font-size: 14px;
         }
-        .card-footer {
-            background-color: #131414;
-            .comments {
-                color: grey;
-                font-size: 14px;
-            }
-            .likes {}
-        }
-    }
-}
-
-.outlets {
-    background-color: #0f1011;
-    display: flex;
-    justify-content: center;
-    height: 100px;
-    img {
-        height: 60%;
-        width: 15%;
-    }
-    ul {
-        display: inline-flex;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.filter {
-    ul {
-        float: right;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        li {
-            background: #131414;
-            list-style: none;
-            .btn {
-                padding: 15px;
-            }
-            a {
-                line-height: 80px;
-                color: $secondary;
-                background: #0f1011;
-                padding: 10px 20px;
-                margin: 20px;
-                font-family: "Roboto"sans-serif;
-                text-decoration: none;
-                text-transform: Title;
-                transition: 0.5s;
-            }
-            a:hover {
-                line-height: 80px;
-                color: white;
-                background: $danger;
-                padding: 5px 20px;
-                font-family: "Roboto"sans-serif;
-                text-decoration: none;
-                text-transform: Title;
-                transition: 0.5s;
-            }
-        }
-    }
-}
-
-#listoutline {
-    background-color: #212222;
-    padding-left: 100px;
-    padding-right: 100px;
-    h1 {
-        color: white;
-        font-size: 22px;
-        padding-top: 15px;
-    }
-    hr {
-        color: white;
-    }
-    .col-3 {
-        padding-top: 15px;
     }
 }
 
 #brands {
     height: 12vh;
-    // width: 100%;
-    // display: flex;
-    // justify-content: space-around; 
-    // align-items: center;
-    // overflow: hidden;
     .brand {
         padding: 0 3rem;
         img {
@@ -265,8 +186,11 @@ section.card-section {
 .action {
     color: $secondary;
     line-height: 27px;
-    h1,
-    p {
-        z-index: 3;
+    // h1,
+    // p {
+    //     z-index: 3;
+    // }
+    a {
+        z-index: 9999999;
     }
 }

@@ -1,6 +1,7 @@
-<section id="">
-    <div class="hero">
-        <div class="bg-color"></div>
+<div class="outer-container">
+    <section>
+        <div class="hero">
+            <div class="bg-color"></div>
             <img [src]="landingPageContent.imageUrl" alt="Landing page picture" id="heroImage" />
             <h1 class="hero-title">{{ landingPageContent.title }}</h1>
             <p class="hero-info">{{ landingPageContent.description }}</p>
@@ -10,227 +11,39 @@
       }}</a>
             </p>
         </div>
-</section>
-
-<div class="bg-img">
-    <div class="bg-color">
-    </div>
-    <section>
-        <div id="brands" [flickity]="logosOptions">
-            <div class="brand" [flickityChild] *ngFor="let logo of logos">
-                <img [src]="logo.src" />
-            </div>
-        </div>
     </section>
 
-    <!-- <section class="card-section">
-  <h1>Top Music</h1>
-  <div class="cards">
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
+    <div class="bg-img">
+        <div class="bg-color">
         </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="cards-item">
-      <div class="card">
-        <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title date">21 May 2019</h5>
-          <p class="card-text songtitle">Some quick example text to build </p>
-          <p class="artist"><small class="by">By</small> John D'Mathew</p>
-          <a href="#" class="btn">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-
-    <!-- <section class="card-section">
-    <h1>Top Albums</h1>
-    <div class="cards" [flickity]="options">
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="cards-item" [flickityChild]>
-            <div class="card">
-                <img class="card-img-top" src="assets/img/jumbo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title date">21 May 2019</h5>
-                    <p class="card-text songtitle">Some quick example text to build </p>
-                    <p class="artist"><small class="by">By</small> John D'Mathew</p>
-                    <a href="#" class="btn">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</section> -->
-    <div class="container">
-        <section class="card-section">
-            <h1 class="text-center">Top Artists</h1>
-            <div class="cards" [flickity]="options">
-                <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
-                    <div class="card" (click)="goToArtistProfile(artist._id)">
-                        <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />
-                        <div class="card-body">
-                            <p class="artist text-center font-weight-bolder ">
-                                {{ artist.name }}
-                            </p>
-                        </div>
-                    </div>
+        <section>
+            <div id="brands" [flickity]="logosOptions">
+                <div class="brand" [flickityChild] *ngFor="let logo of logos">
+                    <img [src]="logo.src" />
                 </div>
             </div>
         </section>
-    </div>
-    <div class="text-center action mt-5 pb-5">
-        <h1>Get the best value for your music</h1>
-        <p>Join us today</p>
-        <a class="btn btn-lg" [href]="landingPageContent.ctaLink" role="button">Get Started</a>
+        <div class="container">
+            <section class="card-section">
+                <h1 class="text-center">Top Artists</h1>
+                <div class="cards" [flickity]="options">
+                    <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />
+                            <div class="card-body">
+                                <p class="artist text-center font-weight-bolder ">
+                                    {{ artist.name }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="text-center action mt-5 pb-5">
+            <h1>Get the best value for your music</h1>
+            <p>Join us today</p>
+            <a class="btn btn-lg" href="artist-signup">Get Started</a>
+        </div>
     </div>
 </div>
