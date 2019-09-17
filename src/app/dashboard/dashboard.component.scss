@@ -1,687 +1,88 @@
-// $primary: #0f1011;
-// $danger: #FF0039;
-// $danger2: #ff4136;
-// $secondary: white;
-// .wrapper {
-//     margin-top: 4rem;
-//     .side-nav {
-//         width: 250px;
-//         height: 100%;
-//         margin: 0;
-//         background-color: lighten($primary, 10);
-//         position: fixed;
-//         top: 4rem;
-//         left: 0;
-//         z-index: 9;
-//         overflow: auto;
-//         .top {
-//             height: 90px;
-//             margin-left: 52px;
-//             margin-top: 20px;
-//             .top-info {
-//                 display: flex;
-//                 justify-content: space-around;
-//                 h5,
-//                 span {
-//                     color: $secondary;
-//                 }
-//                 span {
-//                     padding-right: 5px;
-//                     cursor: pointer;
-//                 }
-//             }
-//             button {
-//                 margin-top: 10px;
-//             }
-//         }
-//         ul {
-//             .list-group-item:first-child {
-//                 border-top-left-radius: 0;
-//                 border-top-right-radius: 0;
-//             }
-//             .list-group-item:last-child {
-//                 border-bottom-left-radius: 0;
-//                 border-bottom-right-radius: 0;
-//             }
-//             li {
-//                 background-color: lighten($primary, 5);
-//                 a {
-//                     display: flex;
-//                     align-items: flex-start;
-//                     text-decoration: none;
-//                     font-size: 1.2rem;
-//                     font-weight: bold;
-//                     height: 19px;
-//                     cursor: pointer;
-//                     color: darken($secondary, 20);
-//                     span {
-//                         white-space: nowrap;
-//                         overflow: hidden;
-//                         transition: all 5s ease-in-out;
-//                         margin-left: 1rem;
-//                     }
-//                 }
-//             }
-//             li:hover,
-//             li.active {
-//                 background: #000000;
-//                 color: $secondary;
-//                 border-color: black;
-//             }
-//         }
-//     }
-//     .togglebtn {
-//         color: white;
-//         background: #FF0039;
-//         font-size: 2rem;
-//         position: fixed;
-//         z-index: 9;
-//         cursor: pointer;
-//     }
-//     .main-container {
-//         width: 100%;
-//         margin: 0;
-//         // padding-left: 3rem;
-//         color: $secondary;
-//     }
-// }
-
-
-@import '../../sass/base';
-
-*, ::before, ::after {
-  color:lighten($text-color, 5%);
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
-};
-body {
-  // background: lighten($background, 5%);
-  // background: $primary;
-}
-
-.container-wrapper {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  // grid-template-rows:  minmax(100vh, auto) ;
-
-
-  .content {
-    grid-column: span 12;
-    display: flex;
-
-    h2 {
-        color: black;
-    }
-
-    .fill-yellow {
-      background: $secondary;
-  }
-
-  .main {
-      flex: 8;
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      // grid-template-rows: 70px  35vh minmax(40vh, auto);
-      padding: 0 20px 0 30px;
-      background: $primary;
-      height: minmax(100vh, auto);
-
-      .header {
-          grid-column:span 12;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          align-items: center;
-          height: 70px;
-          align-items: center;
-
-
-          select {
-              background: transparent;
-          }
-
-          nav {
-              position: relative;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 70px;
-              z-index: 99;
-              // background-color: $primary;
-              // .logo {
-              //     height: 100%;
-              //     display: flex;
-              //     justify-content: center;
-              //     align-items: center;
-              //     padding: 0;
-              //     img {
-              //         width: 120px;
-              //         height: 70px;
-              //     }
-              // }
-              .navbar-toggler {
-                  background-color: #c02118;
-                  .fa {
-                      color: $secondary;
-                  }
-              }
-              .navbar-collapse {
-                  background: #0f1011;
-                  opacity: 0.9;
-              }
-              ul {
-                  li {
-                      border-bottom: $primary 3px solid;
-                      border-radius: 10px;
-                      margin-right: 0.5rem;
-                      a {
-                          line-height: 50px;
-                          color: $text-color;
-                          padding: 0 5px;
-                          cursor: pointer;
-                          border-bottom: $primary 3px solid;
-                      }
-                      a:focus {
-                          outline: 0;
-                      }
-                      .nav-link-hover:hover {
-                          color: $secondary;
-                          background-color: lighten($primary, 10);
-                          // border-bottom: $danger 3px solid;
-                          border-radius: 10px;
-                      }
-                      .music:hover,
-                      .music.active {
-                          color: lighten($danger, 10);
-                          border-bottom: $danger 3px solid;
-                          border-radius: 10px;
-                      }
-                      .artists:hover,
-                      .artists.active {
-                          color: lighten($artist, 10);
-                          border-bottom: $artist 3px solid;
-                          border-radius: 10px;
-                      }
-                      .dashboard:hover,
-                      .dashboard.active {
-                          color: lighten($dashboard, 10);
-                          border-bottom: $dashboard 3px solid;
-                          border-radius: 10px;
-                      }
-                      .marketing:hover,
-                      .marketing.active {
-                          color: lighten($marketing, 10);
-                          border-bottom: $marketing 3px solid;
-                          border-radius: 10px;
-                      }
-                      .publishing:hover,
-                      .publishing.active {
-                          color: lighten($publish, 10);
-                          border-bottom: $publish 3px solid;
-                          border-radius: 10px;
-                      }
-                      .pricing:hover,
-                      .pricing.active {
-                          color: lighten($pricing, 10);
-                          border-bottom: $pricing 3px solid;
-                          border-radius: 10px;
-                      }
-                      .login:hover,
-                      .login.active {
-                          color: lighten($login, 10);
-                          border-bottom: $login 3px solid;
-                      }
-                      .signup:hover,
-                      .signup.active {
-                          color: lighten($signup, 10);
-                          border-bottom: $signup 3px solid;
-                          border-radius: 10px;
-                      }
-                  }
-                  .nav-item {
-                      .nav-link {
-                          img {
-                              height: 40px;
-                              width: 40px;
-                              border-radius: 50%;
-                          }
-                      }
-                      .dropdown-menu {
-                          font-size: 0.9rem;
-                          background: $primary;
-                          max-width: 8rem;
-                          a:hover {
-                              background: lighten($primary, 9);
-                              color: $secondary;
-                          }
-                      }
-                  }
-                  .active {
-                      border-bottom: $danger 3px solid;
-                      border-radius: 10px;
-                  }
-              }
-          }
-
-          // @media (max-width: 767px) {
-          //     #navbarTarget {
-          //         max-width: 90%;
-          //         ul {
-          //             li {
-          //                 a {
-          //                     text-align: center;
-          //                 }
-          //             }
-          //         }
-          //     }
-          // }
-
-          // <<<<<<< HEAD @media (max-width: 375px) {
-          //     .navbar {
-          //         .navbar-expand-lg {
-          //             min-width: 375px !important;
-          //         }
-          //     }
-          // }
-          // =======>>>>>>>b5e6fd7b02c53ae4b9b5d5c42360cb2886ff94e9git s
-
-
-
-
-
-
-
-
-
-      }
-
-      .album-container{
-          grid-column:span 12;
-
-          display: flex;
-          height: 38vh;
-
-          overflow: hidden;
-          flex-wrap: wrap;
-
-          .title {
-              width: 100%;
-              display: flex;
-              justify-content: flex-start;
-              padding: 0 0 10px 0;
-              height: 40px;
-
-
-              .actions {
-                  margin: 0 5px 0 5px;
-                  position: relative;
-
-                  width: 70px;
-
-
-              h2 {
-                  color: white;
-                  font-size: 20px;
-                  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-              }
-
-                  a {
-                      font-size: 40px;
-                      text-decoration: none;
-                      margin-top: 10px;
-
-                  }
-
-
-
-                  // div {
-                  //     position: relative;
-                  //     margin: 200px;
-                  //   }
-
+$primary: #0f1011;
+$danger: #FF0039;
+$danger2: #ff4136;
+$secondary: white;
+.wrapper {
+    margin-top: 4rem;
+    .side-nav {
+        width: 250px;
+        height: 100%;
+        margin: 0;
+        background-color: black;
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        z-index: 9;
+        overflow: auto;
+        .top {
+            height: 90px;
+            margin-left: 52px;
+            margin-top: 20px;
+            .top-info {
+                display: flex;
+                justify-content: space-around;
+                h5,
+                span {
+                    color: $secondary;
+                }
+                span {
+                    padding-right: 5px;
+                    cursor: pointer;
+                }
+            }
+            button {
+                margin-top: 10px;
+            }
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            padding: 0 18px;
+            li {
+                height: 40px;
+                margin-top: 2px;
+                display: flex;
+                padding: 10px;
+                a {
+                    display: flex;
+                    align-items: flex-start;
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    height: 19px;
+                    cursor: pointer;
+                    color: darken($secondary, 20);
+                    i {
+                        width: 20px;
+                        margin-top: 5px;
+                    }
                     span {
-                      display: block;
-                      bottom: 0px;
-                      width: 9px;
-                      height: 5px;
-                      background: #9b59b6;
-                      position: absolute;
-                      animation: audio-wave 1.5s infinite ease-in-out;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        transition: all 5s ease-in-out;
+                        margin-left: 1rem;
                     }
-
-                    span:nth-child(2) {
-                    left: 11px;
-                    animation-delay: 0.2s;
-                    }
-
-                    span:nth-child(3) {
-                    left: 22px;
-                    animation-delay: 0.4s;
-                    }
-
-                    span:nth-child(4) {
-                    left: 33px;
-                    animation-delay: 0.6s;
-                    }
-
-                    span:nth-child(5) {
-                    left: 44px;
-                    animation-delay: 0.8s;
-                    }
-
-                    @keyframes audio-wave {
-                        0% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                        25% {height:40px;transform:translateY(20px);background:#3498db;}
-                    /*effect is to animate the height of each span from 5px to 30px*/
-                    /*translateY makes Y axis move down to give the effect that it is growing from the center*/
-
-                        50% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                        100% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                    }
-
-              }
-          }
-
-
-
-
-          .album {
-              width: 20%;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-
-
-
-
-              img {
-                  border-radius: 10px;
-                  height: 60%;
-                  width:90%;
-
-
-              }
-
-              h3 {
-                  color: white;
-                  padding: 10px 0 6px 0;
-              }
-
-          }
-      }
-
-      .preview-container{
-          grid-column:span 12;
-          display: flex;
-          padding: 20px 0 0 0;
-
-          .songs-container {
-              width: 50%;
-              display: flex;
-              flex-wrap: wrap;
-
-              .title {
-                  width: 100%;
-                  display: flex;
-                  justify-content: flex-start;
-                  padding: 0 0 10px 0;
-                  height: 40px;
-
-
-                  .actions {
-                      margin: 0 5px 0 5px;
-                      position: relative;
-
-                      // width: 70px;
-
-
-                  h2 {
-                      color: white;
-                      font-size: 20px;
-                      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                  }
-
-                      a {
-                          font-size: 40px;
-                          text-decoration: none;
-                          margin-top: 10px;
-
-                      }
-
-
-
-                      // div {
-                      //     position: relative;
-                      //     margin: 200px;
-                      //   }
-
-                        span {
-                          display: block;
-                          bottom: 0px;
-                          width: 9px;
-                          height: 5px;
-                          background: #9b59b6;
-                          position: absolute;
-                          animation: audio-wave 1.5s infinite ease-in-out;
-                        }
-
-                        span:nth-child(2) {
-                        left: 11px;
-                        animation-delay: 0.2s;
-                        }
-
-                        span:nth-child(3) {
-                        left: 22px;
-                        animation-delay: 0.4s;
-                        }
-
-                        span:nth-child(4) {
-                        left: 33px;
-                        animation-delay: 0.6s;
-                        }
-
-                        span:nth-child(5) {
-                        left: 44px;
-                        animation-delay: 0.8s;
-                        }
-
-                        @keyframes audio-wave {
-                            0% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                            25% {height:40px;transform:translateY(20px);background:#3498db;}
-                        /*effect is to animate the height of each span from 5px to 30px*/
-                        /*translateY makes Y axis move down to give the effect that it is growing from the center*/
-
-                            50% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                            100% {height:5px;transform:translateY(0px);background:#9b59b6;}
-                        }
-
-                  }
-              }
-
-
-              .song {
-                  width: 100%;
-                  height: 60px;
-                  background: lighten($primary, 5%);
-                  border-radius: 10px;
-                  display: flex;
-                  margin:10px 0 0 0;
-
-                  .thumb {
-
-                      width:15%;
-                      height: 100%;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-
-
-                      img {
-                          width: 80%;
-                          height: 80%;
-
-                      }
-
-                  }
-
-                  .count {
-
-                      width:10%;
-                      height: 100%;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                  }
-
-                  .name {
-                      width:55%;
-                      height: 100%;
-                      display: flex;
-                      justify-content: flex-start;
-                      align-items: center;
-                  }
-                  .time {
-                      width:10%;
-                      height: 100%;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                  }
-
-                  .action {
-                      width:10%;
-                      height: 100%;
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
-                      font-size: 25px;
-                  }
-              }
-
-          }
-
-          .analytics-container {
-              width: 50%;
-              display: flex;
-              justify-content: center;
-              flex-wrap: wrap;
-
-              .title {
-                  width:100%;
-                  justify-content: flex-start;
-                  align-items: center;
-
-
-              h2 {
-                  color: white;
-                  font-size: 20px;
-                  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-              }
-              }
-              img {
-                  width: 80%;
-                  height: 80%;
-              }
-
-          }
-
-      }
-
-
-
-
-  }
-
-
-  .modal {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      width: 100%;
-      height: 70vh;
-      // background: $secondary;
-
-      .formClass {
-          width: 50%;
-          height:80%;
-          display: flex;
-          justify-content: center;
-  flex-direction: column;
-
-
-          .head {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-
-
-          h3 {
-  color: $text-color;
-  font-size: 22px;
-  text-transform: uppercase;
-
-          }
-          }
-
-
-          form {
-              display: flex;
-              // justify-content: center;
-              align-items: center;
-              flex-direction: column;
-
-
-              input {
-                  width: 90%;
-                  height: 40px;
-                  border-radius: 5px;
-                  margin: 10px;
-              }
-
-              textarea {
-                  width: 90%;
-                  height: 40px;
-                  border-radius: 5px;
-                  margin: 10px;
-              }
-
-          }
-      }
-  }
-
-
-  @media screen and (max-width: 620px){
-      .main {
-
-          .album-container {
-              .album {
-                  width: 30%;
-              }
-          }
-
-          .preview-container {
-
-              flex-direction: column;
-
-              .songs-container {
-                  width: 100%;
-              }
-
-              .analytics-container {
-                  width: 100%;
-              }
-
-          }
-
-      }
-  }
-
-
-}
-
-
+                }
+            }
+            li:hover,
+            li.active {
+                background: #61234e;
+                color: $secondary;
+                border-color: black;
+            }
+        }
+    }
+    .togglebtn {
+        color: white;
+        font-size: 2rem;
+        position: fixed;
+        z-index: 9;
+        cursor: pointer;
+    }
+    .main-container {
+        width: 100%;
+        margin: 0;
+        // padding-left: 3rem;
+        color: $secondary;
+    }
 }
