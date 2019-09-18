@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthorizationService,
     private formBuilder: FormBuilder,
     public router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createForm();
@@ -71,6 +71,7 @@ export class LoginComponent implements OnInit {
       email: this.form.get("email").value,
       password: this.form.get("password").value
     };
+    this.isLoading = true;
 
     this.authService.loginArtist(artist).subscribe(
       data => {

@@ -71,6 +71,7 @@ export class LandingComponent implements OnInit {
         let results: any = {};
         results = data;
         this.artists = results.results;
+        console.log(this.artists);
         this.logos = [
           { src: '../../assets/img/carousel/amazon-icon.svg' },
           { src: '../../assets/img/carousel/apple-music.svg' },

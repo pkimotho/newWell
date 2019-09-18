@@ -32,12 +32,13 @@ export class ArtistSignupComponent implements OnInit {
   token = "token";
   mismatch = "mismatch";
   id = "_id";
+  submissionAttempted = false;
 
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
     private authService: AuthorizationService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createForm();
@@ -78,10 +79,10 @@ export class ArtistSignupComponent implements OnInit {
           Validators.compose([
             Validators.required,
             Validators.minLength(6),
-            Validators.maxLength(35),
-            this.validatePassword
+            Validators.maxLength(35)
           ])
         ],
+        agreeTerms: [false, Validators.compose([Validators.required])],
 
         confirmpassword: ["", Validators.compose([Validators.required])]
       },
@@ -110,16 +111,16 @@ export class ArtistSignupComponent implements OnInit {
     }
   }
 
-  validatePassword(controls) {
-    const regExp = new RegExp(
-      /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/
-    );
-    if (regExp.test(controls.value)) {
-      return null;
-    } else {
-      return { validatePassword: true };
-    }
-  }
+  // validatePassword(controls) {
+  //   const regExp = new RegExp(
+  //     /^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/
+  //   );
+  //   if (regExp.test(controls.value)) {
+  //     return null;
+  //   } else {
+  //     return { validatePassword: true };
+  //   }
+  // }
   validatePhoneNumber(controls) {
     const regExp = new RegExp(
       /^(?:254|\+254|0)?(7(?:(?:[0-9][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/
@@ -142,6 +143,9 @@ export class ArtistSignupComponent implements OnInit {
       }
     };
   }
+  onSubmissionAttempt() {
+    this.submissionAttempted = true;
+  }
 
   registerArtist() {
     const artist = {
@@ -150,6 +154,7 @@ export class ArtistSignupComponent implements OnInit {
       password: this.form.get("password").value,
       phoneNumber: this.form.get("phoneNumber").value
     };
+    this.onSubmissionAttempt();
 
     this.authService.registerArtist(artist).subscribe(
       data => {

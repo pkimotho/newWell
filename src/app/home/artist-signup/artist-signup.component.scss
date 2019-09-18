@@ -1,73 +1,226 @@
 $primary: #0f1011;
 $danger: #ff4136;
 $secondary: white;
-.containerd {
-  margin-top: 10vh;
-  padding-left: 0;
-  padding-right: 0;
-  background-image: url("../../../assets/images/microphone.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
-  .row {
-    // border: 3px solid red;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .signin {
-    color: $secondary;
-  }
-  form {
-    -webkit-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-    box-shadow: -5px 2px 62px 8px rgba(0, 0, 0, 0.75);
-    padding: 60px 40px;
-
-    border-radius: 5px;
-    background-color: $primary;
-
-    opacity: 0.8;
-    margin: 2rem 0;
-  }
-  .right {
-    text-align: center;
-    padding: 10rem;
-  }
-  .links {
-    color: $secondary;
-    a:hover {
-      color: $danger;
-      cursor: pointer;
-    }
-  }
-  .btn {
-    background: darken($primary, 20);
-    border: 2px solid $danger;
-    color: $secondary;
-  }
-
-  .btn:hover {
-    cursor: pointer;
-    background: $danger;
-  }
-}
-
 .has-error {
-  color: $danger;
-  input {
-    outline-color: $danger;
-  }
-  ul li {
-    list-style: none;
-  }
+    color: $danger;
+    input {
+        outline-color: $danger;
+    }
 }
 
 .has-success {
-  color: darkgreen;
-  outline-color: darkgreen;
-  ul li {
-    list-style: none;
-  }
+    color: darkgreen;
+    outline-color: darkgreen;
+    ul li {
+        list-style: none;
+    }
+}
+
+h1 {
+    font-weight: 300;
+}
+
+#container {
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: row;
+    background: black;
+    padding-bottom: 6rem;
+    .primary-btn {
+        padding: 0.7rem 1rem;
+        height: 2.7rem;
+        display: block;
+        border: 0;
+        border-radius: 2px;
+        font-weight: 500;
+        background: #da9833;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    .primary-btn:hover {
+        background-color: darken(#f6d365, 10);
+    }
+    .secondary-btn {
+        padding: 0.7rem 1rem;
+        height: 2.7rem;
+        display: block;
+        border: 1px solid #f4f4f4;
+        border-radius: 2px;
+        font-weight: 500;
+        background: none;
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    .secondary-btn:hover {
+        border-color: darken(#f6d365, 10);
+        color: darken(#f6d365, 10);
+    }
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    #signup {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        padding: 2rem 0 1rem 0;
+        .logo {
+            margin-bottom: 4vh;
+            img {
+                width: 150px;
+            }
+        }
+        form {
+            width: 90%;
+            padding-bottom: 3rem;
+            label {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            .text-input {
+                width: 100%;
+                border-radius: 2px;
+                background: #181818;
+                border: 1px solid #555;
+                color: #ccc;
+                padding: 0.5rem 1rem;
+                line-height: 1rem;
+            }
+            .primary-btn {
+                width: 100%;
+            }
+            .validation-block {
+                list-style: none;
+                color: $danger;
+                font-size: 0.8rem;
+            }
+            input[type="checkbox"] {
+                margin-right: 5px;
+            }
+        }
+        .or {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 2rem;
+            align-items: center;
+            .bar {
+                flex: auto;
+                border: none;
+                height: 1px;
+                background: #ccc;
+            }
+            span {
+                color: #ccc;
+                padding: 0 0.8rem;
+            }
+        }
+    }
+}
+
+#right {
+    flex: 1;
+    #showcase {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url(../../../assets/images/newwellphotos/band-bottle-club-2240766.jpg) no-repeat center top / cover;
+        height: 100%;
+        position: relative;
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: rgba(17, 17, 17, 0.5);
+        }
+        .showcase-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 3;
+            .showcase-text {
+                font-size: 3rem;
+                font-weight: 600;
+                width: 100%;
+                color: #fff;
+                margin-bottom: 1.5rem;
+            }
+            .benefits-list {
+                width: 70%;
+                font-size: 1.5rem;
+                color: #f6d365;
+                text-align: left;
+                list-style: none;
+                li {
+                    i {
+                        display: inline-block;
+                        margin-right: 1rem;
+                        clear: both;
+                    }
+                }
+            }
+        }
+        .secondary-btn {
+            width: 60%;
+            margin: auto;
+            color: #3c70a4;
+            border-color: #3c70a4;
+        }
+    }
+}
+
+
+/* Media Queries */
+
+@media (min-width: 1200px) {
+    #left {
+        flex: 4;
+    }
+    #right {
+        flex: 6;
+    }
+}
+
+@media (max-width: 768px) {
+    #container {
+        padding-bottom: 3rem;
+    }
+    #right {
+        display: none;
+    }
+    #left {
+        justify-content: start;
+        margin-top: 2vh;
+        #signup {
+            .logo {
+                margin-bottom: 2vh;
+            }
+            .text-input {
+                margin-bottom: 0.7rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 375px) {
+    #termsLabel,
+    #termsLabel a em {
+        font-size: 0.6rem;
+    }
 }
