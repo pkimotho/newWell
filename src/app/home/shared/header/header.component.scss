@@ -31,7 +31,7 @@ nav {
     ul {
         li {
             border-bottom: $primary 3px solid;
-            border-radius: 10px;
+            // border-radius: 10px;
             margin-right: 0.5rem;
             a {
                 line-height: 50px;
@@ -107,7 +107,7 @@ nav {
             }
             .dropdown-menu {
                 font-size: 0.9rem;
-                background: $primary;
+                background: #555;
                 max-width: 8rem;
                 a:hover {
                     background: lighten($primary, 9);
@@ -122,9 +122,75 @@ nav {
     }
 }
 
+@media(max-width:991px) {
+    #navbarTarget {
+        background: #555;
+        color: #fff;
+        ul {
+            li {
+                border: none;
+                .nav-link-hover:hover {
+                    color: $secondary;
+                    background-color: lighten($primary, 10);
+                    // border-bottom: $danger 3px solid;
+                    // border-radius: 10px;
+                }
+                a {
+                    line-height: 50px;
+                    color: $text-color;
+                    padding: 0 5px;
+                    cursor: pointer;
+                    // border-bottom: $primary 3px solid;
+                }
+                .music:hover,
+                .music.active {
+                    color: lighten($danger, 10);
+                    border-bottom: $danger 3px solid;
+                }
+                .artists:hover,
+                .artists.active {
+                    color: lighten($artist, 10);
+                    border-bottom: $artist 3px solid;
+                }
+                .dashboard:hover,
+                .dashboard.active {
+                    color: lighten($dashboard, 10);
+                    border-bottom: $dashboard 3px solid;
+                }
+                .marketing:hover,
+                .marketing.active {
+                    color: lighten($marketing, 10);
+                    border-bottom: $marketing 3px solid;
+                }
+                .publishing:hover,
+                .publishing.active {
+                    color: lighten($publish, 10);
+                    border-bottom: $publish 3px solid;
+                }
+                .pricing:hover,
+                .pricing.active {
+                    color: lighten($pricing, 10);
+                    border-bottom: $pricing 3px solid;
+                }
+                .login:hover,
+                .login.active {
+                    color: lighten($login, 10);
+                    border-bottom: $login 3px solid;
+                }
+                .signup:hover,
+                .signup.active {
+                    color: lighten($signup, 10);
+                    border-bottom: $signup 3px solid;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 767px) {
     #navbarTarget {
         max-width: 90%;
+        color: #fff;
         ul {
             li {
                 a {
