@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
     })
       .then(res => res.json())
       .then(data => {
-        this.messageClass = "alert alert-success";
+        this.messageClass = "success";
         this.message = "Please Check Your Email";
         this.isLoading = false;
         this.gotoMessageSection();
