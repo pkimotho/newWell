@@ -9,7 +9,8 @@ import { FanSignupComponent } from './fan-signup/fan-signup.component';
 import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { PublishingComponent } from './publishing/publishing.component';
-import { PasswordRestComponent } from './password-rest/password-rest.component'
+import { PasswordRestComponent } from './password-rest/password-rest.component';
+import { HomeRoutingModule } from './home.routing.module';
 
 // Material Module
 import { CustomMaterialModule } from './../shared/material-module/material-module';
@@ -55,6 +56,7 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HomeRoutingModule,
     FlickityModule
   ],
   providers: [

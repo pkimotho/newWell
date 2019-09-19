@@ -37,28 +37,6 @@
 //         background: #181818;
 //         border: 1px solid #555;
 //       }
-//       .has-error {
-//         color: $danger;
-//         input {
-//           outline-color: $danger;
-//         }
-//         ul li {
-//           list-style: none;
-//         }
-//       }
-//       .has-success {
-//         color: darkgreen;
-//         outline-color: darkgreen;
-//         ul li {
-//           list-style: none;
-//         }
-//       }
-//     }
-//     .show-hide-message {
-//       position: absolute;
-//       top: 8%;
-//       left: 30%;
-//     }
 //     button {
 //       background: $primary;
 //       border: 2px solid $danger;
@@ -76,25 +54,28 @@
 //     }
 //   }
 // }
-// .bg {
-//   background-image: url("../../../assets/images/microphone.jpg");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// }
-// @media (max-width: 576px) {
-//   .show-hide-message {
-//     top: 50%;
-//   }
-// }
 #container {
     margin-top: 10vh;
     position: relative;
     #messageSection {
         position: absolute;
         width: 100%;
-        top: 0;
+        max-width: 425px;
+        top: 2rem;
         left: 0;
+        right: 0;
+        margin: 0 auto;
         text-align: center;
+        .success {
+            color: green;
+            padding: 1rem;
+            background: lightgreen;
+        }
+        .danger {
+            padding: 1rem;
+            color: red;
+            background: lightcoral;
+        }
     }
     .wrapper {
         width: 100%;
@@ -162,6 +143,38 @@
                     font-size: 0.8rem;
                     margin-top: 5px;
                 }
+                .link {
+                    #forgot {
+                        .forgot-input {
+                            display: flex;
+                            flex-wrap: nowrap;
+                            input {
+                                height: 2rem;
+                                width: 70%;
+                                padding: 0.5rem;
+                                font-size: 0.9rem;
+                                border-radius: 0;
+                                background: #181818;
+                                color: #fff;
+                                outline: 0;
+                                border: none;
+                            }
+                            button {
+                                height: 2rem;
+                                width: 30%;
+                                padding: 0.5rem;
+                                background-color: $secondary;
+                                border: none;
+                                color: $primary;
+                                align-self: center;
+                                font-size: 0.9rem;
+                                &:hover {
+                                    background-color: darken($secondary, 20);
+                                }
+                            }
+                        }
+                    }
+                }
             }
             .link {
                 padding-top: 1rem;
@@ -172,37 +185,6 @@
                     color: #fff;
                     &:hover {
                         color: $secondary;
-                    }
-                }
-            }
-            .input-group {
-                display: flex;
-                flex-direction: column;
-                margin-top: 1rem;
-                width: 100%;
-                input {
-                    padding: 1rem;
-                    font-size: 13px;
-                    border: 1px solid #181818;
-                    border-radius: 10px;
-                    background: #fff;
-                    color: $primary;
-                    &:focus {
-                        outline: 0;
-                    }
-                }
-                button {
-                    width: 100%;
-                    padding: 1rem;
-                    border-radius: 10px;
-                    background-color: $secondary;
-                    border: unset;
-                    color: #fff;
-                    align-self: center;
-                    margin-top: 1rem;
-                    font-size: 1.3rem;
-                    &:hover {
-                        background-color: #181818;
                     }
                 }
             }
@@ -223,6 +205,24 @@
                 }
             }
         }
+    }
+}
+
+.has-error {
+    color: $danger;
+    input {
+        outline-color: $danger;
+    }
+    ul li {
+        list-style: none;
+    }
+}
+
+.has-success {
+    color: darkgreen;
+    outline-color: darkgreen;
+    ul li {
+        list-style: none;
     }
 }
 

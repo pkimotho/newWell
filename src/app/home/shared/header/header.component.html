@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<!-- <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand logo" routerLink="/">
         <img src="assets/img/logos/logo.svg" alt="Newwell Logo">
 
@@ -14,10 +14,10 @@
                 <a class="nav-link nav-link-hover music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">Newwell
           Music</a>
             </li>
-            <!--  <li class="nav-item" id="artists" data-toggle="collapse" data-target=".navbar-collapse.show">
+             <li class="nav-item" id="artists" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a class="nav-link nav-link-hover artists" [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive='active' routerLink="artists">Artists</a>
-	  </li>-->
+	  </li>
             <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show">
                 <a class="nav-link nav-link-hover dashboard" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="dashboard">Dashboard</a>
             </li>
@@ -48,10 +48,10 @@
         <ng-template #loggedOut>
             <ul class="navbar-nav ml-auto text-left ">
                 <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">NewWell Music</a></li>
-                <!-- <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a
+                <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a
                     class="nav-link nav-link-hover artists" [routerLinkActiveOptions]="{ exact: true }"
                     routerLinkActive='active' routerLink="artists">Artists</a></li>
-	   -->
+	  
                 <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a></li>
                 <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
                 <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse.show"><a class="nav-link nav-link-hover pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
@@ -60,4 +60,26 @@
             </ul>
         </ng-template>
     </div>
-</nav>
+</nav> -->
+<header>
+    <a class="logo" routerLink="/">
+        <img src="assets/img/logos/logo.svg" alt="Newwell">
+    </a>
+    <input type="checkbox" class="nav-toggle" id="nav-toggle">
+    <nav>
+        <ul>
+            <li><a class="music" id="music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">Newwell Music</a></li>
+            <!-- <li><a class="artists" id="artists" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li> -->
+            <li><a *ngIf="authService.loggedIn" id="dashboard" class="dashboard" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="dashboard">Dashboard</a></li>
+            <li><a class="marketing" id="marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a></li>
+            <li><a class="publishing" id="publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
+            <li><a class="pricing" id="pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
+            <li><a *ngIf="!authService.loggedIn" class="login" id="login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
+            <li><a *ngIf="authService.loggedIn" class="login" id="logout" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login" (click)="logout()">Logout</a></li>
+            <li><a *ngIf="!authService.loggedIn" class="signup" id="signup" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
+        </ul>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+    <span></span>
+  </label>
+</header>

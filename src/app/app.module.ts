@@ -43,6 +43,7 @@ import { AuthGuard } from './services/guards/auth.guard';
 
 
 import { CustomSerializer } from './utils/utils';
+import { ClosemenuDirective } from './directives/closemenu.directive';
 
 
 
@@ -53,6 +54,7 @@ import { CustomSerializer } from './utils/utils';
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    ClosemenuDirective,
 
 
 

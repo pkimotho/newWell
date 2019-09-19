@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   showForgot = false;
   forgotEmail;
   isLoading = false;
+  isLogin = false;
 
   constructor(
     private authService: AuthorizationService,
@@ -71,20 +72,21 @@ export class LoginComponent implements OnInit {
       email: this.form.get("email").value,
       password: this.form.get("password").value
     };
-    this.isLoading = true;
+    this.isLogin = true;
 
     this.authService.loginArtist(artist).subscribe(
       data => {
         console.log(data);
-        this.messageClass = "alert alert-success";
+        this.messageClass = "success";
         this.message = "Successfully logged in";
         this.authService.storeUserData(data["token"], data["user"]);
         this.router.navigate(["/dashboard/"]);
       },
       err => {
         if (err["error"]) {
-          this.messageClass = "alert alert-danger";
+          this.messageClass = "danger";
           this.message = err["error"]["message"];
+          this.isLogin = false;
           console.log(err);
         }
       }

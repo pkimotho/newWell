@@ -115,7 +115,7 @@
   </div>
 </div> -->
 <div id="container">
-    <div class="show-hide-message" id="messageSection" #messageSection>
+    <div id="messageSection" #messageSection>
         <div [ngClass]="messageClass">
             {{ message }}
         </div>
@@ -151,30 +151,28 @@
                     </ul>
                 </div>
                 <div class="input-group">
-                    <button type="submit" (click)="gotoMessageSection()">Continue <i *ngIf="isLoading"
+                    <button type="submit" (click)="gotoMessageSection()">Continue <i *ngIf="isLogin"
               class=" fa fa-spinner fa-spin"></i></button>
-                </div>
-            </form>
-            <div class="link">
-                <a (click)="showForgot = !showForgot">Forgot Password?</a>
-            </div>
-            <div *ngIf="showForgot">
-                <div class="input-group">
-                    <label>Enter your email address:</label>
-                    <input formControlName="forgotEmail" type="email" placeholder="Email" />
-                    <button (click)="sendEmail()">Send password reset<i *ngIf="isLoading"
-              class=" fa fa-spinner fa-spin"></i></button>
-                </div>
-
-
-                <div class="or">
-                    <hr class="bar">
-                    <span>OR</span>
-                    <hr class="bar">
                 </div>
                 <div class="link">
-                    <p>Not registered? <a [href]="'artist-signup'"><em>Sign Up.</em></a></p>
+                    <a (click)="showForgot = !showForgot">Forgot Password?</a>
+                    <div *ngIf="showForgot" id="forgot">
+                        <p>Enter your email address:</p>
+                        <div class="forgot-input">
+                            <input formControlName="forgotEmail" type="email" placeholder="Email" />
+                            <button (click)="sendEmail()">Reset<i *ngIf="isLoading" class=" fa fa-spinner fa-spin"></i></button>
+                        </div>
+                    </div>
                 </div>
+            </form>
+
+            <div class="or">
+                <hr class="bar">
+                <span>OR</span>
+                <hr class="bar">
+            </div>
+            <div class="link">
+                <p>Not registered? <a routerLink="/artist-signup"><em>Sign Up.</em></a></p>
             </div>
         </div>
     </div>

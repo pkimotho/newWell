@@ -1,211 +1,457 @@
-@import '../../../../sass/base';
-select {
-    background: transparent;
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    z-index: 99;
-    background-color: $primary;
-    .logo {
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        img {
-            width: 120px;
-            height: 70px;
-        }
-    }
-    .navbar-toggler {
-        background-color: black;
-        .fa {
-            color: white;
-        }
-    }
-    ul {
-        li {
-            border-bottom: $primary 3px solid;
-            // border-radius: 10px;
-            margin-right: 0.5rem;
-            a {
-                line-height: 50px;
-                color: $text-color;
-                padding: 0 5px;
-                cursor: pointer;
-                border-bottom: $primary 3px solid;
-            }
-            a:focus {
-                outline: 0;
-            }
-            .nav-link-hover:hover {
-                color: $secondary;
-                background-color: lighten($primary, 10);
-                // border-bottom: $danger 3px solid;
-                border-radius: 10px;
-            }
-            .music:hover,
-            .music.active {
-                color: lighten($danger, 10);
-                border-bottom: $danger 3px solid;
-                border-radius: 10px;
-            }
-            .artists:hover,
-            .artists.active {
-                color: lighten($artist, 10);
-                border-bottom: $artist 3px solid;
-                border-radius: 10px;
-            }
-            .dashboard:hover,
-            .dashboard.active {
-                color: lighten($dashboard, 10);
-                border-bottom: $dashboard 3px solid;
-                border-radius: 10px;
-            }
-            .marketing:hover,
-            .marketing.active {
-                color: lighten($marketing, 10);
-                border-bottom: $marketing 3px solid;
-                border-radius: 10px;
-            }
-            .publishing:hover,
-            .publishing.active {
-                color: lighten($publish, 10);
-                border-bottom: $publish 3px solid;
-                border-radius: 10px;
-            }
-            .pricing:hover,
-            .pricing.active {
-                color: lighten($pricing, 10);
-                border-bottom: $pricing 3px solid;
-                border-radius: 10px;
-            }
-            .login:hover,
-            .login.active {
-                color: lighten($login, 10);
-                border-bottom: $login 3px solid;
-            }
-            .signup:hover,
-            .signup.active {
-                color: lighten($signup, 10);
-                border-bottom: $signup 3px solid;
-                border-radius: 10px;
-            }
-        }
-        .nav-item {
-            .nav-link {
-                img {
-                    height: 40px;
-                    width: 40px;
-                    border-radius: 50%;
-                }
-            }
-            .dropdown-menu {
-                font-size: 0.9rem;
-                background: #555;
-                max-width: 8rem;
-                a:hover {
-                    background: lighten($primary, 9);
-                    color: $secondary;
-                }
-            }
-        }
-        .active {
-            border-bottom: $danger 3px solid;
-            border-radius: 10px;
-        }
-    }
-}
-
-@media(max-width:991px) {
-    #navbarTarget {
-        background: #555;
-        color: #fff;
-        ul {
-            li {
-                border: none;
-                .nav-link-hover:hover {
-                    color: $secondary;
-                    background-color: lighten($primary, 10);
-                    // border-bottom: $danger 3px solid;
-                    // border-radius: 10px;
-                }
-                a {
-                    line-height: 50px;
-                    color: $text-color;
-                    padding: 0 5px;
-                    cursor: pointer;
-                    // border-bottom: $primary 3px solid;
-                }
-                .music:hover,
-                .music.active {
-                    color: lighten($danger, 10);
-                    border-bottom: $danger 3px solid;
-                }
-                .artists:hover,
-                .artists.active {
-                    color: lighten($artist, 10);
-                    border-bottom: $artist 3px solid;
-                }
-                .dashboard:hover,
-                .dashboard.active {
-                    color: lighten($dashboard, 10);
-                    border-bottom: $dashboard 3px solid;
-                }
-                .marketing:hover,
-                .marketing.active {
-                    color: lighten($marketing, 10);
-                    border-bottom: $marketing 3px solid;
-                }
-                .publishing:hover,
-                .publishing.active {
-                    color: lighten($publish, 10);
-                    border-bottom: $publish 3px solid;
-                }
-                .pricing:hover,
-                .pricing.active {
-                    color: lighten($pricing, 10);
-                    border-bottom: $pricing 3px solid;
-                }
-                .login:hover,
-                .login.active {
-                    color: lighten($login, 10);
-                    border-bottom: $login 3px solid;
-                }
-                .signup:hover,
-                .signup.active {
-                    color: lighten($signup, 10);
-                    border-bottom: $signup 3px solid;
-                }
-            }
-        }
-    }
-}
-
-@media (max-width: 767px) {
-    #navbarTarget {
-        max-width: 90%;
-        color: #fff;
-        ul {
-            li {
-                a {
-                    text-align: center;
-                }
-            }
-        }
-    }
-}
-
-// <<<<<<< HEAD @media (max-width: 375px) {
-//     .navbar {
-//         .navbar-expand-lg {
-//             min-width: 375px !important;
-//         }
-//     }
-// }
-// =======>>>>>>>b5e6fd7b02c53ae4b9b5d5c42360cb2886ff94e9git s
+ @import '../../../../sass/base';
+ // select {
+ //     background: transparent;
+ // }
+ // nav {
+ //     position: fixed;
+ //     top: 0;
+ //     left: 0;
+ //     width: 100%;
+ //     height: 70px;
+ //     z-index: 99;
+ //     background-color: $primary;
+ //     .logo {
+ //         height: 100%;
+ //         display: flex;
+ //         justify-content: center;
+ //         align-items: center;
+ //         padding: 0;
+ //         img {
+ //             width: 120px;
+ //             height: 70px;
+ //         }
+ //     }
+ //     .navbar-toggler {
+ //         background-color: black;
+ //         .fa {
+ //             color: white;
+ //         }
+ //     }
+ //     ul {
+ //         li {
+ //             border-bottom: $primary 3px solid;
+ //             // border-radius: 10px;
+ //             margin-right: 0.5rem;
+ //             a {
+ //                 line-height: 50px;
+ //                 color: $text-color;
+ //                 padding: 0 5px;
+ //                 cursor: pointer;
+ //                 border-bottom: $primary 3px solid;
+ //             }
+ //             a:focus {
+ //                 outline: 0;
+ //             }
+ //             .nav-link-hover:hover {
+ //                 color: $secondary;
+ //                 background-color: lighten($primary, 10);
+ //                 // border-bottom: $danger 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .music:hover,
+ //             .music.active {
+ //                 color: lighten($danger, 10);
+ //                 border-bottom: $danger 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .artists:hover,
+ //             .artists.active {
+ //                 color: lighten($artist, 10);
+ //                 border-bottom: $artist 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .dashboard:hover,
+ //             .dashboard.active {
+ //                 color: lighten($dashboard, 10);
+ //                 border-bottom: $dashboard 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .marketing:hover,
+ //             .marketing.active {
+ //                 color: lighten($marketing, 10);
+ //                 border-bottom: $marketing 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .publishing:hover,
+ //             .publishing.active {
+ //                 color: lighten($publish, 10);
+ //                 border-bottom: $publish 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .pricing:hover,
+ //             .pricing.active {
+ //                 color: lighten($pricing, 10);
+ //                 border-bottom: $pricing 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //             .login:hover,
+ //             .login.active {
+ //                 color: lighten($login, 10);
+ //                 border-bottom: $login 3px solid;
+ //             }
+ //             .signup:hover,
+ //             .signup.active {
+ //                 color: lighten($signup, 10);
+ //                 border-bottom: $signup 3px solid;
+ //                 border-radius: 10px;
+ //             }
+ //         }
+ //         .nav-item {
+ //             .nav-link {
+ //                 img {
+ //                     height: 40px;
+ //                     width: 40px;
+ //                     border-radius: 50%;
+ //                 }
+ //             }
+ //             .dropdown-menu {
+ //                 font-size: 0.9rem;
+ //                 background: #555;
+ //                 max-width: 8rem;
+ //                 a:hover {
+ //                     background: lighten($primary, 9);
+ //                     color: $secondary;
+ //                 }
+ //             }
+ //         }
+ //         .active {
+ //             border-bottom: $danger 3px solid;
+ //             border-radius: 10px;
+ //         }
+ //     }
+ // }
+ // @media(max-width:991px) {
+ //     #navbarTarget {
+ //         background: #555;
+ //         color: #fff;
+ //         ul {
+ //             li {
+ //                 border: none;
+ //                 .nav-link-hover:hover {
+ //                     color: $secondary;
+ //                     background-color: lighten($primary, 10);
+ //                     // border-bottom: $danger 3px solid;
+ //                     // border-radius: 10px;
+ //                 }
+ //                 a {
+ //                     line-height: 50px;
+ //                     color: $text-color;
+ //                     padding: 0 5px;
+ //                     cursor: pointer;
+ //                     // border-bottom: $primary 3px solid;
+ //                 }
+ //                 .music:hover,
+ //                 .music.active {
+ //                     color: lighten($danger, 10);
+ //                     border-bottom: $danger 3px solid;
+ //                 }
+ //                 .artists:hover,
+ //                 .artists.active {
+ //                     color: lighten($artist, 10);
+ //                     border-bottom: $artist 3px solid;
+ //                 }
+ //                 .dashboard:hover,
+ //                 .dashboard.active {
+ //                     color: lighten($dashboard, 10);
+ //                     border-bottom: $dashboard 3px solid;
+ //                 }
+ //                 .marketing:hover,
+ //                 .marketing.active {
+ //                     color: lighten($marketing, 10);
+ //                     border-bottom: $marketing 3px solid;
+ //                 }
+ //                 .publishing:hover,
+ //                 .publishing.active {
+ //                     color: lighten($publish, 10);
+ //                     border-bottom: $publish 3px solid;
+ //                 }
+ //                 .pricing:hover,
+ //                 .pricing.active {
+ //                     color: lighten($pricing, 10);
+ //                     border-bottom: $pricing 3px solid;
+ //                 }
+ //                 .login:hover,
+ //                 .login.active {
+ //                     color: lighten($login, 10);
+ //                     border-bottom: $login 3px solid;
+ //                 }
+ //                 .signup:hover,
+ //                 .signup.active {
+ //                     color: lighten($signup, 10);
+ //                     border-bottom: $signup 3px solid;
+ //                 }
+ //             }
+ //         }
+ //     }
+ // }
+ // @media (max-width: 767px) {
+ //     #navbarTarget {
+ //         max-width: 90%;
+ //         color: #fff;
+ //         ul {
+ //             li {
+ //                 a {
+ //                     text-align: center;
+ //                 }
+ //             }
+ //         }
+ //     }
+ // }
+ // <<<<<<< HEAD @media (max-width: 375px) {
+ //     .navbar {
+ //         .navbar-expand-lg {
+ //             min-width: 375px !important;
+ //         }
+ //     }
+ // }
+ // =======>>>>>>>b5e6fd7b02c53ae4b9b5d5c42360cb2886ff94e9git s
+ *,
+ *::before,
+ *::after {
+     box-sizing: border-box;
+ }
+ 
+ header {
+     background: $primary;
+     text-align: center;
+     position: fixed;
+     top: 0;
+     z-index: 999;
+     width: 100%;
+     .logo {
+         img {
+             width: 120px;
+             height: 70px;
+         }
+     }
+     nav {
+         position: absolute;
+         text-align: left;
+         top: 100%;
+         left: 0;
+         background: $primary;
+         width: 40%;
+         transform: scale(1, 0);
+         transform-origin: top;
+         transition: transform 400ms ease-in-out;
+         ul {
+             margin: 0;
+             padding: 0;
+             list-style: none;
+             li {
+                 margin-left: 1em;
+                 margin-bottom: 1em;
+                 a {
+                     color: #fff;
+                     text-decoration: none;
+                     font-size: 0.9rem;
+                     text-transform: uppercase;
+                     opacity: 0;
+                     padding: 5px;
+                     transition: opacity 150ms ease-in-out;
+                 }
+                 a:focus {
+                     outline: 0;
+                 }
+                 .music:hover,
+                 .music.active {
+                     color: lighten(#ff0039, 10);
+                 }
+                 .dashboard:hover,
+                 .dashboard.active {
+                     color: lighten($dashboard, 10);
+                 }
+                 .artists:hover,
+                 .artists.active {
+                     color: lighten($artist, 10);
+                 }
+                 .marketing:hover,
+                 .marketing.active {
+                     color: lighten($marketing, 10);
+                 }
+                 .publishing:hover,
+                 .publishing.active {
+                     color: lighten($publish, 10);
+                 }
+                 .pricing:hover,
+                 .pricing.active {
+                     color: lighten($pricing, 10);
+                 }
+                 .login:hover,
+                 .login.active {
+                     color: lighten($signup, 10);
+                 }
+                 .signup:hover,
+                 .signup.active {
+                     color: lighten($signup, 10);
+                 }
+             }
+         }
+     }
+     .nav-toggle {
+         display: none;
+     }
+     .nav-toggle:checked~nav {
+         transform: scale(1, 1);
+     }
+     .nav-toggle:checked~nav a {
+         opacity: 1;
+         transition: opacity 250ms ease-in-out 250ms;
+     }
+     .nav-toggle-label {
+         position: absolute;
+         top: 0;
+         left: 0;
+         margin-left: 1em;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         span,
+         span::before,
+         span::after {
+             display: block;
+             background: white;
+             height: 2px;
+             width: 2em;
+             border-radius: 2px;
+             position: relative;
+         }
+         span::before,
+         span::after {
+             content: '';
+             position: absolute;
+         }
+         span::before {
+             bottom: 7px;
+         }
+         span::after {
+             top: 7px;
+         }
+     }
+ }
+ 
+ .active {
+     color: purple;
+ }
+ 
+ .hide {
+     .nav-toggle:checked~nav {
+         transform: scale(1, 0);
+     }
+ }
+ 
+ @media screen and (min-width: 960px) {
+     header {
+         display: grid;
+         grid-template-columns: 1fr auto minmax(700px, 3fr) 1fr;
+         .nav-toggle-label {
+             display: none;
+         }
+         .logo {
+             grid-column: 1 / 2;
+         }
+         nav {
+             all: unset;
+             grid-column: 3 / 5;
+             margin-right: 1em;
+             display: flex;
+             justify-content: flex-end;
+             align-items: center;
+             ul {
+                 display: flex;
+                 justify-content: flex-end;
+                 li {
+                     margin-left: 1em;
+                     margin-bottom: 0;
+                     a {
+                         opacity: 1;
+                         position: relative;
+                         &::before {
+                             content: '';
+                             display: block;
+                             height: 5px;
+                             //  background: #fff;
+                             position: absolute;
+                             bottom: -0.75em;
+                             left: 0;
+                             right: 0;
+                             transform: scale(0, 1);
+                             transition: transform ease-in-out 250ms;
+                         }
+                         &:hover::before {
+                             transform: scale(1, 1);
+                         }
+                     }
+                     a:focus {
+                         outline: 0;
+                     }
+                     #music,
+                     .music:hover,
+                     .music.active {
+                         &::before {
+                             background: #ff0039;
+                         }
+                     }
+                     #marketing,
+                     .marketing:hover,
+                     .marketing.active {
+                         &::before {
+                             background: $marketing;
+                         }
+                     }
+                     #dashboard,
+                     .dashboard:hover,
+                     .dashboard.active {
+                         &::before {
+                             background: $dashboard;
+                         }
+                     }
+                     #artists,
+                     .artists:hover,
+                     .artists.active {
+                         &::before {
+                             background: $artist;
+                         }
+                     }
+                     #publishing,
+                     .publishing:hover,
+                     .publishing.active {
+                         &::before {
+                             background: $publish;
+                         }
+                     }
+                     #pricing,
+                     .pricing:hover,
+                     .pricing.active {
+                         &::before {
+                             background: $pricing;
+                         }
+                     }
+                     #login,
+                     #logout,
+                     .login:hover,
+                     .login.active {
+                         &::before {
+                             background: $signup;
+                         }
+                     }
+                     #signup,
+                     .signup:hover,
+                     .signup.active {
+                         &::before {
+                             background: $signup;
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }
+ 
+ @media screen and (max-width: 375px) {
+     header {
+         nav {
+             width: 100%;
+         }
+     }
+ }
