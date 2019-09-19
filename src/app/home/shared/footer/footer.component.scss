@@ -1,6 +1,15 @@
 @import '../../../../sass/base';
 footer {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    background: $primary;
+    .bar {
+        border: none;
+        margin: 0;
+        height: 1px;
+        background: #ccc;
+    }
     .footer-content {
         padding: 50px 0 0 0;
         background: $primary;
@@ -10,72 +19,126 @@ footer {
         padding: 2rem;
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         .footer-card {
             flex-basis: 300px;
             margin-bottom: 1rem;
             text-align: left;
             h4 {
-                margin-bottom: 25px;
-                color: hsl(0, 0%, 40%);
+                font-weight: 100;
+                margin-bottom: 10px;
+                color: white;
             }
             p {
+                font-size: 0.9rem;
+                color: hsl(0, 0, 60%);
                 line-height: 27px;
             }
             .link-area {
                 li {
+                    font-size: 0.9rem;
                     padding: 0 5px 5px 0;
                     list-style: none;
                     a {
                         text-transform: capitalize;
-                        color: white;
+                        color: hsl(0, 0, 60%);
                     }
                 }
             }
         }
         .footer-logo {
+            display: flex;
+            justify-content: flex-start;
             flex-basis: 300px;
-            text-align: left;
             margin-bottom: 1rem;
-            img {
-                width: 200px;
-                height: 136px;
+            .logo-image {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                border-top: 1px solid white;
+                img {
+                    width: 150px;
+                    height: 96px;
+                    margin-bottom: 10px;
+                }
+                .footer-btn {
+                    display: block;
+                    width: 200px;
+                    border: 1px solid white;
+                    border-radius: 5px;
+                    color: white;
+                    text-align: center;
+                    padding: 10px;
+                    text-decoration: none;
+                }
             }
         }
     }
-    @media (min-width: 1024px) {
+    @media (max-width: 1199px) {
         .footer-content {
+            width: 70%;
+            flex-wrap: wrap;
+            align-self: center;
             .footer-card {
-                flex-basis: 25%;
+                flex-basis: 300px;
             }
             .comp {
                 flex-basis: 20%;
             }
         }
     }
-    @media (max-width: 1097px) {
+    @media (max-width: 964px) {
         .footer-content {
-            justify-content: center;
-            .footer-logo,
-            .footer-card {
-                flex-basis: 50%;
-            }
+            width: 80%;
         }
     }
-    @media (max-width: 530px) {
+    @media (max-width: 844px) {
         .footer-content {
+            width: 90%;
+        }
+    }
+    @media (max-width: 752px) {
+        .footer-content {
+            justify-content: center;
             .footer-logo {
                 display: none;
             }
             .footer-card {
-                flex-basis: 100%;
+                width: 100%;
             }
         }
     }
+    @media (max-width: 678px) {
+        .footer-content {
+            width: 100%;
+        }
+    }
+    // @media (max-width: 1097px) {
+    //     .footer-content {
+    //         justify-content: center;
+    //         .footer-logo,
+    //         .footer-card {
+    //             flex-basis: 50%;
+    //         }
+    //     }
+    // }
+    // @media (max-width: 530px) {
+    //     .footer-content {
+    //         .footer-logo {
+    //             display: none;
+    //         }
+    //         .footer-card {
+    //             flex-basis: 100%;
+    //         }
+    //     }
+    // }
     .footerbar {
         height: 50px;
         background: darken($primary, 5%);
         color: $secondary;
+        font-size: 0.8rem;
         width: 100%;
         display: flex;
         justify-content: center;

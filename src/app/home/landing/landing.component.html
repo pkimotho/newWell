@@ -14,8 +14,7 @@
     </section>
 
     <div class="bg-img">
-        <div class="bg-color">
-        </div>
+        <div class="bg-color"></div>
         <section>
             <div id="brands" [flickity]="logosOptions">
                 <div class="brand" [flickityChild] *ngFor="let logo of logos">
@@ -43,7 +42,7 @@
         <div class="text-center action mt-5 pb-5">
             <h1>Get the best value for your music</h1>
             <p>Join us today</p>
-            <a class="btn btn-lg" href="artist-signup">Get Started</a>
+            <a class="btn btn-lg" id="actionBtn" routerLink="artist-signup">Get Started</a>
         </div>
     </div>
 </div>
