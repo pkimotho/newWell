@@ -37,6 +37,7 @@ import { SongsDetailsComponent } from './songs-details/songs-details.component';
 
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { MymusicComponent } from './mymusic/mymusic.component';
 
 
 
@@ -57,7 +58,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AlbumDetailsComponent,
     SidemenuComponent,
     SongsDetailsComponent,
-    AlbumUploadComponent],
+    AlbumUploadComponent,
+    MymusicComponent],
   imports: [
     CustomMaterialModule,
     CommonModule,

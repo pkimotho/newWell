@@ -1,0 +1,55 @@
+<div class="outer-container">
+    <!--Header-->
+    <header>
+        <div>
+            <p>My Music</p>
+        </div>
+    </header>
+    <!--Tab-->
+
+    <mat-tab-group class="whiteContent">
+        <mat-tab>
+            <div class="tabWidth">
+                <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                    Albums
+                </ng-template>
+            </div>
+            <div class="albums">
+                <app-albums></app-albums>
+            </div>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                Singles
+            </ng-template>
+            <div class="albums">
+                <app-songs></app-songs>
+            </div>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                Verified Albums
+            </ng-template>
+            <div class="white-text">
+                You have no verified albums yet
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+                Verified Singles
+            </ng-template>
+
+            <div class="white-text">
+                You have no verified singles yet
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+
+
+</div>

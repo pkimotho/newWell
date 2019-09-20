@@ -40,9 +40,9 @@ export class DashboardComponent implements OnInit {
     public authService: AuthorizationService,
     private flashMessagesService: FlashMessagesService,
     private route: ActivatedRoute) {
-      this.isLoggedIn = this.authService.loggedIn;
+    this.isLoggedIn = this.authService.loggedIn;
 
-     }
+  }
 
   ngOnInit() {
     this.loadArtistId();
@@ -69,10 +69,9 @@ export class DashboardComponent implements OnInit {
 
   getProfilePic() {
     if (this.id) {
-      this.artistProfileService.getArtistProfile(this.id).subscribe((profile: any) => {
-        const { profilePic } = profile;
-        console.log("profile", this.profilePic);
-        this.profilePic = profilePic;
+      this.artistProfileService.getArtistProfile(this.id).subscribe(profile => {
+        this.profilePic = profile.profilePic;
+        this.artistName = profile.name;
       });
     } else {
       this.profilePic = null;

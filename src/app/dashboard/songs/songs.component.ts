@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { environment } from './../../../environments/environment';
+import { ArtistSongsService } from './../../services/artist-songs.service';
 
 @Component({
   selector: 'app-songs',
@@ -8,15 +11,44 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
   styleUrls: ['./songs.component.scss']
 })
 export class SongsComponent implements OnInit {
-  form: FormGroup;
-  constructor(    private formBuilder: FormBuilder,
-    private router: Router,) {
-      this.createForm();
 
-    }
+  id;
+  artistName;
+  songs;
+
+  form: FormGroup;
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private http: HttpClient,
+    private artistSongsService: ArtistSongsService) {
+    this.createForm();
+
+  }
 
   ngOnInit() {
-    console.log("Songs List");
+    this.getArtistSongs();
+  }
+
+  loadArtistId() {
+    const { _id } = JSON.parse(localStorage.getItem('user'));
+    this.id = _id;
+    const { name } = JSON.parse(localStorage.getItem('user'));
+    this.artistName = name;
+  }
+
+  getArtistSongs() {
+    this.artistSongsService.getArtistSongs(this.id).subscribe((songs) => {
+      this.songs = songs;
+    });
+    this.loadArtistId();
+    this.http.get(environment.base_url + 'song/artist/' + this.id).subscribe((songs: any[]) => {
+      this.songs = songs.reverse();
+    });
+  }
+  goToSelectedSong(songName) {
+    this.router.navigate(['/songs/' + songName]);
+    console.log('clicked');
   }
 
   createForm() {
@@ -60,22 +92,22 @@ export class SongsComponent implements OnInit {
 
   }
 
-  newSong(){
-    var  popup = document.getElementById('popup');
+  newSong() {
+    var popup = document.getElementById('popup');
     popup.style.display = "flex";
 
   }
 
-  SaveAlbum(){
+  SaveAlbum() {
 
 
-    var  popup = document.getElementById('popup');
+    var popup = document.getElementById('popup');
     popup.style.display = "none";
 
   }
 
-  Cancel(){
-    var  popup = document.getElementById('popup');
+  Cancel() {
+    var popup = document.getElementById('popup');
     popup.style.display = "none";
 
   }

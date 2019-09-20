@@ -8,7 +8,7 @@ $secondary: white;
         width: 250px;
         height: 100%;
         margin: 0;
-        background-color: black;
+        background-color: lighten(black, 5);
         position: fixed;
         top: 4rem;
         left: 0;
@@ -70,7 +70,38 @@ $secondary: white;
                 color: $secondary;
                 border-color: black;
             }
+            // #assets {
+            //     position: relative;
+            //     &:hover {
+            //         background: none;
+            //         cursor: pointer;
+            //         ul {
+            //             position: absolute;
+            //             top: 0;
+            //             left: 0;
+            //             background: #555;
+            //             display: block;
+            //             list-style: none;
+            //             margin-bottom: 2rem;
+            //             height: 10rem;
+            //             display: none;
+            //         }
+            //     }
+            // }
         }
+    }
+    /* Scrollbar */
+    #sideNav::-webkit-scrollbar {
+        width: 10px;
+        background-color: #F5F5F5;
+    }
+    #sideNav::-webkit-scrollbar-thumb {
+        background-color: #555;
+        border-radius: 10px;
+    }
+    #sideNav::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #F5F5F5;
     }
     .togglebtn {
         color: white;

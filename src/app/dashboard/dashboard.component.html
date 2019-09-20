@@ -1,12 +1,12 @@
 <div class="wrapper">
     <!--SideBar-->
-    <div class="side-nav" [@sideMenuAnime]="openCloseSidebar">
+    <div class="side-nav" id="sideNav" [@sideMenuAnime]="openCloseSidebar">
         <div class="top">
             <!-- <div class="top-info">
                 <h5 class="text-capitalize">{{artistName}}</h5>
                 <span><i class="fa fa-bell"></i></span>
             </div> -->
-            <button class="btn btn-dark">Status</button>
+            <button class="btn btn-dark">{{artistName}}</button>
         </div>
         <ul>
             <li (click)="openCloseSidebar = 'close'"><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i>
@@ -16,11 +16,18 @@
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="/dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i> <span
             *ngIf="openCloseSidebar==='open'"> My
             Dashboard</span></a></li>
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="/dashboard/music-upload"><i class="fa fa-upload" aria-hidden="true"></i> <span
-            *ngIf="openCloseSidebar==='open'"> Upload Music</span></a></li>
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="/dashboard/analytics"><i class="fa fa-bar-chart" aria-hidden="true"></i>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="mymusic"><i class="fa fa-book" aria-hidden="true"></i> <span *ngIf="openCloseSidebar==='open'">
+            My Music</span></a></li>
+            <!-- <li id="assets">
+                <p>Assets <i style="color: white;" class="fa fa-caret-down"></i></p>
+                <ul>
+                    <li><a><i class="fa fa-book"></i>Albums</a></li>
+                    <li><a><i class="fa fa-music"></i>Singles</a></li>
+                </ul>
+            </li> -->
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="analytics"><i class="fa fa-bar-chart" aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Analytics</span></a></li>
-            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="/dashboard/wallet"><i class="fa fa-money" aria-hidden="true"></i>
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="wallet"><i class="fa fa-money" aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> My Wallet</span></a></li>
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="openCloseSidebar = 'close'"><a routerLink="/artist/{{id}}/edit"><i class="fa fa-gear" aria-hidden="true"></i>
           <span *ngIf="openCloseSidebar==='open'"> Settings</span></a></li>

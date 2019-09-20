@@ -9,33 +9,26 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+
+const MaterialModules = [
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatGridListModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatTabsModule
+];
 
 
 
 @NgModule({
-    imports: [
-        MatStepperModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatGridListModule,
-        MatRadioModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatCardModule
-    ],
-    exports: [
-        MatStepperModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatIconModule,
-        MatGridListModule,
-        MatRadioModule,
-        MatSelectModule,
-        MatCheckboxModule,
-        MatCardModule
-    ]
+    imports: [MaterialModules],
+    exports: [MaterialModules]
 })
 export class CustomMaterialModule { }
