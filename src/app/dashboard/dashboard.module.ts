@@ -70,7 +70,6 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     BrowserAnimationsModule,
     MatStepperModule,
     ChartsModule
-
   ],
   //   providers: [
   //     {

@@ -50,6 +50,35 @@ export class HomeComponent implements OnInit {
   numbering;
   id;
   displayOtherInfo = false;
+  options = {
+    // options
+    freeScroll: true,
+    imagesLoaded: true,
+    contain: true,
+    // disable previous & nexts buttons and dots
+    // prevNextButtons: false,
+    // pageDots: false
+  };
+  albums = [
+    { id: 1, title: 'Album 1 title', imageUrl: '../../../assets/images/artists/artist4.jpg', numberOfSongs: 5 },
+    { id: 2, title: 'Album 2 title', imageUrl: '../../../assets/images/artists/artist4.jpg', numberOfSongs: 0 },
+  ];
+  singles = [
+    { id: 1, title: 'Single 1 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+    { id: 2, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+    { id: 3, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+    { id: 4, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+    { id: 5, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+  ];
+
+  children = [
+    { title: 'Child 1' },
+    { title: 'Child 2' },
+    { title: 'Child 3' },
+    { title: 'Child 4' },
+    { title: 'Child 5' },
+    { title: 'Child 6' }
+  ]
 
   items = [{ id: 1, name: 'Kim', displayInfo: false }, { id: 2, name: 'Pat', displayInfo: false }];
 

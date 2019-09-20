@@ -28,7 +28,7 @@ export function requiredFileType(type: string) {
   styleUrls: ['./single-upload.component.scss']
 })
 export class SingleUploadComponent implements OnInit {
-  category;
+
   title = 'title';
   genre = 'genre';
   artistId;
@@ -53,19 +53,12 @@ export class SingleUploadComponent implements OnInit {
   singleUploadForm: FormGroup;
   uploadTrackForm: FormGroup;
   publishForm: FormGroup;
-  uploadForm;
   uploadResponse = { status: '', message: '', filePath: '' };
 
   constructor(
     private router: Router,
     private uploadService: UploadsService,
-    private http: HttpClient) {
-
-    this.uploadForm = new FormGroup({
-      title: new FormControl('', Validators.required),
-      genre: new FormControl('', Validators.required)
-    });
-  }
+    private http: HttpClient) { }
 
   ngOnInit() {
     this.loadArtistId();
@@ -78,7 +71,9 @@ export class SingleUploadComponent implements OnInit {
       songTitle: new FormControl(null, Validators.required),
       artistName: new FormControl(null, Validators.required),
       hasSeveralArtists: new FormControl(false),
-      otherArtists: new FormArray([])
+      otherArtists: new FormArray([]),
+      isPreviouslyReleased: new FormControl(false),
+      isOnrecordLabel: new FormControl(false)
     });
   }
 
@@ -96,23 +91,13 @@ export class SingleUploadComponent implements OnInit {
       phoneNumber: new FormControl(null, Validators.required)
     });
   }
-
-  get otherArtists() {
-    return this.singleUploadForm.get('mainSonginfoData.otherArtists');
-  }
   onAddOtherArtist() {
     const control = new FormControl(null, Validators.required);
+    // const otherArtistsGroup = new FormGroup({
+    //   otherArtistName: new FormControl(null, Validators.required),
+    //   role: new FormControl(null, Validators.required)
+    // });
     (this.singleUploadForm.get('otherArtists') as FormArray).push(control);
-  }
-
-  onSubmit() {
-    console.log(this.singleUploadForm);
-  }
-  albumCategory() {
-    this.category = 'album';
-  }
-  songCategory() {
-    this.category = 'song';
   }
 
   onImageSelected(event) {
@@ -136,8 +121,9 @@ export class SingleUploadComponent implements OnInit {
 
   onUploadSongFile() {
     const songData = {
-      title: this.uploadForm.controls[this.title].value,
-      genre: this.uploadForm.controls[this.genre].value
+      title: this.singleUploadForm.controls['songTitle'].value,
+      lyricsLanguage: this.uploadTrackForm.controls['lyricsLanguage'].value,
+      genre: this.uploadTrackForm.controls['genre'].value
     };
 
     const songForm = new FormData();
@@ -147,14 +133,15 @@ export class SingleUploadComponent implements OnInit {
     imageForm.append('albumArt', this.selectedImage);
 
     this.uploadService.uploadSongData(songData).subscribe(data => {
-      console.log(data['title']);
+      // console.log(data['title']);
       this.uploadService.uploadaudio(songForm, data['_id']).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           console.log('Upload Progress: ' + (event.loaded / event.total * 100) + '%');
           this.audioUploadProgress = 'Audio Upload Progress: ' + (event.loaded / event.total * 100).toFixed(2) + '%';
           this.audioUploadValue = Math.round(event.loaded / event.total * 100);
           if (this.audioUploadValue === 100) {
-            this.router.navigate(['/dashboard/']);
+            console.log('done');
+            // this.router.navigate(['/dashboard/']);
           }
         } else if (event.type === HttpEventType.Response) {
           console.log(event);
@@ -179,3 +166,4 @@ export class SingleUploadComponent implements OnInit {
   }
 
 }
+
