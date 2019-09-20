@@ -16,6 +16,8 @@ export class LandingComponent implements OnInit {
     ctaLink: '',
     imageUrl: 'assets/images/placeholder.svg'
   };
+  defaultTitle = 'MAKE MUSIC - GET PAID';
+  defaultDescription = 'Independent artists put their music on the world leading streaming platforms with ease — because that\’s how it should be. We\'ll handle your distribution so you can flawlessly make even more nicer Tunes.';
   artists: any = [];
   logos: any[] = [];
   logosOptions = {

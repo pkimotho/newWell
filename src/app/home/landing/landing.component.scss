@@ -3,200 +3,222 @@
     $secondary: white;
     $shadowtext: 1px 1px 3px #0f1011,
     -1px 1px 3px #0f1011;
-    .outer-container {
-        margin-top: 70px;
-    }
+    /* General Elements */
     
     .btn {
         background: $danger;
         border: none;
         color: white;
     }
+    /* Main Sections */
     
-    .hero {
-        // background-clip: content-box;
-        background-size: cover;
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: white;
-        padding: 2rem 2rem 0 2rem;
-        position: relative;
-        .bg-color {
-            position: absolute;
-            width: 100%;
-            top: 0;
-            bottom: -40px;
-            left: 0;
-            background: radial-gradient(circle closest-corner at center 80%, rgba(255, 255, 255, 0.0), black 100%)
-        }
-        >* {
-            margin-bottom: 2rem;
-        }
-        #heroImage {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .hero-info {
-            width: 70%;
-            text-shadow: $shadowtext;
-            font-size: 1.3em;
-        }
-        .hero-title {
-            text-shadow: $shadowtext;
-            text-transform: uppercase;
-        }
-        @media (max-width: 768px) {
-            .hero-info {
+    .outer-container {
+        margin-top: 70px;
+        .hero {
+            background-size: cover;
+            height: 60vh;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            padding: 2rem 2rem 0 2rem;
+            position: relative;
+            .bg-color {
+                position: absolute;
                 width: 100%;
-                font-size: 1em;
+                top: 0;
+                bottom: -40px;
+                left: 0;
+                background: radial-gradient(circle closest-corner at center 80%, rgba(255, 255, 255, 0.0), black 100%)
             }
-            padding: 0 1rem;
+            >* {
+                margin-bottom: 2rem;
+            }
+            #heroImage {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                z-index: -1;
+            }
+            .hero-title {
+                text-shadow: $shadowtext;
+                text-transform: uppercase;
+            }
+            .hero-info {
+                width: 70%;
+                text-shadow: $shadowtext;
+                font-size: 1.3em;
+            }
+            .hero-info,
+            .hero-title,
+            .lead {
+                z-index: 1;
+            }
+        }
+        .bg-img {
+            position: relative;
+            width: 100%;
+            background-image: url(../../../assets/images/microphone.svg);
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 8rem;
+            .bg-color {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                background: radial-gradient(circle closest-corner at center 80%, transparent, black 110%)
+            }
+            section #brands {
+                height: 12vh;
+                min-height: 50px;
+                .brand {
+                    padding: 0 3rem;
+                    img {
+                        width: 110px;
+                        height: 40px;
+                    }
+                }
+            }
+            #actionBtn {
+                position: absolute;
+                left: 0;
+                right: 0;
+                width: 13rem;
+                margin: auto;
+                z-index: 99;
+            }
+        }
+        section.card-section {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            padding: 3rem 0;
+            h1 {
+                z-index: 3;
+            }
             >* {
                 margin-bottom: 1rem;
             }
-            // @media (max-width: 576px) {
-            //    height: calc(100vh - 70px);
-            //   .hero-info {
-            //     width: 100%;
-            //     font-size: 0.8em;
-            //   }
-            //   padding: 0 5px;
-            //   > * {
-            //   margin-bottom: 1rem;
-            // }
+            // align-items: center;
+            h1 {
+                color: $secondary;
+                margin-left: 2rem;
+                font-weight: 700;
+                font-size: 1.3em;
+            }
         }
-        .hero-info,
-        .hero-title,
-        .lead {
-            z-index: 1;
-        }
-    }
-    
-    .bg-img {
-        position: relative;
-        width: 100%;
-        background-image: url(../../../assets/images/microphone.svg);
-        background-size: cover;
-        background-position: center;
-        .bg-color {
-            position: absolute;
+        .cards {
+            // display: flex;
+            // justify-content: space-around;
             width: 100%;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            // background-color: hsl(0, 0%, 5%);
-            // background: radial-gradient(rgb(0, 0, 0) 60%, rgba(255, 255, 255, 0.0));
-            background: radial-gradient(circle closest-corner at center 80%, transparent, black 110%)
+            // height: 300px;
+            // border: 2px solid red;
+            // margin-left: 4rem;
+            // overflow-x: visible !important;
+            .cards-item {
+                &:first-child {
+                    padding-left: 2rem;
+                    margin-left: 0;
+                }
+                &:last-child {
+                    padding-right: 2rem;
+                }
+                .card-img-top {
+                    height: 250px;
+                    object-fit: cover;
+                }
+            }
+            .card {
+                z-index: 99;
+                width: 250px;
+                margin-right: 20px;
+                background-color: $primary;
+                color: white;
+                border: none;
+                .date {
+                    padding: 0px;
+                    color: grey;
+                    font-size: 12px;
+                }
+                .songtitle {
+                    padding: 0px;
+                    font-size: 14px;
+                }
+                .artist {
+                    padding: 0px;
+                    color: $danger;
+                    font-size: 14px;
+                }
+                .by {
+                    color: grey;
+                    font-size: 14px;
+                }
+                .btn {
+                    background: #131414;
+                    color: white;
+                    font-size: 14px;
+                }
+            }
         }
         .action {
-            z-index: 100;
+            color: $secondary;
+            line-height: 27px;
+            // h1,
+            // p {
+            //     z-index: 3;
+            // }
+            a {
+                z-index: 9999999;
+            }
+        }
+    }
+    /* Media Queries */
+    
+    @media (max-width: 768px) {
+        .outer-container {
+            .hero {
+                .hero-info {
+                    width: 100%;
+                    font-size: 1em;
+                }
+                padding: 0 1rem;
+                >* {
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+    
+    @media (max-width: 425px) {
+        .hero-title {
+            font-size: 1.4rem;
+        }
+        .lead {
+            .btn-lg {
+                font-size: 1rem;
+            }
         }
         #actionBtn {
-            // color: blue;
-            z-index: 99;
+            width: 6rem;
         }
     }
     
-    section.card-section {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        padding: 3rem 0;
-        h1 {
-            z-index: 3;
+    @media (max-width: 320px) {
+        .hero-title {
+            font-size: 1.1rem;
         }
-        >* {
-            margin-bottom: 1rem;
+        .hero-info {
+            font-size: 0.8rem;
         }
-        // align-items: center;
-        h1 {
-            color: $secondary;
-            margin-left: 2rem;
-            font-weight: 700;
-            font-size: 1.3em;
-        }
-    }
-    
-    .cards {
-        // display: flex;
-        // justify-content: space-around;
-        width: 100%;
-        // height: 300px;
-        // border: 2px solid red;
-        // margin-left: 4rem;
-        // overflow-x: visible !important;
-        .cards-item {
-            &:first-child {
-                padding-left: 2rem;
-                margin-left: 0;
+        .lead {
+            .btn-lg {
+                font-size: 0.8rem;
             }
-            &:last-child {
-                padding-right: 2rem;
-            }
-            .card-img-top {
-                height: 250px;
-                object-fit: cover;
-            }
-        }
-        .card {
-            z-index: 99;
-            width: 250px;
-            margin-right: 20px;
-            background-color: $primary;
-            color: white;
-            border: none;
-            .date {
-                padding: 0px;
-                color: grey;
-                font-size: 12px;
-            }
-            .songtitle {
-                padding: 0px;
-                font-size: 14px;
-            }
-            .artist {
-                padding: 0px;
-                color: $danger;
-                font-size: 14px;
-            }
-            .by {
-                color: grey;
-                font-size: 14px;
-            }
-            .btn {
-                background: #131414;
-                color: white;
-                font-size: 14px;
-            }
-        }
-    }
-    
-    #brands {
-        height: 12vh;
-        .brand {
-            padding: 0 3rem;
-            img {
-                width: 110px;
-                height: 40px;
-            }
-        }
-    }
-    
-    .action {
-        color: $secondary;
-        line-height: 27px;
-        // h1,
-        // p {
-        //     z-index: 3;
-        // }
-        a {
-            z-index: 9999999;
         }
     }

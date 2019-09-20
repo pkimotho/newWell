@@ -46,6 +46,9 @@ footer {
                 }
             }
         }
+        #newwellSupport {
+            order: 4;
+        }
         .footer-logo {
             display: flex;
             justify-content: flex-start;
@@ -76,6 +79,20 @@ footer {
             }
         }
     }
+    @media (min-width: 1200px) {
+        .footer-logo {
+            margin-left: 3rem;
+            margin-right: 0;
+        }
+        .footer-logo,
+        #company {
+            flex-basis: 15%;
+        }
+        #newwellMusic,
+        #newwellSupport {
+            flex-basis: 25%;
+        }
+    }
     @media (max-width: 1199px) {
         .footer-content {
             width: 70%;
@@ -83,6 +100,9 @@ footer {
             align-self: center;
             .footer-card {
                 flex-basis: 300px;
+            }
+            #newwellMusic {
+                order: 3;
             }
             .comp {
                 flex-basis: 20%;
@@ -107,6 +127,9 @@ footer {
             }
             .footer-card {
                 width: 100%;
+            }
+            #newwellMusic {
+                order: 0;
             }
         }
     }

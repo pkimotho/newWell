@@ -120,10 +120,15 @@
             {{ message }}
         </div>
     </div>
+    <!-- <div class="banner">
+        <img src="../../../assets/images/newwellphotos/alphacolor-r6RCPk1X91c-unsplash.jpg" alt="">
+    </div>
+    <div class="overlay"></div> -->
     <div class="wrapper">
         <div class="content">
             <header>
-                <img src="../../../assets/img/logos/newwelllogo.svg" alt="Newwell">
+                <img src="../../../assets/img/logos/logo.svg" alt="Newwell">
+                <p>Newwell</p>
             </header>
             <form [formGroup]="form" (ngSubmit)="onLoginSubmit()">
                 <div class="input-group">
@@ -155,7 +160,7 @@
               class=" fa fa-spinner fa-spin"></i></button>
                 </div>
                 <div class="link">
-                    <a (click)="showForgot = !showForgot">Forgot Password?</a>
+                    <a (click)="showForgot = !showForgot" id="forgotQuiz">Forgot Password?</a>
                     <div *ngIf="showForgot" id="forgot">
                         <p>Enter your email address:</p>
                         <div class="forgot-input">

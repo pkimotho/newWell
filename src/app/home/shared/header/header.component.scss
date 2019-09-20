@@ -228,12 +228,14 @@
          position: absolute;
          text-align: left;
          top: 100%;
-         left: 0;
+         right: 0;
          background: $primary;
-         width: 40%;
+         width: 20%;
+         min-width: 200px;
          transform: scale(1, 0);
          transform-origin: top;
          transition: transform 400ms ease-in-out;
+         overflow: auto;
          ul {
              margin: 0;
              padding: 0;
@@ -301,11 +303,12 @@
      .nav-toggle-label {
          position: absolute;
          top: 0;
-         left: 0;
-         margin-left: 1em;
+         right: 0;
+         margin-right: 1em;
          height: 100%;
          display: flex;
          align-items: center;
+         cursor: pointer;
          span,
          span::before,
          span::after {
@@ -448,7 +451,7 @@
      }
  }
  
- @media screen and (max-width: 375px) {
+ @media screen and (max-width: 320px) {
      header {
          nav {
              width: 100%;

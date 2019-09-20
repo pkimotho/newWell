@@ -3,12 +3,10 @@
         <div class="hero">
             <div class="bg-color"></div>
             <img [src]="landingPageContent.imageUrl" alt="Landing page picture" id="heroImage" />
-            <h1 class="hero-title">{{ landingPageContent.title }}</h1>
-            <p class="hero-info">{{ landingPageContent.description }}</p>
+            <h1 class="hero-title">{{ landingPageContent.title || defaultTitle }}</h1>
+            <p class="hero-info">{{ landingPageContent.description || defaultDescription }}</p>
             <p class="lead">
-                <a class="btn btn-lg" [routerLink]="[landingPageContent.ctaLink]" role="button">{{
-        landingPageContent.ctaText
-      }}</a>
+                <a class="btn btn-lg" [routerLink]="[landingPageContent.ctaLink]" role="button">{{landingPageContent.ctaText || 'Join Us'}}</a>
             </p>
         </div>
     </section>
@@ -39,7 +37,7 @@
                 </div>
             </section>
         </div>
-        <div class="text-center action mt-5 pb-5">
+        <div class="text-center mt-5 pb-5">
             <h1>Get the best value for your music</h1>
             <p>Join us today</p>
             <a class="btn btn-lg" id="actionBtn" routerLink="artist-signup">Get Started</a>

@@ -1,6 +1,14 @@
-<app-header></app-header>
-<div class="bg-light flashmsg">
-    <flash-messages></flash-messages>
+<div class="main-container">
+    <div class="header">
+        <app-header></app-header>
+    </div>
+    <div class="main">
+        <div class="bg-light flashmsg">
+            <flash-messages></flash-messages>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
 </div>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
