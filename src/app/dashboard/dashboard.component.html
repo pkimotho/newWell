@@ -6,7 +6,7 @@
                 <h5 class="text-capitalize">{{artistName}}</h5>
                 <span><i class="fa fa-bell"></i></span>
             </div> -->
-            <button class="btn btn-dark">{{artistName}}</button>
+            <button *ngIf="artistName" class="btn btn-dark">{{artistName}}</button>
         </div>
         <ul>
             <li (click)="openCloseSidebar = 'close'"><a routerLink="/"><i class="fa fa-home" aria-hidden="true"></i>
@@ -36,8 +36,8 @@
         </ul>
     </div>
     <div [@toggleButtonAnime]="openCloseSidebar">
-        <a *ngIf="openCloseSidebar === 'close'" (click)="openCloseSidebar = 'open'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-indent"></i></a>
-        <a *ngIf="openCloseSidebar === 'open'" (click)="openCloseSidebar = 'close'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-outdent"></i></a>
+        <a *ngIf="openCloseSidebar === 'close'" id="dashboardHambuger" (click)="openCloseSidebar = 'open'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-indent"></i></a>
+        <a *ngIf="openCloseSidebar === 'open'" id="dashboardHambuger" (click)="openCloseSidebar = 'close'" role="button" tabindex="0" class="offcanvas-toggle togglebtn"><i class="fa fa-outdent"></i></a>
     </div>
     <!--Main Container-->
     <div class="main-container">
