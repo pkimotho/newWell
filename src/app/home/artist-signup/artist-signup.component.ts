@@ -34,6 +34,11 @@ export class ArtistSignupComponent implements OnInit {
   id = "_id";
   submissionAttempted = false;
 
+  content = {
+    title: "",
+    list: []
+  };
+
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
@@ -42,6 +47,7 @@ export class ArtistSignupComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
+    this.getContent();
   }
   // Function to create registration form;
   createForm() {
@@ -180,5 +186,14 @@ export class ArtistSignupComponent implements OnInit {
       },
       err => catchError(handleHttpError)
     );
+  }
+
+  getContent() {
+    fetch('https://cms.newwellmusic.com/signups/')
+      .then(res => res.json())
+      .then(data => {
+        const [content] = data
+        this.content = content;
+      });
   }
 }

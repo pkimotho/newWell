@@ -143,16 +143,24 @@ h1 {
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: url(../../../assets/images/newwellphotos/band-bottle-club-2240766.jpg) no-repeat center top / cover;
+        /*background: url(../../../assets/images/newwellphotos/band-bottle-club-2240766.jpg) no-repeat center top / cover;*/
+        /*background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;*/
         height: 100%;
         position: relative;
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
-            bottom: 0;
+            height: 100%;
             width: 100%;
             background: rgba(17, 17, 17, 0.5);
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
         .showcase-content {
             display: flex;

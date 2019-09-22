@@ -150,15 +150,14 @@
     </div>
     <div id="right">
         <div id="showcase">
-            <div class="overlay"></div>
+            <div class="overlay">
+                <img *ngIf="content.list.length> 0" [src]="content['background-image'].url ">
+            </div>
             <div class="showcase-content">
-                <h1 class="showcase-text">Get your music online</h1>
+                <h1 class="showcase-text">{{content.title || 'Get your music online'}}</h1>
                 <!-- <a href="#" class="secondary-btn">Get Started</a> -->
                 <ul class="benefits-list">
-                    <li><i class="fa fa-music"></i> Sell your music on a worldwide network of popular music stores</li>
-                    <li><i class="fa fa-music"></i> Get maximum value for your music and keep 100% of your sales revenue and copyrights
-                    </li>
-                    <li><i class="fa fa-music"></i> Enjoy our best pricing: $15 per single, $50 per album</li>
+                    <li *ngFor="let benefit of content.list"><i class="fa fa-music"></i> {{benefit}}</li>
                 </ul>
             </div>
         </div>
