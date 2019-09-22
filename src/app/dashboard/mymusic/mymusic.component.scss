@@ -1,10 +1,21 @@
 @import '../../../sass/base';
+
+/*General elements and class styles*/
+
+.btn-link {
+    text-decoration: none;
+    display: block;
+    background: $background1;
+    padding: 10px;
+}
+
 .outer-container {
     background: black;
     // height: 300px;
     padding-bottom: 8rem;
     header {
         display: flex;
+        flex-flow: column;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -12,6 +23,12 @@
         background: lighten($primary, 6);
         p {
             font-size: 1.7rem;
+        }
+        .header-links {
+            width: 30%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
         }
     }
     .whiteContent {

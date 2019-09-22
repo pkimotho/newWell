@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { environment } from './../../../environments/environment';
-import { ArtistSongsService } from './../../services/artist-songs.service';
+import { environment } from '../../../../environments/environment';
+import { ArtistSongsService } from '../../../services/artist-songs.service';
 
 @Component({
   selector: 'app-songs',

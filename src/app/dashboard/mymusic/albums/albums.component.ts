@@ -6,29 +6,29 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Store, select } from '@ngrx/store';
 
 
-import * as songsReducer from '../../reducers/song.reducer';
-import * as songsactions from '../../actions/song.actions';
+import * as songsReducer from '../../../reducers/song.reducer';
+import * as songsactions from '../../../actions/song.actions';
 
-import * as albumsReducer from '../../reducers/album.reducer';
-import * as albumsactions from '../../actions/album.actions';
+import * as albumsReducer from '../../../reducers/album.reducer';
+import * as albumsactions from '../../../actions/album.actions';
 
-import * as artistsReducer from '../../reducers/artist.reducer';
-import * as artistsactions from '../../actions/artist.actions';
+import * as artistsReducer from '../../../reducers/artist.reducer';
+import * as artistsactions from '../../../actions/artist.actions';
 
 
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from './../../../environments/environment';
-import { ArtistSongsService } from './../../services/artist-songs.service';
+import { environment } from '../../../../environments/environment';
+import { ArtistSongsService } from '../../../services/artist-songs.service';
 import { Observable } from 'rxjs';
 
-import * as fromRoot from '../../app.state';
+import * as fromRoot from '../../../app.state';
 
-import { Album } from '../../shared/models/album';
-import { Song } from '../../shared/models/song';
-import { Platform } from '../../shared/models/platforms';
-import { Producer } from '../../shared/models/producer';
-import { Artist } from '../../shared/models/artist';
+import { Album } from '../../../shared/models/album';
+import { Song } from '../../../shared/models/song';
+import { Platform } from '../../../shared/models/platforms';
+import { Producer } from '../../../shared/models/producer';
+import { Artist } from '../../../shared/models/artist';
 
 @Component({
   selector: 'app-albums',
@@ -43,12 +43,14 @@ export class AlbumsComponent implements OnInit {
 
 
 
-  constructor( private store: Store<fromRoot.AppState>,   private formBuilder: FormBuilder,
-    private router: Router,) {
-      this.createForm();
+  constructor(
+    private store: Store<fromRoot.AppState>,
+    private formBuilder: FormBuilder,
+    private router: Router, ) {
+    this.createForm();
 
 
-    }
+  }
 
   ngOnInit() {
 
@@ -119,22 +121,22 @@ export class AlbumsComponent implements OnInit {
 
   }
 
-  newAlbum(){
-    var  popup = document.getElementById('popup');
+  newAlbum() {
+    var popup = document.getElementById('popup');
     popup.style.display = "flex";
 
   }
 
-  SaveAlbum(){
+  SaveAlbum() {
 
 
-    var  popup = document.getElementById('popup');
+    var popup = document.getElementById('popup');
     popup.style.display = "none";
 
   }
 
-  Cancel(){
-    var  popup = document.getElementById('popup');
+  Cancel() {
+    var popup = document.getElementById('popup');
     popup.style.display = "none";
 
   }
@@ -142,3 +144,4 @@ export class AlbumsComponent implements OnInit {
 
 
 }
+

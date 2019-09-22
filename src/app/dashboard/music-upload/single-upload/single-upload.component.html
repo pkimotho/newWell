@@ -11,14 +11,14 @@
     </div>
     <mat-horizontal-stepper style="color: black">
         <!--Main Information-->
-        <mat-step [stepControl]="singleUploadForm" label="Main Information">
-            <form [formGroup]="singleUploadForm">
+        <mat-step [stepControl]="mainInfoForm" label="Main Information">
+            <form [formGroup]="mainInfoForm" (ngSubmit)="onSubmitMainInfoForm()">
                 <mat-grid-list cols="2" rowHeight="100px">
                     <mat-grid-tile>
                         <div class="controls-container">
                             <mat-form-field>
                                 <input type="text" matInput formControlName="songTitle" placeholder="Song Title" required>
-                                <mat-error *ngIf="!singleUploadForm.get('songTitle').valid && singleUploadForm.get('songTitle').touched">Song title is required
+                                <mat-error *ngIf="!mainInfoForm.get('songTitle').valid && mainInfoForm.get('songTitle').touched">Song title is required
                                 </mat-error>
                             </mat-form-field>
                         </div>
@@ -44,30 +44,33 @@
                         </div>
                     </mat-grid-tile>
                 </mat-grid-list>
-                <div *ngIf="singleUploadForm.controls['hasSeveralArtists'].value === true">
+
+                <div *ngIf="mainInfoForm.controls['hasSeveralArtists'].value === true">
                     <h5>Add the other artist's names(ONE PER FIELD)</h5>
-                    <button type="button" class="btn btn-default" (click)="onAddOtherArtist()">Add Artist</button>
-                    <div formArrayName="otherArtists">
-                        <mat-grid-list cols="2" rowHeight="100px" *ngFor="let otherArtistsControl of singleUploadForm.get('otherArtists')['controls']; let i = index">
-                            <mat-grid-tile>
-                                <div class="controls-container">
-                                    <mat-form-field floatLabel="always" appearance="fill">
-                                        <mat-label>Artist's name</mat-label>
-                                        <input type="text" [formControlName]="i" matInput placeholder="Add artist's name">
-                                    </mat-form-field>
-                                </div>
-                            </mat-grid-tile>
-                            <mat-grid-tile>
-                                <div class="controls-container">
-                                    <mat-form-field floatLabel="always" appearance="fill">
-                                        <mat-label>Role</mat-label>
-                                        <mat-select [formControlName]="i" matInput placeholder="Choose Role" required>
-                                            <mat-option [value]="Featuring">Featuring</mat-option>
-                                            <mat-option [value]="'In Collaboration'">In Collaboration</mat-option>
-                                        </mat-select>
-                                    </mat-form-field>
-                                </div>
-                            </mat-grid-tile>
+                    <button type="button" class="btn btn-default" (click)="addOtherArtistsButtonClick()">Add Artist</button>
+                    <div formArrayName="otherArtists" *ngFor="let otherArtist of mainInfoForm.get('otherArtists')['controls']; let i = index">
+                        <mat-grid-list cols="2" rowHeight="100px">
+                            <div [formGroupName]="i">
+                                <mat-grid-tile>
+                                    <div class="controls-container">
+                                        <mat-form-field floatLabel="always" appearance="fill">
+                                            <mat-label>Artist's name</mat-label>
+                                            <input type="text" formControlName="name" matInput placeholder="Add artist's name">
+                                        </mat-form-field>
+                                    </div>
+                                </mat-grid-tile>
+                                <mat-grid-tile>
+                                    <div class="controls-container">
+                                        <mat-form-field floatLabel="always" appearance="fill">
+                                            <mat-label>Role</mat-label>
+                                            <mat-select matInput formControlName="role" placeholder="Choose Role" required>
+                                                <mat-option [value]="'Featuring'">Featuring</mat-option>
+                                                <mat-option [value]="'In Collaboration'">In Collaboration</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </mat-grid-tile>
+                            </div>
                         </mat-grid-list>
                     </div>
                 </div>
@@ -98,13 +101,13 @@
                     </mat-grid-tile>
                 </mat-grid-list>
                 <div class="button-row">
-                    <button mat-button matStepperNext [disabled]="!singleUploadForm.valid" type="submit">Next</button>
+                    <button mat-button matStepperNext [disabled]="!mainInfoForm.valid" type="submit">Next</button>
                 </div>
             </form>
         </mat-step>
         <!--Upload Track-->
         <mat-step [stepControl]="uploadTrackForm" label="Upload Track">
-            <form [formGroup]="uploadTrackForm">
+            <form [formGroup]="uploadTrackForm" (ngSubmit)="onUploadSongFile()">
                 <mat-grid-list cols="3" rowHeight="100px">
                     <mat-grid-tile>
                         <div class="controls-container ">
@@ -147,7 +150,7 @@
                                 <div>
                                     <label for="imageField" style="cursor: pointer; " class="btn text-white ml-2">Click to
                     upload</label>
-                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField " name="image">
+                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField">
                                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
                                         {{imageUploadProgress}} Progress
                                     </div>
@@ -173,15 +176,15 @@
                     <mat-grid-tile>
                         <div class="controls-container">
                             <div>
-                                <label id="imageFieldLabel" for="imageField">
+                                <label id="audioFieldLabel" for="audioField">
                   <img [src]="audioFile || uploadAudioPreviewUrl" height="200px" width="200px" />
                 </label>
                                 <div>
-                                    <label for="imageField" style="cursor: pointer;" class="btn text-white ml-2">Click to
+                                    <label for="audioField" style="cursor: pointer;" class="btn text-white ml-2">Click to
                     upload</label>
-                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField" name="image">
-                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}} " aria-valuemin="0 " aria-valuemax="100 ">
-                                        {{imageUploadProgress}} Progress
+                                    <input type="file" name="audioFile" (change)="onAudioSelected($event)">
+                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': audioUploadValue + '%'}" attr.aria-valuenow="{{audioUploadProgress}} " aria-valuemin="0 " aria-valuemax="100 ">
+                                        {{audioUploadProgress}} Progress
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +232,7 @@
         </mat-step>
         <!-- Publishing -->
         <mat-step label="Publishing">
-            <form [formGroup]="publishForm">
+            <form [formGroup]="publishForm" (ngSubmit)="onSubmitPublishForm()">
                 <h5>Producer's Details</h5>
                 <mat-grid-list cols="3" rowHeight="100px">
                     <mat-grid-tile>
@@ -256,15 +259,21 @@
                             <div class="add-bottom-padding">
                                 <mat-card-content>
                                     <h5>Select where you want to distribute your music</h5>
-                                    <mat-checkbox>Spotify</mat-checkbox>
-                                    <mat-checkbox>Deezer</mat-checkbox>
-                                    <mat-checkbox>Pandora</mat-checkbox>
-                                    <mat-checkbox>Itunes</mat-checkbox>
-                                    <mat-checkbox>Apple Music</mat-checkbox>
-                                    <mat-checkbox>Amazon Music</mat-checkbox>
-                                    <mat-checkbox>Tidal</mat-checkbox>
-                                    <mat-checkbox>JamboTunes</mat-checkbox>
-                                    <mat-checkbox>Other</mat-checkbox>
+                                    <div formArrayName="platforms" *ngFor="let platform of publishForm.get('platforms')['controls']; let i = index">
+                                        <div [formGroupName]="i">
+                                            <mat-checkbox [formControl]="platform.get('link')" [value]="platform">
+                                                {{ platform.get('name').value }}
+                                            </mat-checkbox>
+                                            <!-- <mat-checkbox [value]="'link'">Deezer</mat-checkbox>
+                                                <mat-checkbox>Pandora</mat-checkbox>
+                                        <mat-checkbox>Itunes</mat-checkbox>
+                                        <mat-checkbox>Apple Music</mat-checkbox>
+                                        <mat-checkbox>Amazon Music</mat-checkbox>
+                                        <mat-checkbox>Tidal</mat-checkbox>
+                                        <mat-checkbox>JamboTunes</mat-checkbox>
+                                        <mat-checkbox>Other</mat-checkbox> -->
+                                        </div>
+                                    </div>
                                 </mat-card-content>
                             </div>
                         </div>
