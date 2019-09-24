@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MymusicComponent implements OnInit {
 
+  navLinks = [{ path: 'albums', label: 'Albums' }, { path: 'singles', label: 'Singles' }, { path: 'verified-singles', label: 'Verified Singles' }, { path: 'verified-singles', label: 'Published' }, { path: 'verified-singles', label: 'Processing' }, { path: 'verified-singles', label: 'Rejected' }];
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }

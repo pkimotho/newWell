@@ -8,55 +8,18 @@
             <a class="btn-link" routerLink="music-upload/single" role="button">Upload New Single</a>
             <a class="btn-link" routerLink="music-upload/single" role="button">Upload New Album</a>
         </div>
+        <nav mat-tab-nav-bar>
+            <a mat-tab-link *ngFor="let link of navLinks" [routerLink]="link.path" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+        {{link.label}}
+      </a>
+        </nav>
     </header>
     <main>
         <router-outlet></router-outlet>
     </main>
     <!--Tab-->
 
-    <!-- <mat-tab-group class="whiteContent">
-        <mat-tab>
-            <div class="tabWidth">
-                <ng-template mat-tab-label>
-                    <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                    Albums
-                </ng-template>
-            </div>
-            <div class="albums">
-                <app-albums></app-albums>
-            </div>
-        </mat-tab>
 
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Singles
-            </ng-template>
-            <div class="albums">
-                <app-songs></app-songs>
-            </div>
-        </mat-tab>
-
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Verified Albums
-            </ng-template>
-            <div class="white-text">
-                You have no verified albums yet
-            </div>
-        </mat-tab>
-        <mat-tab>
-            <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-                Verified Singles
-            </ng-template>
-
-            <div class="white-text">
-                You have no verified singles yet
-            </div>
-        </mat-tab>
-    </mat-tab-group> -->
 
 
 </div>

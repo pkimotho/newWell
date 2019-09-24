@@ -1,9 +1,15 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, Validators, FormControl, FormArray, FormBuilder } from '@angular/forms';
-import { UploadsService } from '../../../services/uploads.service';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+
+// ng2-upload imports
+import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
+
+// Local imports
+import { UploadsService } from '../../../services/uploads.service';
+import { DistributionPlatforms } from './../upload-platforms/distribution-platforms';
+import { environment } from './../../../../environments/environment';
 
 export function requiredFileType(type: string) {
   return (control: FormControl) => {
@@ -29,6 +35,8 @@ export function requiredFileType(type: string) {
   styleUrls: ['./single-upload.component.scss']
 })
 export class SingleUploadComponent implements OnInit {
+  @ViewChild('imageField') imageFieldInput: ElementRef;
+  @ViewChild('audioField') audioFieldInput: ElementRef;
 
   title = 'title';
   genre = 'genre';
@@ -48,29 +56,35 @@ export class SingleUploadComponent implements OnInit {
 
   imageUploadProgress;
   audioUploadProgress;
-  audioUploadValue = 0;
+  audioUploadValue;
   imageUploadValue;
 
   mainSongData;
   newSongId;
 
-  distributionPlatforms = {
-    platformsList: [
-      { name: 'Spotify', link: 'spotifyLink', selected: true },
-      { name: 'Deezer', link: 'deezerLink', selected: true }
-    ]
-  };
+  platforms: Array<object> = DistributionPlatforms;
+  selectedPlatforms = [];
+  platformsCheckboxError = true;
 
   mainInfoForm: FormGroup;
   uploadTrackForm: FormGroup;
   publishForm: FormGroup;
   uploadResponse = { status: '', message: '', filePath: '' };
 
+  // ng2-upload properties
+  albumArtUri = `${environment.base_url}song/albumArt/`;
+  audioUri = `${environment.base_url}song/audioFile/songId`;
+  attachmentList: any = [];
+
+  albumArtUploader: FileUploader;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private uploadService: UploadsService,
-    private http: HttpClient) { }
+    private http: HttpClient) {
+    this.uploadAlbumArt();
+  }
 
   ngOnInit() {
     this.loadArtistId();
@@ -107,24 +121,35 @@ export class SingleUploadComponent implements OnInit {
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       phoneNumber: new FormControl(null, Validators.required),
-      platforms: new FormArray([
-        this.fb.group({
-          name: 'Spotify',
-          link: 'https://www.spotify.com'
-        }),
-        this.fb.group({
-          name: 'Deezer',
-          link: 'https://www.deezer.com'
-        })
-      ])
+      distributionPlatforms: this.addDistributionPlatformsControls()
     });
   }
-
-  buildDistributionPlatforms() {
-    const platformsArray = this.distributionPlatforms.platformsList.map(platform => {
-      return this.fb.control(platform.selected);
+  addDistributionPlatformsControls() {
+    const arr = this.platforms.map(element => {
+      return this.fb.control(false);
     });
-    return this.fb.array(platformsArray);
+    return this.fb.array(arr);
+  }
+  get platformsArray() {
+    return this.publishForm.get('distributionPlatforms') as FormArray;
+  }
+  getSelectedPlatforms() {
+    this.selectedPlatforms = [];
+    this.platformsArray.controls.forEach((control, i) => {
+      if (control.value) {
+        this.selectedPlatforms.push(this.platforms[i]);
+      }
+    });
+    this.platformsCheckboxError = this.selectedPlatforms.length > 0 ? false : true;
+  }
+  checkPlatformsControlsTouched() {
+    let flag = false;
+    this.platformsArray.controls.forEach(element => {
+      if (element.touched) {
+        flag = true;
+      }
+    });
+    return flag;
   }
   onSubmitPublishForm() {
     const publisherInfo = {
@@ -132,6 +157,11 @@ export class SingleUploadComponent implements OnInit {
       lastName: this.publishForm.controls['lastName'].value,
       phoneNumber: this.publishForm.controls['phoneNumber'].value
     };
+    const newItem = this.selectedPlatforms;
+    if (this.publishForm.valid && !this.platformsCheckboxError) {
+      // console.log(...this.publishForm.controls['distributionPlatforms'].value, newItem);
+      console.log(this.selectedPlatforms);
+    }
     console.log(this.publishForm);
   }
 
@@ -155,16 +185,23 @@ export class SingleUploadComponent implements OnInit {
       title: this.mainInfoForm.controls['songTitle'].value,
       artistName: this.mainInfoForm.controls['artistName'].value,
       hasSeveralArtists: this.mainInfoForm.controls['hasSeveralArtists'].value,
-      otherArtists: this.mainInfoForm.controls['otherArtists'].value,
-      isPreviouslyReleased: this.mainInfoForm.controls['isPreviouslyReleased'].value,
-      isOnrecordLabel: this.mainInfoForm.controls['isOnrecordLabel'].value
+      artistNames: this.mainInfoForm.controls['otherArtists'].value,
+      previouslyReleased: this.mainInfoForm.controls['isPreviouslyReleased'].value,
+      onRecordLabel: this.mainInfoForm.controls['isOnrecordLabel'].value,
     };
-    this.mainSongData = mainInfoData;
     this.uploadService.uploadSongData(mainInfoData).subscribe(data => {
       console.log(data);
       this.newSongId = data['_id'];
       console.log(this.newSongId);
     });
+  }
+
+  uploadAlbumArt() {
+    this.albumArtUploader = new FileUploader({ url: this.albumArtUri + '5d88bd88c6b7901b6c13982c' });
+    this.albumArtUploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      this.attachmentList.push(JSON.parse(response));
+    };
+
   }
 
   onImageSelected(event) {
@@ -183,6 +220,15 @@ export class SingleUploadComponent implements OnInit {
       this.audioFile = filereader.result;
       document.querySelector('audio').load();
     };
+  }
+  resetImageFieldInput() {
+    this.imageFieldInput.nativeElement.value = '';
+    this.imageFile = null;
+  }
+  resetAudioFieldInput(event) {
+    this.audioFieldInput.nativeElement.value = '';
+    this.audioFile = null;
+    this.selectedAudio = event.target.files[0].remove();
   }
 
 

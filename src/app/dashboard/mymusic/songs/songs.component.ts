@@ -15,6 +15,7 @@ export class SongsComponent implements OnInit {
   id;
   artistName;
   songs;
+  defaultCover = '../../assets/images/band.jpg';
 
   form: FormGroup;
   constructor(

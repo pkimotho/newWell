@@ -74,12 +74,14 @@ form {
     .btnImg {
         color: $secondary !important;
     }
-    #imageFieldLabel:hover {
+    #imageFieldLabel:hover,
+    #audioFieldLabel {
         cursor: pointer;
     }
-    #imageField {
-        width: 220px;
-        display: none;
+    #imageField,
+    #audioField {
+        // width: 220px;
+        // display: none;
     }
     // input,
     // textarea,
@@ -102,7 +104,7 @@ button {
 }
 
 .card h4 {
-    color: $primary;
+    color: black;
 }
 
 @media (max-width: 747px) {
@@ -153,4 +155,8 @@ button {
             margin-left: 10px;
         }
     }
+}
+
+h5 {
+    color: black;
 }

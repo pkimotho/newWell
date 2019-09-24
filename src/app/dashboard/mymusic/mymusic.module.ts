@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
+/* ng2-upload module*/
+import { FileUploadModule } from 'ng2-file-upload';
+
 /* Material Module */
 import { CustomMaterialModule } from '../../shared/material-module/material-module';
 
@@ -44,6 +47,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     CustomMaterialModule,
+    FileUploadModule,
     RouterModule.forChild(routes)
   ]
 })

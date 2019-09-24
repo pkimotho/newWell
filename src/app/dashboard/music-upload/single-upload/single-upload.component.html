@@ -142,19 +142,24 @@
                 <h5>Upload Song Art/Cover</h5>
                 <mat-grid-list cols="2" rowHeight="300px">
                     <mat-grid-tile>
-                        <div class="controls-container">
-                            <div>
-                                <label id="imageFieldLabel" for="imageField">
-                  <img [src]="imageFile || uploadPreviewUrl" height="200" width="200" />
-                </label>
-                                <div>
-                                    <label for="imageField" style="cursor: pointer; " class="btn text-white ml-2">Click to
-                    upload</label>
-                                    <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField">
-                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
-                                        {{imageUploadProgress}} Progress
-                                    </div>
+                        <!-- <div class="controls-container">
+                            <label id="imageFieldLabel" for="imageField">
+                <img [src]="imageFile || uploadPreviewUrl" height="200" width="200" /></label>
+                            <input type="file" name="songCover" ng2FileSelect [uploader]="albumArtUploader" (change)="onImageSelected($event)" id="imageField" #imageField>
+                            <div *ngFor="let item of albumArtUploader.queue">
+                                <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                                    {{imageUploadProgress}} Progress
+                                    <button (click)="item.upload()" type="button">Upload</button>
                                 </div>
+                            </div>
+                        </div> -->
+                        <div class="controls-container">
+                            <label id="imageFieldLabel" for="imageField">
+                <img [src]="imageFile || uploadPreviewUrl" height="200" width="200" /></label>
+                            <input type="file" name="songCover" (change)="onImageSelected($event)" id="imageField" #imageField>
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': imageUploadValue + '%'}" attr.aria-valuenow="{{imageUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                                {{imageUploadProgress}} Progress
+                                <button (click)="resetImageFieldInput()" type="button">Cancel</button>
                             </div>
                         </div>
                     </mat-grid-tile>
@@ -175,18 +180,13 @@
                 <mat-grid-list cols="2" rowHeight="300px">
                     <mat-grid-tile>
                         <div class="controls-container">
-                            <div>
-                                <label id="audioFieldLabel" for="audioField">
-                  <img [src]="audioFile || uploadAudioPreviewUrl" height="200px" width="200px" />
-                </label>
-                                <div>
-                                    <label for="audioField" style="cursor: pointer;" class="btn text-white ml-2">Click to
-                    upload</label>
-                                    <input type="file" name="audioFile" (change)="onAudioSelected($event)">
-                                    <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': audioUploadValue + '%'}" attr.aria-valuenow="{{audioUploadProgress}} " aria-valuemin="0 " aria-valuemax="100 ">
-                                        {{audioUploadProgress}} Progress
-                                    </div>
-                                </div>
+                            <label id="audioFieldLabel" for="audioField">
+                <img [src]="audioFile || uploadPreviewUrl" height="200" width="200" />
+              </label>
+                            <input type="file" name="audioFile" (change)="onAudioSelected($event)" id="audioField" #audioField>
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': audioUploadValue + '%'}" attr.aria-valuenow="{{audioUploadProgress}}" aria-valuemin="0" aria-valuemax="100">
+                                {{audioUploadProgress}} Progress
+                                <button (click)="resetAudioFieldInput($event)" type="button">Cancel</button>
                             </div>
                         </div>
                     </mat-grid-tile>
@@ -253,27 +253,18 @@
                         </mat-form-field>
                     </mat-grid-tile>
                 </mat-grid-list>
-                <mat-grid-list cols="1" rowHeight="100px">
+                <mat-grid-list cols="1" rowHeight="350px">
                     <mat-grid-tile>
                         <div class="controls-container">
                             <div class="add-bottom-padding">
                                 <mat-card-content>
                                     <h5>Select where you want to distribute your music</h5>
-                                    <div formArrayName="platforms" *ngFor="let platform of publishForm.get('platforms')['controls']; let i = index">
-                                        <div [formGroupName]="i">
-                                            <mat-checkbox [formControl]="platform.get('link')" [value]="platform">
-                                                {{ platform.get('name').value }}
-                                            </mat-checkbox>
-                                            <!-- <mat-checkbox [value]="'link'">Deezer</mat-checkbox>
-                                                <mat-checkbox>Pandora</mat-checkbox>
-                                        <mat-checkbox>Itunes</mat-checkbox>
-                                        <mat-checkbox>Apple Music</mat-checkbox>
-                                        <mat-checkbox>Amazon Music</mat-checkbox>
-                                        <mat-checkbox>Tidal</mat-checkbox>
-                                        <mat-checkbox>JamboTunes</mat-checkbox>
-                                        <mat-checkbox>Other</mat-checkbox> -->
-                                        </div>
+                                    <div *ngFor="let control of platformsArray.controls; let i = index;">
+                                        <mat-checkbox [formControl]="control" (change)="getSelectedPlatforms()">{{platforms[i].name}}
+                                        </mat-checkbox>
                                     </div>
+                                    <mat-error style="color: red;" *ngIf="platformsCheckboxError && checkPlatformsControlsTouched()">
+                                        Choose at least one platform</mat-error>
                                 </mat-card-content>
                             </div>
                         </div>

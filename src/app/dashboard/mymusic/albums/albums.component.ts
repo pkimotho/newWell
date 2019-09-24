@@ -40,7 +40,37 @@ export class AlbumsComponent implements OnInit {
   albums$: Observable<Album[]>;
   albumsloaderror$: Observable<string>;
 
-
+  albums = [
+    {
+      id: 1, name: 'Beetles',
+      numberOfSongs: 3,
+      cover: '../../assets/img/banner.jpg',
+      songs: [
+        { id: 1, title: 'younder', duration: 3.09, status: 'verified' },
+        { id: 2, title: 'Shaku shaku', duration: 4.09, status: 'pending' },
+        { id: 3, title: 'wamlambez', duration: 4.50, status: 'rejected' },
+      ]
+    },
+    {
+      id: 2, name: 'Players',
+      numberOfSongs: 5,
+      cover: '../../assets/img/blur-close-up-concert-164879.jpg',
+      songs: [
+        { id: 1, title: 'xyz', duration: 3.00, status: 'verified' },
+        { id: 2, title: 'Yankees', duration: 5.50, status: 'pending' },
+        { id: 3, title: 'The Bent', duration: 4.50, status: 'rejected' },
+        { id: 4, title: 'Yolo', duration: 4.70, status: 'verified' },
+        { id: 5, title: 'Shaker', duration: 5.70, status: 'verified' },
+      ]
+    },
+    {
+      id: 3, name: 'Muzica',
+      numberOfSongs: 0,
+      cover: '../../assets/img/audience-band-blur-1587927(1).jpg',
+      songs: []
+    }
+  ];
+  selectedAlbum;
 
 
   constructor(
@@ -58,6 +88,10 @@ export class AlbumsComponent implements OnInit {
 
     this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
     this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
+  }
+
+  onSelectedAlbum(album) {
+    this.selectedAlbum = album;
   }
 
 
