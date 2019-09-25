@@ -1,16 +1,39 @@
 @import '../../../../sass/base';
+.count-span {
+    font-size: 20px;
+    width: 70px;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 10px;
+}
+
 .album-details {
     color: white;
     width: 90%;
     margin: auto;
-    h3,
-    p {
-        color: white;
-        font-size: 20px;
-        margin: 10px 10px;
-    }
-    p {
-        margin-bottom: 10px;
+    .details-title {
+        display: flex;
+        flex-basis: 100%;
+        flex-flow: row nowrap;
+        align-content: center;
+        h3,
+        p,
+        .tool-tip {
+            color: white;
+            font-size: 20px;
+            margin: 10px 10px;
+        }
+        a {
+            margin-bottom: 10px;
+        }
+        // .tool-tip {
+        //     color: white;
+        //     font-size: 20px;
+        //     margin: 10px 10px;
+        // }
+        p {
+            font-size: 0.9rem;
+        }
     }
     .song-details {
         display: flex;
@@ -63,4 +86,30 @@
             }
         }
     }
+}
+
+
+/* Tool Tip Styles*/
+
+.tool-tip {
+    position: relative;
+    color: white;
+    font-size: 40px;
+}
+
+.tool-tip .tooltip-text {
+    display: none;
+    width: 120px;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+}
+
+.tool-tip:hover .tooltip-text {
+    display: block;
 }

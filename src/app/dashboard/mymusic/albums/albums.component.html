@@ -2,7 +2,7 @@
     <div class="songs-container">
         <div class="title">
             <div class="actions">
-                <h2>Albums</h2>
+                <h2>Albums <span class="count-span">{{albums.length}}</span></h2>
             </div>
             <div class="actions">
                 <a [routerLink]="'../music-upload/single'" class="tool-tip">+
@@ -33,8 +33,16 @@
         </div>
     </div>
     <div class="album-details">
-        <h3>Album Songs</h3>
-        <div *ngIf="selectedAlbum">
+        <div class="details-title">
+            <h3>Album Songs <span *ngIf="selectedAlbum" class="count-span">{{selectedAlbum.songs.length}}</span></h3>
+            <a [routerLink]="'../music-upload/single'" class="tool-tip">+
+        <p style="color: white;" class="tooltip-text">Add New Song</p>
+        <p style="color: white;" *ngIf=" selectedAlbum && selectedAlbum.songs.length === 5" class="tooltip-text">This
+          album is full</p>
+      </a>
+            <ng-template #noSelectedAlbum>Select an album to view it's songs below;</ng-template>
+        </div>
+        <div *ngIf="selectedAlbum; else noSelectedAlbum">
             <p> Album-name: {{selectedAlbum.name}}</p>
             <div *ngIf="selectedAlbum.songs.length > 0; else noSongs">
                 <div *ngFor="let song of selectedAlbum.songs index as i">
@@ -58,7 +66,7 @@
                 </div>
             </div>
             <ng-template #noSongs>
-                <div>
+                <div style="color:white;">
                     This album has no songs yet
                     <a [routerLink]="'../music-upload/single'">Upload Song</a>
                 </div>

@@ -21,7 +21,7 @@ import { AlbumsComponent } from './albums/albums.component';
 import { SongsComponent } from './songs/songs.component';
 
 const routes: Routes = [
-  { path: '', component: AlbumDetailsComponent },
+  { path: '', component: AlbumsComponent },
   { path: 'verified-singles', component: VerifiedSinglesComponent },
   { path: 'singles', component: SongsComponent },
   { path: 'singles/:songtitle', component: SongsDetailsComponent },

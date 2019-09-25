@@ -10,6 +10,14 @@
     font-size: 15px;
 }
 
+.count-span {
+    font-size: 20px;
+    width: 50px;
+    border: 1px solid white;
+    padding: 2px;
+    border-radius: 10px;
+}
+
 .preview-container {
     width: 100%;
     min-height: 80vh;
@@ -94,14 +102,28 @@
     color: white;
     width: 50%;
     margin-left: 10px;
-    h3,
-    p {
-        color: white;
-        font-size: 20px;
-        margin: 10px 10px;
-    }
-    p {
-        margin-bottom: 10px;
+    .details-title {
+        display: flex;
+        flex-flow: row nowrap;
+        align-content: center;
+        h3,
+        p,
+        {
+            color: white;
+            font-size: 20px;
+            margin: 10px 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .tool-tip {
+            color: white;
+            font-size: 20px;
+            margin: 10px 10px;
+        }
+        p {
+            font-size: 0.9rem;
+        }
     }
     .song-details {
         display: flex;
@@ -168,8 +190,9 @@
 .tool-tip .tooltip-text {
     display: none;
     width: 120px;
-    background-color: white;
-    color: black;
+    background-color: black;
+    border: 1px solid white;
+    color: white;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;

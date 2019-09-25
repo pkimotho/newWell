@@ -28,7 +28,13 @@
     </div>
 </div> -->
 <div class="album-details">
-    <h3>Album Songs</h3>
+    <div class="details-title">
+        <h3>Singles <span *ngIf="songs" class="count-span">{{songs.length}}</span></h3>
+        <a [routerLink]="'../music-upload/single'" style="font-size: 20px;" id="addLink" class="tool-tip">+
+      <p style="color: white;" class="tooltip-text">Add New Single</p>
+    </a>
+        <ng-template #noSelectedAlbum>Select an album to view it's songs below;</ng-template>
+    </div>
     <div *ngFor="let song of songs index as i">
         <div class="song-details">
             <div class="numbering">
