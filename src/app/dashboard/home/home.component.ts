@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from './../../../environments/environment';
 import { ArtistSongsService } from './../../services/artist-songs.service';
+import { ArtistProfileService } from './../../services/artist-profile.service';
 import { Observable } from 'rxjs';
 
 import * as fromRoot from '../../app.state';
@@ -45,11 +46,19 @@ export class HomeComponent implements OnInit {
   producer$: Observable<Producer[]>;
   producerloaderror$: Observable<string>;
 
+  artist = {
+    profilePic: '',
+    name: '',
+    bio: '',
+    status: ''
+  };
   songs;
   artistName;
   numbering;
   id;
   displayOtherInfo = false;
+
+
   options = {
     // options
     freeScroll: true,
@@ -62,13 +71,12 @@ export class HomeComponent implements OnInit {
   albums = [
     { id: 1, title: 'Album 1 title', imageUrl: '../../../assets/images/artists/artist4.jpg', numberOfSongs: 5 },
     { id: 2, title: 'Album 2 title', imageUrl: '../../../assets/images/artists/artist4.jpg', numberOfSongs: 0 },
+    { id: 3, title: 'Album 3 title', imageUrl: '../../../assets/images/artists/artist4.jpg', numberOfSongs: 4 },
   ];
   singles = [
     { id: 1, title: 'Single 1 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
     { id: 2, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
-    { id: 3, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
-    { id: 4, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
-    { id: 5, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' },
+    { id: 3, title: 'Single 2 title', imageUrl: '../../../assets/images/artists/artist.jpg' }
   ];
 
   children = [
@@ -78,11 +86,16 @@ export class HomeComponent implements OnInit {
     { title: 'Child 4' },
     { title: 'Child 5' },
     { title: 'Child 6' }
-  ]
+  ];
 
   items = [{ id: 1, name: 'Kim', displayInfo: false }, { id: 2, name: 'Pat', displayInfo: false }];
 
-  constructor(private store: Store<fromRoot.AppState>, private http: HttpClient, private artistSongsService: ArtistSongsService, private route: ActivatedRoute) { }
+  constructor(
+    private store: Store<fromRoot.AppState>,
+    private http: HttpClient,
+    private artistSongsService: ArtistSongsService,
+    private route: ActivatedRoute,
+    private artistProfileService: ArtistProfileService) { }
   public barChartOptions = {
     scaleShowVerticalLines: false,
     maintainAspectRatio: false,
@@ -122,16 +135,18 @@ export class HomeComponent implements OnInit {
   public doughnutChartType = 'doughnut';
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.loadArtistId();
+    this.getArtistProfile();
+    // this.id = this.route.snapshot.params['id'];
     this.getArtistSongs();
-    console.log("Home Init");
-    this.store.dispatch(new songsactions.LoadSongs());
-    this.store.dispatch(new albumsactions.LoadAlbums());
-
-    this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
-    this.songs$ = this.store.pipe(select(songsReducer.getSongs));
-    this.songsloaderror$ = this.store.pipe(select(songsReducer.getError));
-    this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
+    // console.log('Home Init');
+    // this.store.dispatch(new songsactions.LoadSongs());
+    // this.store.dispatch(new albumsactions.LoadAlbums());
+    // console.log(this.id);
+    // this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
+    // this.songs$ = this.store.pipe(select(songsReducer.getSongs));
+    // this.songsloaderror$ = this.store.pipe(select(songsReducer.getError));
+    // this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
 
   }
 
@@ -141,6 +156,18 @@ export class HomeComponent implements OnInit {
     const { name } = JSON.parse(localStorage.getItem('user'));
     this.artistName = name;
   }
+  getArtistProfile() {
+    if (this.id) {
+      this.artistProfileService.getArtistProfile(this.id).subscribe(profile => {
+        this.artist.profilePic = profile.profilePic;
+        this.artist.name = profile.name;
+        this.artist.bio = profile.bio;
+        this.artist.status = profile.status;
+        console.log(profile);
+      });
+    }
+    console.log(this.artist);
+  }
 
   getAllArtistsSongs() {
     this.artistSongsService.getAllSongs().subscribe((songs: any[]) => {
@@ -149,13 +176,14 @@ export class HomeComponent implements OnInit {
     });
   }
   getArtistSongs() {
-    this.artistSongsService.getArtistSongs(this.id).subscribe((songs) => {
+    this.artistSongsService.getArtistSongs(this.id).subscribe((songs: any[]) => {
       this.songs = songs;
-    });
-    this.loadArtistId();
-    this.http.get(environment.base_url + 'song/artist/' + this.id).subscribe((songs: any[]) => {
       this.songs = songs.reverse();
     });
+    // this.loadArtistId();
+    // this.http.get(environment.base_url + 'song/artist/' + this.id).subscribe((songs: any[]) => {
+    //   this.songs = songs.reverse();
+    // });
   }
   toggleOtherInfo() {
     this.displayOtherInfo = !this.displayOtherInfo;

@@ -85,10 +85,10 @@ export class AlbumsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.store.dispatch(new albumsactions.LoadArtistAlbums());
+    // this.store.dispatch(new albumsactions.LoadArtistAlbums());
 
-    this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
-    this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
+    // this.albums$ = this.store.pipe(select(albumsReducer.getAlbums));
+    // this.albumsloaderror$ = this.store.pipe(select(albumsReducer.getError));
   }
 
   onSelectedAlbum(album) {

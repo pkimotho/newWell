@@ -1,131 +1,99 @@
 <div class="outer-container">
-    <!--Banner-->
-    <!-- <section class="banner">
-        <div class="overlay">
-            <h1><span>{{artistName}}</span> - <span class="font-weight-bolder text-capitalize">Welcome to your music
-          dashboard</span> </h1>
-        </div>
-        <img class="img-fluid" src="../../assets/images/jumbo.jpg" alt="Artist's cover image">
-    </section> -->
-    <section>
-        <div class="top-assets">
-            <h5>Albums</h5>
-
-            <div class="assets-row">
-                <div class="top-assets-card" *ngFor="let album of albums">
-                    <div class="album-cover-img">
-                        <img class="album-cover-img" [src]="album.imageUrl" alt="Album Cover Image">
-                    </div>
-                    <div class="top-assets-card-body ">
-                        <p class="album-title">{{album.title}}</p>
-                        <small>Songs: {{album.numberOfSongs}}</small>
-                    </div>
-                </div>
-                <div class="top-assets-card">
-                    <div class="album-cover-img">
-                        <img class="album-cover-img" src="../../../assets/images/artists/artist4.jpg" alt="Album Cover Image">
-                        <div class="asset-img-overlay">
-                            <a routerLink="music-upload/single">+</a>
+    <div class="aside1">
+        <!--Banner-->
+        <section class="banner">
+            <div class="overlay">
+                <!-- <i class="fa fa-edit"></i> -->
+                <h1><span>{{artistName}}</span> - <span class="font-weight-bolder text-capitalize">Welcome to your music
+            dashboard</span> </h1>
+            </div>
+            <img class="img-fluid" src="../../assets/images/jumbo.jpg" alt="Artist's cover image">
+        </section>
+        <section>
+            <div class="assets-title">
+                <h5> Music Albums</h5>
+                <a routerLink="mymusic/albums">See All ></a>
+            </div>
+            <div class="top-assets">
+                <div class="assets-row">
+                    <div class="top-assets-card" *ngFor="let album of albums">
+                        <div class="album-cover-img">
+                            <img class="album-cover-img" [src]="album.imageUrl" alt="Album Cover Image">
+                        </div>
+                        <div class="top-assets-card-body ">
+                            <p class="album-title">{{album.title}}</p>
+                            <small>Songs: {{album.numberOfSongs}}</small>
                         </div>
                     </div>
-                    <div class="top-assets-card-body ">
-                        <p class="album-title">Album Title</p>
-                    </div>
-                </div>
-            </div>
-            <h5>Singles</h5>
-            <div class="assets-row">
-                <div class="top-assets-card" *ngFor="let single of singles">
-                    <div class="album-cover-img">
-                        <img class="single-cover-img" [src]="single.imageUrl" alt="Single Cover Image">
-                    </div>
-                    <div class="top-assets-card-body">
-                        <p class="single-title">{{single.title}}</p>
-                    </div>
-                </div>
-                <div class="top-assets-card">
-                    <div class="album-cover-img">
-                        <img class="album-cover-img" src="../../../assets/images/artists/artist4.jpg" alt="Album Cover Image">
-                        <div class="asset-img-overlay">
-                            <a routerLink="music-upload/single">+</a>
+                    <div class="top-assets-card">
+                        <div class="album-cover-img">
+                            <img class="album-cover-img" src="../../../assets/images/artists/artist4.jpg" alt="Album Cover Image">
+                            <div class="asset-img-overlay">
+                                <a routerLink="music-upload/single">+</a>
+                            </div>
+                        </div>
+                        <div class="top-assets-card-body ">
+                            <p class="album-title">Album Title</p>
                         </div>
                     </div>
-                    <div class="top-assets-card-body ">
-                        <p class="album-title">Album Title</p>
+                </div>
+                <div class="assets-title">
+                    <h5> Music Singles</h5>
+                    <a routerLink="mymusic/singles">See All ></a>
+                </div>
+                <div class="assets-row">
+                    <div class="top-assets-card" *ngFor="let single of singles">
+                        <div class="album-cover-img">
+                            <img class="single-cover-img" [src]="single.imageUrl" alt="Single Cover Image">
+                        </div>
+                        <div class="top-assets-card-body">
+                            <p class="single-title">{{single.title}}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="containerWrap">
-        <h3>Get Statistics like the ones below on your music sales</h3>
-        <section class="generalStats">
-            <div class="stat" id="events">
-                <p>Performance</p>
-                <div>
-                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
-
-          </canvas>
-                </div>
-            </div>
-            <div class="stat" id="audience">
-                <p>Audience/Following</p>
-                <div>
-                    <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutChartOptions">
-
-          </canvas>
-                </div>
-            </div>
-            <div class="stat" id="sales">
-                <p>Sales</p>
-                <div>
-                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType">
-
-          </canvas>
+                    <div class="top-assets-card">
+                        <div class="album-cover-img">
+                            <img class="album-cover-img" src="../../../assets/images/artists/artist4.jpg" alt="Album Cover Image">
+                            <div class="asset-img-overlay">
+                                <a routerLink="music-upload/single">+</a>
+                            </div>
+                        </div>
+                        <div class="top-assets-card-body ">
+                            <p class="album-title">Album Title</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="songStats">
-            <div class="songStat">
-                <p>Total Songs <span>80</span></p>
-            </div>
-            <div class="songStat">
-                <p>Total Albums <span>16</span></p>
-            </div>
-            <div class="songStat">
-                <p>Verified <span>60</span></p>
-            </div>
-            <div class="songStat">
-                <p>Unverified <span>10</span></p>
-            </div>
-            <div class="songStat">
-                <p>Pending <span>7</span></p>
-            </div>
-            <div class="songStat">
-                <p>Rejected <span>3</span></p>
-            </div>
-        </section>
-        <section class="assets">
-            <div class="top">
-                <h2>Latest Uploads</h2>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            New Upload
-          </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" routerLink="/dashboard/music-upload/single">New Single Release</a>
-                        <a class="dropdown-item" routerLink="/dashboard/music-upload/album">New Album Release</a>
+        <div class="containerWrap">
+            <p class="text-center">Get Statistics like the ones below on your music sales</p>
+            <section class="generalStats">
+                <div class="stat" id="events">
+                    <p>Performance</p>
+                    <div>
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType">
+
+            </canvas>
                     </div>
                 </div>
-                <div class="dropdownButton">
-                    <span>New Upload <i class="fa fa-caret-down"></i></span>
-                    <div class="dropdown-content">
-                        <a routerLink="/dashboard/music-upload/single">New Single</a>
-                        <a routerLink="/dashboard/music-upload/album">New Album</a>
+                <div class="stat" id="audience">
+                    <p>Audience/Following</p>
+                    <div>
+                        <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutChartOptions">
+
+            </canvas>
                     </div>
                 </div>
-            </div>
-            <!-- <div class="assets-list" *ngFor="let song of songs; index as i">
+                <div class="stat" id="sales">
+                    <p>Sales</p>
+                    <div>
+                        <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions" [legend]="lineChartLegend" [chartType]="lineChartType">
+
+            </canvas>
+                    </div>
+                </div>
+            </section>
+            <section class="assets">
+                <!-- <div class="assets-list" *ngFor="let song of songs; index as i">
                 <div class="asset-list itemNumber">
                     <p>{{i + 1}}</p>
                 </div>
@@ -155,80 +123,114 @@
                 </div>
 
             </div> -->
-            <div class="assets-list-mobile" *ngFor="let song of songs; index as i">
-                <div class="main-info" (click)="song.displayInfo = !song.displayInfo">
-                    <div class="asset-list itemNumber">
-                        <p>{{i + 1}}</p>
-                    </div>
+                <div class="assets-list-mobile" *ngFor="let song of songs; index as i">
+                    <div class="main-info" (click)="song.displayInfo = !song.displayInfo">
+                        <div class="asset-list itemNumber">
+                            <p>{{i + 1}}</p>
+                        </div>
 
-                    <div class="asset-list albumArt">
-                        <img [src]="song.albumArt" alt="">
-                    </div>
+                        <div class="asset-list albumArt">
+                            <img [src]="song.albumArt" alt="">
+                        </div>
 
-                    <div class="asset-list title">
-                        <p>{{song.title}}</p>
+                        <div class="asset-list title">
+                            <p>{{song.title}}</p>
+                        </div>
+                        <div class="asset-list dropList">
+                            <p>...</p>
+                        </div>
                     </div>
-                    <div class="asset-list dropList">
-                        <p>...</p>
+                    <div class="other-info" *ngIf="song.displayInfo">
+                        <div class="asset-list genre">
+                            <p>{{song.genre}}</p>
+                        </div>
+
+                        <div class="asset-list status">
+                            <p>{{song.status}}</p>
+                        </div>
+
+                        <div class="asset-list songDuration">
+                            <p>5.22 mins</p>
+                        </div>
+
+                        <div class="asset-list viewStats">
+                            <p>Views</p>
+                        </div>
                     </div>
                 </div>
-                <div class="other-info" *ngIf="song.displayInfo">
-                    <div class="asset-list genre">
-                        <p>{{song.genre}}</p>
+            </section>
+            <!-- <section>
+                <div class="top m-4">
+                    <h2>Albums</h2>
+                </div>
+                <div class="row m-2">
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                            <div class="card-body card-img-overlay">
+                                <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="asset-list status">
-                        <p>{{song.status}}</p>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist1.jpg" alt="Artist's Image">
+                            <div class="card-body card-img-overlay">
+                                <h5 class="card-title font-weight-bold">Msoo</h5>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="asset-list songDuration">
-                        <p>5.22 mins</p>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
+                            <div class="card-body card-img-overlay">
+                                <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="asset-list viewStats">
-                        <p>Views</p>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="card">
+                            <img class="card-img" src="../../../assets/images/artists/artist4.jpg" alt="Artist's Image">
+                            <div class="card-body card-img-overlay">
+                                <h5 class="card-title font-weight-bold">John D'Mathew</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section> -->
+        </div>
+    </div>
+    <div class="aside2">
+        <header>
+            <div class="profile-image">
+                <img [src]="artist.profilePic ||'../../assets/images/jumbo.jpg'" alt="Profile Picture">
+                <h5>{{artist.name}}</h5>
+                <p>{{artist.status}}</p>
+            </div>
+            <div class="bio">
+                <p>{{artist.bio || 'Once you have completed your profile, this will be your artist bio'}}</p>
+            </div>
+        </header>
+        <section class="numbers">
+            <div class="music-numbers m-right">
+                <i class="fa fa-book"></i>
+                <h4>312</h4>
+                <p>Albums</p>
+            </div>
+            <div class="music-numbers m-left">
+                <i class="fa fa-music" aria-hidden="true"></i>
+                <h4>809</h4>
+                <p>Singles</p>
             </div>
         </section>
-        <section>
-            <div class="top m-4">
-                <h2>Albums</h2>
-            </div>
-            <div class="row m-2">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
-                        <div class="card-body card-img-overlay">
-                            <h5 class="card-title font-weight-bold">John D'Mathew</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img" src="../../../assets/images/artists/artist1.jpg" alt="Artist's Image">
-                        <div class="card-body card-img-overlay">
-                            <h5 class="card-title font-weight-bold">Msoo</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img" src="../../../assets/images/artists/artist.jpg" alt="Artist's Image">
-                        <div class="card-body card-img-overlay">
-                            <h5 class="card-title font-weight-bold">John D'Mathew</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card">
-                        <img class="card-img" src="../../../assets/images/artists/artist4.jpg" alt="Artist's Image">
-                        <div class="card-body card-img-overlay">
-                            <h5 class="card-title font-weight-bold">John D'Mathew</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="summary">
+            <h6>My Music Summary</h6>
+            <ul>
+                <li><i class="fa fa-check-square"></i>Verified <span>20</span></li>
+                <li><i class="fa fa-spinner"></i>Processing <span>2</span></li>
+                <li><i class="fa fa-adjust"></i>Unverified <span>20</span></li>
+                <li><i class="fa fa-times-circle"></i>Rejected <span>20</span></li>
+            </ul>
         </section>
     </div>
 </div>
