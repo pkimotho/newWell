@@ -68,7 +68,7 @@ export class ArtistSignupComponent implements OnInit {
             Validators.required,
             Validators.minLength(3),
             Validators.maxLength(15),
-            this.validateName
+            // this.validateName
           ])
         ],
         // phoneNumber: new FormControl('', { validators: [Validators.required, Validators.pattern('^07[\\d]{8,8}$')], updateOn: 'blur' }),

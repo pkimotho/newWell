@@ -76,7 +76,8 @@ export class AlbumsComponent implements OnInit {
   constructor(
     private store: Store<fromRoot.AppState>,
     private formBuilder: FormBuilder,
-    private router: Router, ) {
+    private router: Router,
+    private route: ActivatedRoute) {
     this.createForm();
 
 
@@ -92,6 +93,12 @@ export class AlbumsComponent implements OnInit {
 
   onSelectedAlbum(album) {
     this.selectedAlbum = album;
+  }
+
+  goToUpload() {
+    if (this.selectedAlbum.songs.length < 5) {
+      this.router.navigate(['../music-upload/single'], { relativeTo: this.route });
+    }
   }
 
 

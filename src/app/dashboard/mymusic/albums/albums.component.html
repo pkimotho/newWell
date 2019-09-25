@@ -11,7 +11,7 @@
 
             </div>
         </div>
-        <div class="song" *ngFor="let album of albums; index as i;" (click)="onSelectedAlbum(album)">
+        <div class="song active" *ngFor="let album of albums; index as i;" (click)="onSelectedAlbum(album)">
             <div class="cover">
                 <img src="{{album.cover}}">
             </div>
@@ -35,7 +35,7 @@
     <div class="album-details">
         <div class="details-title">
             <h3>Album Songs <span *ngIf="selectedAlbum" class="count-span">{{selectedAlbum.songs.length}}</span></h3>
-            <a [routerLink]="'../music-upload/single'" class="tool-tip">+
+            <a (click)="goToUpload()" *ngIf="selectedAlbum" class="tool-tip">+
         <p style="color: white;" class="tooltip-text">Add New Song</p>
         <p style="color: white;" *ngIf=" selectedAlbum && selectedAlbum.songs.length === 5" class="tooltip-text">This
           album is full</p>

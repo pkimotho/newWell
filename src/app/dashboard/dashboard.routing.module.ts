@@ -9,6 +9,7 @@ import { SalesComponent } from './sales/sales.component';
 
 import { AuthGuard } from '../services/guards/auth.guard';
 import { MymusicComponent } from './mymusic/mymusic.component';
+import { SingleUploadComponent } from './music-upload/single-upload/single-upload.component';
 
 const routes: Routes = [
   {
