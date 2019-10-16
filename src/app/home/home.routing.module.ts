@@ -1,6 +1,6 @@
 import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile/artist-edit-profile.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
 import { ArtistProfileComponent } from './artist-profile/artist-profile.component';
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
