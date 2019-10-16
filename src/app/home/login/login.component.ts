@@ -79,7 +79,8 @@ export class LoginComponent implements OnInit {
         this.messageClass = 'success';
         this.message = 'Successfully logged in';
         this.authService.storeUserData(data['token'], data['user']);
-        this.router.navigate(['/dashboard/']);
+        // this.router.navigate(['/dashboard/']);
+        this.router.navigate(['/']);
       },
       err => {
         if (err['error']) {
