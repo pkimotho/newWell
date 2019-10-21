@@ -219,8 +219,10 @@
      z-index: 999;
      width: 100%;
      .logo {
+         float: left;
+         margin-left: 1rem;
          img {
-             width: 120px;
+             width: 150px;
              height: 70px;
          }
      }
@@ -343,15 +345,23 @@
      }
  }
  
+ @media screen and (min-width: 768px) {
+     header {
+         .logo {
+             grid-column: 1 / 2;
+             img {
+                 width: 200px;
+             }
+         }
+     }
+ }
+ 
  @media screen and (min-width: 960px) {
      header {
          display: grid;
          grid-template-columns: 1fr auto minmax(700px, 3fr) 1fr;
          .nav-toggle-label {
              display: none;
-         }
-         .logo {
-             grid-column: 1 / 2;
          }
          nav {
              all: unset;
