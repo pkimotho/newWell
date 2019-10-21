@@ -1,174 +1,86 @@
-<div class="pricing">
-    <div class="header">
-        <div class="hero">
-            <img src="../../../assets/img/pricing.jpg" alt="" srcset="">
-        </div>
-
-
-
-        <div class="action">
-
-            <div class="call1">
-                <img src="../../../assets/img/heads.jpg">
-
-            </div>
-            <div class="call">
-                <h2>Pricing</h2>
-                <p>Reach More with less fast and reliably.</p>
-
-                <div class="btnClass">
-
-                    <a routerLink="/artist-signup" class="btnI">Artist Signup</a>
-
-                    <a routerLink="/artist-signup" class="btn">Start Now</a>
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-    <div class="tabs">
-        <div class="tab-one">
-
-        </div>
-
-
-        <div class="tab-two">
-
-        </div>
-        <div class="tab-three">
-
-        </div>
-    </div>
-
-    <div class="div-pricing gradient-normal bgdark">
-
-
-
-        <div class="card-content">
-            <div class="title">
-                <div class="title-head">
-                    <h2>Our rates are the best in the market</h2>
-                </div>
-
-            </div>
-            <div class="pricing-cards">
-
-                <div class="pricing-card  marginit">
-
-                    <div class="article">
-                        <h2>SINGLE</h2>
-
-                        <p>Single Song Distribution </p>
-
-                        <p class="price">Kshs 1,550 / Usd 15</p>
-
-                        <div class="actions">
-                            <button routerLink="/artist-signup" class="btn-one">Get Started</button>
-
-                        </div>
-
-                    </div>
-
-
-
-
-                </div>
-                <div class="pricing-card  marginit">
-
-                    <div class="article">
-                        <h2>ALBUM</h2>
-
-                        <p> Five Songs Album</p>
-
-                        <p class="price">Kshs 5,100 / Usd 50</p>
-
-                        <div class="actions">
-                            <button routerLink="/artist-signup" class="btn-one">Get Started</button>
-
-                        </div>
-
-                    </div>
-
-
-
-
-
-                </div>
-                <div class="pricing-card  marginit">
-
-                    <div class="article">
-                        <h2>Marketing</h2>
-
-
-
-
-                        <div class="actions">
-                            <a class="btn-one" routerLink="/marketing">Learn More</a>
-
-                        </div>
-
-                    </div>
+<div class="outer-container">
+    <header>
+        <div class="banner">
+            <img src="../../../assets/images/newwellphotos/umbrella-590725_1280.jpg" alt="">
+            <div class="overlay">
+                <div class="text-content">
+                    <h3>Newwell Pricing</h3>
+                    <p><span>MUSIC DISTRIBUTION -</span> Liberate your carrier. Stream and sell to the world with Newwell Music
+                    </p>
+                    <a routerLink="../artist-signup" class="link-button">Join Us Today</a>
                 </div>
             </div>
-
-
-            <div class="div-one">
-                <div class="para">
-                    <div class="title">
-                        <h2> Update Your Account Details</h2>
-                    </div>
-
-                    <div class="main">
-                        <p>
-                            Let us give you a better service
-                        </p>
-                    </div>
-                    <p routerlink="" class="btn">Update Now</p>
+        </div>
+    </header>
+    <section class="main">
+        <div class="content">
+            <h3>Great service, Affordable pricing + Free</h3>
+            <p>Every artists deserve to sell their music globally. That’s why at negligible pricing we partner to distribute to all major digital music vendor channels, making your music available to stream and purchase by any person with an internet connection.
+            </p>
+        </div>
+        <p class="para-header">distribution</p>
+        <div class="pricing">
+            <div class="pricing-card">
+                <h3>Single</h3>
+                <p>Single Song Distribution</p>
+                <p>Kshs 1,550 / Usd 15</p>
+            </div>
+            <div class="pricing-card">
+                <h3>album</h3>
+                <p>five songs album</p>
+                <p>kshs 5,100 / usd 50</p>
+            </div>
+        </div>
+        <a routerLink="../artist-signup" class="link-button">get started</a>
+    </section>
+    <section class="main">
+        <div class="dist-container">
+            <div class="content">
+                <h3>DISTRIBUTION PRICING</h3>
+                <p>We will have an artist allowed to join for free create accounts and even Develop their accounts and get offered some free service.
+                </p>
+                <p>To publish an album of 5 songs will cost $50.</p>
+                <p>An artists can make as many albums as possible and each new album will be considered a new contract even if the other album/s are not full to 5.</p>
+            </div>
+            <div class="content-image">
+                <img src="../../../assets/images/newwellphotos/microphone-3500699_1920.jpg" alt="Microphone Image">
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="content">
+            <h3>Let's get your music out there...</h3>
+            <p>Your music will play in over 10 wisely chosen Leading digital stores while streaming in over 100 countries globally.
+            </p>
+        </div>
+    </section>
+    <section class="main">
+        <div class="dist-container">
+            <div class="content">
+                <p class="para-header">sell your music globally</p>
+                <ol>
+                    <li>Publish your music on iTunes, Google Play, Spotify, Amazon Music & Tidal.</li>
+                    <li>Share your music and grow your fan base.</li>
+                    <li>Earn sales revenue instantly and get paid in local currency.</li>
+                </ol>
+            </div>
+            <div class="content-image">
+                <img *ngIf="!videosrc" src="../../../assets/images/newwellphotos/concert-1838976_1920.jpg" alt="">
+                <video *ngIf="videosrc" autoplay muted loop>
+          <source [src]="videosrc">
+        </video>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="icons">
+            <p>Music streaming services we offer you...</p>
+            <div class="brands" *ngIf="logos">
+                <div class="brand" *ngFor="let logo of logos">
+                    <img [src]="logo.src" />
                 </div>
 
             </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-
-    <div class="foot gradient-none">
-
-        <div class="para">
-
-
-            <div class="main">
-                <div class="banner-head">
-                    <h2>Music streaming services we offer you</h2>
-                </div>
-
-                <div class="icons">
-                    <img src="../../../assets/img/carousel/amazon-icon.svg">
-                    <img src="../../../assets/img/carousel//apple-music.svg">
-                    <img src="../../../assets/img/carousel/Deezer_logo.svg">
-                    <img src="../../../assets/img/carousel/google_play_music.svg">
-                    <img src="../../../assets/img/carousel/jambotunes.svg">
-                    <img src="../../../assets/img/carousel/pandora.svg">
-                    <img src="../../../assets/img/carousel/spotify.svg">
-                    <img src="../../../assets/img/carousel/tidal.svg">
-                    <img src="../../../assets/img/carousel/itunes.svg">
-                    <img src="../../../assets/img/carousel//soundcloud_logo.svg">
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
+    </section>
 </div>
