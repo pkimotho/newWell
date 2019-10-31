@@ -1,0 +1,152 @@
+// General CSS
+.link-btn {
+    display: block;
+    color: white;
+    border: 1px solid #00a79d;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        background: #00a79d;
+        color: black;
+    }
+}
+
+.main {
+    width: 100%;
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    padding-top: 15px;
+    .main-card {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        background: lighten(black, 15);
+        border-radius: 5px;
+        padding: 15px 0;
+        margin-bottom: 20px;
+        .main-card-image {
+            // width: 100%;
+            img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        .main-card-content {
+            color: white;
+            padding: 0 1rem;
+            .para-title {
+                text-align: center;
+                font-size: 1.1rem;
+                font-weight: bold;
+                text-transform: capitalize;
+                margin-top: 1rem;
+            }
+            .para-content {
+                text-align: center;
+            }
+        }
+    }
+    .general-content {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h3,
+        p {
+            text-align: center;
+        }
+        a {
+            width: 40%;
+        }
+    }
+}
+
+@media screen and (min-width:768px) {
+    .main {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px 15px;
+        .md-column {
+            width: 43%;
+            min-height: 450px;
+        }
+        .general-content {
+            p {
+                font-size: 1.5rem;
+            }
+            a {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .main {
+        .lg-column {
+            width: 21%;
+            min-height: 480px;
+            .main-card-image {
+                img {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+            .main-card-content {
+                .para-content {
+                    font-size: 1rem;
+                }
+            }
+        }
+        .general-content {
+            h3,
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .main {
+        .lg-column {
+            .main-card-image {
+                img {
+                    width: 200px;
+                    height: 200px;
+                }
+            }
+            .main-card-content {
+                .para-title {
+                    font-size: 1.2rem;
+                }
+                .para-content {
+                    font-size: 1.1rem;
+                }
+                a {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+        .general-content {
+            h3 {
+                font-size: 2.5rem;
+            }
+            a {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}

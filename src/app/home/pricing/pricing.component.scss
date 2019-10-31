@@ -149,7 +149,7 @@ a {
                 min-height: 50px;
                 display: flex;
                 flex-flow: row nowrap;
-                overflow-y: scroll;
+                overflow-x: scroll;
                 .brand {
                     padding: 0.5rem 1rem;
                     img {
@@ -204,10 +204,14 @@ a {
                     p {
                         margin: 0;
                     }
+                    ol {
+                        font-size: 1.3rem;
+                    }
                 }
                 .content-image {
                     width: 50%;
                     display: flex;
+                    position: relative;
                     img {
                         width: 100%;
                         object-fit: cover;
@@ -215,6 +219,24 @@ a {
                     video {
                         width: 100%;
                         object-fit: cover;
+                    }
+                    .content-image-overlay {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        p {
+                            font-size: 2rem;
+                            text-transform: uppercase;
+                            text-align: center;
+                        }
+                        .link-button {
+                            width: 12rem;
+                        }
                     }
                 }
             }
@@ -229,6 +251,7 @@ a {
                 }
             }
             .icons {
+                padding-bottom: 4rem;
                 p {
                     font-size: 2rem;
                 }

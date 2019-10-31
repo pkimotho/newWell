@@ -8,7 +8,6 @@ import { ArtistProfileComponent } from './artist-profile/artist-profile.componen
 import { FanSignupComponent } from './fan-signup/fan-signup.component';
 import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
-import { PublishingComponent } from './publishing/publishing.component';
 import { PasswordRestComponent } from './password-rest/password-rest.component';
 import { HomeRoutingModule } from './home.routing.module';
 
@@ -16,6 +15,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { CustomMaterialModule } from './../shared/material-module/material-module';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
+import { PublishingModule } from './publishing/publishing.module';
 
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistSignupComponent } from './artist-signup/artist-signup.component';
@@ -37,7 +37,6 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     LoginComponent,
     FanSignupComponent,
     PricingComponent,
-    PublishingComponent,
     ArtistsPageComponent,
     ArtistSignupComponent,
     ArtistCompleteProfileComponent,
@@ -52,6 +51,7 @@ import { ArtistEditProfileComponent } from './artist-profile/artist-edit-profile
     PasswordRestComponent
   ],
   imports: [
+    PublishingModule,
     CustomMaterialModule,
     CommonModule,
     FormsModule,

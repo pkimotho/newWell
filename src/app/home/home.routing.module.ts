@@ -17,7 +17,6 @@ import { WhatwedoComponent } from '../home/whatwedo/whatwedo.component';
 import { AboutComponent } from '../home/about/about.component';
 import { MarketingComponent } from '../home/marketing/marketing.component';
 import { PasswordRestComponent } from './password-rest/password-rest.component';
-
 import { AuthGuard } from '../services/guards/auth.guard';
 import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { ComingsoonComponent } from './comingsoon/comingsoon.component';
@@ -68,6 +67,7 @@ const routes: Routes = [
   {
     path: 'publishing',
     component: PublishingComponent,
+    loadChildren: './publishing/publishing.module#PublishingModule'
   },
   {
     path: 'marketing',
