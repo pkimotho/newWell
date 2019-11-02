@@ -188,7 +188,8 @@ a {
                     text-align: center;
                 }
                 p {
-                    font-size: 1.2rem;
+                    font-size: 1rem;
+                    text-align: center;
                 }
             }
             .dist-container {
@@ -203,9 +204,10 @@ a {
                     }
                     p {
                         margin: 0;
+                        text-align: left;
                     }
                     ol {
-                        font-size: 1.3rem;
+                        font-size: 1.1rem;
                     }
                 }
                 .content-image {
@@ -250,6 +252,10 @@ a {
                     width: 48%;
                 }
             }
+            .link-button {
+                width: 30%;
+                margin: 2rem 0;
+            }
             .icons {
                 padding-bottom: 4rem;
                 p {
@@ -260,6 +266,42 @@ a {
                         margin-left: 3rem;
                     }
                 }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .outer-container {
+        .main {
+            .content {
+                max-width: 1200px;
+                h3 {
+                    font-size: 1.8rem;
+                }
+                p {
+                    font-size: 1.3rem;
+                }
+            }
+            .dist-container {
+                .content {
+                    p {
+                        font-size: 1.4rem;
+                    }
+                    ol {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            .pricing {
+                .pricing-card {
+                    p {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+            .link-button {
+                font-size: 1.3rem;
             }
         }
     }

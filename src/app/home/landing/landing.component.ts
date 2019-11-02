@@ -60,6 +60,7 @@ export class LandingComponent implements OnInit {
     //   pageDots: false
     // });
     this.getAllArtists();
+    console.log(this.artists);
   }
 
   toggleNavbar() { }
@@ -70,6 +71,7 @@ export class LandingComponent implements OnInit {
       .then(data => {
         let results: any = {};
         results = data;
+        console.log(results);
         this.artists = results.results;
         this.logos = [
           { src: '../../assets/img/carousel/amazon-icon.svg' },

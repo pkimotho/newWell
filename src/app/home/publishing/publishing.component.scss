@@ -81,7 +81,7 @@
                 padding: 0;
                 text-decoration: none;
                 color: white;
-                &:active {
+                &.active {
                     text-decoration: underline;
                 }
             }
@@ -93,6 +93,9 @@
     }
     .main-section {
         background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding-bottom: 3rem;
     }
 }
@@ -134,5 +137,6 @@
                 }
             }
         }
+        .main-section {}
     }
 }

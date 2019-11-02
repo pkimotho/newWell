@@ -71,9 +71,10 @@
             <li><a class="music" id="music" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">Newwell Music</a></li>
             <!-- <li><a class="artists" id="artists" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artists">Artists</a></li> -->
             <li><a *ngIf="authService.loggedIn" id="dashboard" class="dashboard" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="/">Dashboard</a></li>
-            <li><a class="marketing" id="marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a></li>
+            <!-- <li><a class="marketing" id="marketing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="marketing">Marketing</a></li> -->
             <li><a class="publishing" id="publishing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="publishing">Publishing</a></li>
             <li><a class="pricing" id="pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="pricing">Pricing</a></li>
+            <li><a class="pricing" id="pricing" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="about">About Us</a></li>
             <li><a *ngIf="!authService.loggedIn" class="login" id="login" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login">Login</a></li>
             <li><a *ngIf="authService.loggedIn" class="login" id="logout" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="login" (click)="logout()">Logout</a></li>
             <li><a *ngIf="!authService.loggedIn" class="signup" id="signup" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive='active' routerLink="artist-signup">SignUp</a></li>
