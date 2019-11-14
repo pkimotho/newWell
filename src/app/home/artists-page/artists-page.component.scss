@@ -1,76 +1,201 @@
-$primary: #0f1011;
-$danger: #ff4136;
-$secondary: white;
-header {
-    height: 20vh;
-    width: 100vw;
-    border: 2px solid black;
-    background-image: url(../../../assets/images/classical-music.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.outer {
-    background-color: $primary;
-    margin-top: 6rem;
-}
-
-.page-layout {
-    margin-left: 5%;
-    margin-right: 5%;
+@import '../../../sass/base';
+// header {
+//     height: 20vh;
+//     width: 100vw;
+//     border: 2px solid black;
+//     background-image: url(../../../assets/images/classical-music.jpg);
+//     background-size: cover;
+//     background-position: center;
+//     background-repeat: no-repeat;
+// }
+// .outer {
+//     background-color: $primary;
+//     margin-top: 6rem;
+// }
+// .page-layout {
+//     margin-left: 5%;
+//     margin-right: 5%;
+//     .header {
+//         color: $danger;
+//     }
+// }
+// .col-lg-3,
+// .col-md-4,
+// .col-sm-12 {
+//     margin: 0;
+//     padding: 0;
+// }
+// .card {
+//     border: none;
+//     box-sizing: border-box;
+//     transition: transform .5s;
+//     img {
+//         border-radius: 0;
+//         height: 100%;
+//         width: 100%;
+//     }
+//     .card-img-overlay {
+//         padding-top: 55%;
+//         color: $secondary;
+//         visibility: visible;
+//         background: linear-gradient(to top, rgba(0, 0, 0, 0.767) 50%, transparent);
+//         opacity: 1;
+//     }
+//     .description {
+//         position: absolute;
+//         height: 100%;
+//         width: 100%;
+//         color: $secondary;
+//         visibility: hidden;
+//         padding: 2rem;
+//     }
+//     .description small {
+//         color: $danger;
+//         font-weight: 900;
+//     }
+// }
+// .card:hover {
+//     border: 5px solid #f3a953;
+//     border-radius: 0;
+//     transform: scale(1.1);
+//     cursor: pointer;
+//     z-index: 3;
+//     .description {
+//         visibility: visible;
+//     }
+//     .card-img-overlay {
+//         visibility: hidden;
+//     }
+// }
+.outer-container {
+    background: black;
+    padding-bottom: 6rem;
     .header {
-        color: $danger;
-    }
-}
-
-.col-lg-3,
-.col-md-4,
-.col-sm-12 {
-    margin: 0;
-    padding: 0;
-}
-
-.card {
-    border: none;
-    box-sizing: border-box;
-    transition: transform .5s;
-    img {
-        border-radius: 0;
-        height: 100%;
         width: 100%;
+        padding: 3rem;
+        color: white;
+        h2 {
+            color: $secondary;
+        }
     }
-    .card-img-overlay {
-        padding-top: 55%;
-        color: $secondary;
-        visibility: visible;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.767) 50%, transparent);
-        opacity: 1;
-    }
-    .description {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        color: $secondary;
-        visibility: hidden;
-        padding: 2rem;
-    }
-    .description small {
-        color: $danger;
-        font-weight: 900;
+    .main {
+        .artists-row {
+            display: flex;
+            flex-direction: column;
+            .artist-card {
+                width: 100%;
+                padding: 0 2rem;
+                a {
+                    position: relative;
+                    display: block;
+                    img {
+                        width: 100%;
+                        min-height: 250px;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                    .artist-card-overlay {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        width: 100%;
+                        background: transparent;
+                        cursor: pointer;
+                        &:hover {
+                            background: linear-gradient(to top, rgba(0, 0, 0, 0.767) 50%, transparent);
+                        }
+                    }
+                }
+                .title {
+                    a {
+                        text-decoration: none;
+                        p {
+                            margin-top: 1rem;
+                            color: white;
+                            text-align: center;
+                            padding: 0.2rem;
+                            &:hover {
+                                background: lighten(black, 10);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-.card:hover {
-    border: 5px solid #f3a953;
-    border-radius: 0;
-    transform: scale(1.1);
-    cursor: pointer;
-    z-index: 3;
-    .description {
-        visibility: visible;
+@media screen and (min-width: 768px) {
+    .outer-container {
+        .header {
+            p {
+                font-size: 1.3rem;
+            }
+        }
+        .main {
+            padding: 0 3rem;
+            .artists-row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .artist-card {
+                    width: 50%;
+                    img {
+                        height: 360px;
+                    }
+                }
+            }
+        }
     }
-    .card-img-overlay {
-        visibility: hidden;
+}
+
+@media screen and (min-width: 1024px) {
+    .outer-container {
+        .header {
+            h2 {
+                font-size: 2.3rem;
+            }
+            p {
+                font-size: 1.6rem;
+            }
+        }
+        .main {
+            .artists-row {
+                .artist-card {
+                    width: 25%;
+                    img {
+                        // height: auto;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .outer-container {
+        .header {
+            h2 {
+                font-size: 2.6rem;
+            }
+            p {
+                font-size: 1.9rem;
+            }
+        }
+        .main {
+            .artists-row {
+                .artist-card {
+                    width: 25%;
+                    img {
+                        height: 380px;
+                    }
+                    .title {
+                        p {
+                            font-size: 1.3rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

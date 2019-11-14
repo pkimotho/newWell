@@ -5,6 +5,10 @@
     -1px 1px 3px #0f1011;
     /* General Elements */
     
+    a {
+        text-decoration: none;
+    }
+    
     .btn {
         background: $danger;
         border: none;
