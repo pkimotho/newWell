@@ -26,11 +26,15 @@
                 <div class="cards" [flickity]="options">
                     <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
                         <div class="card">
-                            <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />
+                            <a href="{{artist.link}}" target="_blank">
+                                <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />
+                            </a>
                             <div class="card-body">
-                                <p class="artist text-center font-weight-bolder ">
-                                    {{ artist.name }}
-                                </p>
+                                <a href="{{artist.link}}" target="_blank">
+                                    <p class="artist text-center font-weight-bolder ">
+                                        {{ artist.name }}
+                                    </p>
+                                </a>
                             </div>
                         </div>
                     </div>

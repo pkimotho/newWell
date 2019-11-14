@@ -160,7 +160,7 @@ export class ArtistSignupComponent implements OnInit {
       password: this.form.get("password").value,
       phoneNumber: this.form.get("phoneNumber").value
     };
-    this.onSubmissionAttempt();
+    // this.onSubmissionAttempt();
 
     this.authService.registerArtist(artist).subscribe(
       data => {
@@ -192,8 +192,9 @@ export class ArtistSignupComponent implements OnInit {
     fetch('https://cms.newwellmusic.com/signups/')
       .then(res => res.json())
       .then(data => {
-        const [content] = data
+        const [content] = data;
         this.content = content;
+        // console.log(this.content);
       });
   }
 }

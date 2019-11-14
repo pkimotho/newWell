@@ -1,6 +1,6 @@
-<div class="outer">
+<!-- <div class="outer">
     <header>
-        <!-- <h1 class="text-uppercase display-5 text-light">Follow your favorite music artists on newwell</h1> -->
+        <h1 class="text-uppercase display-5 text-light">Follow your favorite music artists on newwell</h1>
     </header>
     <div class="page-layout">
         <section>
@@ -117,4 +117,35 @@
                 </div>
             </div>
         </section>
-    </div>
+    </div> -->
+<div class="outer-container">
+    <section class="header">
+        <h2>Newwell artist community</h2>
+        <p>Newwell has partnered with independent, ambitious artists blazing new trails with their music on the global stage
+        </p>
+    </section>
+    <section class="main">
+        <div class="artists-row">
+            <div class="artist-card" *ngFor="let artist of artists">
+                <a href="{{artist.link}}" target="_blank">
+                    <img [src]="artist.profilePic" alt="Artist's Image">
+                    <div class="artist-card-overlay">
+                    </div>
+                </a>
+                <div class="title">
+                    <a [href]="artist.link" target="_blank">
+                        <p>{{artist.name}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="main-section">
+        <div class="artists-row">
+            <div class="artists-card" *ngFor="let artist of artists">
+                <img class="card-img" [src]="artist.profilePic" alt="Artist's Image">
+                <p>Name</p>
+            </div>
+        </div>
+    </section> -->
+</div>

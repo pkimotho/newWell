@@ -135,8 +135,8 @@
           Newwell <a class="links" href="/terms"><em>Terms &
               Conditions</em></a></label>
                 <ul class="validation-block">
-                    <li *ngIf="form.controls.agreeTerms.errors?.required && submissionAttempted">
-                        This field is required
+                    <li *ngIf="form.controls.agreeTerms.errors?.required || submissionAttempted">
+                        You must agree to terms
                     </li>
                 </ul>
                 <button type="submit" [disabled]="!form.valid" class="primary-btn" (click)="onSubmissionAttempt()">Sign
