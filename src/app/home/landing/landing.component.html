@@ -24,7 +24,7 @@
             <section class="card-section">
                 <h1 class="text-center">Top Artists</h1>
                 <div class="cards" [flickity]="options">
-                    <div class="cards-item" [flickityChild] *ngFor="let artist of artists">
+                    <div class="cards-item" [flickityChild] *ngFor="let artist of topArtists">
                         <div class="card">
                             <a href="{{artist.link}}" target="_blank">
                                 <img class="card-img-top" src="{{ artist.profilePic }}" alt="Card image cap" />

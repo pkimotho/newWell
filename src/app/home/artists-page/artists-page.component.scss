@@ -125,6 +125,30 @@
     }
 }
 
+@media screen and (min-width: 425px) {
+    .outer-container {
+        .header {
+            p {
+                font-size: 1.3rem;
+            }
+        }
+        .main {
+            .artists-row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .artist-card {
+                    width: 50%;
+                    img {
+                        width: 100%;
+                        // height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (min-width: 768px) {
     .outer-container {
         .header {
@@ -164,7 +188,7 @@
                 .artist-card {
                     width: 25%;
                     img {
-                        // height: auto;
+                        height: 250px;
                     }
                 }
             }
