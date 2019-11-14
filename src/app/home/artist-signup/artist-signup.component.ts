@@ -189,7 +189,7 @@ export class ArtistSignupComponent implements OnInit {
   }
 
   getContent() {
-    fetch('https://cms.newwellmusic.com/signups/')
+    fetch('https://cms.newwellmusic.com/signups')
       .then(res => res.json())
       .then(data => {
         const [content] = data
