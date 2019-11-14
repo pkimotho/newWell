@@ -19,6 +19,7 @@ export class LandingComponent implements OnInit {
   defaultTitle = 'MAKE MUSIC - GET PAID';
   defaultDescription = 'Independent artists put their music on the world leading streaming platforms with ease — because that\’s how it should be. We\'ll handle your distribution so you can flawlessly make even more nicer Tunes.';
   artists: any = [];
+  topArtists = [];
   logos: any[] = [];
   logosOptions = {
     freeScroll: true,
@@ -76,12 +77,14 @@ export class LandingComponent implements OnInit {
         this.artists[1].link = 'https://link.newwell.app/testimony';
         this.artists[2].link = 'https://link.newwell.app/turabatarangai';
         this.artists[3].link = 'https://link.newwell.app/shahidi';
-        this.artists[4].link = 'https://link.newwell.app/shahidi';
+        this.artists[4].link = 'https://link.newwell.app/gweterera';
         this.artists[5].link = 'https://link.newwell.app/sawabilawewe';
         this.artists[6].link = 'https://link.newwell.app/rohomutheru';
         this.artists[7].link = 'https://link.newwell.app/muthamaki';
         this.artists[8].link = 'https://link.newwell.app/ngahikandenda';
         this.artists[9].link = 'https://link.newwell.app/commando';
+        this.topArtists.push(this.artists[2], this.artists[8]);
+        console.log(this.topArtists);
         // this.artists[10].link = 'http://bit.ly/SehemuYangu';
         // this.artists[11].link = 'https://link.newwell.app/jinalayesutu';
         // this.artists[12].link = 'https://link.newwell.app/jinalayesutu';
