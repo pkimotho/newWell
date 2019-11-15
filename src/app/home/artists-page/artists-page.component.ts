@@ -21,7 +21,7 @@ export class ArtistsPageComponent implements OnInit {
       .then(data => {
         let results: any = {};
         results = data;
-        console.log(results);
+        // console.log(results);
         this.artists = results.results;
         this.artists[0].link = 'https://link.newwell.app/nigukwagira';
         this.artists[1].link = 'https://link.newwell.app/kwiyumia';
