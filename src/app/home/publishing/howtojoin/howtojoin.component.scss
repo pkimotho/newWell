@@ -80,7 +80,7 @@
         align-items: center;
         padding: 20px 15px;
         .md-column {
-            width: 43%;
+            width: 30%;
             min-height: 450px;
         }
         .general-content {
@@ -96,8 +96,9 @@
 
 @media screen and (min-width:1024px) {
     .main {
+        padding: 2rem 3rem;
         .lg-column {
-            width: 21%;
+            width: 30%;
             height: 500px;
             min-height: 480px;
             .main-card-image {
