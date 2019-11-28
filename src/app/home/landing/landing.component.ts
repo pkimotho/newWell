@@ -72,21 +72,21 @@ export class LandingComponent implements OnInit {
         results = data;
         // console.log(results);
         this.artists = results.results;
-        this.artists[0].link = 'https://link.newwell.app/nigukwagira';
-        this.artists[1].link = 'https://link.newwell.app/kwiyumia';
-        this.artists[2].link = 'https://link.newwell.app/ulanguthaitha';
-        this.artists[3].link = 'https://link.newwell.app/tiganananii';
-        this.artists[4].link = 'https://link.newwell.app/ndiarimwega';
-        this.artists[5].link = 'https://link.newwell.app/nikumbushe';
-        this.artists[6].link = 'https://link.newwell.app/njakiranyumba';
-        this.artists[7].link = 'https://link.newwell.app/Tukutendeleza';
-        this.artists[8].link = 'https://link.newwell.app/chamgei';
-        this.artists[9].link = 'https://link.newwell.app/ndikuriraringi';
-        // this.artists[10].link = 'http://bit.ly/SehemuYangu';
-        // this.artists[11].link = 'https://link.newwell.app/jinalayesutu';
-        // this.artists[12].link = 'https://link.newwell.app/jinalayesutu';
-        // this.artists[13].link = 'http://bit.ly/noweK2superson';
-        // this.artists[14].link = 'http://bit.ly/tuliavivianallan';
+        // this.artists[0].link = 'https://link.newwell.app/nigukwagira';
+        // this.artists[1].link = 'https://link.newwell.app/kwiyumia';
+        // this.artists[2].link = 'https://link.newwell.app/ulanguthaitha';
+        // this.artists[3].link = 'https://link.newwell.app/tiganananii';
+        // this.artists[4].link = 'https://link.newwell.app/ndiarimwega';
+        // this.artists[5].link = 'https://link.newwell.app/nikumbushe';
+        // this.artists[6].link = 'https://link.newwell.app/njakiranyumba';
+        // this.artists[7].link = 'https://link.newwell.app/Tukutendeleza';
+        // this.artists[8].link = 'https://link.newwell.app/chamgei';
+        // this.artists[9].link = 'https://link.newwell.app/ndikuriraringi';
+        // // this.artists[10].link = 'http://bit.ly/SehemuYangu';
+        // // this.artists[11].link = 'https://link.newwell.app/jinalayesutu';
+        // // this.artists[12].link = 'https://link.newwell.app/jinalayesutu';
+        // // this.artists[13].link = 'http://bit.ly/noweK2superson';
+        // // this.artists[14].link = 'http://bit.ly/tuliavivianallan';
         this.logos = [
           { src: '../../assets/img/carousel/amazon-icon.svg' },
           { src: '../../assets/img/carousel/apple-music.svg' },
