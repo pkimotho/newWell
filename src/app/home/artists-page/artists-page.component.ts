@@ -23,6 +23,7 @@ export class ArtistsPageComponent implements OnInit {
         results = data;
         // console.log(results);
         this.artists = results.results;
+        /*
         this.artists[0].link = 'https://link.newwell.app/nigukwagira';
         this.artists[1].link = 'https://link.newwell.app/kwiyumia';
         this.artists[2].link = 'https://link.newwell.app/ulanguthaitha';
@@ -48,7 +49,7 @@ export class ArtistsPageComponent implements OnInit {
         this.artists[22].link = 'https://link.newwell.app/jinalayesutu';
         this.artists[23].link = 'https://link.newwell.app/kennyphilos19';
         this.artists[24].link = 'https://link.newwell.app/nowe';
-        this.artists[25].link = 'https://link.newwell.app/tulia';
+        this.artists[25].link = 'https://link.newwell.app/tulia'; */
       });
   }
   goToArtistProfile(id) {
