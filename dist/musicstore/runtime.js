@@ -63,7 +63,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"dashboard-dashboard-routing-module-ngfactory":"dashboard-dashboard-routing-module-ngfactory","home-home-routing-module-ngfactory":"home-home-routing-module-ngfactory","mymusic-mymusic-module-ngfactory":"mymusic-mymusic-module-ngfactory","publishing-publishing-module-ngfactory":"publishing-publishing-module-ngfactory"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"home-home-routing-module-ngfactory":"home-home-routing-module-ngfactory","publishing-publishing-module-ngfactory":"publishing-publishing-module-ngfactory"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
