@@ -40,7 +40,7 @@ import { SongEffect } from "./effects/song.effects";
 
 // local modules import
 import { HomeModule } from "./home/home.module";
-import { DashboardModule } from "./dashboard/dashboard.module";
+
 import { TokenInterceptor } from "./services/service.interceptors";
 import { AuthGuard } from "./services/guards/auth.guard";
 
@@ -69,7 +69,7 @@ import { ClosemenuDirective } from "./directives/closemenu.directive";
     // CustomMaterialModule,
     AppRoutingModule,
     HomeModule,
-    // DashboardModule,
+
     AngularFontAwesomeModule,
     FlashMessagesModule,
     HttpClientModule,
