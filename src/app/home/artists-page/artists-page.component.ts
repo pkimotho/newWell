@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { environment } from './../../../environments/environment';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { environment } from "./../../../environments/environment";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-artists-page',
-  templateUrl: './artists-page.component.html',
-  styleUrls: ['./artists-page.component.scss']
+  selector: "app-artists-page",
+  templateUrl: "./artists-page.component.html",
+  styleUrls: ["./artists-page.component.scss"],
 })
 export class ArtistsPageComponent implements OnInit {
   artists: any = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.getAllArtists();
   }
   getAllArtists() {
-    fetch(environment.base_url + 'artist?perPage=100&status=verified')
-      .then(res => res.json())
-      .then(data => {
+    fetch(
+      environment.base_url +
+        "artist/top?perPage=100&status=verified&mode=minimal"
+    )
+      .then((res) => res.json())
+      .then((data) => {
         let results: any = {};
         results = data;
         // console.log(results);
@@ -53,6 +56,6 @@ export class ArtistsPageComponent implements OnInit {
       });
   }
   goToArtistProfile(id) {
-    this.router.navigate(['/artist/' + id]);
+    this.router.navigate(["/artist/" + id]);
   }
 }
