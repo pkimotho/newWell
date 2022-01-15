@@ -37,7 +37,7 @@
     "flickity-imagesloaded": "^2.0.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "ng2-charts": "^2.2.3",
     "ng2-file-upload": "^1.3.0",
     "ngx-flickity": "0.0.9",
